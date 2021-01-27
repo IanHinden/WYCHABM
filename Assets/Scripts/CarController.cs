@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheelControl : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     private Vector3 change;
     public float speed;
@@ -18,12 +18,8 @@ public class WheelControl : MonoBehaviour
     void Update()
     {
         change.x = Input.GetAxisRaw("Horizontal");
-        if (change.x == -1)
-        {
-            myRigidBody.rotation += speed * Time.deltaTime;
-        } else if (change.x == 1)
-        {
-            myRigidBody.rotation -= speed * Time.deltaTime;
-        }
+        myRigidBody.MovePosition(
+            transform.position + change * speed * Time.deltaTime
+        );
     }
 }
