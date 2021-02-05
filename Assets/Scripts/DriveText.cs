@@ -15,16 +15,21 @@ public class DriveText : MonoBehaviour
     void Update()
     {
         timeSinceStart += Time.deltaTime;
-        if (timeSinceStart > 5)
+        if (timeSinceStart > 3.5)
         {
-            ToggleVisibility();
+            ToggleVisibility(true);
+        }
+
+        if (timeSinceStart > 4.5)
+        {
+            ToggleVisibility(false);
         }
     }
 
-    public void ToggleVisibility()
+    public void ToggleVisibility(bool visible)
     {
         SpriteRenderer rend = gameObject.GetComponent<SpriteRenderer>();
 
-        rend.enabled = false;
+        rend.enabled = visible;
     }
 }
