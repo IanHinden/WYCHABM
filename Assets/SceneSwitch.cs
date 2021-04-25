@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
+    [SerializeField] float TimeToSwitch;
+
     public AudioClip newTrack;
 
     private MusicPlayer theMP;
@@ -12,10 +14,22 @@ public class SceneSwitch : MonoBehaviour
     private void Start()
     {
         theMP = FindObjectOfType<MusicPlayer>();
+        StartCoroutine(WaitAndSwitch());
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadNextScene();
         theMP.ChangeBGM(newTrack);
+    }
+
+    IEnumerator WaitAndSwitch()
+    {
+        yield return new WaitForSeconds(TimeToSwitch);
+        LoadNextScene();
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
