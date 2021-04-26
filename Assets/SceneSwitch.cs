@@ -24,6 +24,7 @@ public class SceneSwitch : MonoBehaviour
 
     IEnumerator WaitAndSwitch()
     {
+        if(TimeToSwitch == 0) { yield break; }
         yield return new WaitForSeconds(TimeToSwitch);
         LoadNextScene();
     }
