@@ -44,7 +44,16 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("moveX", movementInput.x);
             animator.SetFloat("moveY", movementInput.y);
+            animator.SetBool("moving", true);
+        } else
+        {
+            animator.SetBool("moving", false);
         }
         transform.position = currentPosition;
+    }
+
+    void UpdateAnimationAndMove()
+    {
+
     }
 }
