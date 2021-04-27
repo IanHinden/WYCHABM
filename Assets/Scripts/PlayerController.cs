@@ -6,12 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerActionControls playerActionControls;
     private Rigidbody2D rb;
+    private Animator animator;
+
     [SerializeField] private float speed;
     public Vector2 position;
     private void Awake()
     {
         playerActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -31,11 +34,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
         Vector3 currentPosition = transform.position;
         Debug.Log(movementInput);
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
+        if (movementInput != Vector2.zero)
+        {
+            animator.SetFloat("moveX", movementInput.x);
+            animator.SetFloat("moveY", movementInput.y);
+        }
         transform.position = currentPosition;
     }
 }
