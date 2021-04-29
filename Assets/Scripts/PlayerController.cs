@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
         Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
