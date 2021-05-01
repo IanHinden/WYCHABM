@@ -1,0 +1,55 @@
+{
+    "name": "CharacterSelectControls",
+    "maps": [
+        {
+            "name": "CharacterSelect",
+            "id": "b1fca8d1-027b-434e-8105-c63f969e2965",
+            "actions": [
+                {
+                    "name": "Selection",
+                    "type": "PassThrough",
+                    "id": "6931e789-167d-42b5-9e76-0a770f8a4887",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "ade107fc-8369-40b9-afc9-de00d5b75d5f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Selection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "3dce94cc-5fec-4551-abfc-168ec0760de8",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Selection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "315f4f26-1bcc-4cde-9cdb-ba14417152f8",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Selection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

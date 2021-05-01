@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
         
         Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
         Vector3 currentPosition = transform.position;
-        Debug.Log(movementInput);
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
         if (movementInput != Vector2.zero)
