@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
         Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;

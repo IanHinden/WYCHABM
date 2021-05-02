@@ -7,13 +7,13 @@ public class TitleFade : MonoBehaviour
 {
     Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         StartCoroutine(NextScene());
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (Input.anyKey)
         {
