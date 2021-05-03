@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/4. BarScene.unity
     guid: 6bbeafadad597574c96e7544b70fb653
   - enabled: 1
-    path: Assets/Scenes/5. Charactert Select.unity
+    path: Assets/Scenes/6. Charactert Select.unity
     guid: 6451eb85b4d58a842aace68ce97c962e
   - enabled: 1
     path: Assets/Scenes/DrivingScene.unity
