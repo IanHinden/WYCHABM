@@ -12,15 +12,25 @@ public class Print : MonoBehaviour
         
     }
 
+    public void InkSpawner()
+    {
+        StartCoroutine(InkLine());
+    }
+
     private void spawnInk()
     {
         GameObject inkBlot = Instantiate(ink) as GameObject;
         inkBlot.transform.position = gameObject.transform.position;
     }
 
-    // Update is called once per frame
+    private IEnumerator InkLine()
+    {
+        yield return new WaitForSeconds(.1f);
+        spawnInk();
+    }
+
     void FixedUpdate()
     {
-        spawnInk();
+        
     }
 }

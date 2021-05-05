@@ -5,12 +5,14 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     private WritingControls writingControls;
+    Print print;
 
     private float speed = 5f;
     
     private void Awake()
     {
         writingControls = new WritingControls();
+        print = FindObjectOfType<Print>();
     }
 
     private void OnEnable()
@@ -24,7 +26,7 @@ public class Hand : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector2 movementInput = writingControls.Move.Directions.ReadValue<Vector2>();
         Vector3 currentPosition = transform.position;
@@ -32,6 +34,8 @@ public class Hand : MonoBehaviour
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
         currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
         currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
+
+        print.InkSpawner();
 
         transform.position = currentPosition;
     }
