@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CollectText : MonoBehaviour
+public class InstructionTextSetter : MonoBehaviour
 {
     private Animator anim;
     private TextMeshProUGUI textmesh;
+
+    [SerializeField] string instructions;
+    [SerializeField] float waitTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,8 @@ public class CollectText : MonoBehaviour
 
     IEnumerator InstructionText()
     {
-        yield return new WaitForSeconds(14.5f);
-        textmesh.text = "Collect";
+        yield return new WaitForSeconds(waitTime);
+        textmesh.text = instructions;
         anim.SetTrigger("StartAnim");
     }
 }
