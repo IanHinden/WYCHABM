@@ -12,13 +12,14 @@ public class SuccessOrFail : MonoBehaviour
 
     public void WinDisplay()
     {
-        Debug.Log("Win!");
+        GameObject.Find("WinAndLossIcons").transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void LoseDisplay()
     {
-        Debug.Log("Lose");
+        GameObject.Find("WinAndLossIcons").transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
     }
+
     // Update is called once per frame
     void Update()
     {

@@ -30,7 +30,7 @@ public class Coins : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4f);
         DetermineWinOrLoss();
     }
 
