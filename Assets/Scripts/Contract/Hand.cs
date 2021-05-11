@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    SuccessOrFail successOrFail;
+
     private WritingControls writingControls;
     Print print;
+    private bool moved = false;
 
     private float speed = 5f;
     
@@ -13,6 +16,9 @@ public class Hand : MonoBehaviour
     {
         writingControls = new WritingControls();
         print = FindObjectOfType<Print>();
+
+        successOrFail = new SuccessOrFail();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -29,6 +35,12 @@ public class Hand : MonoBehaviour
     void Update()
     {
         Vector2 movementInput = writingControls.Move.Directions.ReadValue<Vector2>();
+
+        if (movementInput.x != 0 || movementInput.y != 0)
+        {
+            moved = true;
+        }
+
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
@@ -38,5 +50,23 @@ public class Hand : MonoBehaviour
         print.InkSpawner();
 
         transform.position = currentPosition;
+    }
+
+    IEnumerator WinOrLose()
+    {
+        yield return new WaitForSeconds(4f);
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (moved)
+        {
+            successOrFail.LoseDisplay();
+        }
+        else
+        {
+            successOrFail.WinDisplay();
+        }
     }
 }
