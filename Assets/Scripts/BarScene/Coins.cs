@@ -8,7 +8,7 @@ public class Coins : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        successOrFail = new SuccessOrFail();
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
     }
 

@@ -17,7 +17,7 @@ public class Hand : MonoBehaviour
         writingControls = new WritingControls();
         print = FindObjectOfType<Print>();
 
-        successOrFail = new SuccessOrFail();
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
     }
 
