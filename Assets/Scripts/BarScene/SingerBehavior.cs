@@ -11,7 +11,6 @@ public class SingerBehavior : MonoBehaviour
         singer = GameObject.Find("Canvas").transform.Find("Ian").gameObject;
         lyricsBackground = GameObject.Find("Canvas").transform.Find("Lyric Background").gameObject;
         StartCoroutine(MoveIntoPlaceSinger(3f));
-        StartCoroutine(MoveIntoPlaceText(3f));
     }
 
     IEnumerator MoveIntoPlaceSinger(float time)
@@ -22,7 +21,7 @@ public class SingerBehavior : MonoBehaviour
         Vector3 finalPos = singer.transform.position - (singer.transform.right * 7000);
 
         Vector3 startingPosLyrics = lyricsBackground.transform.position;
-        Vector3 finalPosLyrics = lyricsBackground.transform.position + (lyricsBackground.transform.up * 1500);
+        Vector3 finalPosLyrics = lyricsBackground.transform.position + (lyricsBackground.transform.up * 2000);
 
         float elapsedTime = 0;
 
@@ -36,23 +35,7 @@ public class SingerBehavior : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator MoveIntoPlaceText(float time)
-    {
-        yield return new WaitForSeconds(2);
-
-        Vector3 startingPosLyrics = lyricsBackground.transform.position;
-        Vector3 finalPosLyrics = lyricsBackground.transform.position + (lyricsBackground.transform.up * 7000);
-
-        float elapsedTime = 0;
-
-        while (lyricsBackground.transform.position.x > 700)
-        {
-            lyricsBackground.transform.position = Vector3.Lerp(startingPosLyrics, finalPosLyrics, (elapsedTime / time));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        yield return null;
-    }
+    
     // Update is called once per frame
     void Update()
     {
