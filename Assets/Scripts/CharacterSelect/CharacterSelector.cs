@@ -7,6 +7,9 @@ public class CharacterSelector : MonoBehaviour
     private CharacterSelectControls characterSelectControls;
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
+    SuccessOrFail successOrFail;
+
+    private bool moved = false;
 
     Character[] characters;
     private void Awake()
@@ -15,6 +18,9 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls = new CharacterSelectControls();
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -42,13 +48,33 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectOF()
     {
+        moved = true;
         OFGirl.color = new Color32(255, 255, 255, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
     }
 
     void SelectHomeless()
     {
+        moved = true;
         HomelessGirl.color = new Color32(255, 255, 255, 255);
         OFGirl.color = new Color32(126, 126, 126, 255);
+    }
+
+    IEnumerator WinOrLose()
+    {
+        yield return new WaitForSeconds(4f);
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (moved)
+        {
+            successOrFail.WinDisplay();
+        }
+        else
+        {
+            successOrFail.LoseDisplay();
+        }
     }
 }
