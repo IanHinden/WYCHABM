@@ -11,10 +11,13 @@ public class SceneSwitch : MonoBehaviour
 
     private MusicPlayer theMP;
 
-    private void Start()
+    ThreeSecondsLeft threeSecondsLeft;
+
+    private void Awake()
     {
         theMP = FindObjectOfType<MusicPlayer>();
         StartCoroutine(WaitAndSwitch());
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
     }
     public void PlayGame()
     {
@@ -25,7 +28,9 @@ public class SceneSwitch : MonoBehaviour
     IEnumerator WaitAndSwitch()
     {
         if(TimeToSwitch == 0) { yield break; }
-        yield return new WaitForSeconds(TimeToSwitch);
+        yield return new WaitForSeconds(TimeToSwitch - 4);
+        threeSecondsLeft.StartCountdown();
+        yield return new WaitForSeconds(4);
         LoadNextScene();
     }
 
