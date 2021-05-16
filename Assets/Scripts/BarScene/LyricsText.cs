@@ -6,7 +6,7 @@ using TMPro;
 public class LyricsText : MonoBehaviour
 {
     private TextMeshProUGUI textmesh;
-    private float waitTime = 2;
+    private float waitTime = 2.6f;
     private string dialogue = "Rich man Richmond get the itch, man.";
     
     void Start()
@@ -23,7 +23,12 @@ public class LyricsText : MonoBehaviour
 
     IEnumerator TypeLyrics()
     {
-        yield return new WaitForSeconds(waitTime);
+        while (waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+            yield return null;
+        }
+
         textmesh.text = "";
 
         foreach(char c in dialogue.ToCharArray())
