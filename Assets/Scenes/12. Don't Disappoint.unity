@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1588978740}
   - component: {fileID: 1588978741}
+  - component: {fileID: 1588978742}
   m_Layer: 0
   m_Name: TheHeir
   m_TagString: Untagged
@@ -580,6 +581,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1588978742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588978739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5a5d03e8234c24194f230a2095e020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1604732315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,36 +659,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SuccessOrFail
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005191166960530, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -415.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005191166960530, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -234.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005191260346163, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -414.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005191260346163, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -233.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005191260346164, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528005192392327921, guid: e3ef8e90f02c8ad498f464bb86d83fd9,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3ef8e90f02c8ad498f464bb86d83fd9, type: 3}

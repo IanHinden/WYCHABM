@@ -20,7 +20,6 @@ public class Disappointer : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        Debug.Log("It happen");
         successOrFail.LoseDisplay();
     }
 }
