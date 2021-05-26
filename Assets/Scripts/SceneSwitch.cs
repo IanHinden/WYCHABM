@@ -17,11 +17,11 @@ public class SceneSwitch : MonoBehaviour
     private void Awake()
     {
         theMP = FindObjectOfType<MusicPlayer>();
-        StartCoroutine(WaitAndSwitch());
         if (gameScene)
         {
             threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         }
+        StartCoroutine(WaitAndSwitch());
     }
     public void PlayGame()
     {
@@ -32,14 +32,27 @@ public class SceneSwitch : MonoBehaviour
     IEnumerator WaitAndSwitch()
     {
         if(TimeToSwitch == 0) { yield break; }
-
         float timeToSwitchCopy = TimeToSwitch;
+        float timeToEnd;
 
         if (gameScene)
         {
-            yield return new WaitForSeconds(TimeToSwitch - 4);
+            timeToEnd = threeSecondsLeft.ReturnTimeToEnd();
+            timeToSwitchCopy = TimeToSwitch - timeToEnd;
+
+            while (timeToSwitchCopy > 0)
+            {
+                timeToSwitchCopy -= Time.deltaTime;
+                yield return null;
+            }
+
             threeSecondsLeft.StartCountdown();
-            yield return new WaitForSeconds(4);
+            while (timeToEnd > 0)
+            {
+                timeToEnd -= Time.deltaTime;
+                yield return null;
+            }
+
             LoadNextScene();
         } else
         {

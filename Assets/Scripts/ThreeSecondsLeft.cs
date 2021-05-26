@@ -6,31 +6,60 @@ using TMPro;
 public class ThreeSecondsLeft : MonoBehaviour
 {
     private TextMeshProUGUI textmesh;
-    // Start is called before the first frame update
-    void Start()
+    private float BPM = 85f;
+    private float measureMS;
+
+    void Awake()
     {
+        measureMS = 60 / BPM;
         textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void StartCountdown()
+    public float ReturnTimeToEnd()
     {
-        StartCoroutine(TriggerCountdownAnimation());
+        return measureMS * 4;
     }
 
-    IEnumerator TriggerCountdownAnimation()
+    public void StartCountdown()
     {
+        StartCoroutine(TriggerCountdownAnimation(BPM));
+    }
+
+
+    IEnumerator TriggerCountdownAnimation(float BPM)
+    {
+        float measureCopy = measureMS;
+
         textmesh.text = "3";
-        yield return new WaitForSeconds(1);
+        measureCopy = measureMS;
+
+        while (measureCopy > 0)
+        {
+            measureCopy -= Time.deltaTime;
+            yield return null;
+        }
         textmesh.text = "2";
-        yield return new WaitForSeconds(1);
+        measureCopy = measureMS;
+
+        while (measureCopy > 0)
+        {
+            measureCopy -= Time.deltaTime;
+            yield return null;
+        }
+        measureCopy = measureMS;
         textmesh.text = "1";
-        yield return new WaitForSeconds(1);
+
+        while (measureCopy > 0)
+        {
+            measureCopy -= Time.deltaTime;
+            yield return null;
+        }
+
         textmesh.text = "0";
     }
 }
