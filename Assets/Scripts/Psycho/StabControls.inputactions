@@ -1,0 +1,104 @@
+{
+    "name": "StabControls",
+    "maps": [
+        {
+            "name": "Stab",
+            "id": "55eaf3a0-b534-4b5c-a32f-3f1b623c217c",
+            "actions": [
+                {
+                    "name": "Kill",
+                    "type": "PassThrough",
+                    "id": "9048ddbc-74f1-4e8d-a962-caf43ba7ec91",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1482e393-e0e3-4e24-a372-dd014b952954",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Move",
+            "id": "47fc46c6-58d3-47d3-9ad6-40b46563d2e5",
+            "actions": [
+                {
+                    "name": "Directions",
+                    "type": "PassThrough",
+                    "id": "a60b916a-43e4-4eb2-842b-1eff7767b600",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "3a5001b3-1b90-4c09-9c1b-b49bc2698db1",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Directions",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "de978b57-3917-4459-ae68-6d7f3350439c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Directions",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "91029e1b-02f7-468a-ad3a-416e3904383a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Directions",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "16a6e4e3-27b8-4dca-814f-d72dcd0cf05e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Directions",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "49877643-9361-4370-a253-882033420f81",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Directions",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
