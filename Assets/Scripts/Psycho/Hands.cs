@@ -8,6 +8,7 @@ public class Hands : MonoBehaviour
 
     private SpriteRenderer handReady;
     private SpriteRenderer handStab;
+    private BoxCollider2D stabCollide;
 
     private float speed = 5f;
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Hands : MonoBehaviour
         stabControls = new StabControls();
         handReady = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         handStab = this.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        stabCollide = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
     }
 
     private void OnEnable()
@@ -42,12 +44,14 @@ public class Hands : MonoBehaviour
         {
             handStab.enabled = false;
             handReady.enabled = true;
+            stabCollide.enabled = false;
 
             transform.position = currentPosition;
         } else
         {
             handStab.enabled = true;
             handReady.enabled = false;
+            stabCollide.enabled = true;
         }
     }
 }
