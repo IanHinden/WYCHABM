@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class StabCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    SuccessOrFail successOrFail;
+    bool stabbed = false;
 
+    private void Awake()
+    {
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        StartCoroutine(WinOrLose());
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Test");
+        stabbed = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WinOrLose()
     {
-        
+        yield return new WaitForSeconds(5f);
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (stabbed)
+        {
+            successOrFail.WinDisplay();
+        }
+        else
+        {
+            successOrFail.LoseDisplay();
+        }
     }
 }

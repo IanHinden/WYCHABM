@@ -69,4 +69,9 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public float ReturnTimeToSwitch()
+    {
+        return TimeToSwitch;
+    }
 }

@@ -20,6 +20,11 @@ public class ThreeSecondsLeft : MonoBehaviour
         
     }
 
+    public float ReturnSingleMeasure()
+    {
+        return measureMS;
+    }
+
     public float ReturnTimeToEnd()
     {
         return measureMS * 4;

@@ -5,10 +5,14 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     SuccessOrFail successOrFail;
+    ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
     // Start is called before the first frame update
     void Awake()
     {
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        sceneSwitch = gameObject.AddComponent<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }
 
@@ -30,7 +34,14 @@ public class Coins : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(4f);
+        float timeToEnd = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+
+        while (timeToEnd > 0)
+        {
+            timeToEnd -= Time.deltaTime;
+            yield return null;
+        }
+
         DetermineWinOrLoss();
     }
 
