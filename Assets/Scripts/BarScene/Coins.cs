@@ -6,13 +6,12 @@ public class Coins : MonoBehaviour
 {
     SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
-    SceneSwitch sceneSwitch;
+
     // Start is called before the first frame update
     void Awake()
     {
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
-        sceneSwitch = gameObject.AddComponent<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }
 

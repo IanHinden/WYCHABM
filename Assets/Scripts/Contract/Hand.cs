@@ -5,7 +5,8 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     SuccessOrFail successOrFail;
-
+    ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
     private WritingControls writingControls;
     Print print;
     private bool moved = false;
@@ -17,7 +18,9 @@ public class Hand : MonoBehaviour
         writingControls = new WritingControls();
         print = FindObjectOfType<Print>();
 
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        sceneSwitch = FindObjectOfType<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }
 
@@ -54,7 +57,14 @@ public class Hand : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(4f);
+        Debug.Log("Here");
+        Debug.Log(sceneSwitch.ReturnTimeToSwitch());
+        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
+        while (deadline > 0)
+        {
+            deadline -= Time.deltaTime;
+            yield return null;
+        }
         DetermineWinOrLoss();
     }
 

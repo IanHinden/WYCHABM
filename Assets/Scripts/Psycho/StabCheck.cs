@@ -5,21 +5,34 @@ using UnityEngine;
 public class StabCheck : MonoBehaviour
 {
     SuccessOrFail successOrFail;
+    ThreeSecondsLeft threeSecondsLeft;
     bool stabbed = false;
+    bool oedipal = false;
 
     private void Awake()
     {
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         StartCoroutine(WinOrLose());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.name == "OedipalBonus")
+        {
+            oedipal = true;
+        }
         stabbed = true;
     }
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(5f);
+        float timeToEnd = threeSecondsLeft.ReturnTimeToEnd() + 2 * threeSecondsLeft.ReturnSingleMeasure();
+
+        while (timeToEnd > 0)
+        {
+            timeToEnd -= Time.deltaTime;
+            yield return null;
+        }
         DetermineWinOrLoss();
     }
 
