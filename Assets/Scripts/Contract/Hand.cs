@@ -57,8 +57,6 @@ public class Hand : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        Debug.Log("Here");
-        Debug.Log(sceneSwitch.ReturnTimeToSwitch());
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
         while (deadline > 0)
         {

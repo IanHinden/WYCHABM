@@ -5,6 +5,9 @@ using UnityEngine;
 public class CharacterSelector : MonoBehaviour
 {
     private CharacterSelectControls characterSelectControls;
+    ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
+
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
     SuccessOrFail successOrFail;
@@ -18,6 +21,8 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls = new CharacterSelectControls();
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        sceneSwitch = FindObjectOfType<SceneSwitch>();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
@@ -62,7 +67,12 @@ public class CharacterSelector : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(4f);
+        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
+        while (deadline > 0)
+        {
+            deadline -= Time.deltaTime;
+            yield return null;
+        }
         DetermineWinOrLoss();
     }
 
