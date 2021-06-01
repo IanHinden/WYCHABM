@@ -6,6 +6,7 @@ public class StabCheck : MonoBehaviour
 {
     SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
+    public GameObject oedipalBonus;
     bool stabbed = false;
     bool oedipal = false;
 
@@ -19,6 +20,9 @@ public class StabCheck : MonoBehaviour
     {
         if(collision.name == "OedipalBonus")
         {
+            Vector3 textPos = transform.position;
+            textPos.x = transform.position.x - 3;
+            Instantiate(oedipalBonus, textPos, Quaternion.identity);
             oedipal = true;
         }
         stabbed = true;
