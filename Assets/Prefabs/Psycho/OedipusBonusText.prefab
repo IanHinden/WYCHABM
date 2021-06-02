@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6413904636276165450}
   - component: {fileID: 6371318896532693702}
   - component: {fileID: 6160666284567012902}
+  - component: {fileID: 5574918497226288145}
   m_Layer: 0
   m_Name: OedipusBonusText
   m_TagString: Untagged
@@ -175,3 +176,22 @@ MonoBehaviour:
   m_maskType: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!95 &5574918497226288145
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102356857734148953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a706c12a00e6c0641a9638e83bb24b71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
