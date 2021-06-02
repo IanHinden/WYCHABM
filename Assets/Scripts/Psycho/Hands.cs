@@ -51,7 +51,10 @@ public class Hands : MonoBehaviour
             transform.position = currentPosition;
         } else
         {
-            Instantiate(stabHole, transform.position, Quaternion.identity);
+            Vector3 holePos = transform.position;
+            holePos.x = transform.position.x - 1;
+            holePos.y = transform.position.y + 0.4f;
+            Instantiate(stabHole, holePos, Quaternion.identity);
             handStab.enabled = true;
             handReady.enabled = false;
             stabCollide.enabled = true;

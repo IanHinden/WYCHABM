@@ -34,8 +34,13 @@ public class AbsentDadDialogue : MonoBehaviour
         foreach (char c in dialogue.ToCharArray())
         {
             textmesh.text += c;
+            float pauseTime = .02f;
 
-            yield return new WaitForSeconds(0.05f);
+            while (pauseTime > 0)
+            {
+                pauseTime -= Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }
