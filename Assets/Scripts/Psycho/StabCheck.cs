@@ -7,6 +7,7 @@ public class StabCheck : MonoBehaviour
     SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
     public GameObject oedipalBonus;
+
     bool stabbed = false;
     bool oedipal = false;
 

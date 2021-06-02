@@ -10,6 +10,8 @@ public class Hands : MonoBehaviour
     private SpriteRenderer handStab;
     private BoxCollider2D stabCollide;
 
+    public GameObject stabHole;
+
     private float speed = 5f;
     // Start is called before the first frame update
     void Awake()
@@ -49,6 +51,7 @@ public class Hands : MonoBehaviour
             transform.position = currentPosition;
         } else
         {
+            Instantiate(stabHole, transform.position, Quaternion.identity);
             handStab.enabled = true;
             handReady.enabled = false;
             stabCollide.enabled = true;
