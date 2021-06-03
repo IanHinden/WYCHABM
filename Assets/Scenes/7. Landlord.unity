@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
       propertyPath: TimeToSwitch
-      value: 2.7
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
@@ -405,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 3509266187236059557, guid: a02d874c7f63c8a45afbf3526d870d74,
         type: 3}
       propertyPath: waitTime
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3509266187236059560, guid: a02d874c7f63c8a45afbf3526d870d74,
         type: 3}
