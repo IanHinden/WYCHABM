@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 437389610}
   - component: {fileID: 437389609}
   m_Layer: 5
-  m_Name: Arrow4
+  m_Name: Arrow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,11 +375,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818827093}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313, y: -167}
+  m_AnchoredPosition: {x: -313, y: 117}
   m_SizeDelta: {x: 79.98729, y: 79.98729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437389609
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 481130271}
   - component: {fileID: 481130273}
   m_Layer: 5
-  m_Name: Arrow1
+  m_Name: Arrow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,11 +462,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818827093}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313, y: 117}
+  m_AnchoredPosition: {x: -313, y: 30}
   m_SizeDelta: {x: 79.98729, y: 79.98729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481130271
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 667878933}
   - component: {fileID: 667878932}
   m_Layer: 5
-  m_Name: Arrow2
+  m_Name: Arrow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,11 +632,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818827093}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313, y: 23}
+  m_AnchoredPosition: {x: -313, y: -67}
   m_SizeDelta: {x: 79.98729, y: 79.98729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667878932
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 706525726}
   - component: {fileID: 706525725}
   m_Layer: 5
-  m_Name: Arrow3
+  m_Name: Arrow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,11 +793,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818827093}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313, y: -70}
+  m_AnchoredPosition: {x: -313, y: -159}
   m_SizeDelta: {x: 79.98729, y: 79.98729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706525725
@@ -1015,10 +1015,10 @@ RectTransform:
   m_Children:
   - {fileID: 788412906}
   - {fileID: 1173186213}
+  - {fileID: 437389608}
   - {fileID: 481130270}
   - {fileID: 667878931}
   - {fileID: 706525724}
-  - {fileID: 437389608}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
