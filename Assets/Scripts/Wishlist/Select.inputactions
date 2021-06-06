@@ -6,9 +6,17 @@
             "id": "a0c62ba9-0688-4366-87a4-d5b1f50ec7bc",
             "actions": [
                 {
-                    "name": "Selecting",
+                    "name": "DownSelect",
                     "type": "PassThrough",
                     "id": "7dcb72fa-5560-4a5f-8462-5f5d55e17ee3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "UpSelect",
+                    "type": "Button",
+                    "id": "96f4c59c-8f70-45d9-82c1-4b1905437989",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -16,37 +24,26 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
-                    "id": "7deeec21-32fa-460b-a0fd-897aeb95e043",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "ae5e357b-64d5-478f-aa0b-e9306e0ecd84",
+                    "path": "<Keyboard>/s",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Selecting",
-                    "isComposite": true,
+                    "action": "DownSelect",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "aafac24c-3ae3-4b06-baf5-8f57ee491c43",
+                    "name": "",
+                    "id": "93d730b3-d0f7-4966-b870-17d10e5510e5",
                     "path": "<Keyboard>/w",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Selecting",
+                    "action": "UpSelect",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "09f44111-0f1f-4090-be0d-1ca45f457bbc",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Selecting",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
