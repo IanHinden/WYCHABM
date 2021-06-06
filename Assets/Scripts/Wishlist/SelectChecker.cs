@@ -9,11 +9,15 @@ public class SelectChecker : MonoBehaviour
     SelectArrow[] selectArrows;
 
     private Select select;
+    private Vector2 inputMove;
 
     int activeArrow = 0;
     void Awake()
     {
         select = new Select();
+        select.Selecting.Selecting.performed += x => setNextActiveArrow();
+
+
         selectArrows = FindObjectsOfType<SelectArrow>().OrderBy(m => m.transform.position.x).ToArray();
         for (int i = 1; i < selectArrows.Length; i++)
         {
@@ -46,12 +50,15 @@ public class SelectChecker : MonoBehaviour
 
     public void setNextActiveArrow()
     {
-        if(activeArrow != selectArrows.Length)
+        Debug.Log(activeArrow);
+        if(activeArrow != selectArrows.Length - 1)
         {
             activeArrow++;
+            displayCorrectArrow();
         } else
         {
             activeArrow = 0;
+            displayCorrectArrow();
         }
     }
 
@@ -68,7 +75,7 @@ public class SelectChecker : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         float selectInput = select.Selecting.Selecting.ReadValue<float>();
         if (selectInput == 1)
@@ -81,5 +88,5 @@ public class SelectChecker : MonoBehaviour
             setPreviousActiveArrow();
             displayCorrectArrow();
         }
-    }
+    }*/
 }

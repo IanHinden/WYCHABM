@@ -32,7 +32,7 @@ public class @Select : IInputActionCollection, IDisposable
                     ""name"": ""1D Axis"",
                     ""id"": ""7deeec21-32fa-460b-a0fd-897aeb95e043"",
                     ""path"": ""1DAxis"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Selecting"",
