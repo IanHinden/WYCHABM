@@ -36,8 +36,30 @@
                 },
                 {
                     "name": "",
+                    "id": "2081ed68-d769-4596-b9dc-5211d9278821",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "93d730b3-d0f7-4966-b870-17d10e5510e5",
                     "path": "<Keyboard>/w",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6c09dd6-e49d-47cb-bfa7-ab41fa16fa55",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",

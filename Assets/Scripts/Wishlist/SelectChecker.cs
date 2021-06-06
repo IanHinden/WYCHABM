@@ -71,7 +71,7 @@ public class SelectChecker : MonoBehaviour
         }
         else
         {
-            activeArrow = selectArrows.Length;
+            activeArrow = selectArrows.Length - 1;
             displayCorrectArrow();
         }
     }
