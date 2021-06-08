@@ -12,6 +12,8 @@ public class Coins : MonoBehaviour
     {
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+
+        Debug.Log(successOrFail);
         StartCoroutine(WinOrLose());
     }
 
