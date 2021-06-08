@@ -33,6 +33,14 @@ public class @Select : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""58c797f6-d975-4ed5-ac24-96341da4abbb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -79,6 +87,28 @@ public class @Select : IInputActionCollection, IDisposable
                     ""action"": ""UpSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9276d137-d681-441a-bf61-287b3ad7446d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebe9445f-f29a-4d11-82ef-0a573c30687c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -89,6 +119,7 @@ public class @Select : IInputActionCollection, IDisposable
         m_Selecting = asset.FindActionMap("Selecting", throwIfNotFound: true);
         m_Selecting_DownSelect = m_Selecting.FindAction("DownSelect", throwIfNotFound: true);
         m_Selecting_UpSelect = m_Selecting.FindAction("UpSelect", throwIfNotFound: true);
+        m_Selecting_Select = m_Selecting.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -140,12 +171,14 @@ public class @Select : IInputActionCollection, IDisposable
     private ISelectingActions m_SelectingActionsCallbackInterface;
     private readonly InputAction m_Selecting_DownSelect;
     private readonly InputAction m_Selecting_UpSelect;
+    private readonly InputAction m_Selecting_Select;
     public struct SelectingActions
     {
         private @Select m_Wrapper;
         public SelectingActions(@Select wrapper) { m_Wrapper = wrapper; }
         public InputAction @DownSelect => m_Wrapper.m_Selecting_DownSelect;
         public InputAction @UpSelect => m_Wrapper.m_Selecting_UpSelect;
+        public InputAction @Select => m_Wrapper.m_Selecting_Select;
         public InputActionMap Get() { return m_Wrapper.m_Selecting; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -161,6 +194,9 @@ public class @Select : IInputActionCollection, IDisposable
                 @UpSelect.started -= m_Wrapper.m_SelectingActionsCallbackInterface.OnUpSelect;
                 @UpSelect.performed -= m_Wrapper.m_SelectingActionsCallbackInterface.OnUpSelect;
                 @UpSelect.canceled -= m_Wrapper.m_SelectingActionsCallbackInterface.OnUpSelect;
+                @Select.started -= m_Wrapper.m_SelectingActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_SelectingActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_SelectingActionsCallbackInterface.OnSelect;
             }
             m_Wrapper.m_SelectingActionsCallbackInterface = instance;
             if (instance != null)
@@ -171,6 +207,9 @@ public class @Select : IInputActionCollection, IDisposable
                 @UpSelect.started += instance.OnUpSelect;
                 @UpSelect.performed += instance.OnUpSelect;
                 @UpSelect.canceled += instance.OnUpSelect;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
             }
         }
     }
@@ -179,5 +218,6 @@ public class @Select : IInputActionCollection, IDisposable
     {
         void OnDownSelect(InputAction.CallbackContext context);
         void OnUpSelect(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

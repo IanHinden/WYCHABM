@@ -7,6 +7,7 @@ using System.Linq;
 public class SelectChecker : MonoBehaviour
 {
     SelectArrow[] selectArrows;
+    SuccessOrFail successOrFail;
 
     private Select select;
 
@@ -14,8 +15,11 @@ public class SelectChecker : MonoBehaviour
     void Awake()
     {
         select = new Select();
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
+
         select.Selecting.DownSelect.performed += x => setNextActiveArrow();
         select.Selecting.UpSelect.performed += x => setPreviousActiveArrow();
+        select.Selecting.Select.performed += x => selectItem();
 
 
         selectArrows = FindObjectsOfType<SelectArrow>().OrderBy(m => m.transform.position.x).ToArray();
@@ -35,6 +39,20 @@ public class SelectChecker : MonoBehaviour
         select.Disable();
     }
 
+    public void selectItem()
+    {
+        if(activeArrow == 2)
+        {
+            successOrFail.WinDisplay();
+            select.Disable();
+            
+        } else
+        {
+            successOrFail.LoseDisplay();
+            select.Disable();
+        }
+    }
+
     public void displayCorrectArrow()
     {
         for(int i = 0; i < selectArrows.Length; i++)
@@ -50,7 +68,6 @@ public class SelectChecker : MonoBehaviour
 
     public void setNextActiveArrow()
     {
-        Debug.Log(activeArrow);
         if(activeArrow != selectArrows.Length - 1)
         {
             activeArrow++;
