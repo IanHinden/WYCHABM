@@ -8,6 +8,7 @@ public class SelectChecker : MonoBehaviour
 {
     SelectArrow[] selectArrows;
     SuccessOrFail successOrFail;
+    ThreeSecondsLeft threeSecondsLeft;
 
     private Select select;
 
@@ -16,6 +17,7 @@ public class SelectChecker : MonoBehaviour
     {
         select = new Select();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
 
         select.Selecting.DownSelect.performed += x => setNextActiveArrow();
         select.Selecting.UpSelect.performed += x => setPreviousActiveArrow();
@@ -27,6 +29,8 @@ public class SelectChecker : MonoBehaviour
         {
             selectArrows[i].GetComponent<Image>().enabled = false;
         }
+
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -90,6 +94,34 @@ public class SelectChecker : MonoBehaviour
         {
             activeArrow = selectArrows.Length - 1;
             displayCorrectArrow();
+        }
+    }
+
+    IEnumerator WinOrLose()
+    {
+        float timeToEnd = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+
+        while (timeToEnd > 0)
+        {
+            timeToEnd -= Time.deltaTime;
+            yield return null;
+        }
+
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (activeArrow == 2)
+        {
+            successOrFail.WinDisplay();
+            select.Disable();
+
+        }
+        else
+        {
+            successOrFail.LoseDisplay();
+            select.Disable();
         }
     }
 }
