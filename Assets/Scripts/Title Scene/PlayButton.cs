@@ -9,7 +9,7 @@ public class PlayButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.transform.GetChild(1).gameObject.SetActive(false);
+        //button.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
