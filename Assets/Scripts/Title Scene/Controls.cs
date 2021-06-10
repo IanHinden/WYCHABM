@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Choose"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d029120-ce0f-48f1-a152-8808e9fbb3e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +65,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8e072c5-ed97-4a36-9997-fdaedff6b1fd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Choose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +86,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Down = m_Move.FindAction("Down", throwIfNotFound: true);
         m_Move_Up = m_Move.FindAction("Up", throwIfNotFound: true);
+        m_Move_Choose = m_Move.FindAction("Choose", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +138,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IMoveActions m_MoveActionsCallbackInterface;
     private readonly InputAction m_Move_Down;
     private readonly InputAction m_Move_Up;
+    private readonly InputAction m_Move_Choose;
     public struct MoveActions
     {
         private @Controls m_Wrapper;
         public MoveActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Down => m_Wrapper.m_Move_Down;
         public InputAction @Up => m_Wrapper.m_Move_Up;
+        public InputAction @Choose => m_Wrapper.m_Move_Choose;
         public InputActionMap Get() { return m_Wrapper.m_Move; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +161,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Up.started -= m_Wrapper.m_MoveActionsCallbackInterface.OnUp;
                 @Up.performed -= m_Wrapper.m_MoveActionsCallbackInterface.OnUp;
                 @Up.canceled -= m_Wrapper.m_MoveActionsCallbackInterface.OnUp;
+                @Choose.started -= m_Wrapper.m_MoveActionsCallbackInterface.OnChoose;
+                @Choose.performed -= m_Wrapper.m_MoveActionsCallbackInterface.OnChoose;
+                @Choose.canceled -= m_Wrapper.m_MoveActionsCallbackInterface.OnChoose;
             }
             m_Wrapper.m_MoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +174,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Up.started += instance.OnUp;
                 @Up.performed += instance.OnUp;
                 @Up.canceled += instance.OnUp;
+                @Choose.started += instance.OnChoose;
+                @Choose.performed += instance.OnChoose;
+                @Choose.canceled += instance.OnChoose;
             }
         }
     }
@@ -157,5 +185,6 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnDown(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
+        void OnChoose(InputAction.CallbackContext context);
     }
 }

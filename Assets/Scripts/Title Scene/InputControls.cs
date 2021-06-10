@@ -7,6 +7,7 @@ using System.Linq;
 public class InputControls : MonoBehaviour
 {
     private Controls controls;
+    public SceneSwitch sceneSwitch;
 
     PlayButton[] buttons;
 
@@ -19,6 +20,7 @@ public class InputControls : MonoBehaviour
 
         controls.Move.Up.performed += x => setPrevious();
         controls.Move.Down.performed += x => setNext();
+        controls.Move.Choose.performed += x => properScene();
 
         setCurrentButton();
     }
@@ -62,6 +64,14 @@ public class InputControls : MonoBehaviour
         {
             currentlySelect = 0;
             setCurrentButton();
+        }
+    }
+
+    private void properScene()
+    {
+        if(currentlySelect == 0)
+        {
+            sceneSwitch.PlayGame();
         }
     }
 
