@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 705414492}
   - component: {fileID: 705414494}
   - component: {fileID: 705414493}
+  - component: {fileID: 705414495}
   m_Layer: 5
   m_Name: Ian
   m_TagString: Untagged
@@ -768,6 +769,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705414491}
   m_CullTransparentMesh: 0
+--- !u!95 &705414495
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705414491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a00ef1386d7eedc428d25a5ab411ae79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &799636888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1969514835015404559, guid: caf53ec637233c54fb7e62d1536b10e3,
@@ -4048,7 +4068,7 @@ PrefabInstance:
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
@@ -4317,49 +4337,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 244571bbaa7c4b340a609d8c7ee441b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1270121721
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270121722}
-  - component: {fileID: 1270121723}
-  m_Layer: 0
-  m_Name: SingerBehavior
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1270121722
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270121721}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1270121723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270121721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0f1b5d541d04c4d9dc7d472eff67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1398805172 stripped
@@ -5052,6 +5029,7 @@ GameObject:
   - component: {fileID: 1778053700}
   - component: {fileID: 1778053702}
   - component: {fileID: 1778053701}
+  - component: {fileID: 1778053703}
   m_Layer: 5
   m_Name: Lyric Background
   m_TagString: Untagged
@@ -5076,7 +5054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: -291}
+  m_AnchoredPosition: {x: 0.6, y: -153}
   m_SizeDelta: {x: 624.0502, y: 87.578156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778053701
@@ -5116,6 +5094,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778053699}
   m_CullTransparentMesh: 0
+--- !u!95 &1778053703
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778053699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d89916b9474a884781a58827c99d7b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1973714649
 GameObject:
   m_ObjectHideFlags: 0
