@@ -7,6 +7,7 @@ public class SceneSwitch : MonoBehaviour
 {
     [SerializeField] float TimeToSwitch;
     [SerializeField] bool gameScene;
+    [SerializeField] bool lastScene;
 
     public AudioClip newTrack;
 
@@ -67,7 +68,13 @@ public class SceneSwitch : MonoBehaviour
 
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (lastScene == false)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else
+        {
+            Application.Quit();
+        }
     }
 
     public float ReturnTimeToSwitch()
