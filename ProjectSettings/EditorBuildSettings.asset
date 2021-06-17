@@ -51,10 +51,10 @@ EditorBuildSettings:
     path: Assets/Scenes/15. Evolving.unity
     guid: f1ed063556ad1b446b9a2b60843e84dc
   - enabled: 1
-    path: Assets/Scenes/16. Web Surfing.unity
+    path: Assets/Scenes/18. Web Surfing.unity
     guid: 54ec1c5409df47b4d939cb480865244e
   - enabled: 1
-    path: Assets/Scenes/17. Wishlist.unity
+    path: Assets/Scenes/19. Wishlist.unity
     guid: 44fbc583579f6a24d92c131aeb6e2c72
   - enabled: 0
     path: Assets/Scenes/DrivingScene.unity
