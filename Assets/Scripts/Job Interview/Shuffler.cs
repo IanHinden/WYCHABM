@@ -9,7 +9,7 @@ public class Shuffler : MonoBehaviour
     void Awake()
     {
         speechBubbles = FindObjectsOfType<SpeechBubble>();
-        speechBubbles[1].transform.SetSiblingIndex(2);
+        speechBubbles[1].transform.SetSiblingIndex(0);
     }
 
     // Update is called once per frame
