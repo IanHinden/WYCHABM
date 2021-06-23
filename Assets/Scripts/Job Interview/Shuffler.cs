@@ -10,7 +10,7 @@ public class Shuffler : MonoBehaviour
     private SwitchCards switchCards;
 
     private float timeToPress = 0f;
-    private int selected = 0;
+    private int selected = 2;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,6 +35,15 @@ public class Shuffler : MonoBehaviour
     {
         if (timeToPress <= 0)
         {
+            if (selected != 0)
+            {
+                selected--;
+            }
+            else
+            {
+                selected = 2;
+            }
+
             speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
             speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToTop");
             speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToBottom");
@@ -47,6 +56,14 @@ public class Shuffler : MonoBehaviour
     {
         if (timeToPress <= 0)
         {
+            if(selected != 2)
+            {
+                selected++;
+            } else
+            {
+                selected = 0;
+            }
+
             speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
             speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
             speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
@@ -69,6 +86,7 @@ public class Shuffler : MonoBehaviour
 
     private void Select()
     {
+        //0 is winning number
         Debug.Log(selected);
     }
 }
