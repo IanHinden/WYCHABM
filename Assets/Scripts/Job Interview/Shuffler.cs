@@ -6,54 +6,69 @@ using UnityEngine;
 public class Shuffler : MonoBehaviour
 {
     private SpeechBubble[] speechBubbles;
+
+    private SwitchCards switchCards;
+
+    private float timeToPress = 0f;
+    private int selected = 0;
     // Start is called before the first frame update
     void Awake()
     {
-        speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-        //speechBubbles[1].transform.SetSiblingIndex(0);
-        StartCoroutine(Test());
+        switchCards = new SwitchCards();
+
+        switchCards.Selecting.LeftSelect.performed += x => ShuffleLeft();
+        switchCards.Selecting.RightSelect.performed += x => ShuffleRight();
+        switchCards.Selecting.Select.performed += x => Select();
     }
 
-    IEnumerator Test()
+    private void OnEnable()
     {
-        yield return new WaitForSeconds(4);
-        speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
-        speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
-        speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToBottom");
-        speechBubbles[1].transform.SetSiblingIndex(2);
-        speechBubbles[0].transform.SetSiblingIndex(1);
+        switchCards.Enable();
+    }
 
-        yield return new WaitForSeconds(4);
-        Debug.Log("2nd time");
-        speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-        speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
-        speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
-        speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToBottom");
-        speechBubbles[1].transform.SetSiblingIndex(2);
-        speechBubbles[0].transform.SetSiblingIndex(1);
+    private void OnDisable()
+    {
+        switchCards.Disable();
     }
 
     private void ShuffleLeft()
     {
-        speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-        speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToTop");
-        speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToBottom");
-        speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToMid");
-        speechBubbles[0].transform.SetSiblingIndex(2);
+        if (timeToPress <= 0)
+        {
+            speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
+            speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToTop");
+            speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToBottom");
+            speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToMid");
+            speechBubbles[0].transform.SetSiblingIndex(2);
+            StartCoroutine(CountdownTimeToPress());
+        }
     }
     private void ShuffleRight()
     {
-        speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-        speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
-        speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
-        speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToBottom");
-        speechBubbles[1].transform.SetSiblingIndex(2);
-        speechBubbles[0].transform.SetSiblingIndex(1);
+        if (timeToPress <= 0)
+        {
+            speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
+            speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
+            speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
+            speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToBottom");
+            speechBubbles[1].transform.SetSiblingIndex(2);
+            speechBubbles[0].transform.SetSiblingIndex(1);
+            StartCoroutine(CountdownTimeToPress());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CountdownTimeToPress()
     {
-        
+        timeToPress = .5f;
+        while (timeToPress > 0)
+        {
+            timeToPress -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private void Select()
+    {
+        Debug.Log(selected);
     }
 }
