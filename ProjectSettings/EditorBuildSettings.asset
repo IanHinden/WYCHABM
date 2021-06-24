@@ -48,7 +48,13 @@ EditorBuildSettings:
     path: Assets/Scenes/14. Psycho.unity
     guid: 0071ccd0ea72f9945afeb8a79d903ab7
   - enabled: 1
-    path: Assets/Scenes/15. Evolving.unity
+    path: Assets/Scenes/15. Get a Job.unity
+    guid: 9b93085cca753be469341dc9e06f5d69
+  - enabled: 1
+    path: Assets/Scenes/16. Job Interview.unity
+    guid: 09a52bdbfa7d99b4db3be92e18853c22
+  - enabled: 1
+    path: Assets/Scenes/17. Evolving.unity
     guid: f1ed063556ad1b446b9a2b60843e84dc
   - enabled: 1
     path: Assets/Scenes/18. Web Surfing.unity
