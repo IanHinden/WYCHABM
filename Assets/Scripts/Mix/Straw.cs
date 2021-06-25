@@ -6,6 +6,8 @@ public class Straw : MonoBehaviour
 {
     private Stir stir;
     private float speed = 1.5f;
+    private float moveAmount = 0f;
+    private float currentPos;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +32,12 @@ public class Straw : MonoBehaviour
 
         currentPosition += selectInput * speed * Time.deltaTime;
         currentPosition = Mathf.Clamp(currentPosition, -.87f, .22f);
+
+        if (currentPosition != currentPos)
+        {
+            Debug.Log("test");
+        }
+        currentPos = currentPosition;
 
         transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
     }
