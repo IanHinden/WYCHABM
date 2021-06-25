@@ -1,0 +1,55 @@
+{
+    "name": "Stir",
+    "maps": [
+        {
+            "name": "MoveStraw",
+            "id": "403e8216-f27e-481c-b0eb-5cceafa8d5e5",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "9ab10bf2-ccbd-4d21-a3c4-cf522ddff443",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "6cf579cf-db3a-4846-b1ec-c0d7aae11054",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1e585e73-b154-4804-be3d-6de30d662657",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5f06fb80-935e-49a2-adfa-7092d4165250",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
