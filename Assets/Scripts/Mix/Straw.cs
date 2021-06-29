@@ -43,7 +43,11 @@ public class Straw : MonoBehaviour
         if (currentPosition != currentPos)
         {
             moveAmount++;
-            Debug.Log(moveAmount);
+        }
+
+        if(moveAmount > 150)
+        {
+            DetermineWinOrLoss();
         }
         currentPos = currentPosition;
 
@@ -77,6 +81,10 @@ public class Straw : MonoBehaviour
     private void win()
     {
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+
+        Image window = canvas.transform.Find("Window").GetComponent<Image>();
+        window.GetComponent<Image>().color = new Color32(168, 122, 0, 255);
+
         Image mixedDrink = canvas.transform.Find("MixedDrink").GetComponent<Image>();
         mixedDrink.GetComponent<Image>().color = new Color32(255, 138, 83, 255);
     }
