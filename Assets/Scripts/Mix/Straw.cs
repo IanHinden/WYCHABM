@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Straw : MonoBehaviour
 {
     private Stir stir;
-    private float speed = 1.5f;
+    private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
-    // Start is called before the first frame update
+
+    ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
+
     void Awake()
     {
         stir = new Stir();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        sceneSwitch = FindObjectOfType<SceneSwitch>();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -35,10 +42,48 @@ public class Straw : MonoBehaviour
 
         if (currentPosition != currentPos)
         {
-            Debug.Log("test");
+            moveAmount++;
+            Debug.Log(moveAmount);
         }
         currentPos = currentPosition;
 
         transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
+    }
+
+    IEnumerator WinOrLose()
+    {
+        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
+        while (deadline > 0)
+        {
+            deadline -= Time.deltaTime;
+            yield return null;
+        }
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        stir.Disable();
+        if (moveAmount >= 150)
+        {
+            win();
+        }
+        else
+        {
+            lose();
+        }
+    }
+
+    private void win()
+    {
+        Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        Image mixedDrink = canvas.transform.Find("MixedDrink").GetComponent<Image>();
+        mixedDrink.GetComponent<Image>().color = new Color32(255, 138, 83, 255);
+    }
+
+    private void lose()
+    {
+        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+        rb.AddForce(transform.up * -300);
     }
 }
