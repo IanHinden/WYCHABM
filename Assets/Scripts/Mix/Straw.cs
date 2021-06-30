@@ -10,14 +10,22 @@ public class Straw : MonoBehaviour
     private float moveAmount = 0f;
     private float currentPos;
 
+    bool gameOver = false;
+
     ThreeSecondsLeft threeSecondsLeft;
     SceneSwitch sceneSwitch;
+
+    Canvas canvas;
+    Image window;
 
     void Awake()
     {
         stir = new Stir();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        window = canvas.transform.Find("Window").GetComponent<Image>();
+        
         StartCoroutine(WinOrLose());
     }
 
@@ -40,12 +48,13 @@ public class Straw : MonoBehaviour
         currentPosition += selectInput * speed * Time.deltaTime;
         currentPosition = Mathf.Clamp(currentPosition, -.87f, .22f);
 
-        if (currentPosition != currentPos)
+        if (currentPosition != currentPos && gameOver == false)
         {
             moveAmount++;
+            Debug.Log(moveAmount);
         }
 
-        if(moveAmount > 150)
+        if(moveAmount > 150 && gameOver == false)
         {
             DetermineWinOrLoss();
         }
@@ -68,22 +77,20 @@ public class Straw : MonoBehaviour
     private void DetermineWinOrLoss()
     {
         stir.Disable();
-        if (moveAmount >= 150)
+        if (moveAmount >= 150 && gameOver == false)
         {
             win();
         }
-        else
+        else if (moveAmount < 150)
         {
             lose();
         }
+        gameOver = true;
     }
 
     private void win()
     {
-        Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-
-        Image window = canvas.transform.Find("Window").GetComponent<Image>();
-        window.GetComponent<Image>().color = new Color32(168, 122, 0, 255);
+        StartCoroutine(ColorChanges());
 
         Image mixedDrink = canvas.transform.Find("MixedDrink").GetComponent<Image>();
         mixedDrink.GetComponent<Image>().color = new Color32(255, 138, 83, 255);
@@ -93,5 +100,20 @@ public class Straw : MonoBehaviour
     {
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * -300);
+    }
+
+    private IEnumerator ColorChanges()
+    {
+        float timeElapsed = 0;
+
+        while(timeElapsed < 1f)
+        {
+            Debug.Log(window.color);
+            window.color = Color.Lerp(new Color(0f, 0.13f, 0.45f, 1f), new Color(.79f, .33f, .19f, 1f), timeElapsed/1f)/*new Color32(168, 122, 0, 255)*/;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        //yield return new WaitForSeconds(4f);
+        window.color = new Color(.79f, .33f, .19f, 1f);
     }
 }
