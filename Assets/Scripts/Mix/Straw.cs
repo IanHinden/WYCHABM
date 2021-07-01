@@ -16,7 +16,9 @@ public class Straw : MonoBehaviour
     SceneSwitch sceneSwitch;
 
     Canvas canvas;
-    Image window;
+    SpriteRenderer window;
+
+    public GameObject sun;
 
     void Awake()
     {
@@ -24,8 +26,11 @@ public class Straw : MonoBehaviour
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        window = canvas.transform.Find("Window").GetComponent<Image>();
-        
+        window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
+
+        sun = GameObject.Find("Sun");
+        sun.SetActive(false);
+
         StartCoroutine(WinOrLose());
     }
 
@@ -51,7 +56,6 @@ public class Straw : MonoBehaviour
         if (currentPosition != currentPos && gameOver == false)
         {
             moveAmount++;
-            Debug.Log(moveAmount);
         }
 
         if(moveAmount > 150 && gameOver == false)
@@ -90,7 +94,13 @@ public class Straw : MonoBehaviour
 
     private void win()
     {
+        gameOver = true;
         StartCoroutine(ColorChanges());
+
+        GameObject moon = GameObject.Find("Moon");
+        moon.SetActive(false);
+
+        sun.SetActive(true);
 
         Image mixedDrink = canvas.transform.Find("MixedDrink").GetComponent<Image>();
         mixedDrink.GetComponent<Image>().color = new Color32(255, 138, 83, 255);
@@ -108,7 +118,6 @@ public class Straw : MonoBehaviour
 
         while(timeElapsed < 1f)
         {
-            Debug.Log(window.color);
             window.color = Color.Lerp(new Color(0f, 0.13f, 0.45f, 1f), new Color(.79f, .33f, .19f, 1f), timeElapsed/1f)/*new Color32(168, 122, 0, 255)*/;
             timeElapsed += Time.deltaTime;
             yield return null;
