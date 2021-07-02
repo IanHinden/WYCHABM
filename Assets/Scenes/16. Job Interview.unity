@@ -235,6 +235,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4793431904000531624, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793431904000531624, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793431904000531624, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793431904000531624, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793431904000531631, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793431904000531631, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504469, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_Name
@@ -243,17 +273,17 @@ PrefabInstance:
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.131672
+      value: -403
       objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7076653
+      value: -849
       objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -346.07617
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
@@ -796,6 +826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scene Switcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
+        type: 3}
+      propertyPath: gameScene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61ded347fb57354fa73cb2689b6b2ee, type: 3}
