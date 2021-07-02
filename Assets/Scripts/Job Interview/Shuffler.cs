@@ -9,6 +9,8 @@ public class Shuffler : MonoBehaviour
 
     private SwitchCards switchCards;
 
+    SuccessOrFail successOrFail;
+
     private float timeToPress = 0f;
     private int selected = 2;
     // Start is called before the first frame update
@@ -19,6 +21,8 @@ public class Shuffler : MonoBehaviour
         switchCards.Selecting.LeftSelect.performed += x => ShuffleLeft();
         switchCards.Selecting.RightSelect.performed += x => ShuffleRight();
         switchCards.Selecting.Select.performed += x => Select();
+
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
     }
 
     private void OnEnable()
@@ -86,7 +90,13 @@ public class Shuffler : MonoBehaviour
 
     private void Select()
     {
-        //0 is winning number
-        Debug.Log(selected);
+        switchCards.Disable();
+        if(selected == 0)
+        {
+            successOrFail.WinDisplay();
+        } else
+        {
+            successOrFail.LoseDisplay();
+        }
     }
 }
