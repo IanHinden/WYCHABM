@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1b02f187680f74ebdf3e88194406f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: Get a job.
+  dialogue: Get a job.                              Get a job.
 --- !u!1 &828038895
 GameObject:
   m_ObjectHideFlags: 0
