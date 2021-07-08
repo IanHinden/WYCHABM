@@ -4,28 +4,42 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    private Vector3 change;
     public float speed;
-    private Rigidbody2D myRigidBody;
     public float timeSinceStart;
 
+    private Rigidbody2D myRigidBody;
+    private Driving driving;
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        driving = new Driving();
+    }
+
+    private void OnEnable()
+    {
+        driving.Enable();
+    }
+
+    private void OnDisable()
+    {
+        driving.Disable();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timeSinceStart += Time.deltaTime;
+        float selectInput = driving.Drive.Steer.ReadValue<float>();
+        float currentPosition = transform.position.x;
 
-        change.x = Input.GetAxisRaw("Horizontal");
         if (timeSinceStart > 5)
         {
-            myRigidBody.MovePosition(
-                transform.position + change * speed * Time.deltaTime
-            );
+            Debug.Log(selectInput);
+            currentPosition += selectInput * speed * Time.deltaTime;
+            transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
         }
     }
 }
