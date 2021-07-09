@@ -37,7 +37,6 @@ public class CarController : MonoBehaviour
 
         if (timeSinceStart > 5)
         {
-            Debug.Log(selectInput);
             currentPosition += selectInput * speed * Time.deltaTime;
             transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
         }
