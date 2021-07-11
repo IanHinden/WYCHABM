@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spotlight : MonoBehaviour
 {
-    private float RotateSpeed = 5f;
+    private float RotateSpeed = 6f;
     private float Radius = 2f;
 
     private Vector2 _centre;
@@ -16,6 +16,11 @@ public class Spotlight : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    public void RotateSpotlight()
     {
         _angle += RotateSpeed * Time.deltaTime;
 
