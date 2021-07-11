@@ -1,0 +1,33 @@
+{
+    "name": "KissHit",
+    "maps": [
+        {
+            "name": "Action",
+            "id": "16f46287-e210-4976-a389-78f1ee25b80f",
+            "actions": [
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "5a8b8577-72f6-4e20-b85a-5dbde6f75b34",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1305a2c2-8eca-4651-bd6b-0ee8a751d42a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
