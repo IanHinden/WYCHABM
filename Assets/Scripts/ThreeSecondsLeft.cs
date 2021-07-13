@@ -20,6 +20,11 @@ public class ThreeSecondsLeft : MonoBehaviour
         
     }
 
+    public float ReturnBPM()
+    {
+        return BPM;
+    }
+
     public float ReturnSingleMeasure()
     {
         return measureMS;
