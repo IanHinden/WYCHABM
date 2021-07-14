@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Gameplay : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Gameplay : MonoBehaviour
     private KissHit kissHit;
     private ThreeSecondsLeft threeSecondsLeft;
     private SceneSwitch sceneSwitch;
+    private Countdown[] countdowns;
 
     private float measureMS;
     private float timeRemaining;
@@ -19,14 +21,15 @@ public class Gameplay : MonoBehaviour
         spotlight = FindObjectOfType<Spotlight>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
+
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
         timeRemaining = sceneSwitch.ReturnTimeToSwitch();
 
         kissHit = new KissHit();
         kissHit.Action.Select.performed += x => GameAction();
 
-        Debug.Log(sceneSwitch.ReturnTimeToSwitch());
-        Debug.Log(measureMS);
+        countdowns[1].StartCountdown();
     }
 
 
@@ -40,7 +43,6 @@ public class Gameplay : MonoBehaviour
         kissHit.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Debug.Log(richmondLips.transform.position.y);
@@ -53,7 +55,13 @@ public class Gameplay : MonoBehaviour
     {
         if (timeRemaining > 5)
         {
-            Debug.Log("Kiss");
+            if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
+            {
+                Debug.Log("Win");
+            } else
+            {
+                Debug.Log("Lose");
+            }
         } else
         {
             Debug.Log("Hit");

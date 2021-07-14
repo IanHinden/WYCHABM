@@ -16,7 +16,6 @@ public class Countdown : MonoBehaviour
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
         BPM = threeSecondsLeft.ReturnBPM();
-        StartCountdown();
     }
 
     // Update is called once per frame
