@@ -9,6 +9,8 @@ public class Gameplay : MonoBehaviour
     private Spotlight spotlight;
     private KissHit kissHit;
     private ThreeSecondsLeft threeSecondsLeft;
+    private AnimationController animationController;
+
     private SceneSwitch sceneSwitch;
     private Countdown[] countdowns;
 
@@ -21,6 +23,7 @@ public class Gameplay : MonoBehaviour
         spotlight = FindObjectOfType<Spotlight>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        animationController = FindObjectOfType<AnimationController>();
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
@@ -45,7 +48,6 @@ public class Gameplay : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(richmondLips.transform.position.y);
         spotlight.RotateSpotlight();
 
         timeRemaining -= Time.deltaTime;
@@ -53,11 +55,14 @@ public class Gameplay : MonoBehaviour
 
     private void GameAction()
     {
+        Debug.Log("works??");
         if (timeRemaining > 5)
         {
+            richmondLips.stopAnimation();
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
             {
-                Debug.Log("Win");
+                Debug.Log("win");
+                animationController.KissWinAnimation();
             } else
             {
                 Debug.Log("Lose");
