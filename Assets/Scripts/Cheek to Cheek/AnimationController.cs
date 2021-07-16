@@ -8,6 +8,7 @@ public class AnimationController : MonoBehaviour
     Rigidbody2D richmondLipsRB;
 
     private bool kissTriggered = false;
+    private bool hitTriggered = false;
 
     void Awake()
     {
@@ -36,5 +37,13 @@ public class AnimationController : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         richmondLipsRB.velocity = Vector3.zero;
         yield return null;
+    }
+
+    public void HitWinAnimation()
+    {
+        if(hitTriggered == false){
+            Debug.Log("Win Animation");
+            hitTriggered = true;
+        }
     }
 }

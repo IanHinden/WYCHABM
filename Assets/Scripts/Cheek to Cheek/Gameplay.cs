@@ -70,7 +70,7 @@ public class Gameplay : MonoBehaviour
             spotlight.StopRotating();
             if(spotlight.transform.position.x > 2.9 && spotlight.transform.position.x < 3.7)
             {
-                Debug.Log("Win");
+                animationController.HitWinAnimation();
             } else
             {
                 Debug.Log("Lose");
