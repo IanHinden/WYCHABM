@@ -55,13 +55,11 @@ public class Gameplay : MonoBehaviour
 
     private void GameAction()
     {
-        Debug.Log("works??");
         if (timeRemaining > 5)
         {
             richmondLips.stopAnimation();
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
             {
-                Debug.Log("win");
                 animationController.KissWinAnimation();
             } else
             {
@@ -69,7 +67,14 @@ public class Gameplay : MonoBehaviour
             }
         } else
         {
-            Debug.Log("Hit");
+            spotlight.StopRotating();
+            if(spotlight.transform.position.x > 2.9 && spotlight.transform.position.x < 3.7)
+            {
+                Debug.Log("Win");
+            } else
+            {
+                Debug.Log("Lose");
+            }
         }
     }
 }

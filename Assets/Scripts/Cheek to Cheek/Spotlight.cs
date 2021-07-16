@@ -6,7 +6,7 @@ public class Spotlight : MonoBehaviour
 {
     private float RotateSpeed = 6f;
     private float Radius = 2f;
-    private bool keepRotating;
+    private bool keepRotating = true;
 
     private Vector2 _centre;
     private float _angle;

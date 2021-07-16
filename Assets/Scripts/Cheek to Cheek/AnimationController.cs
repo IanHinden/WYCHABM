@@ -7,6 +7,8 @@ public class AnimationController : MonoBehaviour
     Animator heartAnim;
     Rigidbody2D richmondLipsRB;
 
+    private bool kissTriggered = false;
+
     void Awake()
     {
         heartAnim = FindObjectOfType<Heart>().GetComponent<Animator>();
@@ -20,8 +22,12 @@ public class AnimationController : MonoBehaviour
 
     public void KissWinAnimation()
     {
-        heartAnim.SetTrigger("Success");
-        StartCoroutine(KissMove());
+        if (kissTriggered == false)
+        {
+            heartAnim.SetTrigger("Success");
+            StartCoroutine(KissMove());
+            kissTriggered = true;
+        }
     }
 
     private IEnumerator KissMove()
