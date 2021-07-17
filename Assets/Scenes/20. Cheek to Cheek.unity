@@ -245,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208732417}
   - component: {fileID: 208732416}
+  - component: {fileID: 208732418}
   m_Layer: 0
   m_Name: SpankMark
   m_TagString: Untagged
@@ -316,6 +317,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &208732418
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208732415}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ec58de068ade81479185436ddcbec20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &395797937
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +598,7 @@ PrefabInstance:
     - target: {fileID: 2737562420245213584, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2737562420245213584, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
@@ -901,6 +921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336279488}
   - component: {fileID: 1336279487}
+  - component: {fileID: 1336279489}
   m_Layer: 0
   m_Name: SpankArm
   m_TagString: Untagged
@@ -946,13 +967,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a5aad24f46e83c54cb07010291946d0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.58, y: 4.78}
+  m_Size: {x: 4.78, y: 4.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -966,12 +987,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336279486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.591, y: 1.43, z: -3639.8037}
+  m_LocalPosition: {x: 0.07, y: 0.14, z: 0}
   m_LocalScale: {x: 0.60001373, y: 0.60001373, z: 0.60001373}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336279489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336279486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75047276be9084488e2879a57c6646a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391756018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1089,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1471701393
 GameObject:
@@ -1602,7 +1635,7 @@ Transform:
   m_LocalScale: {x: 1.0347815, y: 1.0347815, z: 1.0347815}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026951587
 GameObject:
@@ -1951,7 +1984,7 @@ Transform:
   m_LocalScale: {x: 0.22295316, y: 0.22295316, z: 0.22295316}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124366676
 GameObject:
