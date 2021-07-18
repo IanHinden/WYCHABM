@@ -20,7 +20,7 @@ public class SpankArm : MonoBehaviour
     {
         if (spank == true)
         {
-            transform.Rotate(0, 0, Time.deltaTime * 250, Space.Self);
+            transform.Rotate(0, 0, Time.deltaTime * 400, Space.Self);
         }
     }
 

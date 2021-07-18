@@ -63,7 +63,7 @@ public class Gameplay : MonoBehaviour
                 animationController.KissWinAnimation();
             } else
             {
-                Debug.Log("Lose");
+                animationController.KissLoseAnimation();
             }
         } else
         {
