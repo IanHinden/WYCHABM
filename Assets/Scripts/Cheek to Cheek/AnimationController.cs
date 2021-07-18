@@ -8,6 +8,9 @@ public class AnimationController : MonoBehaviour
     Rigidbody2D richmondLipsRB;
     Rigidbody2D missusRB;
 
+    Animator leftHeart;
+    Animator rightHeart;
+
     SpankArm spankArm;
     Animator spankMark;
 
@@ -21,6 +24,8 @@ public class AnimationController : MonoBehaviour
         missusRB = FindObjectOfType<Missus>().GetComponent<Rigidbody2D>();
         spankArm = FindObjectOfType<SpankArm>();
         spankMark = FindObjectOfType<SpankMark>().GetComponent<Animator>();
+        leftHeart = FindObjectOfType<LeftHeart>().GetComponent<Animator>();
+        rightHeart = FindObjectOfType<RightHeart>().GetComponent<Animator>();
     }
 
     void Update()
@@ -51,6 +56,8 @@ public class AnimationController : MonoBehaviour
         if (kissTriggered == false)
         {
             StartCoroutine(MissMove());
+            leftHeart.SetTrigger("Break");
+            rightHeart.SetTrigger("Break");
             kissTriggered = true;
         }
     }
