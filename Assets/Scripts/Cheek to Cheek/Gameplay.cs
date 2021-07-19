@@ -27,6 +27,7 @@ public class Gameplay : MonoBehaviour
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
+        Debug.Log(measureMS);
         timeRemaining = sceneSwitch.ReturnTimeToSwitch();
 
         kissHit = new KissHit();
@@ -55,7 +56,7 @@ public class Gameplay : MonoBehaviour
 
     private void GameAction()
     {
-        if (timeRemaining > 5)
+        if (timeRemaining > 7.18)
         {
             richmondLips.stopAnimation();
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
