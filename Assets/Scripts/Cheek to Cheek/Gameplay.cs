@@ -58,7 +58,7 @@ public class Gameplay : MonoBehaviour
 
         if (firstScenario == true)
         {
-            if (timePassed > measureMS * 3)
+            if (timePassed > measureMS * 4)
             {
                 firstScenario = false;
                 if(animationController.ReturnKissTriggered() == false)
