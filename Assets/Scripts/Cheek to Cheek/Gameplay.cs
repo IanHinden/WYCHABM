@@ -15,7 +15,9 @@ public class Gameplay : MonoBehaviour
     private Countdown[] countdowns;
 
     private float measureMS;
-    private float timeRemaining;
+    //private float timeRemaining;
+    private float timePassed = 0f;
+    private bool firstScenario = true;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,7 +30,7 @@ public class Gameplay : MonoBehaviour
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
         Debug.Log(measureMS);
-        timeRemaining = sceneSwitch.ReturnTimeToSwitch();
+        //timeRemaining = sceneSwitch.ReturnTimeToSwitch();
 
         kissHit = new KissHit();
         kissHit.Action.Select.performed += x => GameAction();
@@ -51,12 +53,29 @@ public class Gameplay : MonoBehaviour
     {
         spotlight.RotateSpotlight();
 
-        timeRemaining -= Time.deltaTime;
+        //timeRemaining -= Time.deltaTime;
+        timePassed += Time.deltaTime;
+
+        if (firstScenario == true)
+        {
+            if (timePassed > measureMS * 3)
+            {
+                firstScenario = false;
+                if(animationController.ReturnKissTriggered() == false)
+                {
+                    richmondLips.stopAnimation();
+                    animationController.KissLoseAnimation();
+                }
+            }
+        } else
+        {
+            animationController.CoverSwitch();
+        }
     }
 
     private void GameAction()
     {
-        if (timeRemaining > 7.18)
+        if (firstScenario == true)
         {
             richmondLips.stopAnimation();
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)

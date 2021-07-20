@@ -5,11 +5,15 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     Animator heartAnim;
+    RichmondLips richmondLips;
     Rigidbody2D richmondLipsRB;
     Rigidbody2D missusRB;
 
     Animator leftHeart;
     Animator rightHeart;
+
+    Animator kissCover;
+    Animator hitCover;
 
     SpankArm spankArm;
     Animator spankMark;
@@ -20,12 +24,15 @@ public class AnimationController : MonoBehaviour
     void Awake()
     {
         heartAnim = FindObjectOfType<Heart>().GetComponent<Animator>();
-        richmondLipsRB = FindObjectOfType<RichmondLips>().GetComponent<Rigidbody2D>();
+        richmondLips = FindObjectOfType<RichmondLips>();
+        richmondLipsRB = richmondLips.GetComponent<Rigidbody2D>();
         missusRB = FindObjectOfType<Missus>().GetComponent<Rigidbody2D>();
         spankArm = FindObjectOfType<SpankArm>();
         spankMark = FindObjectOfType<SpankMark>().GetComponent<Animator>();
         leftHeart = FindObjectOfType<LeftHeart>().GetComponent<Animator>();
         rightHeart = FindObjectOfType<RightHeart>().GetComponent<Animator>();
+        kissCover = FindObjectOfType<KissCover>().GetComponent<Animator>();
+        hitCover = FindObjectOfType<HitCover>().GetComponent<Animator>();
     }
 
     void Update()
@@ -75,5 +82,16 @@ public class AnimationController : MonoBehaviour
             spankMark.SetTrigger("Spank");
             hitTriggered = true;
         }
+    }
+
+    public bool ReturnKissTriggered()
+    {
+        return kissTriggered;
+    }
+
+    public void CoverSwitch()
+    {
+        hitCover.SetTrigger("Cover");
+        kissCover.SetTrigger("Cover");
     }
 }
