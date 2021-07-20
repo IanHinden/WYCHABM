@@ -18,6 +18,8 @@ public class AnimationController : MonoBehaviour
     SpankArm spankArm;
     Animator spankMark;
 
+    Legs legs;
+
     private bool kissTriggered = false;
     private bool hitTriggered = false;
 
@@ -28,6 +30,7 @@ public class AnimationController : MonoBehaviour
         richmondLipsRB = richmondLips.GetComponent<Rigidbody2D>();
         missusRB = FindObjectOfType<Missus>().GetComponent<Rigidbody2D>();
         spankArm = FindObjectOfType<SpankArm>();
+        legs = FindObjectOfType<Legs>();
         spankMark = FindObjectOfType<SpankMark>().GetComponent<Animator>();
         leftHeart = FindObjectOfType<LeftHeart>().GetComponent<Animator>();
         rightHeart = FindObjectOfType<RightHeart>().GetComponent<Animator>();
@@ -38,6 +41,7 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
         spankArm.Spank();
+        legs.LegsUp();
     }
 
     public void KissWinAnimation()
@@ -80,6 +84,15 @@ public class AnimationController : MonoBehaviour
         if(hitTriggered == false){
             spankArm.StartSpank();
             spankMark.SetTrigger("Spank");
+            hitTriggered = true;
+        }
+    }
+
+    public void HitLoseAnimation()
+    {
+        if (hitTriggered == false)
+        {
+            legs.StartLegsUp();
             hitTriggered = true;
         }
     }

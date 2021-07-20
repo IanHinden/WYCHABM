@@ -70,7 +70,7 @@ public class Gameplay : MonoBehaviour
         } else
         {
             animationController.CoverSwitch();
-            if (timePassed > measureMS * 5)
+            if (timePassed > measureMS * 4)
             {
                 countdowns[0].StartCountdown();
             }
@@ -97,7 +97,7 @@ public class Gameplay : MonoBehaviour
                 animationController.HitWinAnimation();
             } else
             {
-                Debug.Log("Lose");
+                animationController.HitLoseAnimation();
             }
         }
     }
