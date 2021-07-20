@@ -70,6 +70,10 @@ public class Gameplay : MonoBehaviour
         } else
         {
             animationController.CoverSwitch();
+            if (timePassed > measureMS * 5)
+            {
+                countdowns[0].StartCountdown();
+            }
         }
     }
 

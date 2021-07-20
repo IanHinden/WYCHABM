@@ -10,6 +10,8 @@ public class Countdown : MonoBehaviour
 
     private float measureMS;
     private float BPM;
+
+    private bool started = false;
     void Awake()
     {
         textmesh = GetComponent<TextMeshProUGUI>();
@@ -27,38 +29,44 @@ public class Countdown : MonoBehaviour
     public void StartCountdown()
     {
         StartCoroutine(TriggerCountdownAnimation(BPM));
+        started = true;
     }
 
 
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
-        float measureCopy = measureMS;
-
-        textmesh.text = "3";
-        measureCopy = measureMS;
-
-        while (measureCopy > 0)
+        if (started == false)
         {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
-        textmesh.text = "2";
-        measureCopy = measureMS;
+            float measureCopy = measureMS;
 
-        while (measureCopy > 0)
-        {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
-        measureCopy = measureMS;
-        textmesh.text = "1";
+            textmesh.text = "3";
+            measureCopy = measureMS;
 
-        while (measureCopy > 0)
-        {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+            textmesh.text = "2";
+            measureCopy = measureMS;
 
-        textmesh.text = "0";
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+            measureCopy = measureMS;
+            textmesh.text = "1";
+
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+
+            textmesh.text = "0";
+            yield return new WaitForSeconds(1);
+            textmesh.text = "";
+        }
     }
 }
