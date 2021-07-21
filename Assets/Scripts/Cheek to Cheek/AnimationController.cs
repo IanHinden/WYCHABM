@@ -19,6 +19,7 @@ public class AnimationController : MonoBehaviour
     Animator spankMark;
 
     Legs legs;
+    Spotlight spotLight;
 
     private bool kissTriggered = false;
     private bool hitTriggered = false;
@@ -31,6 +32,7 @@ public class AnimationController : MonoBehaviour
         missusRB = FindObjectOfType<Missus>().GetComponent<Rigidbody2D>();
         spankArm = FindObjectOfType<SpankArm>();
         legs = FindObjectOfType<Legs>();
+        spotLight = FindObjectOfType<Spotlight>();
         spankMark = FindObjectOfType<SpankMark>().GetComponent<Animator>();
         leftHeart = FindObjectOfType<LeftHeart>().GetComponent<Animator>();
         rightHeart = FindObjectOfType<RightHeart>().GetComponent<Animator>();
@@ -100,6 +102,11 @@ public class AnimationController : MonoBehaviour
     public bool ReturnKissTriggered()
     {
         return kissTriggered;
+    }
+
+    public bool ReturnHitTriggered()
+    {
+        return hitTriggered;
     }
 
     public void CoverSwitch()

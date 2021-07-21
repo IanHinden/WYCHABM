@@ -58,7 +58,7 @@ public class Gameplay : MonoBehaviour
 
         if (firstScenario == true)
         {
-            if (timePassed > measureMS * 4)
+            if (timePassed > measureMS * 3)
             {
                 firstScenario = false;
                 if(animationController.ReturnKissTriggered() == false)
@@ -66,13 +66,16 @@ public class Gameplay : MonoBehaviour
                     richmondLips.stopAnimation();
                     animationController.KissLoseAnimation();
                 }
+                animationController.CoverSwitch();
             }
-        } else
+        } else if (timePassed > measureMS * 4 && timePassed < measureMS * 5)
         {
-            animationController.CoverSwitch();
-            if (timePassed > measureMS * 4)
+            countdowns[0].StartCountdown();
+        } else if (timePassed > measureMS * 8)
+        {
+            if(animationController.ReturnHitTriggered() == false)
             {
-                countdowns[0].StartCountdown();
+                animationController.HitLoseAnimation();
             }
         }
     }
