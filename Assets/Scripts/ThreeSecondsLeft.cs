@@ -12,7 +12,10 @@ public class ThreeSecondsLeft : MonoBehaviour
     void Awake()
     {
         measureMS = 60 / BPM;
-        textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (GameObject.Find("CountdownImages") != null)
+        {
+            textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        }
     }
 
     void Update()
