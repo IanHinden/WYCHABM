@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour
 {
     [SerializeField] float TimeToSwitch;
+    [SerializeField] float measures;
     [SerializeField] bool gameScene;
+    [SerializeField] bool measureSwitch;
     [SerializeField] bool lastScene;
 
     public AudioClip newTrack;
@@ -18,7 +20,7 @@ public class SceneSwitch : MonoBehaviour
     private void Awake()
     {
         theMP = FindObjectOfType<MusicPlayer>();
-        if (gameScene)
+        if (gameScene || measureSwitch)
         {
             threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         }
@@ -36,7 +38,18 @@ public class SceneSwitch : MonoBehaviour
         float timeToSwitchCopy = TimeToSwitch;
         float timeToEnd;
 
-        if (gameScene)
+        if (measureSwitch)
+        {
+            timeToEnd = threeSecondsLeft.ReturnSingleMeasure();
+            float measureSwitchTime = timeToEnd * measures;
+            while(measureSwitchTime > 0)
+            {
+                measureSwitchTime -= Time.deltaTime;
+                yield return null;
+            }
+            LoadNextScene();
+        }
+         else if (gameScene)
         {
             timeToEnd = threeSecondsLeft.ReturnTimeToEnd();
             timeToSwitchCopy = TimeToSwitch - timeToEnd;

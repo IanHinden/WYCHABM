@@ -673,6 +673,16 @@ PrefabInstance:
       propertyPath: TimeToSwitch
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
+        type: 3}
+      propertyPath: measureSwitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
+        type: 3}
+      propertyPath: measures
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61ded347fb57354fa73cb2689b6b2ee, type: 3}
 --- !u!1 &1000174505
@@ -904,7 +914,7 @@ PrefabInstance:
     - target: {fileID: 3509266187236059557, guid: a02d874c7f63c8a45afbf3526d870d74,
         type: 3}
       propertyPath: waitTime
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3509266187236059560, guid: a02d874c7f63c8a45afbf3526d870d74,
         type: 3}
