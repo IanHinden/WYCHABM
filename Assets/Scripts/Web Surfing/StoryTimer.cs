@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class StoryTimer : MonoBehaviour
 {
     private ThreeSecondsLeft threeSecondsLeft;
+
+    private TextMeshProUGUI sugarDaddiesTM;
 
     private float measureMS;
     private float timePassed = 0f;
@@ -28,6 +31,8 @@ public class StoryTimer : MonoBehaviour
 
         laptop = FindObjectOfType<Laptop>().GetComponent<SpriteRenderer>();
         charts = FindObjectOfType<Charts>().GetComponent<SpriteRenderer>();
+
+        sugarDaddiesTM = FindObjectOfType<SugarDaddiesText>().GetComponent<TextMeshProUGUI>();
         sugarDaddies = FindObjectOfType<SugarDaddies>().GetComponent<SpriteRenderer>();
         
 
@@ -67,6 +72,8 @@ public class StoryTimer : MonoBehaviour
         if (timePassed > measureMS * 16)
         {
             sugarDaddies.enabled = true;
+            sugarDaddiesTM.SetText("Sweet Sugar " +
+            "Daddies Site");
         }
     }
 
