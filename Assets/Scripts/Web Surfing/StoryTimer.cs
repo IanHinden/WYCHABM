@@ -76,9 +76,4 @@ public class StoryTimer : MonoBehaviour
             "Daddies Site");
         }
     }
-
-    private void Test()
-    {
-        Debug.Log("Yup!");
-    }
 }
