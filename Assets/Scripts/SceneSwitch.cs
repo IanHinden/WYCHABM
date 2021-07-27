@@ -38,10 +38,10 @@ public class SceneSwitch : MonoBehaviour
         float timeToSwitchCopy = TimeToSwitch;
         float timeToEnd;
 
-        if (measureSwitch)
+        if (measureSwitch && !gameScene)
         {
-            timeToEnd = threeSecondsLeft.ReturnSingleMeasure();
-            float measureSwitchTime = timeToEnd * measures;
+            float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
+            float measureSwitchTime = singleMeasure * measures;
             while(measureSwitchTime > 0)
             {
                 measureSwitchTime -= Time.deltaTime;
@@ -52,7 +52,16 @@ public class SceneSwitch : MonoBehaviour
          else if (gameScene)
         {
             timeToEnd = threeSecondsLeft.ReturnTimeToEnd();
-            timeToSwitchCopy = TimeToSwitch - timeToEnd;
+            if (measureSwitch)
+            {
+                float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
+                timeToSwitchCopy = (singleMeasure * measures) - timeToEnd;
+            }
+            else
+            {
+
+                timeToSwitchCopy = TimeToSwitch - timeToEnd;
+            }
 
             while (timeToSwitchCopy > 0)
             {
