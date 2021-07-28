@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 1182238237}
   - component: {fileID: 1182238236}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: InstructionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Submit an order for the most fun gift for your target!
+  m_text: Submit an order for the most fun gift for your "date"!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22a6177d5fba3024bb19164dffc069c2, type: 2}
   m_sharedMaterial: {fileID: -2348598200806313063, guid: 22a6177d5fba3024bb19164dffc069c2,
