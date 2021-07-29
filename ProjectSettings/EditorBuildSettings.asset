@@ -78,6 +78,9 @@ EditorBuildSettings:
     path: Assets/Scenes/24. Wishlist.unity
     guid: 44fbc583579f6a24d92c131aeb6e2c72
   - enabled: 1
+    path: Assets/Scenes/25. Online Dating.unity
+    guid: eff9d7e951ad7a441b5f70ed4a8d36f6
+  - enabled: 1
     path: Assets/Scenes/27. Party Girls.unity
     guid: 9f78b39d10e8c174e947f5cc01bfed14
   - enabled: 1
