@@ -1,0 +1,90 @@
+{
+    "name": "TweakControls",
+    "maps": [
+        {
+            "name": "Move",
+            "id": "11c6c9c3-458d-4f10-91ad-918592af581d",
+            "actions": [
+                {
+                    "name": "UpArrow",
+                    "type": "PassThrough",
+                    "id": "63b7d0de-a8b1-4fd7-9664-be71176b6eea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightArrow",
+                    "type": "PassThrough",
+                    "id": "a1675b35-a458-4381-8322-d65cadfb011d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DownArrow",
+                    "type": "PassThrough",
+                    "id": "065ffe25-0c7f-4a7a-bd6d-8fbbb784cdf4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LeftArrow",
+                    "type": "PassThrough",
+                    "id": "15c6bf5e-96c6-4fcc-9fab-983c5258eea7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c3b1545c-568b-49b9-8436-aa4771b045aa",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpArrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf3753ad-824d-433b-811e-c3b959c77f9b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightArrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69275142-1648-42c3-8b68-b5c50f85bd48",
+                    "path": "<Keyboard>/s",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownArrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c8a8b4f-8e74-4c82-be66-dce617073fb3",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftArrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
