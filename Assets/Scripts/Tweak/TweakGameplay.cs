@@ -7,7 +7,9 @@ public class TweakGameplay : MonoBehaviour
     ControlPadButton[] controlPadButtons;
 
     private TweakControls tweakControls;
+
     private Animator redBarAnimator;
+    private Animator tenKAnimator;
 
     private float currentlySelected = 0;
     private float state = 0;
@@ -17,6 +19,7 @@ public class TweakGameplay : MonoBehaviour
         controlPadButtons = FindObjectsOfType<ControlPadButton>().OrderBy(go => go.name).ToArray();
 
         redBarAnimator = FindObjectOfType<RedBar>().GetComponent<Animator>();
+        tenKAnimator = FindObjectOfType<TenK>().GetComponent<Animator>();
         
         tweakControls = new TweakControls();
         tweakControls.Move.UpArrow.performed += x => upMove();
@@ -31,11 +34,14 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Two");
+            tenKAnimator.SetTrigger("Two");
             RotateRight();
         }
 
         if(state == 4)
         {
+            redBarAnimator.SetTrigger("Six");
+            tenKAnimator.SetTrigger("Six");
             state++;
             RotateRight();
         }
@@ -47,13 +53,15 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Three");
+            tenKAnimator.SetTrigger("Three");
             RotateRight();
         }
 
         if (state == 5)
         {
+            redBarAnimator.SetTrigger("Seven");
+            tenKAnimator.SetTrigger("Seven");
             state++;
-            redBarAnimator.SetTrigger("Six");
             RotateRight();
         }
     }
@@ -64,13 +72,15 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Four");
+            tenKAnimator.SetTrigger("Four");
             RotateRight();
         }
 
         if (state == 6)
         {
+            redBarAnimator.SetTrigger("Eight");
+            tenKAnimator.SetTrigger("Eight");
             state++;
-            redBarAnimator.SetTrigger("Seven");
             RotateRight();
         }
     }
@@ -81,13 +91,15 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Five");
+            tenKAnimator.SetTrigger("Five");
             RotateRight();
         }
 
         if (state == 7)
         {
             state++;
-            redBarAnimator.SetTrigger("Eight");
+            redBarAnimator.SetTrigger("Nine");
+            tenKAnimator.SetTrigger("Nine");
             RotateRight();
         }
     }
