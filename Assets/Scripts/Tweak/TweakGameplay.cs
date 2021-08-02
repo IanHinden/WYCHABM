@@ -7,6 +7,7 @@ public class TweakGameplay : MonoBehaviour
     ControlPadButton[] controlPadButtons;
 
     private TweakControls tweakControls;
+    private Animator redBarAnimator;
 
     private float currentlySelected = 0;
     private float state = 0;
@@ -14,6 +15,8 @@ public class TweakGameplay : MonoBehaviour
     void Awake()
     {
         controlPadButtons = FindObjectsOfType<ControlPadButton>().OrderBy(go => go.name).ToArray();
+
+        redBarAnimator = FindObjectOfType<RedBar>().GetComponent<Animator>();
         
         tweakControls = new TweakControls();
         tweakControls.Move.UpArrow.performed += x => upMove();
@@ -27,6 +30,7 @@ public class TweakGameplay : MonoBehaviour
         if (state == 0)
         {
             state++;
+            redBarAnimator.SetTrigger("Two");
             RotateRight();
         }
 
@@ -42,12 +46,14 @@ public class TweakGameplay : MonoBehaviour
         if (state == 1)
         {
             state++;
+            redBarAnimator.SetTrigger("Three");
             RotateRight();
         }
 
         if (state == 5)
         {
             state++;
+            redBarAnimator.SetTrigger("Six");
             RotateRight();
         }
     }
@@ -57,12 +63,14 @@ public class TweakGameplay : MonoBehaviour
         if (state == 2)
         {
             state++;
+            redBarAnimator.SetTrigger("Four");
             RotateRight();
         }
 
         if (state == 6)
         {
             state++;
+            redBarAnimator.SetTrigger("Seven");
             RotateRight();
         }
     }
@@ -72,12 +80,14 @@ public class TweakGameplay : MonoBehaviour
         if (state == 3)
         {
             state++;
+            redBarAnimator.SetTrigger("Five");
             RotateRight();
         }
 
         if (state == 7)
         {
             state++;
+            redBarAnimator.SetTrigger("Eight");
             RotateRight();
         }
     }

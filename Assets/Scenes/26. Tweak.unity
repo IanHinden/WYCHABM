@@ -690,7 +690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921663827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.331, y: -3.871, z: 0}
+  m_LocalPosition: {x: -5.331, y: -0.31, z: 0}
   m_LocalScale: {x: 0.9434177, y: 0.9859594, z: 1}
   m_Children: []
   m_Father: {fileID: 2131603359}
@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 1170431673}
   - component: {fileID: 1170431675}
   - component: {fileID: 1170431674}
+  - component: {fileID: 1170431676}
   m_Layer: 0
   m_Name: RedBar
   m_TagString: Untagged
@@ -854,7 +855,7 @@ Transform:
   m_GameObject: {fileID: 1170431672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.04, y: -9.26, z: 0}
-  m_LocalScale: {x: 0.65556496, y: 1.3898907, z: 1}
+  m_LocalScale: {x: 0.655565, y: 1.3898907, z: 1}
   m_Children: []
   m_Father: {fileID: 2131603359}
   m_RootOrder: 8
@@ -869,7 +870,7 @@ Animator:
   m_GameObject: {fileID: 1170431672}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d886fe77629ae5408d6277786cb28ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5003dd63b3c130c49b351c4fe813a0a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -928,6 +929,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1170431676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170431672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9484ef929a7aad34caf652c4358ac524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237320353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756027062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.63, y: -3.8, z: 0}
+  m_LocalPosition: {x: 5.63, y: -0.23899984, z: 0}
   m_LocalScale: {x: 0.9434177, y: 0.9859594, z: 1}
   m_Children: []
   m_Father: {fileID: 2131603359}
