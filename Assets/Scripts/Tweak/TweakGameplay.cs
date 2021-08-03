@@ -12,6 +12,7 @@ public class TweakGameplay : MonoBehaviour
     private TenKHundred tenKHundred;
 
     private Animator redBarAnimator;
+    private Animator blueBarAnimator;
     private Animator tenKAnimator;
     private Animator fiveKAnimator;
     private Animator tenKHundredAnimator;
@@ -28,6 +29,7 @@ public class TweakGameplay : MonoBehaviour
         controlPadButtons = FindObjectsOfType<ControlPadButton>().OrderBy(go => go.name).ToArray();
 
         redBarAnimator = FindObjectOfType<RedBar>().GetComponent<Animator>();
+        blueBarAnimator = FindObjectOfType<BlueBar>().GetComponent<Animator>();
         tenKAnimator = FindObjectOfType<TenK>().GetComponent<Animator>();
 
         fiveK = FindObjectOfType<FiveK>();
@@ -53,6 +55,7 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Two");
+            blueBarAnimator.SetTrigger("Two");
             tenKAnimator.SetTrigger("Two");
             fiveKAnimator.SetTrigger("Two");
             RotateRight();
@@ -61,6 +64,7 @@ public class TweakGameplay : MonoBehaviour
         if(state == 4)
         {
             redBarAnimator.SetTrigger("Six");
+            blueBarAnimator.SetTrigger("Six");
             tenKAnimator.SetTrigger("Six");
             fiveKAnimator.SetTrigger("Six");
             state++;
@@ -74,6 +78,7 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Three");
+            blueBarAnimator.SetTrigger("Three");
             tenKAnimator.SetTrigger("Three");
             fiveKAnimator.SetTrigger("Three");
             RotateRight();
@@ -82,6 +87,7 @@ public class TweakGameplay : MonoBehaviour
         if (state == 5)
         {
             redBarAnimator.SetTrigger("Seven");
+            blueBarAnimator.SetTrigger("Seven");
             tenKAnimator.SetTrigger("Seven");
             fiveKMesh.enabled = false;
             zeroMesh.enabled = false;
@@ -98,6 +104,7 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Four");
+            blueBarAnimator.SetTrigger("Four");
             tenKAnimator.SetTrigger("Four");
             fiveKAnimator.SetTrigger("Four");
             RotateRight();
@@ -106,6 +113,7 @@ public class TweakGameplay : MonoBehaviour
         if (state == 6)
         {
             redBarAnimator.SetTrigger("Eight");
+            blueBarAnimator.SetTrigger("Eight");
             tenKAnimator.SetTrigger("Eight");
             tenKHundredAnimator.SetTrigger("Eight");
             state++;
@@ -119,6 +127,7 @@ public class TweakGameplay : MonoBehaviour
         {
             state++;
             redBarAnimator.SetTrigger("Five");
+            blueBarAnimator.SetTrigger("Five");
             tenKAnimator.SetTrigger("Five");
             fiveKAnimator.SetTrigger("Five");
             RotateRight();
