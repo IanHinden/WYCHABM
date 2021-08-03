@@ -8,8 +8,17 @@ public class TweakGameplay : MonoBehaviour
 
     private TweakControls tweakControls;
 
+    private FiveK fiveK;
+    private TenKHundred tenKHundred;
+
     private Animator redBarAnimator;
     private Animator tenKAnimator;
+    private Animator fiveKAnimator;
+    private Animator tenKHundredAnimator;
+
+    private MeshRenderer fiveKMesh;
+    private MeshRenderer zeroMesh;
+    private MeshRenderer tenKHundredMesh;
 
     private float currentlySelected = 0;
     private float state = 0;
@@ -20,6 +29,16 @@ public class TweakGameplay : MonoBehaviour
 
         redBarAnimator = FindObjectOfType<RedBar>().GetComponent<Animator>();
         tenKAnimator = FindObjectOfType<TenK>().GetComponent<Animator>();
+
+        fiveK = FindObjectOfType<FiveK>();
+        fiveKAnimator = fiveK.GetComponent<Animator>();
+        fiveKMesh = fiveK.GetComponent<MeshRenderer>();
+
+        zeroMesh = FindObjectOfType<Zero>().GetComponent<MeshRenderer>();
+
+        tenKHundred = FindObjectOfType<TenKHundred>();
+        tenKHundredAnimator = tenKHundred.GetComponent<Animator>();
+        tenKHundredMesh = tenKHundred.GetComponent<MeshRenderer>();
         
         tweakControls = new TweakControls();
         tweakControls.Move.UpArrow.performed += x => upMove();
@@ -35,6 +54,7 @@ public class TweakGameplay : MonoBehaviour
             state++;
             redBarAnimator.SetTrigger("Two");
             tenKAnimator.SetTrigger("Two");
+            fiveKAnimator.SetTrigger("Two");
             RotateRight();
         }
 
@@ -42,6 +62,7 @@ public class TweakGameplay : MonoBehaviour
         {
             redBarAnimator.SetTrigger("Six");
             tenKAnimator.SetTrigger("Six");
+            fiveKAnimator.SetTrigger("Six");
             state++;
             RotateRight();
         }
@@ -54,6 +75,7 @@ public class TweakGameplay : MonoBehaviour
             state++;
             redBarAnimator.SetTrigger("Three");
             tenKAnimator.SetTrigger("Three");
+            fiveKAnimator.SetTrigger("Three");
             RotateRight();
         }
 
@@ -61,6 +83,10 @@ public class TweakGameplay : MonoBehaviour
         {
             redBarAnimator.SetTrigger("Seven");
             tenKAnimator.SetTrigger("Seven");
+            fiveKMesh.enabled = false;
+            zeroMesh.enabled = false;
+            tenKHundredMesh.enabled = true;
+            tenKHundredAnimator.SetTrigger("Seven");
             state++;
             RotateRight();
         }
@@ -73,6 +99,7 @@ public class TweakGameplay : MonoBehaviour
             state++;
             redBarAnimator.SetTrigger("Four");
             tenKAnimator.SetTrigger("Four");
+            fiveKAnimator.SetTrigger("Four");
             RotateRight();
         }
 
@@ -80,6 +107,7 @@ public class TweakGameplay : MonoBehaviour
         {
             redBarAnimator.SetTrigger("Eight");
             tenKAnimator.SetTrigger("Eight");
+            tenKHundredAnimator.SetTrigger("Eight");
             state++;
             RotateRight();
         }
@@ -92,6 +120,7 @@ public class TweakGameplay : MonoBehaviour
             state++;
             redBarAnimator.SetTrigger("Five");
             tenKAnimator.SetTrigger("Five");
+            fiveKAnimator.SetTrigger("Five");
             RotateRight();
         }
 
