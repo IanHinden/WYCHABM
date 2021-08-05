@@ -84,7 +84,10 @@ EditorBuildSettings:
     path: Assets/Scenes/26. Tweak.unity
     guid: 04f3c54b09f925a42809fd33b85e7b9e
   - enabled: 1
-    path: Assets/Scenes/27. Party Girls.unity
+    path: Assets/Scenes/27. Party Guy.unity
+    guid: 4a201c616f1bc1144815f7e97c02eed3
+  - enabled: 1
+    path: Assets/Scenes/28. Party Girls.unity
     guid: 9f78b39d10e8c174e947f5cc01bfed14
   - enabled: 1
     path: Assets/Scenes/Mix.unity

@@ -21,6 +21,8 @@ public class TweakGameplay : MonoBehaviour
     private MeshRenderer zeroMesh;
     private MeshRenderer tenKHundredMesh;
 
+    SuccessOrFail successOrFail;
+
     private float currentlySelected = 0;
     private float state = 0;
     // Start is called before the first frame update
@@ -41,7 +43,9 @@ public class TweakGameplay : MonoBehaviour
         tenKHundred = FindObjectOfType<TenKHundred>();
         tenKHundredAnimator = tenKHundred.GetComponent<Animator>();
         tenKHundredMesh = tenKHundred.GetComponent<MeshRenderer>();
-        
+
+        successOrFail = gameObject.AddComponent<SuccessOrFail>();
+
         tweakControls = new TweakControls();
         tweakControls.Move.UpArrow.performed += x => upMove();
         tweakControls.Move.RightArrow.performed += x => rightMove();
@@ -136,8 +140,7 @@ public class TweakGameplay : MonoBehaviour
         if (state == 7)
         {
             state++;
-            redBarAnimator.SetTrigger("Nine");
-            tenKAnimator.SetTrigger("Nine");
+            successOrFail.WinDisplay();
             RotateRight();
         }
     }

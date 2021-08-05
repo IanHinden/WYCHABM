@@ -213,7 +213,6 @@ GameObject:
   - component: {fileID: 102782232}
   - component: {fileID: 102782231}
   - component: {fileID: 102782233}
-  - component: {fileID: 102782234}
   - component: {fileID: 102782235}
   m_Layer: 0
   m_Name: Topless
@@ -261,7 +260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1f2bc9177d0e3b9458963154645c0cc6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d211a5a8dc6302a4dab081153938bbec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,18 +304,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &102782234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102782230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032bcc019bdb6504fa856d05342f8ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &102782235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +758,7 @@ PrefabInstance:
     - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
       propertyPath: measures
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61ded347fb57354fa73cb2689b6b2ee, type: 3}

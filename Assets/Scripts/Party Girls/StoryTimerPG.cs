@@ -39,7 +39,7 @@ public class StoryTimerPG : MonoBehaviour
 
     private void timedEvents()
     {
-        if (timePassed > measureMS * 3)
+        if (timePassed > measureMS)
         {
             gothGirl.SetTrigger("Doorway");
         }
