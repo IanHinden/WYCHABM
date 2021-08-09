@@ -43,6 +43,8 @@ public class MenschGameplay : MonoBehaviour
         Vector3 currentPosition = tapper.transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
+        currentPosition.x = Mathf.Clamp(currentPosition.x, 3.08f, 6.37f);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, -9.01f, -2.09f);
 
         tapper.transform.position = currentPosition;
     }
