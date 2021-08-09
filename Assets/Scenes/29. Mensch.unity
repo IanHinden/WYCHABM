@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6915521}
   - component: {fileID: 6915520}
+  - component: {fileID: 6915522}
   m_Layer: 0
   m_Name: Tapper
   m_TagString: Untagged
@@ -196,12 +197,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6915519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2, y: -5.6, z: 0}
+  m_LocalPosition: {x: 5.01, y: -2.67, z: 0}
   m_LocalScale: {x: 1.7282668, y: 1.7282668, z: 1.7282668}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6915522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6915519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e059d661a35c5b841836df219a1a2c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &240443998
 GameObject:
   m_ObjectHideFlags: 0
