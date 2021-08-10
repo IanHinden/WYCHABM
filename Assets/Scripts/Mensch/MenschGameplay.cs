@@ -33,6 +33,8 @@ public class MenschGameplay : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         menschAnimationController.ScreenFade();
+        yield return new WaitForSeconds(2);
+        menschAnimationController.SafetyEnter();
     }
 
     // Update is called once per frame
