@@ -8,12 +8,14 @@ public class MenschAnimationController : MonoBehaviour
     Animator menschLogoAnimator;
     Animator menschTextAnimator;
     Animator safetyAnimator;
+    Animator statusAnimator;
     void Awake()
     {
         blackScreenAnimator = FindObjectOfType<BlackScreen>().GetComponent<Animator>();
         menschLogoAnimator = FindObjectOfType<MenschLogo>().GetComponent<Animator>();
         menschTextAnimator = FindObjectOfType<MenschText>().GetComponent<Animator>();
         safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
+        statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
     }
 
     public void ScreenFade()
@@ -26,5 +28,20 @@ public class MenschAnimationController : MonoBehaviour
     public void SafetyEnter()
     {
         safetyAnimator.SetTrigger("Enter");
+    }
+
+    public void SafetyExit()
+    {
+        safetyAnimator.SetTrigger("Exit");
+    }
+
+    public void StatusEnter()
+    {
+        statusAnimator.SetTrigger("Enter");
+    }
+
+    public void StatusExit()
+    {
+        statusAnimator.SetTrigger("Exit");
     }
 }
