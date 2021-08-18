@@ -8,12 +8,14 @@ public class MenschGameplay : MonoBehaviour
     Vector2 movementInput;
 
     MenschAnimationController menschAnimationController;
+    Tapping tapping;
     Tapper tapper;
 
     private float speed = 5f;
     void Awake()
     {
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
+        tapping = FindObjectOfType<Tapping>();
         tapper = FindObjectOfType<Tapper>();
         fingerControls = new FingerControls();
         StartCoroutine(ScreenFade());
@@ -46,12 +48,12 @@ public class MenschGameplay : MonoBehaviour
     {
         movementInput = fingerControls.Move.Directions.ReadValue<Vector2>();
 
-        Vector3 currentPosition = tapper.transform.position;
+        Vector3 currentPosition = tapping.transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        currentPosition.x = Mathf.Clamp(currentPosition.x, 3.08f, 6.37f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -9.01f, -2.09f);
+        currentPosition.x = Mathf.Clamp(currentPosition.x, -1.45f, 1.70f);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, -6f, 0f);
 
-        tapper.transform.position = currentPosition;
+        tapping.transform.position = currentPosition;
     }
 }
