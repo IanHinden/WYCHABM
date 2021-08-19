@@ -9,16 +9,48 @@ public class MenschGameplay : MonoBehaviour
 
     MenschAnimationController menschAnimationController;
     Tapping tapping;
-    Tapper tapper;
+    SpriteRenderer tapper;
+    SpriteRenderer tapped;
 
     private float speed = 5f;
+    private bool pressing = false;
     void Awake()
     {
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
         tapping = FindObjectOfType<Tapping>();
-        tapper = FindObjectOfType<Tapper>();
+        tapper = FindObjectOfType<Tapper>().GetComponent<SpriteRenderer>();
+        tapped = FindObjectOfType<Tapped>().GetComponent<SpriteRenderer>();
+
         fingerControls = new FingerControls();
+        fingerControls.Press.FingerPress.performed += x => StartPress();
         StartCoroutine(ScreenFade());
+    }
+
+    private void StartPress()
+    {
+        StartCoroutine(pressScreen());
+    }
+
+    IEnumerator pressScreen()
+    {
+        if (pressing == false)
+        {
+            pressing = true;
+            float countdown = .05f;
+
+            tapped.enabled = true;
+            tapper.enabled = false;
+
+            while (countdown > 0)
+            {
+                countdown -= Time.deltaTime;
+                yield return null;
+            }
+
+            tapped.enabled = false;
+            tapper.enabled = true;
+            pressing = false;
+        }
     }
 
     private void OnEnable()

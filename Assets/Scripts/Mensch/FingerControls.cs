@@ -84,6 +84,33 @@ public class @FingerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Press"",
+            ""id"": ""6f1edb4f-550c-482a-8b89-c81adbe2789a"",
+            ""actions"": [
+                {
+                    ""name"": ""FingerPress"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""13a3a581-2a33-4ef2-9168-e35140fd74c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""94c75361-2295-44a5-a184-fd3c068ef5cc"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FingerPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -91,6 +118,9 @@ public class @FingerControls : IInputActionCollection, IDisposable
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Directions = m_Move.FindAction("Directions", throwIfNotFound: true);
+        // Press
+        m_Press = asset.FindActionMap("Press", throwIfNotFound: true);
+        m_Press_FingerPress = m_Press.FindAction("FingerPress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -169,8 +199,45 @@ public class @FingerControls : IInputActionCollection, IDisposable
         }
     }
     public MoveActions @Move => new MoveActions(this);
+
+    // Press
+    private readonly InputActionMap m_Press;
+    private IPressActions m_PressActionsCallbackInterface;
+    private readonly InputAction m_Press_FingerPress;
+    public struct PressActions
+    {
+        private @FingerControls m_Wrapper;
+        public PressActions(@FingerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @FingerPress => m_Wrapper.m_Press_FingerPress;
+        public InputActionMap Get() { return m_Wrapper.m_Press; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PressActions set) { return set.Get(); }
+        public void SetCallbacks(IPressActions instance)
+        {
+            if (m_Wrapper.m_PressActionsCallbackInterface != null)
+            {
+                @FingerPress.started -= m_Wrapper.m_PressActionsCallbackInterface.OnFingerPress;
+                @FingerPress.performed -= m_Wrapper.m_PressActionsCallbackInterface.OnFingerPress;
+                @FingerPress.canceled -= m_Wrapper.m_PressActionsCallbackInterface.OnFingerPress;
+            }
+            m_Wrapper.m_PressActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @FingerPress.started += instance.OnFingerPress;
+                @FingerPress.performed += instance.OnFingerPress;
+                @FingerPress.canceled += instance.OnFingerPress;
+            }
+        }
+    }
+    public PressActions @Press => new PressActions(this);
     public interface IMoveActions
     {
         void OnDirections(InputAction.CallbackContext context);
+    }
+    public interface IPressActions
+    {
+        void OnFingerPress(InputAction.CallbackContext context);
     }
 }

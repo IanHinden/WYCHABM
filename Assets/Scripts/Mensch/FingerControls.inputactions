@@ -71,6 +71,33 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Press",
+            "id": "6f1edb4f-550c-482a-8b89-c81adbe2789a",
+            "actions": [
+                {
+                    "name": "FingerPress",
+                    "type": "PassThrough",
+                    "id": "13a3a581-2a33-4ef2-9168-e35140fd74c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "94c75361-2295-44a5-a184-fd3c068ef5cc",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FingerPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
