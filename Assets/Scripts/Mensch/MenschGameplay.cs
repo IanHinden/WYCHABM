@@ -9,8 +9,13 @@ public class MenschGameplay : MonoBehaviour
 
     MenschAnimationController menschAnimationController;
     Tapping tapping;
-    SpriteRenderer tapper;
-    SpriteRenderer tapped;
+    Tapper tapper;
+    Tapped tapped;
+    SpriteRenderer tapperSR;
+    SpriteRenderer tappedSR;
+
+    BoxCollider2D fingerTipUnTap;
+    BoxCollider2D toolKitButton;
 
     private float speed = 5f;
     private bool pressing = false;
@@ -18,8 +23,15 @@ public class MenschGameplay : MonoBehaviour
     {
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
         tapping = FindObjectOfType<Tapping>();
-        tapper = FindObjectOfType<Tapper>().GetComponent<SpriteRenderer>();
-        tapped = FindObjectOfType<Tapped>().GetComponent<SpriteRenderer>();
+
+        tapper = FindObjectOfType<Tapper>();
+        tapped = FindObjectOfType<Tapped>();
+
+        tapperSR = tapper.GetComponent<SpriteRenderer>();
+        tappedSR = tapped.GetComponent<SpriteRenderer>();
+
+        fingerTipUnTap = tapping.GetComponent<BoxCollider2D>();
+        toolKitButton = FindObjectOfType<ToolkitButton>().GetComponent<BoxCollider2D>();
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
@@ -38,8 +50,8 @@ public class MenschGameplay : MonoBehaviour
             pressing = true;
             float countdown = .05f;
 
-            tapped.enabled = true;
-            tapper.enabled = false;
+            tappedSR.enabled = true;
+            tapperSR.enabled = false;
 
             while (countdown > 0)
             {
@@ -47,8 +59,8 @@ public class MenschGameplay : MonoBehaviour
                 yield return null;
             }
 
-            tapped.enabled = false;
-            tapper.enabled = true;
+            tappedSR.enabled = false;
+            tapperSR.enabled = true;
             pressing = false;
         }
     }
