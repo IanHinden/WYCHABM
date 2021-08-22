@@ -25,6 +25,8 @@ public class MenschAnimationController : MonoBehaviour
         menschTextAnimator.SetTrigger("FadeOut");
     }
 
+    //.47, -2.38
+
     public void SafetyEnter()
     {
         safetyAnimator.SetTrigger("Enter");

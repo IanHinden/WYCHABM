@@ -15,9 +15,11 @@ public class MenschGameplay : MonoBehaviour
     SpriteRenderer tappedSR;
 
     ToolkitButton toolKitButton;
+    ShareButton shareButton;
 
     BoxCollider2D fingerTipUnTap;
     BoxCollider2D toolKitButtonCol;
+    BoxCollider2D shareButtonCol;
 
     private float speed = 5f;
     private bool pressing = false;
@@ -36,6 +38,9 @@ public class MenschGameplay : MonoBehaviour
 
         toolKitButton = FindObjectOfType<ToolkitButton>();
         toolKitButtonCol = toolKitButton.GetComponent<BoxCollider2D>();
+
+        shareButton = FindObjectOfType<ShareButton>();
+        shareButtonCol = shareButton.GetComponent<BoxCollider2D>();
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
@@ -56,6 +61,11 @@ public class MenschGameplay : MonoBehaviour
             {
                 menschAnimationController.SafetyExit();
                 menschAnimationController.StatusEnter();
+            }
+
+            if (shareButton.ButtonPress() == true)
+            {
+                Debug.Log("Win animation");
             }
 
             float countdown = .05f;
