@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ToolkitButton : MonoBehaviour
 {
+    public bool colliding;
     SpriteRenderer sr;
     void Awake()
     {
@@ -18,11 +19,30 @@ public class ToolkitButton : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        sr.color = new Color(0.358f, 0.358f, 0.358f, 0.169f);
+        colliding = true;
+        if (col.gameObject.name == "Tapping")
+        {
+            sr.color = new Color(0.358f, 0.358f, 0.358f, 0.169f);
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        sr.color = new Color(0.358f, 0.358f, 0.358f, 0f);
+        colliding = false;
+        if (col.gameObject.name == "Tapping")
+        {
+            sr.color = new Color(0.358f, 0.358f, 0.358f, 0f);
+        }
+    }
+
+    public bool ButtonPress()
+    {
+        if(colliding == true)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }

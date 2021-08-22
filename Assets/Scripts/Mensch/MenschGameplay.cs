@@ -14,8 +14,10 @@ public class MenschGameplay : MonoBehaviour
     SpriteRenderer tapperSR;
     SpriteRenderer tappedSR;
 
+    ToolkitButton toolKitButton;
+
     BoxCollider2D fingerTipUnTap;
-    BoxCollider2D toolKitButton;
+    BoxCollider2D toolKitButtonCol;
 
     private float speed = 5f;
     private bool pressing = false;
@@ -31,7 +33,9 @@ public class MenschGameplay : MonoBehaviour
         tappedSR = tapped.GetComponent<SpriteRenderer>();
 
         fingerTipUnTap = tapping.GetComponent<BoxCollider2D>();
-        toolKitButton = FindObjectOfType<ToolkitButton>().GetComponent<BoxCollider2D>();
+
+        toolKitButton = FindObjectOfType<ToolkitButton>();
+        toolKitButtonCol = toolKitButton.GetComponent<BoxCollider2D>();
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
@@ -48,6 +52,12 @@ public class MenschGameplay : MonoBehaviour
         if (pressing == false)
         {
             pressing = true;
+            if(toolKitButton.ButtonPress() == true)
+            {
+                menschAnimationController.SafetyExit();
+                menschAnimationController.StatusEnter();
+            }
+
             float countdown = .05f;
 
             tappedSR.enabled = true;
@@ -79,12 +89,8 @@ public class MenschGameplay : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         menschAnimationController.ScreenFade();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         menschAnimationController.SafetyEnter();
-        yield return new WaitForSeconds(2);
-        menschAnimationController.SafetyExit();
-        yield return new WaitForSeconds(2);
-        menschAnimationController.StatusEnter();
     }
 
     // Update is called once per frame
