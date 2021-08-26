@@ -8,10 +8,15 @@ public class BarViewTiming : MonoBehaviour
 
     private float measureMS;
     private float timePassed = 0f;
+
+    CellPhone cellPhone;
+
     void Awake()
     {
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
+
+        cellPhone = FindObjectOfType<CellPhone>();
     }
 
     // Update is called once per frame
