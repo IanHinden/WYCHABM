@@ -9,14 +9,17 @@ public class BarViewTiming : MonoBehaviour
     private float measureMS;
     private float timePassed = 0f;
 
-    CellPhone cellPhone;
+    [SerializeField] private GameObject cellPhone;
+
+    SpriteRenderer manStaring;
 
     void Awake()
     {
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
 
-        cellPhone = FindObjectOfType<CellPhone>();
+        //cellPhone = FindObjectOfType<CellPhone>();
+        manStaring = FindObjectOfType<ManStaring>().GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,7 +33,8 @@ public class BarViewTiming : MonoBehaviour
     {
         if (timePassed > measureMS * 4)
         {
-            Debug.Log("A measure");
+            cellPhone.SetActive(true);
+            manStaring.enabled = false;
         }
     }
 }
