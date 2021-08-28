@@ -9,7 +9,9 @@ public class BarViewTiming : MonoBehaviour
     private float measureMS;
     private float timePassed = 0f;
 
+    [SerializeField] private GameObject normalSit;
     [SerializeField] private GameObject cellPhone;
+    Animator cellPhoneAnim;
 
     SpriteRenderer manStaring;
 
@@ -18,7 +20,8 @@ public class BarViewTiming : MonoBehaviour
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
 
-        //cellPhone = FindObjectOfType<CellPhone>();
+        cellPhoneAnim = cellPhone.GetComponent<Animator>();
+
         manStaring = FindObjectOfType<ManStaring>().GetComponent<SpriteRenderer>();
     }
 
@@ -33,8 +36,14 @@ public class BarViewTiming : MonoBehaviour
     {
         if (timePassed > measureMS * 4)
         {
-            cellPhone.SetActive(true);
             manStaring.enabled = false;
+            cellPhone.SetActive(true);
+            normalSit.SetActive(true);
+        }
+
+        if(timePassed > measureMS * 8)
+        {
+            cellPhoneAnim.SetTrigger("Lower");
         }
     }
 }
