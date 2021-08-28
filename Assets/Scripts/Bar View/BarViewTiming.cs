@@ -9,9 +9,10 @@ public class BarViewTiming : MonoBehaviour
     private float measureMS;
     private float timePassed = 0f;
 
-    [SerializeField] private GameObject normalSit;
+    [SerializeField] private GameObject barScene;
     [SerializeField] private GameObject cellPhone;
     Animator cellPhoneAnim;
+    Animator barSceneAnim;
 
     SpriteRenderer manStaring;
 
@@ -21,6 +22,7 @@ public class BarViewTiming : MonoBehaviour
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
 
         cellPhoneAnim = cellPhone.GetComponent<Animator>();
+        barSceneAnim = barScene.transform.GetChild(2).GetComponent<Animator>();
 
         manStaring = FindObjectOfType<ManStaring>().GetComponent<SpriteRenderer>();
     }
@@ -36,14 +38,19 @@ public class BarViewTiming : MonoBehaviour
     {
         if (timePassed > measureMS * 4)
         {
-            manStaring.enabled = false;
             cellPhone.SetActive(true);
-            normalSit.SetActive(true);
+            barScene.SetActive(true);
+            manStaring.enabled = false;
         }
 
         if(timePassed > measureMS * 8)
         {
             cellPhoneAnim.SetTrigger("Lower");
+        }
+
+        if (timePassed > measureMS * 10)
+        {
+            barSceneAnim.SetTrigger("Blink");
         }
     }
 }
