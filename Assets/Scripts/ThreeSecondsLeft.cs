@@ -46,33 +46,36 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
-        float measureCopy = measureMS;
-
-        textmesh.text = "3";
-        measureCopy = measureMS;
-
-        while (measureCopy > 0)
+        if (GameObject.Find("CountdownImages") != null)
         {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
-        textmesh.text = "2";
-        measureCopy = measureMS;
+            float measureCopy = measureMS;
 
-        while (measureCopy > 0)
-        {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
-        measureCopy = measureMS;
-        textmesh.text = "1";
+            textmesh.text = "3";
+            measureCopy = measureMS;
 
-        while (measureCopy > 0)
-        {
-            measureCopy -= Time.deltaTime;
-            yield return null;
-        }
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+            textmesh.text = "2";
+            measureCopy = measureMS;
 
-        textmesh.text = "0";
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+            measureCopy = measureMS;
+            textmesh.text = "1";
+
+            while (measureCopy > 0)
+            {
+                measureCopy -= Time.deltaTime;
+                yield return null;
+            }
+
+            textmesh.text = "0";
+        }
     }
 }
