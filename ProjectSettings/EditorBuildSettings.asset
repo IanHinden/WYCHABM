@@ -99,6 +99,9 @@ EditorBuildSettings:
     path: Assets/Scenes/31. Bar View.unity
     guid: 83befcf08a7ae2649be4490937ddcf86
   - enabled: 1
-    path: Assets/Scenes/Mix.unity
+    path: Assets/Scenes/32. Make a Deal.unity
+    guid: 70f88f7cc0627764580f323e3828f77b
+  - enabled: 1
+    path: Assets/Scenes/33. Mix.unity
     guid: c5857f7b0148fd3439f80ec1fd76accb
   m_configObjects: {}

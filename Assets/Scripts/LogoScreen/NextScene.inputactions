@@ -1,0 +1,33 @@
+{
+    "name": "NextScene",
+    "maps": [
+        {
+            "name": "FadeOut",
+            "id": "70c44ad3-37f4-41d8-8f27-53b3a7de64ab",
+            "actions": [
+                {
+                    "name": "Change",
+                    "type": "PassThrough",
+                    "id": "6ad08477-7482-4682-852f-711b75b58654",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e5e91b9c-5c8c-4424-8358-4261068fc14c",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

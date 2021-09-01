@@ -7,21 +7,22 @@ public class TitleFade : MonoBehaviour
 {
     Animator animator;
 
+    private NextScene nextScene;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        nextScene = new NextScene();
+        nextScene.FadeOut.Change.performed += x => TestFunc();
+
         StartCoroutine(NextScene());
     }
 
-    public void FixedUpdate()
+    private void TestFunc()
     {
-        if (Input.anyKey)
-        {
-            StartCoroutine(FadeOut());
-        }
+        Debug.Log("Hey");
     }
-
-
     IEnumerator NextScene()
     {
         yield return new WaitForSeconds(2f);
