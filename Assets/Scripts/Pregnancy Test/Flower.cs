@@ -20,7 +20,21 @@ public class Flower : MonoBehaviour
 
     private void spawnDroplet()
     {
-        GameObject droplet = Instantiate(smallDroplet) as GameObject;
+        float rand = Random.Range(0, 3);
+        GameObject dropType;
+
+        if(rand == 0)
+        {
+            dropType = smallDroplet;
+        } else if (rand == 1)
+        {
+            dropType = mediumDroplet;
+        } else
+        {
+            dropType = largeDroplet;
+        }
+
+        GameObject droplet = Instantiate(dropType) as GameObject;
         droplet.transform.position = this.transform.position;
     }
 }
