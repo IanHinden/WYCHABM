@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flower : MonoBehaviour
+public class WaterSpawner : MonoBehaviour
 {
     public GameObject smallDroplet;
     public GameObject mediumDroplet;
     public GameObject largeDroplet;
 
     public float respawnTime = .1f;
-    public float respawnTimeCopy;
 
     // Start is called before the first frame update
     void Awake()
