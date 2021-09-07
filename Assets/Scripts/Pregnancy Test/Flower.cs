@@ -36,7 +36,6 @@ public class Flower : MonoBehaviour
             dropType = largeDroplet;
         }
 
-        Debug.Log(shotPoint.position);
         Instantiate(dropType, shotPoint.position + new Vector3(offset, 0, 0), transform.rotation);
     }
 }
