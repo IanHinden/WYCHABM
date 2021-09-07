@@ -9,7 +9,8 @@ public class Flower : MonoBehaviour
     public GameObject largeDroplet;
 
     public float respawnTime = .1f;
-    public float respawnTimeCopy;
+
+    public Transform shotPoint;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +22,7 @@ public class Flower : MonoBehaviour
     private void spawnDroplet()
     {
         float rand = Random.Range(0, 3);
+        float offset = Random.Range(-.2f, .2f);
         GameObject dropType;
 
         if(rand == 0)
@@ -34,7 +36,7 @@ public class Flower : MonoBehaviour
             dropType = largeDroplet;
         }
 
-        GameObject droplet = Instantiate(dropType) as GameObject;
-        droplet.transform.position = this.transform.position;
+        Debug.Log(shotPoint.position);
+        Instantiate(dropType, shotPoint.position + new Vector3(offset, 0, 0), transform.rotation);
     }
 }
