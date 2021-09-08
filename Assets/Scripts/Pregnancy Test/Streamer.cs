@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flower : MonoBehaviour
+public class Streamer : MonoBehaviour
 {
     public GameObject smallDroplet;
     public GameObject mediumDroplet;
@@ -18,20 +18,21 @@ public class Flower : MonoBehaviour
         InvokeRepeating("spawnDroplet", 0, 0.1f);
     }
 
-
     private void spawnDroplet()
     {
         float rand = Random.Range(0, 3);
         float offset = Random.Range(-.2f, .2f);
         GameObject dropType;
 
-        if(rand == 0)
+        if (rand == 0)
         {
             dropType = smallDroplet;
-        } else if (rand == 1)
+        }
+        else if (rand == 1)
         {
             dropType = mediumDroplet;
-        } else
+        }
+        else
         {
             dropType = largeDroplet;
         }
