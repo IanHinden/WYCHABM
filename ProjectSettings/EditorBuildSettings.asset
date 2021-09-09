@@ -105,6 +105,9 @@ EditorBuildSettings:
     path: Assets/Scenes/33. Mix.unity
     guid: c5857f7b0148fd3439f80ec1fd76accb
   - enabled: 1
-    path: Assets/Scenes/34..unity
+    path: Assets/Scenes/34. Sick.unity
     guid: 505eaac468537d343b92f40254e71017
+  - enabled: 1
+    path: Assets/Scenes/35. Pregnancy Test.unity
+    guid: f13c17652f8d3b14f98c3443eedd0a1a
   m_configObjects: {}

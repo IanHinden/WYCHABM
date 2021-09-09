@@ -103,4 +103,9 @@ public class SceneSwitch : MonoBehaviour
     {
         return TimeToSwitch;
     }
+
+    public float ReturnMeasures()
+    {
+        return measures;
+    }
 }
