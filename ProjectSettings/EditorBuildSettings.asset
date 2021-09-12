@@ -116,4 +116,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/37. Pregnancy Test.unity
     guid: f13c17652f8d3b14f98c3443eedd0a1a
+  - enabled: 1
+    path: Assets/Scenes/38. Third Chorus.unity
+    guid: 525360334f3669c489a189eb9bdea2b6
   m_configObjects: {}

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class RichmondFinalForm : MonoBehaviour
 {
-    float score = 0;
+    SpriteRenderer richmondSR;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        richmondSR = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -17,8 +17,8 @@ public class Target : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Visible()
     {
-        score++;
+        richmondSR.enabled = true;
     }
 }
