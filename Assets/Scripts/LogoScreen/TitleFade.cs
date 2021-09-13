@@ -29,6 +29,7 @@ public class TitleFade : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
+
     IEnumerator FadeOut()
     {
         animator.SetTrigger("Start");

@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CityBehavior : MonoBehaviour
 {
-    GameObject cityScape;
+    [SerializeField] GameObject city;
 
-    float scrollSpeed = 35f;
-    private void Awake()
+    Animator avaAnimator;
+    void Awake()
     {
-        cityScape = GameObject.Find("Canvas").transform.Find("CityScape").gameObject;
-        StartCoroutine(Disappear());
+        StartCoroutine(CityOff());
+
+        avaAnimator = FindObjectOfType<Ava>().GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        cityScape.transform.position += new Vector3(1, 1, 0) * Time.deltaTime * scrollSpeed;
+        
     }
 
-    IEnumerator Disappear()
+    IEnumerator CityOff()
     {
-        yield return new WaitForSeconds(3);
-        cityScape.SetActive(false);
+        yield return new WaitForSeconds(2);
+        city.SetActive(false);
+
+        avaAnimator.SetTrigger("Enter");
     }
 }

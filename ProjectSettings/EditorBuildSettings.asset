@@ -119,4 +119,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/38. Third Chorus.unity
     guid: 525360334f3669c489a189eb9bdea2b6
+  - enabled: 1
+    path: Assets/Scenes/39. Final Boss.unity
+    guid: 43c8a5f766bd499489f581ab18f8042a
   m_configObjects: {}
