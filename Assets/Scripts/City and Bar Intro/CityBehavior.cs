@@ -9,7 +9,7 @@ public class CityBehavior : MonoBehaviour
     Animator avaAnimator;
     void Awake()
     {
-        StartCoroutine(CityOff());
+        StartCoroutine(StartAnimations());
 
         avaAnimator = FindObjectOfType<Ava>().GetComponent<Animator>();
     }
@@ -19,7 +19,7 @@ public class CityBehavior : MonoBehaviour
         
     }
 
-    IEnumerator CityOff()
+    IEnumerator StartAnimations()
     {
         yield return new WaitForSeconds(2);
         city.SetActive(false);
