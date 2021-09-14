@@ -7,11 +7,14 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] GameObject city;
 
     Animator avaAnimator;
+
+    PittiePartyDialogue pittiePartyDialogue;
     void Awake()
     {
         StartCoroutine(StartAnimations());
 
         avaAnimator = FindObjectOfType<Ava>().GetComponent<Animator>();
+        pittiePartyDialogue = FindObjectOfType<PittiePartyDialogue>();
     }
 
     void Update()
@@ -25,5 +28,6 @@ public class CityBehavior : MonoBehaviour
         city.SetActive(false);
 
         avaAnimator.SetTrigger("Enter");
+        StartCoroutine(pittiePartyDialogue.SetAvaDialogue());
     }
 }
