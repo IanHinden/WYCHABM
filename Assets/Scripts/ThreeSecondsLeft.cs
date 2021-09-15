@@ -18,11 +18,6 @@ public class ThreeSecondsLeft : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     public float ReturnBPM()
     {
         return BPM;
@@ -43,38 +38,19 @@ public class ThreeSecondsLeft : MonoBehaviour
         StartCoroutine(TriggerCountdownAnimation(BPM));
     }
 
-
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
         if (GameObject.Find("CountdownImages") != null)
         {
-            float measureCopy = measureMS;
-
             textmesh.text = "3";
-            measureCopy = measureMS;
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(measureMS);
             textmesh.text = "2";
-            measureCopy = measureMS;
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
-            measureCopy = measureMS;
+            yield return new WaitForSeconds(measureMS);
             textmesh.text = "1";
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
-
+            yield return new WaitForSeconds(measureMS);
             textmesh.text = "0";
         }
     }
