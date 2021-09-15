@@ -32,21 +32,21 @@ public class CityBehavior : MonoBehaviour
 
     IEnumerator StartAnimations()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         city.SetActive(false);
         bigPittiesText.text = "";
 
         avaAnimator.SetTrigger("Enter");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.5f);
         StartCoroutine(pittiePartyDialogue.SetAvaDialogue());
-        yield return new WaitForSeconds(1.5f);
-        ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(2f);
+        ppgAnimator.SetTrigger("Enter");
+        yield return new WaitForSeconds(1f);
         avaAnimator.SetTrigger("FadeOut");
         StartCoroutine(pittiePartyDialogue.SetPpgDialogue());
         yield return new WaitForSeconds(2f);
         StartCoroutine(pittiePartyDialogue.SetPpgDialogueTwo());
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         ppgAnimator.SetTrigger("Exit");
         avaAnimator.SetTrigger("FadeIn");
         StartCoroutine(pittiePartyDialogue.SetAvaDialogueTwo());
