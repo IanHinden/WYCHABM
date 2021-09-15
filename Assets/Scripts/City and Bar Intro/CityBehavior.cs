@@ -32,7 +32,7 @@ public class CityBehavior : MonoBehaviour
 
     IEnumerator StartAnimations()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.7f);
         city.SetActive(false);
         bigPittiesText.text = "";
 

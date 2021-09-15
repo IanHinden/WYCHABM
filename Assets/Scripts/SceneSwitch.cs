@@ -42,11 +42,7 @@ public class SceneSwitch : MonoBehaviour
         {
             float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
             float measureSwitchTime = singleMeasure * measures;
-            while(measureSwitchTime > 0)
-            {
-                measureSwitchTime -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(measureSwitchTime);
             LoadNextScene();
         }
          else if (gameScene)
@@ -63,27 +59,15 @@ public class SceneSwitch : MonoBehaviour
                 timeToSwitchCopy = TimeToSwitch - timeToEnd;
             }
 
-            while (timeToSwitchCopy > 0)
-            {
-                timeToSwitchCopy -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(timeToSwitchCopy);
 
             threeSecondsLeft.StartCountdown();
-            while (timeToEnd > 0)
-            {
-                timeToEnd -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(timeToEnd);
 
             LoadNextScene();
         } else
         {
-            while(timeToSwitchCopy > 0)
-            {
-                timeToSwitchCopy -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(timeToSwitchCopy);
             LoadNextScene();
         }
     }
