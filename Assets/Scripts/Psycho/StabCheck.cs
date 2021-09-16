@@ -33,11 +33,7 @@ public class StabCheck : MonoBehaviour
     {
         float timeToEnd = threeSecondsLeft.ReturnTimeToEnd() + 2 * threeSecondsLeft.ReturnSingleMeasure();
 
-        while (timeToEnd > 0)
-        {
-            timeToEnd -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(timeToEnd);
         DetermineWinOrLoss();
     }
 

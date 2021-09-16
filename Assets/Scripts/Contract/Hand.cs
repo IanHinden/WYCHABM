@@ -34,7 +34,6 @@ public class Hand : MonoBehaviour
         writingControls.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 movementInput = writingControls.Move.Directions.ReadValue<Vector2>();
@@ -58,11 +57,7 @@ public class Hand : MonoBehaviour
     IEnumerator WinOrLose()
     {
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
-        while (deadline > 0)
-        {
-            deadline -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
 
