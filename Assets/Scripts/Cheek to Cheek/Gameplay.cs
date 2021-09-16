@@ -29,7 +29,6 @@ public class Gameplay : MonoBehaviour
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
-        Debug.Log(measureMS);
         //timeRemaining = sceneSwitch.ReturnTimeToSwitch();
 
         kissHit = new KissHit();
