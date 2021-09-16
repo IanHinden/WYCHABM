@@ -38,32 +38,32 @@ public class RingsGameplay : MonoBehaviour
             ringoneanim.SetTrigger("Start");
         }
 
-        if (clicked == 4)
+        if (clicked == 2)
         {
             ringoneanim.SetTrigger("Second");
         }
 
-        if (clicked == 9)
+        if (clicked == 3)
         {
             ringoneanim.SetTrigger("Third");
         }
 
-        if (clicked == 15)
+        if (clicked == 5)
         {
             ringtwoanim.SetTrigger("Start");
         }
 
-        if (clicked == 21)
+        if (clicked == 9)
         {
             ringtwoanim.SetTrigger("Second");
         }
 
-        if (clicked == 30)
+        if (clicked == 14)
         {
             ringtwoanim.SetTrigger("Third");
         }
 
-        if (clicked == 40)
+        if (clicked == 19)
         {
             ringtwoanim.SetTrigger("Fourth");
         }

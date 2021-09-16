@@ -7,7 +7,7 @@ public class Disappointer : MonoBehaviour
     SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
     SceneSwitch sceneSwitch;
-    // Start is called before the first frame update
+
     void Awake()
     {
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
@@ -19,11 +19,7 @@ public class Disappointer : MonoBehaviour
     IEnumerator WinOrLose()
     {
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
-        while (deadline > 0)
-        {
-            deadline -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
 
