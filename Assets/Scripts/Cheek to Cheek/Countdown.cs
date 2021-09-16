@@ -20,52 +20,28 @@ public class Countdown : MonoBehaviour
         BPM = threeSecondsLeft.ReturnBPM();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartCountdown()
     {
         StartCoroutine(TriggerCountdownAnimation(BPM));
         started = true;
     }
 
-
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
         if (started == false)
         {
-            float measureCopy = measureMS;
-
             textmesh.text = "3";
-            measureCopy = measureMS;
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(measureMS);
             textmesh.text = "2";
-            measureCopy = measureMS;
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
-            measureCopy = measureMS;
+            yield return new WaitForSeconds(measureMS);
             textmesh.text = "1";
 
-            while (measureCopy > 0)
-            {
-                measureCopy -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(measureMS);
 
             textmesh.text = "0";
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
             textmesh.text = "";
         }
     }
