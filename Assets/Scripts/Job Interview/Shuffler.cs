@@ -80,12 +80,9 @@ public class Shuffler : MonoBehaviour
 
     IEnumerator CountdownTimeToPress()
     {
-        timeToPress = .5f;
-        while (timeToPress > 0)
-        {
-            timeToPress -= Time.deltaTime;
-            yield return null;
-        }
+        timeToPress = .3f;
+        yield return new WaitForSeconds(timeToPress);
+        timeToPress = 0f;
     }
 
     private void Select()
