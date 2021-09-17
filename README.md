@@ -1,3 +1,3 @@
 # WYCHABM
 
-# This is some test code in Unity for a music video project
+# This is code for a music video in videogame form written in Unity
