@@ -15,18 +15,18 @@ public class Straw : MonoBehaviour
     ThreeSecondsLeft threeSecondsLeft;
     SceneSwitch sceneSwitch;
 
-    Canvas canvas;
     SpriteRenderer window;
 
     public GameObject sun;
+    MixedDrink mixedDrink;
 
     void Awake()
     {
         stir = new Stir();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
+        mixedDrink = FindObjectOfType<MixedDrink>();
 
         sun = GameObject.Find("Sun");
         sun.SetActive(false);
@@ -44,7 +44,6 @@ public class Straw : MonoBehaviour
         stir.Disable();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         float selectInput = stir.MoveStraw.Move.ReadValue<float>();
@@ -70,11 +69,7 @@ public class Straw : MonoBehaviour
     IEnumerator WinOrLose()
     {
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
-        while (deadline > 0)
-        {
-            deadline -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
 
@@ -102,8 +97,7 @@ public class Straw : MonoBehaviour
 
         sun.SetActive(true);
 
-        Image mixedDrink = canvas.transform.Find("MixedDrink").GetComponent<Image>();
-        mixedDrink.GetComponent<Image>().color = new Color32(255, 138, 83, 255);
+        mixedDrink.GetComponent<SpriteRenderer>().color = new Color(255, 138, 83, 255);
     }
 
     private void lose()
@@ -122,7 +116,6 @@ public class Straw : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        //yield return new WaitForSeconds(4f);
         window.color = new Color(.79f, .33f, .19f, 1f);
     }
 }
