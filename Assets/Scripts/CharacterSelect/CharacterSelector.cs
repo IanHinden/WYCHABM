@@ -10,6 +10,10 @@ public class CharacterSelector : MonoBehaviour
 
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
+
+    Animator OFGirlAnim;
+    Animator HomelessGirlAnim;
+
     SuccessOrFail successOrFail;
 
     private bool moved = false;
@@ -26,6 +30,9 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
+
+        OFGirlAnim = characters[0].GetComponent<Animator>();
+        HomelessGirlAnim = characters[1].GetComponent<Animator>();
 
         characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
         characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
@@ -49,6 +56,7 @@ public class CharacterSelector : MonoBehaviour
     {
         SelectOF();
         consecutiveLeftClicks++;
+        leftCheck();
     }
 
     private void rightSelect()
@@ -62,6 +70,21 @@ public class CharacterSelector : MonoBehaviour
     {
         moved = true;
         characterSelectControls.Disable();
+    }
+
+    private void leftCheck()
+    {
+        if(consecutiveLeftClicks == 3)
+        {
+            OFGirlAnim.SetTrigger("First");
+            HomelessGirlAnim.SetTrigger("First");
+        }
+
+        if(consecutiveLeftClicks == 8)
+        {
+            OFGirlAnim.SetTrigger("Second");
+            HomelessGirlAnim.SetTrigger("Second");
+        }
     }
 
     void SelectOF()
