@@ -10,16 +10,20 @@ public class CharacterSelector : MonoBehaviour
 
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
+    SpriteRenderer CongressWoman;
 
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
+    Animator CongressAnim;
 
     SuccessOrFail successOrFail;
 
+    private bool unlocked = false;
     private bool moved = false;
 
     private int selectedJob;
     private int consecutiveLeftClicks = 0;
+    private int selectedGirl = 0;
 
     Character[] characters;
     private void Awake()
@@ -28,11 +32,13 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls = new CharacterSelectControls();
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
 
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
+        CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
 
         characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
         characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
@@ -54,16 +60,44 @@ public class CharacterSelector : MonoBehaviour
 
     private void leftSelect()
     {
-        SelectOF();
-        consecutiveLeftClicks++;
-        leftCheck();
+        if (unlocked == false)
+        {
+            SelectOF();
+            consecutiveLeftClicks++;
+            leftCheck();
+        } else
+        {
+            if(selectedGirl == 2)
+            {
+                selectedGirl--;
+                SelectOF();
+            } else if (selectedGirl == 1)
+            {
+                selectedGirl--;
+                SelectCongresswoman();
+            }
+        }
     }
 
     private void rightSelect()
     {
-
-        SelectHomeless();
-        consecutiveLeftClicks = 0;
+        if (unlocked == false)
+        {
+            SelectHomeless();
+            consecutiveLeftClicks = 0;
+        } else
+        {
+            if (selectedGirl == 0)
+            {
+                selectedGirl++;
+                SelectOF();
+            }
+            else if (selectedGirl == 1)
+            {
+                selectedGirl++;
+                SelectHomeless();
+            }
+        }
     }
 
     private void select()
@@ -84,6 +118,10 @@ public class CharacterSelector : MonoBehaviour
         {
             OFGirlAnim.SetTrigger("Second");
             HomelessGirlAnim.SetTrigger("Second");
+            CongressAnim.SetTrigger("First");
+
+            unlocked = true;
+            SelectCongresswoman();
         }
     }
 
@@ -91,12 +129,21 @@ public class CharacterSelector : MonoBehaviour
     {
         HomelessGirl.color = new Color32(255, 255, 255, 255);
         OFGirl.color = new Color32(126, 126, 126, 255);
+        CongressWoman.color = new Color32(126, 126, 126, 255);
     }
 
     void SelectHomeless()
     {
         OFGirl.color = new Color32(255, 255, 255, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
+        CongressWoman.color = new Color32(126, 126, 126, 255);
+    }
+
+    void SelectCongresswoman()
+    {
+        OFGirl.color = new Color32(126, 126, 126, 255);
+        HomelessGirl.color = new Color32(126, 126, 126, 255);
+        CongressWoman.color = new Color32(255, 255, 255, 255);
     }
 
     IEnumerator WinOrLose()
@@ -108,6 +155,7 @@ public class CharacterSelector : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
+        characterSelectControls.Disable();
         if (moved)
         {
             successOrFail.WinDisplay();

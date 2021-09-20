@@ -48,7 +48,7 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
                     ""id"": ""588bfc4a-e10c-490d-aadd-ea7bb8b2106b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 }
             ],
             ""bindings"": [
@@ -89,7 +89,7 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""13d70685-3417-4358-95f7-4abd31eab6b3"",
                     ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LeftSelect"",
@@ -100,7 +100,7 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""860d950b-5d0f-4137-9f8d-c34f542fe780"",
                     ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RightSelect"",
