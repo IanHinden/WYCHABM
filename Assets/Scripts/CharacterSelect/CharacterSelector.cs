@@ -14,6 +14,9 @@ public class CharacterSelector : MonoBehaviour
 
     private bool moved = false;
 
+    private int selectedJob;
+    private int consecutiveLeftClicks = 0;
+
     Character[] characters;
     private void Awake()
     {
@@ -23,6 +26,10 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
+
+        characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
+        characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
+        characterSelectControls.CharacterSelect.Select.performed += x => select();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
@@ -38,41 +45,41 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls.Disable();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void leftSelect()
     {
-        float selectInput = characterSelectControls.CharacterSelect.Selection.ReadValue<float>();
-        if(selectInput == 1)
-        {
-            SelectOF();
-        } else if (selectInput == -1)
-        {
-            SelectHomeless();
-        }
+        SelectOF();
+        consecutiveLeftClicks++;
+    }
+
+    private void rightSelect()
+    {
+
+        SelectHomeless();
+        consecutiveLeftClicks = 0;
+    }
+
+    private void select()
+    {
+        moved = true;
+        characterSelectControls.Disable();
     }
 
     void SelectOF()
     {
-        moved = true;
-        OFGirl.color = new Color32(255, 255, 255, 255);
-        HomelessGirl.color = new Color32(126, 126, 126, 255);
+        HomelessGirl.color = new Color32(255, 255, 255, 255);
+        OFGirl.color = new Color32(126, 126, 126, 255);
     }
 
     void SelectHomeless()
     {
-        moved = true;
-        HomelessGirl.color = new Color32(255, 255, 255, 255);
-        OFGirl.color = new Color32(126, 126, 126, 255);
+        OFGirl.color = new Color32(255, 255, 255, 255);
+        HomelessGirl.color = new Color32(126, 126, 126, 255);
     }
 
     IEnumerator WinOrLose()
     {
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
-        while (deadline > 0)
-        {
-            deadline -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
 
