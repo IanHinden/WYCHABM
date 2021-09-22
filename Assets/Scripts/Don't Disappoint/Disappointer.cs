@@ -11,7 +11,7 @@ public class Disappointer : MonoBehaviour
     void Awake()
     {
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }

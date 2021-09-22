@@ -18,7 +18,7 @@ public class Hand : MonoBehaviour
         writingControls = new WritingControls();
         print = FindObjectOfType<Print>();
 
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         StartCoroutine(WinOrLose());

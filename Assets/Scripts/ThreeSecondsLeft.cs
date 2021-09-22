@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using System;
 
 public class ThreeSecondsLeft : MonoBehaviour
 {
@@ -11,11 +14,18 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        DontDestroyOnLoad(this);
         measureMS = 60 / BPM;
         if (GameObject.Find("CountdownImages") != null)
         {
             textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        textmesh.text = "";
     }
 
     public float ReturnBPM()
@@ -53,5 +63,9 @@ public class ThreeSecondsLeft : MonoBehaviour
             yield return new WaitForSeconds(measureMS);
             textmesh.text = "0";
         }
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

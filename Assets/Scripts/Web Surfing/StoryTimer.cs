@@ -22,7 +22,7 @@ public class StoryTimer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
 
         pointer = FindObjectOfType<Pointer>();

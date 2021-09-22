@@ -33,7 +33,7 @@ public class CharacterSelector : MonoBehaviour
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
 
         OFGirlAnim = characters[0].GetComponent<Animator>();

@@ -24,7 +24,7 @@ public class Gameplay : MonoBehaviour
         richmondLips = FindObjectOfType<RichmondLips>();
         spotlight = FindObjectOfType<Spotlight>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         animationController = FindObjectOfType<AnimationController>();
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 

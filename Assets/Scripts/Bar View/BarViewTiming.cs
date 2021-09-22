@@ -18,7 +18,7 @@ public class BarViewTiming : MonoBehaviour
 
     void Awake()
     {
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
 
         cellPhoneAnim = cellPhone.GetComponent<Animator>();

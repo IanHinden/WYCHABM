@@ -17,7 +17,7 @@ public class SelectChecker : MonoBehaviour
     {
         select = new Select();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         select.Selecting.DownSelect.performed += x => setNextActiveArrow();
         select.Selecting.UpSelect.performed += x => setPreviousActiveArrow();

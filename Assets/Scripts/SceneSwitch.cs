@@ -22,7 +22,7 @@ public class SceneSwitch : MonoBehaviour
         theMP = FindObjectOfType<MusicPlayer>();
         if (gameScene || measureSwitch)
         {
-            threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+            threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         }
         StartCoroutine(WaitAndSwitch());
     }

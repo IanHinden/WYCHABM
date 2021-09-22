@@ -10,7 +10,7 @@ public class Coins : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
 
         StartCoroutine(WinOrLose());
@@ -36,11 +36,7 @@ public class Coins : MonoBehaviour
     {
         float timeToEnd = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
 
-        while (timeToEnd > 0)
-        {
-            timeToEnd -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(timeToEnd);
 
         DetermineWinOrLoss();
     }

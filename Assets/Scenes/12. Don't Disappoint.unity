@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThreeSecondsLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 4793431904919504469, guid: 29ca734b8189dce418cc7986f8f1204e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4793431904919504475, guid: 29ca734b8189dce418cc7986f8f1204e,
         type: 3}
       propertyPath: m_LocalPosition.x
