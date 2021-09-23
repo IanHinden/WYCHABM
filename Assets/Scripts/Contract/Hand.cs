@@ -69,6 +69,7 @@ public class Hand : MonoBehaviour
         }
         else
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         }
     }

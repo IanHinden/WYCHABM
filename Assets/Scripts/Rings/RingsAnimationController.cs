@@ -19,7 +19,6 @@ public class RingsAnimationController : MonoBehaviour
     void FixedUpdate()
     {
         timePassed += Time.deltaTime;
-        Debug.Log(timePassed);
 
         if(timePassed > 1f && timePassed < 2f)
         {

@@ -158,6 +158,7 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls.Disable();
         if (moved)
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         }
         else

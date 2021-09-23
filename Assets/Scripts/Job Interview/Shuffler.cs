@@ -9,6 +9,7 @@ public class Shuffler : MonoBehaviour
 
     private SwitchCards switchCards;
 
+    ThreeSecondsLeft threeSecondsLeft;
     SuccessOrFail successOrFail;
 
     private float timeToPress = 0f;
@@ -23,6 +24,7 @@ public class Shuffler : MonoBehaviour
         switchCards.Selecting.Select.performed += x => Select();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
     }
 
     private void OnEnable()
@@ -90,6 +92,7 @@ public class Shuffler : MonoBehaviour
         switchCards.Disable();
         if(selected == 0)
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         } else
         {

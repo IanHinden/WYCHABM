@@ -10,6 +10,8 @@ public class RingsGameplay : MonoBehaviour
     Animator ringoneanim;
     Animator ringtwoanim;
 
+    ThreeSecondsLeft threeSecondsLeft;
+
     void Awake()
     {
         remove = new Remove();
@@ -17,6 +19,8 @@ public class RingsGameplay : MonoBehaviour
 
         ringoneanim = FindObjectOfType<Ring>().GetComponent<Animator>();
         ringtwoanim = FindObjectOfType<RingTwo>().GetComponent<Animator>();
+
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
     }
 
     private void OnEnable()
@@ -66,6 +70,7 @@ public class RingsGameplay : MonoBehaviour
         if (clicked == 19)
         {
             ringtwoanim.SetTrigger("Fourth");
+            threeSecondsLeft.DisplayScoreCard();
         }
     }
 }

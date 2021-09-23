@@ -41,6 +41,7 @@ public class StabCheck : MonoBehaviour
     {
         if (stabbed)
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         }
         else

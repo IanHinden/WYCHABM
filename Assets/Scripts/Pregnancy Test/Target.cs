@@ -5,20 +5,26 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     float score = 0;
-    // Start is called before the first frame update
-    void Start()
+
+    ThreeSecondsLeft threeSecondsLeft;
+
+    void Awake()
     {
-        
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(score == 50)
+        {
+            threeSecondsLeft.DisplayScoreCard();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         score++;
+        Debug.Log(score);
     }
 }

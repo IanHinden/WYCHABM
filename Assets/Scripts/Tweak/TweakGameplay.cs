@@ -22,6 +22,7 @@ public class TweakGameplay : MonoBehaviour
     private MeshRenderer tenKHundredMesh;
 
     SuccessOrFail successOrFail;
+    ThreeSecondsLeft threeSecondsLeft;
 
     private float currentlySelected = 0;
     private float state = 0;
@@ -45,6 +46,7 @@ public class TweakGameplay : MonoBehaviour
         tenKHundredMesh = tenKHundred.GetComponent<MeshRenderer>();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         tweakControls = new TweakControls();
         tweakControls.Move.UpArrow.performed += x => upMove();
@@ -140,6 +142,7 @@ public class TweakGameplay : MonoBehaviour
         if (state == 7)
         {
             state++;
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
             RotateRight();
         }

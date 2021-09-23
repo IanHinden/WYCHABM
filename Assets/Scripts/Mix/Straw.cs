@@ -89,6 +89,7 @@ public class Straw : MonoBehaviour
 
     private void win()
     {
+        threeSecondsLeft.DisplayScoreCard();
         gameOver = true;
         StartCoroutine(ColorChanges());
 

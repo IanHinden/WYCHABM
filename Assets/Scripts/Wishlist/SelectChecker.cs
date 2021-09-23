@@ -114,6 +114,7 @@ public class SelectChecker : MonoBehaviour
     {
         if (activeArrow == 2)
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
             select.Disable();
 

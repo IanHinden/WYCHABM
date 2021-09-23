@@ -17,6 +17,8 @@ public class MenschGameplay : MonoBehaviour
     ToolkitButton toolKitButton;
     ShareButton shareButton;
 
+    ThreeSecondsLeft threeSecondsLeft;
+
     BoxCollider2D fingerTipUnTap;
     BoxCollider2D toolKitButtonCol;
     BoxCollider2D shareButtonCol;
@@ -42,6 +44,8 @@ public class MenschGameplay : MonoBehaviour
         shareButton = FindObjectOfType<ShareButton>();
         shareButtonCol = shareButton.GetComponent<BoxCollider2D>();
 
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
         StartCoroutine(ScreenFade());
@@ -65,6 +69,7 @@ public class MenschGameplay : MonoBehaviour
 
             if (shareButton.ButtonPress() == true)
             {
+                threeSecondsLeft.DisplayScoreCard();
                 Debug.Log("Win animation");
             }
 
