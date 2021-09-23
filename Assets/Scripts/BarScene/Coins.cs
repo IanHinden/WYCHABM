@@ -46,6 +46,7 @@ public class Coins : MonoBehaviour
         int remainingCoins = GetRemainingCoins();
         if(remainingCoins == 0)
         {
+            threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         } else
         {

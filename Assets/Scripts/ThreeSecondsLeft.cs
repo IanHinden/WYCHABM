@@ -9,8 +9,13 @@ using System;
 public class ThreeSecondsLeft : MonoBehaviour
 {
     private TextMeshProUGUI textmesh;
+    private Animator scoreCardAnim;
+    private TextMeshProUGUI scoreCardTextMesh;
+
     private float BPM = 85f;
     private float measureMS;
+
+    private float score = 0;
 
     void Awake()
     {
@@ -21,6 +26,9 @@ public class ThreeSecondsLeft : MonoBehaviour
         {
             textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
+
+        scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<Animator>();
+        scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -63,6 +71,20 @@ public class ThreeSecondsLeft : MonoBehaviour
             yield return new WaitForSeconds(measureMS);
             textmesh.text = "0";
         }
+    }
+
+    public void DisplayScoreCard()
+    {
+        score++;
+        scoreCardTextMesh.text = score.ToString();
+        scoreCardAnim.SetTrigger("Enter");
+        StartCoroutine(HideScoreCard());
+    }
+
+    IEnumerator HideScoreCard()
+    {
+        yield return new WaitForSeconds(2);
+        scoreCardAnim.SetTrigger("Exit");
     }
     void OnDisable()
     {
