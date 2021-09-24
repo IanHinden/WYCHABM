@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StabCheck : MonoBehaviour
 {
-    SuccessOrFail successOrFail;
+    //SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
     public GameObject oedipalBonus;
 
@@ -13,8 +13,8 @@ public class StabCheck : MonoBehaviour
 
     private void Awake()
     {
-        successOrFail = gameObject.AddComponent<SuccessOrFail>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        //successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         StartCoroutine(WinOrLose());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,12 +26,14 @@ public class StabCheck : MonoBehaviour
             Instantiate(oedipalBonus, textPos, Quaternion.identity);
             oedipal = true;
         }
-        stabbed = true;
+        threeSecondsLeft.WinDisplay();
     }
 
     IEnumerator WinOrLose()
     {
         float timeToEnd = threeSecondsLeft.ReturnTimeToEnd() + 2 * threeSecondsLeft.ReturnSingleMeasure();
+
+        Debug.Log(timeToEnd);
 
         yield return new WaitForSeconds(timeToEnd);
         DetermineWinOrLoss();
@@ -39,14 +41,6 @@ public class StabCheck : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (stabbed)
-        {
-            threeSecondsLeft.DisplayScoreCard();
-            successOrFail.WinDisplay();
-        }
-        else
-        {
-            successOrFail.LoseDisplay();
-        }
+        threeSecondsLeft.LoseDisplay();
     }
 }
