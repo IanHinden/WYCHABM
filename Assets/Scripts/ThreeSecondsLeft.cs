@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 
@@ -17,6 +18,9 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     private float score = 0;
 
+    private Image greenCircleImage;
+    private Image redXImage;
+
     void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -29,11 +33,16 @@ public class ThreeSecondsLeft : MonoBehaviour
 
         scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<Animator>();
         scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
+        redXImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<Image>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         textmesh.text = "";
+        greenCircleImage.enabled = false;
+        redXImage.enabled = false;
     }
 
     public float ReturnBPM()
@@ -89,5 +98,15 @@ public class ThreeSecondsLeft : MonoBehaviour
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void WinDisplay()
+    {
+        greenCircleImage.enabled = true;
+    }
+
+    public void LoseDisplay()
+    {
+        redXImage.enabled = true;
     }
 }

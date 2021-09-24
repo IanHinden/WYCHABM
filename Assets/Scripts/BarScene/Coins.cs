@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
 
     // Start is called before the first frame update
     void Awake()
     {
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        successOrFail = gameObject.AddComponent<SuccessOrFail>();
 
         StartCoroutine(WinOrLose());
     }
@@ -28,7 +26,7 @@ public class Coins : MonoBehaviour
         int remainingCoins = GetRemainingCoins();
         if(remainingCoins == 0)
         {
-            successOrFail.WinDisplay();
+            threeSecondsLeft.WinDisplay();
         }
     }
 
@@ -47,10 +45,10 @@ public class Coins : MonoBehaviour
         if(remainingCoins == 0)
         {
             threeSecondsLeft.DisplayScoreCard();
-            successOrFail.WinDisplay();
+            threeSecondsLeft.WinDisplay();
         } else
         {
-            successOrFail.LoseDisplay();
+            threeSecondsLeft.LoseDisplay();
         }
     }
 }

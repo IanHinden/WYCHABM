@@ -1263,6 +1263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinAndLossIcons
       objectReference: {fileID: 0}
+    - target: {fileID: 907010777509612543, guid: 0422dee165d2540479d56bbb68135d36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 907010778705717698, guid: 0422dee165d2540479d56bbb68135d36,
         type: 3}
       propertyPath: m_Enabled
