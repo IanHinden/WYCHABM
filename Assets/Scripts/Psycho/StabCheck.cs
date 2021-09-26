@@ -26,6 +26,7 @@ public class StabCheck : MonoBehaviour
             Instantiate(oedipalBonus, textPos, Quaternion.identity);
             oedipal = true;
         }
+        stabbed = true;
         threeSecondsLeft.WinDisplay();
     }
 
@@ -33,14 +34,15 @@ public class StabCheck : MonoBehaviour
     {
         float timeToEnd = threeSecondsLeft.ReturnTimeToEnd() + 2 * threeSecondsLeft.ReturnSingleMeasure();
 
-        Debug.Log(timeToEnd);
-
         yield return new WaitForSeconds(3f);
         DetermineWinOrLoss();
     }
 
     private void DetermineWinOrLoss()
     {
-        threeSecondsLeft.LoseDisplay();
+        if (stabbed == false)
+        {
+            threeSecondsLeft.LoseDisplay();
+        }
     }
 }

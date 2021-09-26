@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    float score = 0;
+    float pregnancyScore = 0;
+    bool full = false;
 
     ThreeSecondsLeft threeSecondsLeft;
 
@@ -16,15 +17,16 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score == 50)
+        if(pregnancyScore == 50 && full == false)
         {
+            full = true;
             threeSecondsLeft.DisplayScoreCard();
+            threeSecondsLeft.WinDisplay();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        score++;
-        Debug.Log(score);
+        pregnancyScore++;
     }
 }
