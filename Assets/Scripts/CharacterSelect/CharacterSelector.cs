@@ -28,8 +28,13 @@ public class CharacterSelector : MonoBehaviour
     Character[] characters;
     private void Awake()
     {
-        characters = FindObjectsOfType<Character>();
         characterSelectControls = new CharacterSelectControls();
+        characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
+        characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
+        characterSelectControls.CharacterSelect.Select.performed += x => select();
+
+        characters = FindObjectsOfType<Character>();
+        
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -39,10 +44,6 @@ public class CharacterSelector : MonoBehaviour
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
-
-        characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
-        characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
-        characterSelectControls.CharacterSelect.Select.performed += x => select();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());

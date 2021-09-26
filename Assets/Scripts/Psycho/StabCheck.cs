@@ -6,6 +6,7 @@ public class StabCheck : MonoBehaviour
 {
     //SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
     public GameObject oedipalBonus;
 
     bool stabbed = false;
@@ -15,6 +16,7 @@ public class StabCheck : MonoBehaviour
     {
         //successOrFail = gameObject.AddComponent<SuccessOrFail>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        sceneSwitch = FindObjectOfType<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,9 +34,9 @@ public class StabCheck : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float timeToEnd = threeSecondsLeft.ReturnTimeToEnd() + 2 * threeSecondsLeft.ReturnSingleMeasure();
+        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
 
