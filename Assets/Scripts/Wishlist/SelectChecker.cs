@@ -16,7 +16,7 @@ public class SelectChecker : MonoBehaviour
     void Awake()
     {
         select = new Select();
-        successOrFail = gameObject.AddComponent<SuccessOrFail>();
+        //successOrFail = gameObject.AddComponent<SuccessOrFail>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         select.Selecting.DownSelect.performed += x => setNextActiveArrow();
@@ -47,12 +47,13 @@ public class SelectChecker : MonoBehaviour
     {
         if(activeArrow == 2)
         {
-            successOrFail.WinDisplay();
+            threeSecondsLeft.DisplayScoreCard();
+            threeSecondsLeft.WinDisplay();
             select.Disable();
             
         } else
         {
-            successOrFail.LoseDisplay();
+            threeSecondsLeft.LoseDisplay();
             select.Disable();
         }
     }
@@ -115,13 +116,13 @@ public class SelectChecker : MonoBehaviour
         if (activeArrow == 2)
         {
             threeSecondsLeft.DisplayScoreCard();
-            successOrFail.WinDisplay();
+            threeSecondsLeft.WinDisplay();
             select.Disable();
 
         }
         else
         {
-            successOrFail.LoseDisplay();
+            threeSecondsLeft.LoseDisplay();
             select.Disable();
         }
     }

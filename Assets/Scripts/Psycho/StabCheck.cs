@@ -35,7 +35,7 @@ public class StabCheck : MonoBehaviour
 
         Debug.Log(timeToEnd);
 
-        yield return new WaitForSeconds(timeToEnd);
+        yield return new WaitForSeconds(3f);
         DetermineWinOrLoss();
     }
 
