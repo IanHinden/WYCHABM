@@ -20,8 +20,8 @@ public class CharacterSelector : MonoBehaviour
 
     private bool unlocked = false;
     private bool moved = false;
+    private bool won = false;
 
-    private int selectedJob;
     private int consecutiveLeftClicks = 0;
     private int selectedGirl = 0;
 
@@ -61,6 +61,7 @@ public class CharacterSelector : MonoBehaviour
 
     private void leftSelect()
     {
+        moved = true;
         if (unlocked == false)
         {
             SelectOF();
@@ -82,6 +83,7 @@ public class CharacterSelector : MonoBehaviour
 
     private void rightSelect()
     {
+        moved = true;
         if (unlocked == false)
         {
             SelectHomeless();
@@ -103,8 +105,13 @@ public class CharacterSelector : MonoBehaviour
 
     private void select()
     {
-        moved = true;
-        characterSelectControls.Disable();
+        if (moved)
+        {
+            won = true;
+            threeSecondsLeft.DisplayScoreCard();
+            threeSecondsLeft.WinDisplay();
+            characterSelectControls.Disable();
+        }
     }
 
     private void leftCheck()
@@ -156,15 +163,18 @@ public class CharacterSelector : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        characterSelectControls.Disable();
-        if (moved)
+        if (won == false)
         {
-            threeSecondsLeft.DisplayScoreCard();
-            successOrFail.WinDisplay();
-        }
-        else
-        {
-            successOrFail.LoseDisplay();
+            characterSelectControls.Disable();
+            if (moved)
+            {
+                threeSecondsLeft.DisplayScoreCard();
+                successOrFail.WinDisplay();
+            }
+            else
+            {
+                successOrFail.LoseDisplay();
+            }
         }
     }
 }
