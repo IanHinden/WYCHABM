@@ -21,7 +21,6 @@ public class Coins : MonoBehaviour
         return remainingCoins;
     }
 
-    // Update is called once per frame
     void Update()
     {
         int remainingCoins = GetRemainingCoins();
