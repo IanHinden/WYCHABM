@@ -5,11 +5,12 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     ThreeSecondsLeft threeSecondsLeft;
+    PlayerController playerController;
 
-    // Start is called before the first frame update
     void Awake()
     {
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        playerController = FindObjectOfType<PlayerController>();
 
         StartCoroutine(WinOrLose());
     }
@@ -26,7 +27,9 @@ public class Coins : MonoBehaviour
         int remainingCoins = GetRemainingCoins();
         if(remainingCoins == 0)
         {
+            playerController.OnDisable();
             threeSecondsLeft.WinDisplay();
+
         }
     }
 
@@ -49,6 +52,7 @@ public class Coins : MonoBehaviour
         } else
         {
             threeSecondsLeft.LoseDisplay();
+            playerController.OnDisable();
         }
     }
 }

@@ -22,14 +22,9 @@ public class PlayerController : MonoBehaviour
         playerActionControls.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         playerActionControls.Disable();
-    }
-
-    void Start()
-    {
-        
     }
 
     void FixedUpdate()
