@@ -69,8 +69,9 @@ public class MenschGameplay : MonoBehaviour
 
             if (shareButton.ButtonPress() == true)
             {
+                fingerControls.Disable();
                 threeSecondsLeft.DisplayScoreCard();
-                Debug.Log("Win animation");
+                threeSecondsLeft.WinDisplay();
             }
 
             float countdown = .05f;
