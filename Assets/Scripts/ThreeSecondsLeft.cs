@@ -99,15 +99,16 @@ public class ThreeSecondsLeft : MonoBehaviour
         scoreCardAnim.SetTrigger("Exit");
     }
 
-    public void DisplayBonusScoreCard()
+    public void DisplayBonusScoreCard(Animator anim)
     {
+        anim.SetTrigger("FadeIn");
         bonusScoreCardAnim.SetTrigger("Enter");
         StartCoroutine(HideBonusScoreCard());
     }
 
     IEnumerator HideBonusScoreCard()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         bonusScoreCardAnim.SetTrigger("Exit");
     }
 
