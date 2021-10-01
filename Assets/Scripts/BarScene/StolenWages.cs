@@ -16,6 +16,7 @@ public class StolenWages : MonoBehaviour
     {
         Destroy(gameObject);
         threeSecondsLeft.WinDisplay();
+        threeSecondsLeft.DisplayBonusScoreCard();
         playerController.OnDisable();
     }
 }

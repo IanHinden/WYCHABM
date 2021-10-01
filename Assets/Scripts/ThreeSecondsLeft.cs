@@ -11,6 +11,7 @@ public class ThreeSecondsLeft : MonoBehaviour
 {
     private TextMeshProUGUI textmesh;
     private Animator scoreCardAnim;
+    private Animator bonusScoreCardAnim;
     private TextMeshProUGUI scoreCardTextMesh;
 
     private float BPM = 85f;
@@ -33,6 +34,8 @@ public class ThreeSecondsLeft : MonoBehaviour
 
         scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<Animator>();
         scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        bonusScoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(3).GetComponent<Animator>();
 
         greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
         redXImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<Image>();
@@ -95,6 +98,19 @@ public class ThreeSecondsLeft : MonoBehaviour
         yield return new WaitForSeconds(2);
         scoreCardAnim.SetTrigger("Exit");
     }
+
+    public void DisplayBonusScoreCard()
+    {
+        bonusScoreCardAnim.SetTrigger("Enter");
+        StartCoroutine(HideBonusScoreCard());
+    }
+
+    IEnumerator HideBonusScoreCard()
+    {
+        yield return new WaitForSeconds(2);
+        bonusScoreCardAnim.SetTrigger("Exit");
+    }
+
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
