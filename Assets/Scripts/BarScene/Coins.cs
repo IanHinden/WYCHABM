@@ -6,11 +6,20 @@ public class Coins : MonoBehaviour
 {
     ThreeSecondsLeft threeSecondsLeft;
     PlayerController playerController;
+    StolenWages stolenWages;
+    Animator starAnim;
+
+    int remainingCoins;
+    bool stolenWagesRecovered = false;
+
+    private bool levelComplete = false;
 
     void Awake()
     {
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         playerController = FindObjectOfType<PlayerController>();
+        stolenWages = FindObjectOfType<StolenWages>();
+        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
 
         StartCoroutine(WinOrLose());
     }
@@ -21,14 +30,25 @@ public class Coins : MonoBehaviour
         return remainingCoins;
     }
 
+    //TODO: Change this from Update pattern to Event pattern
     void Update()
     {
-        int remainingCoins = GetRemainingCoins();
+        remainingCoins = GetRemainingCoins();
+        stolenWagesRecovered = stolenWages.IsCollected();
+
         if(remainingCoins == 0)
         {
+            levelComplete = true;
             playerController.OnDisable();
             threeSecondsLeft.WinDisplay();
+        }
 
+        if(stolenWagesRecovered == true)
+        {
+            levelComplete = true;
+            threeSecondsLeft.WinDisplay();
+            threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+            playerController.OnDisable();
         }
     }
 
@@ -38,7 +58,10 @@ public class Coins : MonoBehaviour
 
         yield return new WaitForSeconds(timeToEnd);
 
-        DetermineWinOrLoss();
+        if (levelComplete == false)
+        {
+            DetermineWinOrLoss();
+        }
     }
 
     private void DetermineWinOrLoss()
