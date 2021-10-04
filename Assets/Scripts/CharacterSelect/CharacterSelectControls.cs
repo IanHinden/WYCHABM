@@ -19,14 +19,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
             ""id"": ""b1fca8d1-027b-434e-8105-c63f969e2965"",
             ""actions"": [
                 {
-                    ""name"": ""Selection"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""6931e789-167d-42b5-9e76-0a770f8a4887"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""LeftSelect"",
                     ""type"": ""PassThrough"",
                     ""id"": ""f1649822-c70c-41fa-a669-a45fbedc7b76"",
@@ -52,39 +44,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""ade107fc-8369-40b9-afc9-de00d5b75d5f"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Selection"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3dce94cc-5fec-4551-abfc-168ec0760de8"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Selection"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""315f4f26-1bcc-4cde-9cdb-ba14417152f8"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Selection"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""13d70685-3417-4358-95f7-4abd31eab6b3"",
@@ -125,7 +84,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
 }");
         // CharacterSelect
         m_CharacterSelect = asset.FindActionMap("CharacterSelect", throwIfNotFound: true);
-        m_CharacterSelect_Selection = m_CharacterSelect.FindAction("Selection", throwIfNotFound: true);
         m_CharacterSelect_LeftSelect = m_CharacterSelect.FindAction("LeftSelect", throwIfNotFound: true);
         m_CharacterSelect_RightSelect = m_CharacterSelect.FindAction("RightSelect", throwIfNotFound: true);
         m_CharacterSelect_Select = m_CharacterSelect.FindAction("Select", throwIfNotFound: true);
@@ -178,7 +136,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
     // CharacterSelect
     private readonly InputActionMap m_CharacterSelect;
     private ICharacterSelectActions m_CharacterSelectActionsCallbackInterface;
-    private readonly InputAction m_CharacterSelect_Selection;
     private readonly InputAction m_CharacterSelect_LeftSelect;
     private readonly InputAction m_CharacterSelect_RightSelect;
     private readonly InputAction m_CharacterSelect_Select;
@@ -186,7 +143,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
     {
         private @CharacterSelectControls m_Wrapper;
         public CharacterSelectActions(@CharacterSelectControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Selection => m_Wrapper.m_CharacterSelect_Selection;
         public InputAction @LeftSelect => m_Wrapper.m_CharacterSelect_LeftSelect;
         public InputAction @RightSelect => m_Wrapper.m_CharacterSelect_RightSelect;
         public InputAction @Select => m_Wrapper.m_CharacterSelect_Select;
@@ -199,9 +155,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_CharacterSelectActionsCallbackInterface != null)
             {
-                @Selection.started -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnSelection;
-                @Selection.performed -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnSelection;
-                @Selection.canceled -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnSelection;
                 @LeftSelect.started -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnLeftSelect;
                 @LeftSelect.performed -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnLeftSelect;
                 @LeftSelect.canceled -= m_Wrapper.m_CharacterSelectActionsCallbackInterface.OnLeftSelect;
@@ -215,9 +168,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
             m_Wrapper.m_CharacterSelectActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Selection.started += instance.OnSelection;
-                @Selection.performed += instance.OnSelection;
-                @Selection.canceled += instance.OnSelection;
                 @LeftSelect.started += instance.OnLeftSelect;
                 @LeftSelect.performed += instance.OnLeftSelect;
                 @LeftSelect.canceled += instance.OnLeftSelect;
@@ -233,7 +183,6 @@ public class @CharacterSelectControls : IInputActionCollection, IDisposable
     public CharacterSelectActions @CharacterSelect => new CharacterSelectActions(this);
     public interface ICharacterSelectActions
     {
-        void OnSelection(InputAction.CallbackContext context);
         void OnLeftSelect(InputAction.CallbackContext context);
         void OnRightSelect(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
