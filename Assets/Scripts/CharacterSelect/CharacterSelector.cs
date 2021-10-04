@@ -15,6 +15,7 @@ public class CharacterSelector : MonoBehaviour
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
     Animator CongressAnim;
+    Animator starAnim;
 
     SuccessOrFail successOrFail;
 
@@ -44,6 +45,8 @@ public class CharacterSelector : MonoBehaviour
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
+
+        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
         successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
@@ -105,12 +108,18 @@ public class CharacterSelector : MonoBehaviour
 
     private void select()
     {
-        if (moved)
+        Debug.Log(unlocked);
+        if (moved == true)
         {
             won = true;
             threeSecondsLeft.DisplayScoreCard();
             threeSecondsLeft.WinDisplay();
             characterSelectControls.Disable();
+        }
+
+        if(unlocked == true)
+        {
+            threeSecondsLeft.DisplayBonusScoreCard(starAnim);
         }
     }
 
@@ -122,7 +131,7 @@ public class CharacterSelector : MonoBehaviour
             HomelessGirlAnim.SetTrigger("First");
         }
 
-        if(consecutiveLeftClicks == 8)
+        if(consecutiveLeftClicks == 6)
         {
             OFGirlAnim.SetTrigger("Second");
             HomelessGirlAnim.SetTrigger("Second");
@@ -166,7 +175,11 @@ public class CharacterSelector : MonoBehaviour
         if (won == false)
         {
             characterSelectControls.Disable();
-            if (moved)
+            if (unlocked)
+            {
+                threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+            }
+            else if (moved)
             {
                 threeSecondsLeft.DisplayScoreCard();
                 successOrFail.WinDisplay();

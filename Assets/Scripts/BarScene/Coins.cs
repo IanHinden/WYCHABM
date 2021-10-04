@@ -36,14 +36,15 @@ public class Coins : MonoBehaviour
         remainingCoins = GetRemainingCoins();
         stolenWagesRecovered = stolenWages.IsCollected();
 
-        if(remainingCoins == 0)
+        if(remainingCoins == 0 && levelComplete == false)
         {
             levelComplete = true;
-            playerController.OnDisable();
+            threeSecondsLeft.DisplayScoreCard();
             threeSecondsLeft.WinDisplay();
+            playerController.OnDisable();
         }
 
-        if(stolenWagesRecovered == true)
+        if(stolenWagesRecovered == true && levelComplete == false)
         {
             levelComplete = true;
             threeSecondsLeft.WinDisplay();
