@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EvolvingSceneController : MonoBehaviour
 {
-
+    ThreeSecondsLeft threeSecondsLeft;
     EvolvingText evolvingText;
     StopEvolving stopEvolving;
+
+    Animator starAnim;
 
     public GameObject BadBoy;
     SpriteRenderer badBoySR;
@@ -20,6 +22,9 @@ public class EvolvingSceneController : MonoBehaviour
         evolvingText = FindObjectOfType<EvolvingText>();
         stopEvolving = new StopEvolving();
         badBoySR = BadBoy.GetComponent<SpriteRenderer>();
+
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
 
         stopEvolving.Stop.StopEvolve.performed += x => StopEvolution();
         evolving = evolvingText.SetEvolvingDialogue();
@@ -36,6 +41,7 @@ public class EvolvingSceneController : MonoBehaviour
         StopCoroutine(blinking);
         badBoySR.enabled = true;
         StartCoroutine(stopped);
+        threeSecondsLeft.DisplayBonusScoreCard(starAnim);
     }
 
     private IEnumerator Blinking()
