@@ -10,8 +10,6 @@ public class CarController : MonoBehaviour
     private Rigidbody2D myRigidBody;
     private Driving driving;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -28,7 +26,6 @@ public class CarController : MonoBehaviour
         driving.Disable();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         timeSinceStart += Time.deltaTime;
