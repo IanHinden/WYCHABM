@@ -7,13 +7,19 @@ public class CarController : MonoBehaviour
     public float speed;
     public float timeSinceStart;
 
-    private Rigidbody2D myRigidBody;
     private Driving driving;
+
+    ThreeSecondsLeft threeSecondsLeft;
+    SceneSwitch sceneSwitch;
+
+    bool lost = false;
 
     void Awake()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        sceneSwitch = FindObjectOfType<SceneSwitch>();
         driving = new Driving();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -36,6 +42,29 @@ public class CarController : MonoBehaviour
         {
             currentPosition += selectInput * speed * Time.deltaTime;
             transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        lost = true;
+        driving.Disable();
+        collision.transform.GetComponent<Animator>().enabled = false;
+        threeSecondsLeft.LoseDisplay();
+    }
+
+    IEnumerator WinOrLose()
+    {
+        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
+        yield return new WaitForSeconds(deadline);
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (lost == false)
+        {
+            threeSecondsLeft.WinDisplay();
         }
     }
 }
