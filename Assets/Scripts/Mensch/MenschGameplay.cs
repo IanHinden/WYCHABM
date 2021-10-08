@@ -19,14 +19,18 @@ public class MenschGameplay : MonoBehaviour
 
     ThreeSecondsLeft threeSecondsLeft;
 
-    BoxCollider2D fingerTipUnTap;
-    BoxCollider2D toolKitButtonCol;
-    BoxCollider2D shareButtonCol;
+    //BoxCollider2D fingerTipUnTap;
+    //BoxCollider2D toolKitButtonCol;
+    //BoxCollider2D shareButtonCol;
+
+    private float timeToLeave = 3f;
 
     private float speed = 5f;
     private bool pressing = false;
     void Awake()
     {
+        CreepyDriver.TestThing += CoolFunc;
+
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
         tapping = FindObjectOfType<Tapping>();
 
@@ -36,19 +40,24 @@ public class MenschGameplay : MonoBehaviour
         tapperSR = tapper.GetComponent<SpriteRenderer>();
         tappedSR = tapped.GetComponent<SpriteRenderer>();
 
-        fingerTipUnTap = tapping.GetComponent<BoxCollider2D>();
+        //fingerTipUnTap = tapping.GetComponent<BoxCollider2D>();
 
         toolKitButton = FindObjectOfType<ToolkitButton>();
-        toolKitButtonCol = toolKitButton.GetComponent<BoxCollider2D>();
+        //toolKitButtonCol = toolKitButton.GetComponent<BoxCollider2D>();
 
         shareButton = FindObjectOfType<ShareButton>();
-        shareButtonCol = shareButton.GetComponent<BoxCollider2D>();
+        //shareButtonCol = shareButton.GetComponent<BoxCollider2D>();
 
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
         StartCoroutine(ScreenFade());
+    }
+
+    private void CoolFunc(int amount)
+    {
+        Debug.Log(amount);
     }
 
     private void StartPress()
@@ -112,13 +121,19 @@ public class MenschGameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeToLeave -= Time.deltaTime;
+
         movementInput = fingerControls.Move.Directions.ReadValue<Vector2>();
 
         Vector3 currentPosition = tapping.transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        currentPosition.x = Mathf.Clamp(currentPosition.x, -1.45f, 1.70f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -6f, 0f);
+
+        if (timeToLeave > 0)
+        {
+            currentPosition.x = Mathf.Clamp(currentPosition.x, -1.45f, 1.70f);
+            currentPosition.y = Mathf.Clamp(currentPosition.y, -6f, 0f);
+        }
 
         tapping.transform.position = currentPosition;
     }
