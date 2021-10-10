@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CreepyDriver : MonoBehaviour
 {
-    public static event Action<int> TestThing = delegate { };
+    public static event Action<int> BonusWin = delegate { };
 
     // Update is called once per frame
     void Update()
@@ -15,6 +15,6 @@ public class CreepyDriver : MonoBehaviour
 
     private void OnTriggerEnter2D()
     {
-        TestThing(4);
+        BonusWin(4);
     }
 }

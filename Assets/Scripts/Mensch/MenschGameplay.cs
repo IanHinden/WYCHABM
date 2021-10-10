@@ -29,7 +29,7 @@ public class MenschGameplay : MonoBehaviour
     private bool pressing = false;
     void Awake()
     {
-        CreepyDriver.TestThing += CoolFunc;
+        CreepyDriver.BonusWin += CoolFunc;
 
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
         tapping = FindObjectOfType<Tapping>();
