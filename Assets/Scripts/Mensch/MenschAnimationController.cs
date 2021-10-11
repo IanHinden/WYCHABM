@@ -9,6 +9,14 @@ public class MenschAnimationController : MonoBehaviour
     Animator menschTextAnimator;
     Animator safetyAnimator;
     Animator statusAnimator;
+
+    public GameObject Phone;
+    public GameObject CreepyDriver;
+    public GameObject Fist;
+
+    Animator phoneDown;
+    Animator punched;
+    Animator punch;
     void Awake()
     {
         blackScreenAnimator = FindObjectOfType<BlackScreen>().GetComponent<Animator>();
@@ -16,6 +24,10 @@ public class MenschAnimationController : MonoBehaviour
         menschTextAnimator = FindObjectOfType<MenschText>().GetComponent<Animator>();
         safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
         statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
+
+        phoneDown = Phone.GetComponent<Animator>();
+        punched = CreepyDriver.GetComponent<Animator>();
+        punch = Fist.GetComponent<Animator>();
     }
 
     public void ScreenFade()
@@ -45,5 +57,12 @@ public class MenschAnimationController : MonoBehaviour
     public void StatusExit()
     {
         statusAnimator.SetTrigger("Exit");
+    }
+
+    public void BonusAnimations()
+    {
+        phoneDown.SetTrigger("PhoneDown");
+        punched.SetTrigger("Punched");
+        punch.SetTrigger("Punch");
     }
 }

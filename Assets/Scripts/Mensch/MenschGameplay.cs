@@ -19,10 +19,6 @@ public class MenschGameplay : MonoBehaviour
 
     ThreeSecondsLeft threeSecondsLeft;
 
-    //BoxCollider2D fingerTipUnTap;
-    //BoxCollider2D toolKitButtonCol;
-    //BoxCollider2D shareButtonCol;
-
     private float timeToLeave = 3f;
 
     private float speed = 5f;
@@ -40,13 +36,9 @@ public class MenschGameplay : MonoBehaviour
         tapperSR = tapper.GetComponent<SpriteRenderer>();
         tappedSR = tapped.GetComponent<SpriteRenderer>();
 
-        //fingerTipUnTap = tapping.GetComponent<BoxCollider2D>();
-
         toolKitButton = FindObjectOfType<ToolkitButton>();
-        //toolKitButtonCol = toolKitButton.GetComponent<BoxCollider2D>();
 
         shareButton = FindObjectOfType<ShareButton>();
-        //shareButtonCol = shareButton.GetComponent<BoxCollider2D>();
 
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
@@ -57,7 +49,7 @@ public class MenschGameplay : MonoBehaviour
 
     private void CoolFunc(int amount)
     {
-        Debug.Log(amount);
+        menschAnimationController.BonusAnimations();
     }
 
     private void StartPress()
