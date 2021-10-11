@@ -19,6 +19,8 @@ public class MenschGameplay : MonoBehaviour
 
     ThreeSecondsLeft threeSecondsLeft;
 
+    Animator starAnim;
+
     private float timeToLeave = 3f;
 
     private float speed = 5f;
@@ -41,6 +43,8 @@ public class MenschGameplay : MonoBehaviour
         shareButton = FindObjectOfType<ShareButton>();
 
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
+
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
@@ -50,6 +54,7 @@ public class MenschGameplay : MonoBehaviour
     private void CoolFunc(int amount)
     {
         menschAnimationController.BonusAnimations();
+        threeSecondsLeft.DisplayBonusScoreCard(starAnim);
     }
 
     private void StartPress()
