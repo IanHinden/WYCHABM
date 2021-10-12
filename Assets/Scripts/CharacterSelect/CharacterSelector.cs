@@ -108,7 +108,6 @@ public class CharacterSelector : MonoBehaviour
 
     private void select()
     {
-        Debug.Log(unlocked);
         if (moved == true)
         {
             won = true;
