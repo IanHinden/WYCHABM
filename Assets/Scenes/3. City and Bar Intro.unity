@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: Ugh... I am so ready for this shift to be over.
   ppgdialogue: You better collect your tips quickly...
-  ppgdialoguetwo: ... before the manager "splits" them.
+  ppgdialoguetwo: ... before the manager takes his share.
   dialoguetwo: ... I hate that guy.
 --- !u!1 &170663406
 GameObject:
