@@ -6648,9 +6648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToSwitch: 5.6
-  measures: 0
+  measures: 8
   gameScene: 1
-  measureSwitch: 0
+  measureSwitch: 1
   lastScene: 0
   newTrack: {fileID: 0}
 --- !u!4 &2089512422
