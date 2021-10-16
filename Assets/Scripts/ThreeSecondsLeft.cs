@@ -27,7 +27,6 @@ public class ThreeSecondsLeft : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this);
         measureMS = 60 / BPM;
-        Debug.Log(measureMS);
         if (GameObject.Find("CountdownImages") != null)
         {
             textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
