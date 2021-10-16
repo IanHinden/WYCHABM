@@ -11,18 +11,21 @@ public class SceneSwitch : MonoBehaviour
     [SerializeField] bool measureSwitch;
     [SerializeField] bool lastScene;
 
+    float singleMeasure;
+
     public AudioClip newTrack;
 
     private MusicPlayer theMP;
 
     ThreeSecondsLeft threeSecondsLeft;
 
-    private void Awake()
+    private void Start()
     {
         theMP = FindObjectOfType<MusicPlayer>();
         if (gameScene || measureSwitch)
         {
             threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+            Debug.Log(threeSecondsLeft.ReturnSingleMeasure());
         }
         StartCoroutine(WaitAndSwitch());
     }
@@ -40,8 +43,10 @@ public class SceneSwitch : MonoBehaviour
 
         if (measureSwitch && !gameScene)
         {
-            float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
+            singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
+            Debug.Log(singleMeasure);
             float measureSwitchTime = singleMeasure * measures;
+            Debug.Log(measureSwitchTime);
             yield return new WaitForSeconds(measureSwitchTime);
             LoadNextScene();
         }
