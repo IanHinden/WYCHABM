@@ -6,28 +6,20 @@ using TMPro;
 public class CityBehavior : MonoBehaviour
 {
     [SerializeField] GameObject city;
+    [SerializeField] GameObject ava;
+    [SerializeField] GameObject ppg;
+    [SerializeField] PittiePartyDialogue pittiePartyDialogue;
+    [SerializeField] TextMeshPro bigPittiesText;
 
     Animator avaAnimator;
     Animator ppgAnimator;
-
-    PittiePartyDialogue pittiePartyDialogue;
-
-    TextMeshPro bigPittiesText;
 
     void Awake()
     {
         StartCoroutine(StartAnimations());
 
-        avaAnimator = FindObjectOfType<Ava>().GetComponent<Animator>();
-        ppgAnimator = FindObjectOfType<PittiePartyGirl>().GetComponent<Animator>();
-
-        pittiePartyDialogue = FindObjectOfType<PittiePartyDialogue>();
-        bigPittiesText = FindObjectOfType<BigPittiesText>().GetComponent<TextMeshPro>();
-    }
-
-    void Update()
-    {
-        
+        avaAnimator = ava.GetComponent<Animator>();
+        ppgAnimator = ppg.GetComponent<Animator>();
     }
 
     IEnumerator StartAnimations()

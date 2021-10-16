@@ -34,7 +34,7 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(transform.position.x);
+        //Debug.Log(transform.position.x);
         timeSinceStart += Time.deltaTime;
         float selectInput = driving.Drive.Steer.ReadValue<float>();
         float currentPosition = transform.position.x;
