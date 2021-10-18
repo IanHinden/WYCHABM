@@ -5,7 +5,6 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     public float speed;
-    public float timeSinceStart;
 
     private Driving driving;
 
@@ -13,12 +12,14 @@ public class CarController : MonoBehaviour
     SceneSwitch sceneSwitch;
 
     bool lost = false;
+    bool introOver = false;
 
     void Awake()
     {
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         sceneSwitch = FindObjectOfType<SceneSwitch>();
         driving = new Driving();
+        StartCoroutine(IntroPause());
         StartCoroutine(WinOrLose());
     }
 
@@ -34,12 +35,10 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log(transform.position.x);
-        timeSinceStart += Time.deltaTime;
         float selectInput = driving.Drive.Steer.ReadValue<float>();
         float currentPosition = transform.position.x;
 
-        if (timeSinceStart > 5)
+        if (introOver == true)
         {
             currentPosition += selectInput * speed * Time.deltaTime;
             transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
@@ -59,6 +58,12 @@ public class CarController : MonoBehaviour
         float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
         yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
+    }
+
+    IEnumerator IntroPause()
+    {
+        yield return new WaitForSeconds(5);
+        introOver = true;
     }
 
     private void DetermineWinOrLoss()

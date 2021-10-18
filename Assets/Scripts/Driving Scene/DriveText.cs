@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class DriveText : MonoBehaviour
 {
-    public float timeSinceStart;
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        StartCoroutine(TextTiming());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator TextTiming()
     {
-        timeSinceStart += Time.deltaTime;
-        if (timeSinceStart > 3.5)
-        {
-            ToggleVisibility(true);
-        }
-
-        if (timeSinceStart > 4.5)
-        {
-            ToggleVisibility(false);
-        }
+        yield return new WaitForSeconds(3.5f);
+        ToggleVisibility(true);
+        yield return new WaitForSeconds(1f);
+        ToggleVisibility(false);
     }
 
     public void ToggleVisibility(bool visible)

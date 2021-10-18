@@ -131,7 +131,6 @@ GameObject:
   m_Component:
   - component: {fileID: 46877973}
   - component: {fileID: 46877972}
-  - component: {fileID: 46877974}
   m_Layer: 0
   m_Name: TrafficCone3
   m_TagString: Untagged
@@ -196,32 +195,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46877971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.43, y: 22.96, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0217166, y: -1.2, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &46877974
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46877971}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: caf67f736208ce14789a37ce0b6679e6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &191141508
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191141508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b01b63551a82ddd41bd9b9cab8299344, type: 3}
   m_Name: 
@@ -499,7 +479,14 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.64, y: 75.11, z: 3.1}
   m_LocalScale: {x: 6.6456785, y: 8.081928, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 894578804}
+  - {fileID: 617922571}
+  - {fileID: 46877973}
+  - {fileID: 1340615715}
+  - {fileID: 382091401}
+  - {fileID: 1826171292}
+  - {fileID: 443691645}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -532,7 +519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 382091401}
   - component: {fileID: 382091400}
-  - component: {fileID: 382091402}
   m_Layer: 0
   m_Name: TrafficCone5
   m_TagString: Untagged
@@ -597,32 +583,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382091399}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.25, y: 16.24, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.99463135, y: -4.75, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &382091402
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382091399}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 06d61b6fb683f5a4582cbf3681aa86c2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &443691643
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +600,6 @@ GameObject:
   m_Component:
   - component: {fileID: 443691645}
   - component: {fileID: 443691644}
-  - component: {fileID: 443691646}
   m_Layer: 0
   m_Name: ConstructionAhead
   m_TagString: Untagged
@@ -698,32 +664,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443691643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.86, y: 8.88, z: 1.37}
-  m_LocalScale: {x: 0.35479245, y: 0.35479245, z: 0.35479245}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7854729, y: -8.194827, z: -1.7299999}
+  m_LocalScale: {x: 0.05338694, y: 0.04389948, z: 0.35479245}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &443691646
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443691643}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1bac6fab530167e41b86b2cdef7b39c8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,12 +909,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617922569}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.61, y: 31.11, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0488019, y: 2.32, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &790961391
 PrefabInstance:
@@ -1059,7 +1006,6 @@ GameObject:
   m_Component:
   - component: {fileID: 894578804}
   - component: {fileID: 894578803}
-  - component: {fileID: 894578805}
   m_Layer: 0
   m_Name: TrafficCone
   m_TagString: Untagged
@@ -1124,32 +1070,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894578802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.27, y: 13.3, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.84716713, y: -6.82, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &894578805
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894578802}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cdd8fe6be9cc0c14489f97b37cf287d3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &929359351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  timeSinceStart: 0
 --- !u!212 &1278985307
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1450,12 +1376,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340615713}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.18, y: 27.19, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8336244, y: 0.55, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777784164 stripped
 GameObject:
@@ -1492,7 +1418,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1826171292}
   - component: {fileID: 1826171291}
-  - component: {fileID: 1826171293}
   m_Layer: 0
   m_Name: TrafficCone6
   m_TagString: Untagged
@@ -1557,32 +1482,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826171290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.32, y: 19.97, z: 1.37}
-  m_LocalScale: {x: 0.20492642, y: 0.20492642, z: 0.20492642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.85469085, y: -3.16, z: -1.7299999}
+  m_LocalScale: {x: 0.030836042, y: 0.025356129, z: 0.20492642}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 362777635}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1826171293
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826171290}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f2c2d173cae978a4eb8362fe01b3b02c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1858637554
 GameObject:
   m_ObjectHideFlags: 0
