@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
         driving.Disable();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         float selectInput = driving.Drive.Steer.ReadValue<float>();
         float currentPosition = transform.position.x;

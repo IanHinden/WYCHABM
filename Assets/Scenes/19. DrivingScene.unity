@@ -228,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191141508}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b01b63551a82ddd41bd9b9cab8299344, type: 3}
   m_Name: 
@@ -411,7 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362777635}
   - component: {fileID: 362777634}
-  - component: {fileID: 362777638}
+  - component: {fileID: 362777636}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -490,7 +490,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &362777638
+--- !u!95 &362777636
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ Animator:
   m_GameObject: {fileID: 362777633}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc5958383225bff4785fdac166c1dc31, type: 2}
+  m_Controller: {fileID: 9100000, guid: 79b6a1ab5040e334698d9438aab6b776, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -987,6 +987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyCar2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709013036151241332, guid: cdb1f52beb585d34ebb4b747c31ac296,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4709013036151241333, guid: cdb1f52beb585d34ebb4b747c31ac296,
         type: 3}
@@ -1604,7 +1609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed5e17e2a290aa4a99a2c21ebd36347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSinceStart: 0
 --- !u!1 &2025178211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4709013036151241332, guid: cdb1f52beb585d34ebb4b747c31ac296,
@@ -1874,6 +1878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709013036151241332, guid: cdb1f52beb585d34ebb4b747c31ac296,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4709013036151241333, guid: cdb1f52beb585d34ebb4b747c31ac296,
         type: 3}

@@ -15,7 +15,7 @@ public class Countdown : MonoBehaviour
     void Awake()
     {
         textmesh = GetComponent<TextMeshProUGUI>();
-        threeSecondsLeft = gameObject.AddComponent<ThreeSecondsLeft>();
+        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
         BPM = threeSecondsLeft.ReturnBPM();
     }
