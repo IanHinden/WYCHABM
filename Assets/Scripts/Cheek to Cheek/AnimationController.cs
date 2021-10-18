@@ -4,40 +4,45 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
+    [SerializeField] Heart heart;
     Animator heartAnim;
-    RichmondLips richmondLips;
+
+    [SerializeField] RichmondLips richmondLips;
     Rigidbody2D richmondLipsRB;
+
+    [SerializeField] Missus missus;
     Rigidbody2D missusRB;
 
-    Animator leftHeart;
-    Animator rightHeart;
+    [SerializeField] LeftHeart leftHeart;
+    [SerializeField] RightHeart rightHeart;
+    Animator leftHeartAnim;
+    Animator rightHeartAnim;
 
+    [SerializeField] KissCover kiss;
+    [SerializeField] HitCover hit;
     Animator kissCover;
     Animator hitCover;
 
-    SpankArm spankArm;
-    Animator spankMark;
+    [SerializeField] SpankArm spankArm;
+    [SerializeField] SpankMark spankMark;
+    Animator spankMarkAnim;
 
-    Legs legs;
-    Spotlight spotLight;
+    [SerializeField] Legs legs;
+    [SerializeField] Spotlight spotLight;
 
     private bool kissTriggered = false;
     private bool hitTriggered = false;
 
     void Awake()
     {
-        heartAnim = FindObjectOfType<Heart>().GetComponent<Animator>();
-        richmondLips = FindObjectOfType<RichmondLips>();
+        heartAnim = heart.GetComponent<Animator>();
         richmondLipsRB = richmondLips.GetComponent<Rigidbody2D>();
-        missusRB = FindObjectOfType<Missus>().GetComponent<Rigidbody2D>();
-        spankArm = FindObjectOfType<SpankArm>();
-        legs = FindObjectOfType<Legs>();
-        spotLight = FindObjectOfType<Spotlight>();
-        spankMark = FindObjectOfType<SpankMark>().GetComponent<Animator>();
-        leftHeart = FindObjectOfType<LeftHeart>().GetComponent<Animator>();
-        rightHeart = FindObjectOfType<RightHeart>().GetComponent<Animator>();
-        kissCover = FindObjectOfType<KissCover>().GetComponent<Animator>();
-        hitCover = FindObjectOfType<HitCover>().GetComponent<Animator>();
+        missusRB = missus.GetComponent<Rigidbody2D>();
+        spankMarkAnim = spankMark.GetComponent<Animator>();
+        leftHeartAnim = leftHeart.GetComponent<Animator>();
+        rightHeartAnim = rightHeart.GetComponent<Animator>();
+        kissCover = kiss.GetComponent<Animator>();
+        hitCover = hit.GetComponent<Animator>();
     }
 
     void Update()
@@ -69,8 +74,8 @@ public class AnimationController : MonoBehaviour
         if (kissTriggered == false)
         {
             StartCoroutine(MissMove());
-            leftHeart.SetTrigger("Break");
-            rightHeart.SetTrigger("Break");
+            leftHeartAnim.SetTrigger("Break");
+            rightHeartAnim.SetTrigger("Break");
             kissTriggered = true;
         }
     }
@@ -85,7 +90,7 @@ public class AnimationController : MonoBehaviour
     {
         if(hitTriggered == false){
             spankArm.StartSpank();
-            spankMark.SetTrigger("Spank");
+            spankMarkAnim.SetTrigger("Spank");
             hitTriggered = true;
         }
     }

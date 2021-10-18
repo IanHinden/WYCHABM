@@ -5,7 +5,7 @@ using UnityEngine;
 public class EvolvingSceneController : MonoBehaviour
 {
     ThreeSecondsLeft threeSecondsLeft;
-    EvolvingText evolvingText;
+    [SerializeField] EvolvingText evolvingText;
     StopEvolving stopEvolving;
 
     Animator starAnim;
@@ -19,7 +19,7 @@ public class EvolvingSceneController : MonoBehaviour
     
     void Awake()
     {
-        evolvingText = FindObjectOfType<EvolvingText>();
+        //evolvingText = FindObjectOfType<EvolvingText>();
         stopEvolving = new StopEvolving();
         badBoySR = BadBoy.GetComponent<SpriteRenderer>();
 

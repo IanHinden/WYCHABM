@@ -757,6 +757,16 @@ PrefabInstance:
       propertyPath: TimeToSwitch
       value: 5.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
+        type: 3}
+      propertyPath: measureSwitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
+        type: 3}
+      propertyPath: measures
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61ded347fb57354fa73cb2689b6b2ee, type: 3}
 --- !u!1 &1094053349
@@ -1432,6 +1442,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50c2c01f7b60a84e97b4705b680b23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heart: {fileID: 11209911}
+  richmondLips: {fileID: 395797941}
+  missus: {fileID: 1638089309}
+  leftHeart: {fileID: 1701189598}
+  rightHeart: {fileID: 1003781812}
+  kiss: {fileID: 1122954083}
+  hit: {fileID: 1496807575}
+  spankArm: {fileID: 1336279489}
+  spankMark: {fileID: 208732419}
+  legs: {fileID: 1340557203}
+  spotLight: {fileID: 2107212955}
 --- !u!4 &1450901673
 Transform:
   m_ObjectHideFlags: 0
