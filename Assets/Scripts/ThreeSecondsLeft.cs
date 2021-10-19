@@ -18,6 +18,7 @@ public class ThreeSecondsLeft : MonoBehaviour
     private float measureMS;
 
     private float score = 0;
+    private float bonusScore = 0;
 
     private Image greenCircleImage;
     private Image redXImage;
@@ -63,6 +64,16 @@ public class ThreeSecondsLeft : MonoBehaviour
         return measureMS * 4;
     }
 
+    public float ReturnScore()
+    {
+        return score;
+    }
+
+    public float ReturnBonusScore()
+    {
+        return bonusScore;
+    }
+
     public void StartCountdown()
     {
         StartCoroutine(TriggerCountdownAnimation(BPM));
@@ -101,6 +112,7 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     public void DisplayBonusScoreCard(Animator anim)
     {
+        bonusScore++;
         anim.SetTrigger("FadeIn");
         bonusScoreCardAnim.SetTrigger("Enter");
         StartCoroutine(HideBonusScoreCard());
