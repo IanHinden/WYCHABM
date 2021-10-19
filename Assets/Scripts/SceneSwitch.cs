@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    [SerializeField] float TimeToSwitch;
+    [SerializeField] bool noTimer;
     [SerializeField] float measures;
     [SerializeField] bool gameScene;
     [SerializeField] bool measureSwitch;
@@ -36,40 +36,27 @@ public class SceneSwitch : MonoBehaviour
 
     IEnumerator WaitAndSwitch()
     {
-        if(TimeToSwitch == 0) { yield break; }
-        float timeToSwitchCopy = TimeToSwitch;
+        if(noTimer) { yield break; }
+        float timeToSwitch;
         float timeToEnd;
 
-        if (measureSwitch && !gameScene)
+        if (!gameScene)
         {
             singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
             float measureSwitchTime = singleMeasure * measures;
             yield return new WaitForSeconds(measureSwitchTime);
             LoadNextScene();
-        }
-         else if (gameScene)
+        } else
         {
             timeToEnd = threeSecondsLeft.ReturnTimeToEnd();
-            if (measureSwitch)
-            {
-                float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
-                timeToSwitchCopy = (singleMeasure * measures) - timeToEnd;
-            }
-            else
-            {
+            float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
+            timeToSwitch = (singleMeasure * measures) - timeToEnd;
 
-                timeToSwitchCopy = TimeToSwitch - timeToEnd;
-            }
-
-            yield return new WaitForSeconds(timeToSwitchCopy);
+            yield return new WaitForSeconds(timeToSwitch);
 
             threeSecondsLeft.StartCountdown();
             yield return new WaitForSeconds(timeToEnd);
 
-            LoadNextScene();
-        } else
-        {
-            yield return new WaitForSeconds(timeToSwitchCopy);
             LoadNextScene();
         }
     }
@@ -83,11 +70,6 @@ public class SceneSwitch : MonoBehaviour
         {
             Application.Quit();
         }
-    }
-
-    public float ReturnTimeToSwitch()
-    {
-        return TimeToSwitch;
     }
 
     public float ReturnMeasures()

@@ -164,7 +164,7 @@ public class CharacterSelector : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = sceneSwitch.ReturnTimeToSwitch() - threeSecondsLeft.ReturnTimeToEnd() + (3 * threeSecondsLeft.ReturnSingleMeasure());
+        float deadline = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
         yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }

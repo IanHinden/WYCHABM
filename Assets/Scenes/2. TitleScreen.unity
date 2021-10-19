@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d50f534f5df6d849afabcc8c86719b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noTimer: 1
   TimeToSwitch: 0
   measures: 0
   gameScene: 0
