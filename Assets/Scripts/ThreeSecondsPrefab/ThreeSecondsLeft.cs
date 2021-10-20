@@ -23,6 +23,8 @@ public class ThreeSecondsLeft : MonoBehaviour
     private Image greenCircleImage;
     private Image redXImage;
 
+    [SerializeField] Slider timerSlider;
+
     void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -33,6 +35,8 @@ public class ThreeSecondsLeft : MonoBehaviour
             textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
 
+        ResetSliderTimer();
+
         scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<Animator>();
         scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
@@ -40,6 +44,12 @@ public class ThreeSecondsLeft : MonoBehaviour
 
         greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
         redXImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<Image>();
+    }
+
+    private void ResetSliderTimer()
+    {
+        timerSlider.maxValue = 4;
+        timerSlider.value = 4;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -84,15 +94,19 @@ public class ThreeSecondsLeft : MonoBehaviour
         if (GameObject.Find("CountdownImages") != null)
         {
             textmesh.text = "3";
+            timerSlider.value = 3;
 
             yield return new WaitForSeconds(measureMS);
             textmesh.text = "2";
+            timerSlider.value = 2;
 
             yield return new WaitForSeconds(measureMS);
             textmesh.text = "1";
+            timerSlider.value = 1;
 
             yield return new WaitForSeconds(measureMS);
             textmesh.text = "0";
+            timerSlider.value = 0;
         }
     }
 
