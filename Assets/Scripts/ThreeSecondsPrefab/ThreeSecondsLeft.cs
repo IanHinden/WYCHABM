@@ -32,18 +32,18 @@ public class ThreeSecondsLeft : MonoBehaviour
         measureMS = 60 / BPM;
         if (GameObject.Find("CountdownImages") != null)
         {
-            textmesh = GameObject.Find("CountdownImages").transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            textmesh = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         }
 
         ResetSliderTimer();
 
-        scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<Animator>();
-        scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(2).GetComponent<Animator>();
+        scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
-        bonusScoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(3).GetComponent<Animator>();
+        bonusScoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(4).GetComponent<Animator>();
 
-        greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
-        redXImage = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<Image>();
+        greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(3).transform.GetChild(0).GetComponent<Image>();
+        redXImage = GameObject.Find("CountdownImages").transform.GetChild(3).transform.GetChild(1).GetComponent<Image>();
     }
 
     private void ResetSliderTimer()
