@@ -6,7 +6,6 @@ public class CharacterSelector : MonoBehaviour
 {
     private CharacterSelectControls characterSelectControls;
     ThreeSecondsLeft threeSecondsLeft;
-    SceneSwitch sceneSwitch;
 
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
@@ -38,7 +37,6 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        sceneSwitch = FindObjectOfType<SceneSwitch>();
 
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
@@ -161,7 +159,7 @@ public class CharacterSelector : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+        float deadline = threeSecondsLeft.ReturnTimeToEnd() + threeSecondsLeft.ReturnSingleMeasure();
         yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
