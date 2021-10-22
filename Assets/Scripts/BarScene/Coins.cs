@@ -19,7 +19,7 @@ public class Coins : MonoBehaviour
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         playerController = FindObjectOfType<PlayerController>();
         stolenWages = FindObjectOfType<StolenWages>();
-        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(4).transform.GetChild(2).GetComponent<Animator>();
+        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
 
         StartCoroutine(WinOrLose());
     }

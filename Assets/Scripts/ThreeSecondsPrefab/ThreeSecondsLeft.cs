@@ -9,7 +9,14 @@ using System;
 
 public class ThreeSecondsLeft : MonoBehaviour
 {
-    private TextMeshProUGUI textmesh;
+    [SerializeField] private TextMeshProUGUI textmesh;
+    [SerializeField] GameObject scoreCard;
+    [SerializeField] GameObject bonusScoreCard;
+    [SerializeField] GameObject winAndLossIcons;
+    [SerializeField] GameObject fullSlider;
+    
+    private Slider timerSlider;
+
     private Animator scoreCardAnim;
     private Animator bonusScoreCardAnim;
     private TextMeshProUGUI scoreCardTextMesh;
@@ -23,27 +30,21 @@ public class ThreeSecondsLeft : MonoBehaviour
     private Image greenCircleImage;
     private Image redXImage;
 
-    [SerializeField] Slider timerSlider;
-
     void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this);
         measureMS = 60 / BPM;
-        if (GameObject.Find("CountdownImages") != null)
-        {
-            textmesh = GameObject.Find("CountdownImages").transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        }
 
-        ResetSliderTimer();
+        timerSlider = fullSlider.transform.GetChild(1).GetComponent<Slider>();
 
-        scoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(2).GetComponent<Animator>();
-        scoreCardTextMesh = GameObject.Find("CountdownImages").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        scoreCardAnim = scoreCard.GetComponent<Animator>();
+        scoreCardTextMesh = scoreCard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
-        bonusScoreCardAnim = GameObject.Find("CountdownImages").transform.GetChild(4).GetComponent<Animator>();
+        bonusScoreCardAnim = bonusScoreCard.GetComponent<Animator>();
 
-        greenCircleImage = GameObject.Find("CountdownImages").transform.GetChild(3).transform.GetChild(0).GetComponent<Image>();
-        redXImage = GameObject.Find("CountdownImages").transform.GetChild(3).transform.GetChild(1).GetComponent<Image>();
+        greenCircleImage = winAndLossIcons.transform.GetChild(0).GetComponent<Image>();
+        redXImage = winAndLossIcons.transform.GetChild(1).GetComponent<Image>();
     }
 
     private void ResetSliderTimer()
@@ -54,6 +55,7 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ResetSliderTimer();
         textmesh.text = "";
         greenCircleImage.enabled = false;
         redXImage.enabled = false;
@@ -91,23 +93,22 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
-        if (GameObject.Find("CountdownImages") != null)
-        {
-            textmesh.text = "3";
-            timerSlider.value = 3;
+        fullSlider.SetActive(true);
+        textmesh.text = "3";
+        timerSlider.value = 3;
 
-            yield return new WaitForSeconds(measureMS);
-            textmesh.text = "2";
-            timerSlider.value = 2;
+        yield return new WaitForSeconds(measureMS);
+        textmesh.text = "2";
+        timerSlider.value = 2;
 
-            yield return new WaitForSeconds(measureMS);
-            textmesh.text = "1";
-            timerSlider.value = 1;
+        yield return new WaitForSeconds(measureMS);
+        textmesh.text = "1";
+        timerSlider.value = 1;
 
-            yield return new WaitForSeconds(measureMS);
-            textmesh.text = "0";
-            timerSlider.value = 0;
-        }
+        yield return new WaitForSeconds(measureMS);
+        textmesh.text = "0";
+        timerSlider.value = 0;
+        fullSlider.SetActive(false);
     }
 
     public void DisplayScoreCard()

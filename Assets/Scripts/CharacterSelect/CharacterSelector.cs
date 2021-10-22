@@ -17,8 +17,6 @@ public class CharacterSelector : MonoBehaviour
     Animator CongressAnim;
     Animator starAnim;
 
-    SuccessOrFail successOrFail;
-
     private bool unlocked = false;
     private bool moved = false;
     private bool won = false;
@@ -48,7 +46,6 @@ public class CharacterSelector : MonoBehaviour
 
         starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
-        successOrFail = gameObject.AddComponent<SuccessOrFail>();
         StartCoroutine(WinOrLose());
     }
 
@@ -181,11 +178,11 @@ public class CharacterSelector : MonoBehaviour
             else if (moved)
             {
                 threeSecondsLeft.DisplayScoreCard();
-                successOrFail.WinDisplay();
+                threeSecondsLeft.WinDisplay();
             }
             else
             {
-                successOrFail.LoseDisplay();
+                threeSecondsLeft.LoseDisplay();
             }
         }
     }
