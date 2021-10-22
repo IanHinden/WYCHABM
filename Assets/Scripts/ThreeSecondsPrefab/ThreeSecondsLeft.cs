@@ -93,7 +93,6 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     IEnumerator TriggerCountdownAnimation(float BPM)
     {
-        fullSlider.SetActive(true);
         textmesh.text = "3";
         timerSlider.value = 3;
 
@@ -108,6 +107,15 @@ public class ThreeSecondsLeft : MonoBehaviour
         yield return new WaitForSeconds(measureMS);
         textmesh.text = "0";
         timerSlider.value = 0;
+    }
+
+    public void showSlider()
+    {
+        fullSlider.SetActive(true);
+    }
+
+    public void hideSlider()
+    {
         fullSlider.SetActive(false);
     }
 

@@ -48,6 +48,7 @@ public class SceneSwitch : MonoBehaviour
             LoadNextScene();
         } else
         {
+            threeSecondsLeft.showSlider();
             timeToEnd = threeSecondsLeft.ReturnTimeToEnd();
             float singleMeasure = threeSecondsLeft.ReturnSingleMeasure();
             timeToSwitch = (singleMeasure * measures) - timeToEnd;
@@ -57,6 +58,7 @@ public class SceneSwitch : MonoBehaviour
             threeSecondsLeft.StartCountdown();
             yield return new WaitForSeconds(timeToEnd);
 
+            threeSecondsLeft.hideSlider();
             LoadNextScene();
         }
     }
