@@ -790,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
       propertyPath: measures
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2737562420245213587, guid: c61ded347fb57354fa73cb2689b6b2ee,
         type: 3}
