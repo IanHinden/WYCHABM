@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class InstructionTextSetter : MonoBehaviour
+public class MicrogameInstructionText : MonoBehaviour
 {
+    private TextMeshPro textmesh;
     private Animator anim;
-    private TextMeshProUGUI textmesh;
 
     [SerializeField] string instructions;
-
-    void Start()
+    void Awake()
     {
+        textmesh = this.gameObject.GetComponent<TextMeshPro>();
         anim = gameObject.GetComponent<Animator>();
-        textmesh = GetComponent<TextMeshProUGUI>();
-        //StartCoroutine(InstructionText());
     }
 
     public void InstructionText()
