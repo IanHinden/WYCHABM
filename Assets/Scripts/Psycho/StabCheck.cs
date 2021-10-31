@@ -30,19 +30,19 @@ public class StabCheck : MonoBehaviour
             Vector3 textPos = transform.position;
             textPos.x = transform.position.x - 3;
             Instantiate(oedipalBonus, textPos, Quaternion.identity);
-            oedipal = true;
-            if(stabbed == false)
+            if(oedipal == false)
             {
                 threeSecondsLeft.DisplayBonusScoreCard(starAnim);
             }
         }
+        oedipal = true;
         stabbed = true;
         threeSecondsLeft.WinDisplay();
     }
 
     IEnumerator WinOrLose()
     {
-        float deadline = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+        float deadline = (5 * threeSecondsLeft.ReturnSingleMeasure());
 
         yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
