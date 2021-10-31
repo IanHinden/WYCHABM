@@ -11,6 +11,7 @@ public class Shuffler : MonoBehaviour
 
     ThreeSecondsLeft threeSecondsLeft;
 
+    private bool pressed = false;
     private float timeToPress = 0f;
     private int selected = 2;
 
@@ -23,6 +24,7 @@ public class Shuffler : MonoBehaviour
         switchCards.Selecting.Select.performed += x => Select();
 
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -85,8 +87,21 @@ public class Shuffler : MonoBehaviour
         timeToPress = 0f;
     }
 
+    IEnumerator WinOrLose()
+    {
+        float deadline = (5 * threeSecondsLeft.ReturnSingleMeasure());
+
+        yield return new WaitForSeconds(deadline);
+        selected = 1;
+        if (pressed == false)
+        {
+            threeSecondsLeft.LoseDisplay();
+        }
+    }
+
     private void Select()
     {
+        pressed = true;
         switchCards.Disable();
         if(selected == 0)
         {
