@@ -2549,7 +2549,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-  m_SpriteShape: {fileID: 0}
+  m_SpriteShape: {fileID: 11400000, guid: 3e902683a15811242aceeb68e6bec558, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -2609,8 +2609,8 @@ SpriteShapeRenderer:
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
   m_LocalAABB:
-    m_Center: {x: 0.021095753, y: 0.14296007, z: 0}
-    m_Extent: {x: 2.5969462, y: 2.560498, z: 0}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!4 &2107212958
 Transform:
   m_ObjectHideFlags: 0

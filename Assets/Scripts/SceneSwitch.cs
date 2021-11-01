@@ -71,7 +71,13 @@ public class SceneSwitch : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         } else
         {
-            Application.Quit();
+            if (threeSecondsLeft.ReturnScore() > 4)
+            {
+                SceneManager.LoadScene(40);
+            } else
+            {
+                SceneManager.LoadScene(39);
+            }
         }
     }
 
