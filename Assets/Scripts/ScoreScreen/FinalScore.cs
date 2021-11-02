@@ -17,6 +17,6 @@ public class FinalScore : MonoBehaviour
 
     public void ScoreText()
     {
-        textmesh.text = "Final Score: " + threeSecondsLeft.ReturnScore() + "/10" + '\n' + "Bonus Score: " + threeSecondsLeft.ReturnBonusScore() + "/10";
+        textmesh.text = "Final Score: " + threeSecondsLeft.ReturnScore() + "/16" + '\n' + "Bonus Score: " + threeSecondsLeft.ReturnBonusScore() + "/8";
     }
 }

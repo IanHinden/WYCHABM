@@ -5,8 +5,7 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     ThreeSecondsLeft threeSecondsLeft;
-    PlayerController playerController;
-    StolenWages stolenWages;
+    [SerializeField] PlayerController playerController;
     Animator starAnim;
 
     int remainingCoins;
@@ -16,39 +15,31 @@ public class Coins : MonoBehaviour
 
     void Awake()
     {
+        Coin.CoinGet += MinusCoin;
+        StolenWages.WagesGet += StolenWagesRecovered;
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        playerController = FindObjectOfType<PlayerController>();
-        stolenWages = FindObjectOfType<StolenWages>();
         starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
+        remainingCoins = gameObject.transform.childCount;
 
         StartCoroutine(WinOrLose());
     }
 
-    public int GetRemainingCoins()
+    private void StolenWagesRecovered(int amount)
     {
-        int remainingCoins = gameObject.transform.childCount;
-        return remainingCoins;
+        levelComplete = true;
+        threeSecondsLeft.WinDisplay();
+        threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+        playerController.OnDisable();
     }
 
-    //TODO: Change this from Update pattern to Event pattern
-    void Update()
+    private void MinusCoin(int amount)
     {
-        remainingCoins = GetRemainingCoins();
-        stolenWagesRecovered = stolenWages.IsCollected();
-
-        if(remainingCoins == 0 && levelComplete == false)
+        remainingCoins--;
+        if (remainingCoins == 0 && levelComplete == false)
         {
             levelComplete = true;
             threeSecondsLeft.DisplayScoreCard();
             threeSecondsLeft.WinDisplay();
-            playerController.OnDisable();
-        }
-
-        if(stolenWagesRecovered == true && levelComplete == false)
-        {
-            levelComplete = true;
-            threeSecondsLeft.WinDisplay();
-            threeSecondsLeft.DisplayBonusScoreCard(starAnim);
             playerController.OnDisable();
         }
     }
@@ -67,7 +58,6 @@ public class Coins : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        int remainingCoins = GetRemainingCoins();
         if(remainingCoins == 0)
         {
             threeSecondsLeft.DisplayScoreCard();

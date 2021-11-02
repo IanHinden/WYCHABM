@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static event Action<int> CoinGet = delegate { };
     void Start()
     {
         
@@ -18,6 +19,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CoinGet(1);
         Destroy(gameObject);
     }
 }
