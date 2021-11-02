@@ -55,7 +55,7 @@ public class CarController : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+        float deadline = (10 * threeSecondsLeft.ReturnSingleMeasure());
         yield return new WaitForSeconds(deadline);
         DetermineWinOrLoss();
     }
@@ -71,6 +71,9 @@ public class CarController : MonoBehaviour
         if (lost == false)
         {
             threeSecondsLeft.WinDisplay();
+        } else
+        {
+            threeSecondsLeft.LoseDisplay();
         }
     }
 }
