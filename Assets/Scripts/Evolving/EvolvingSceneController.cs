@@ -42,6 +42,7 @@ public class EvolvingSceneController : MonoBehaviour
         badBoySR.enabled = true;
         StartCoroutine(stopped);
         threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+        stopEvolving.Disable();
     }
 
     private IEnumerator Blinking()
