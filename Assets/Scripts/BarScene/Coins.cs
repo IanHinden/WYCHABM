@@ -27,6 +27,7 @@ public class Coins : MonoBehaviour
     private void StolenWagesRecovered(int amount)
     {
         levelComplete = true;
+        threeSecondsLeft.DisplayScoreCard();
         threeSecondsLeft.WinDisplay();
         threeSecondsLeft.DisplayBonusScoreCard(starAnim);
         playerController.OnDisable();

@@ -73,7 +73,7 @@ public class SceneSwitch : MonoBehaviour
         {
             if (threeSecondsLeft.ReturnScore() > 4)
             {
-                SceneManager.LoadScene(40);
+                SceneManager.LoadScene(39);
             } else
             {
                 SceneManager.LoadScene(39);

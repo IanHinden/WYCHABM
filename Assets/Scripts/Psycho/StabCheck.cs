@@ -33,8 +33,11 @@ public class StabCheck : MonoBehaviour
                 Instantiate(oedipalBonus, textPos, Quaternion.identity);
                 if (oedipal == false)
                 {
+                    threeSecondsLeft.DisplayScoreCard();
+                    threeSecondsLeft.WinDisplay();
                     threeSecondsLeft.DisplayBonusScoreCard(starAnim);
                     oedipal = true;
+                    levelEnded = true;
                 }
             }
         }

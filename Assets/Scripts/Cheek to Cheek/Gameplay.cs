@@ -15,10 +15,10 @@ public class Gameplay : MonoBehaviour
     private Countdown[] countdowns;
 
     private float measureMS;
-    //private float timeRemaining;
+
     private float timePassed = 0f;
     private bool firstScenario = true;
-    // Start is called before the first frame update
+
     void Awake()
     {
         richmondLips = FindObjectOfType<RichmondLips>();
@@ -29,10 +29,10 @@ public class Gameplay : MonoBehaviour
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
-        //timeRemaining = sceneSwitch.ReturnTimeToSwitch();
 
         kissHit = new KissHit();
         kissHit.Action.Select.performed += x => GameAction();
+        StartCoroutine(GameSwitcher());
 
         countdowns[1].StartCountdown();
     }
@@ -48,35 +48,28 @@ public class Gameplay : MonoBehaviour
         kissHit.Disable();
     }
 
+    private IEnumerator GameSwitcher()
+    {
+        yield return new WaitForSeconds(measureMS * 3);
+        firstScenario = false;
+        if (animationController.ReturnKissTriggered() == false)
+        {
+            richmondLips.stopAnimation();
+            animationController.KissLoseAnimation();
+        }
+        animationController.CoverSwitch();
+        yield return new WaitForSeconds(measureMS);
+        countdowns[0].StartCountdown();
+        yield return new WaitForSeconds(measureMS * 3);
+        if (animationController.ReturnHitTriggered() == false)
+        {
+            animationController.HitLoseAnimation();
+        }
+    }
+
     void Update()
     {
         spotlight.RotateSpotlight();
-
-        //timeRemaining -= Time.deltaTime;
-        timePassed += Time.deltaTime;
-
-        if (firstScenario == true)
-        {
-            if (timePassed > measureMS * 3)
-            {
-                firstScenario = false;
-                if(animationController.ReturnKissTriggered() == false)
-                {
-                    richmondLips.stopAnimation();
-                    animationController.KissLoseAnimation();
-                }
-                animationController.CoverSwitch();
-            }
-        } else if (timePassed > measureMS * 4 && timePassed < measureMS * 5)
-        {
-            countdowns[0].StartCountdown();
-        } else if (timePassed > measureMS * 8)
-        {
-            if(animationController.ReturnHitTriggered() == false)
-            {
-                animationController.HitLoseAnimation();
-            }
-        }
     }
 
     private void GameAction()

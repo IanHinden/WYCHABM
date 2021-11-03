@@ -143,7 +143,7 @@ public class ThreeSecondsLeft : MonoBehaviour
 
     IEnumerator HideBonusScoreCard()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         bonusScoreCardAnim.SetTrigger("Exit");
     }
 
