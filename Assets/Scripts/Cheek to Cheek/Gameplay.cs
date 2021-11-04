@@ -5,13 +5,13 @@ using System.Linq;
 
 public class Gameplay : MonoBehaviour
 {
-    private RichmondLips richmondLips;
-    private Spotlight spotlight;
-    private KissHit kissHit;
+    [SerializeField] private RichmondLips richmondLips;
+    [SerializeField] private Spotlight spotlight;
+    [SerializeField] private KissHit kissHit;
     private ThreeSecondsLeft threeSecondsLeft;
-    private AnimationController animationController;
+    [SerializeField] private AnimationController animationController;
 
-    private SceneSwitch sceneSwitch;
+    //private SceneSwitch sceneSwitch;
     private Countdown[] countdowns;
 
     private float measureMS;
@@ -21,11 +21,7 @@ public class Gameplay : MonoBehaviour
 
     void Awake()
     {
-        richmondLips = FindObjectOfType<RichmondLips>();
-        spotlight = FindObjectOfType<Spotlight>();
-        sceneSwitch = FindObjectOfType<SceneSwitch>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        animationController = FindObjectOfType<AnimationController>();
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
         measureMS = threeSecondsLeft.ReturnSingleMeasure();
@@ -80,6 +76,7 @@ public class Gameplay : MonoBehaviour
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
             {
                 animationController.KissWinAnimation();
+                threeSecondsLeft.DisplayScoreCard();
             } else
             {
                 animationController.KissLoseAnimation();
@@ -90,6 +87,7 @@ public class Gameplay : MonoBehaviour
             if(spotlight.transform.position.x > 2.9 && spotlight.transform.position.x < 3.7)
             {
                 animationController.HitWinAnimation();
+                threeSecondsLeft.DisplayScoreCard();
             } else
             {
                 animationController.HitLoseAnimation();

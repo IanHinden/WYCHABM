@@ -70,6 +70,7 @@ public class CarController : MonoBehaviour
     {
         if (lost == false)
         {
+            threeSecondsLeft.DisplayScoreCard();
             threeSecondsLeft.WinDisplay();
         } else
         {
