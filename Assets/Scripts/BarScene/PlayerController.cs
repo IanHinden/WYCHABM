@@ -44,9 +44,4 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = currentPosition;
     }
-
-    void UpdateAnimationAndMove()
-    {
-
-    }
 }

@@ -21,7 +21,7 @@ public class ThreeSecondsLeft : MonoBehaviour
     private Animator bonusScoreCardAnim;
     private TextMeshProUGUI scoreCardTextMesh;
 
-    private float BPM = 85f;
+    private float BPM = 85f;//85f;
     private float measureMS;
 
     private float score = 0;

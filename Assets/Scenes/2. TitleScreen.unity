@@ -1287,7 +1287,7 @@ MonoBehaviour:
   gameScene: 0
   measureSwitch: 0
   lastScene: 0
-  newTrack: {fileID: 8300000, guid: 01110e7db94d5a24889b34ac4ebcc64a, type: 3}
+  newTrack: {fileID: 8300000, guid: f1f4d04b1f33b8f4cad0e5bdcb8a7965, type: 3}
 --- !u!4 &1942991965
 Transform:
   m_ObjectHideFlags: 0

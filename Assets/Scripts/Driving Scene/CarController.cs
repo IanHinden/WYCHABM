@@ -9,7 +9,6 @@ public class CarController : MonoBehaviour
     private Driving driving;
 
     ThreeSecondsLeft threeSecondsLeft;
-    SceneSwitch sceneSwitch;
 
     bool lost = false;
     bool introOver = false;
@@ -17,7 +16,6 @@ public class CarController : MonoBehaviour
     void Awake()
     {
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        sceneSwitch = FindObjectOfType<SceneSwitch>();
         driving = new Driving();
         StartCoroutine(IntroPause());
         StartCoroutine(WinOrLose());

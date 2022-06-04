@@ -30,7 +30,7 @@ public class WheelControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         timeSinceStart += Time.deltaTime;
         float selectInput = driving.Drive.Steer.ReadValue<float>();

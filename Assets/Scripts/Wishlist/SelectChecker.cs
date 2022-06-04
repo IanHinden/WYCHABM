@@ -7,7 +7,6 @@ using System.Linq;
 public class SelectChecker : MonoBehaviour
 {
     SelectArrow[] selectArrows;
-    SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
 
     private Select select;
@@ -16,7 +15,6 @@ public class SelectChecker : MonoBehaviour
     void Awake()
     {
         select = new Select();
-        //successOrFail = gameObject.AddComponent<SuccessOrFail>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         select.Selecting.DownSelect.performed += x => setNextActiveArrow();

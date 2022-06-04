@@ -71,6 +71,7 @@ public class InputControls : MonoBehaviour
     {
         if(currentlySelect == 0)
         {
+            controls.Disable();
             sceneSwitch.PlayGame();
         }
     }
@@ -83,11 +84,5 @@ public class InputControls : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
