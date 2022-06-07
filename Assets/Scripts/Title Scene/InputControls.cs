@@ -72,7 +72,8 @@ public class InputControls : MonoBehaviour
         if(currentlySelect == 0)
         {
             controls.Disable();
-            sceneSwitch.PlayGame();
+            //sceneSwitch.PlayGame();
+            sceneSwitch.LoadNextScene();
         }
     }
 
