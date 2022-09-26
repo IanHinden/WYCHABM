@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,6 +7,7 @@ public class InstructionTextSetter : MonoBehaviour
 {
     private Animator anim;
     private TextMeshProUGUI textmesh;
+    private MicrogameInstructionText microText;
 
     [SerializeField] string instructions;
 
@@ -19,7 +20,9 @@ public class InstructionTextSetter : MonoBehaviour
 
     public void InstructionText()
     {
-        textmesh.text = instructions;
-        anim.SetTrigger("StartAnim");
+        //textmesh.text = instructions;
+        //anim.SetTrigger("StartAnim");
+        microText.InstructionText();
     }
 }
+*/
