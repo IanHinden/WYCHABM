@@ -29,8 +29,8 @@ public class EyeBalls : MonoBehaviour
         Vector3 currentPosition = transform.position;
         if (movementInput != Vector2.zero)
         {
-            currentPosition.y += -1f * speed * Time.deltaTime;
-            currentPosition.y = Mathf.Clamp(currentPosition.y, -.04f, 0f);
+            //currentPosition.y += -1f * speed * Time.deltaTime;
+            //currentPosition.y = Mathf.Clamp(currentPosition.y, -.04f, 0f);
             transform.position = currentPosition;
         } else
         {

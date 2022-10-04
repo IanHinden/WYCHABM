@@ -43,7 +43,7 @@ public class FullCoins : MonoBehaviour
             Debug.Log("You won, mate");
             //threeSecondsLeft.DisplayScoreCard();
             //threeSecondsLeft.WinDisplay();
-            //playerController.OnDisable();
+            controller.OnDisable();
         }
     }
 

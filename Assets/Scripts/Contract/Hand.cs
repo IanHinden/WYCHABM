@@ -7,7 +7,7 @@ public class Hand : MonoBehaviour
     SuccessOrFail successOrFail;
     ThreeSecondsLeft threeSecondsLeft;
     SceneSwitch sceneSwitch;
-    private WritingControls writingControls;
+    private PlayerActionControls playerActionControls;
     Print print;
     private bool moved = false;
 
@@ -15,7 +15,7 @@ public class Hand : MonoBehaviour
     
     private void Awake()
     {
-        writingControls = new WritingControls();
+        playerActionControls = new PlayerActionControls();
         print = FindObjectOfType<Print>();
 
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
@@ -26,17 +26,17 @@ public class Hand : MonoBehaviour
 
     private void OnEnable()
     {
-        writingControls.Enable();
+        playerActionControls.Enable();
     }
 
     private void OnDisable()
     {
-        writingControls.Disable();
+        playerActionControls.Disable();
     }
 
     void Update()
     {
-        Vector2 movementInput = writingControls.Move.Directions.ReadValue<Vector2>();
+        Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
 
         if (movementInput.x != 0 || movementInput.y != 0)
         {
@@ -46,10 +46,10 @@ public class Hand : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
+        //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
+        //currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
 
-        print.InkSpawner();
+        //print.InkSpawner();
 
         transform.position = currentPosition;
     }
