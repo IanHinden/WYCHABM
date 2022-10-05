@@ -14,7 +14,6 @@ public class SonicTransition : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         redAnim = red.GetComponent<Animator>();
         blueAnim = blue.GetComponent<Animator>();
         yellowAnim = yellow.GetComponent<Animator>();
