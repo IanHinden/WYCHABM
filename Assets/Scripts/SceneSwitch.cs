@@ -42,9 +42,9 @@ public class SceneSwitch : MonoBehaviour
             float measureSwitchTime = ReturnTimeOfScene();
             yield return new WaitForSeconds(measureSwitchTime - 1);
             if (microgameInstructionText)
-            {
+            /*{
                 microgameInstructionText.InstructionText();
-            }
+            }*/
             yield return new WaitForSeconds(1);
             LoadNextScene();
         } else

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MicrogameInstructionText : MonoBehaviour
+public class InstructionSetter : MonoBehaviour
 {
-    private TextMeshPro textmesh;
+    [SerializeField] TextMeshProUGUI textmesh;
     private Animator anim;
 
     void Awake()
     {
-        textmesh = this.gameObject.GetComponent<TextMeshPro>();
-        anim = gameObject.GetComponent<Animator>();
+        textmesh.text = "";
+        anim = textmesh.GetComponent<Animator>();
     }
 
     public void InstructionText(string instructions)
@@ -21,9 +21,10 @@ public class MicrogameInstructionText : MonoBehaviour
 
     private IEnumerator AnimateAndDestroy(string instructions)
     {
-        textmesh.text = instructions;
         anim.SetTrigger("StartAnim");
+        yield return new WaitForSeconds(.6f);
+        textmesh.text = instructions;
         yield return new WaitForSeconds(3f);
-        Destroy(this.gameObject);
+        textmesh.text = "";
     }
 }
