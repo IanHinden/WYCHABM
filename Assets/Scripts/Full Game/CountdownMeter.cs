@@ -16,25 +16,25 @@ public class CountdownMeter : MonoBehaviour
         timerSlider.value = 4;
     }
 
-    public void Countdown()
+    public void Countdown(float timebetween)
     {
-        StartCoroutine(TriggerCountdownAnimation());
+        StartCoroutine(TriggerCountdownAnimation(timebetween));
     }
 
-    IEnumerator TriggerCountdownAnimation()
+    IEnumerator TriggerCountdownAnimation(float timebetween)
     {
         countdown.text = "3";
         timerSlider.value = 3;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timebetween);
         countdown.text = "2";
         timerSlider.value = 2;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timebetween);
         countdown.text = "1";
         timerSlider.value = 1;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timebetween);
         countdown.text = "0";
         timerSlider.value = 0;
     }

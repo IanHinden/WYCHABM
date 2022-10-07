@@ -41,8 +41,10 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(14.1176f);
         nextScene();
         countdownMeter.showSlider();
-        countdownMeter.Countdown();
-        yield return new WaitForSeconds(5.647f);
+        yield return new WaitForSeconds(2.82f);
+        countdownMeter.Countdown(0.705882f);
+        yield return new WaitForSeconds(2.82f);
+        countdownMeter.hideSlider();
         nextScene();
         yield return new WaitForSeconds(1.411f);
         nextScene();
