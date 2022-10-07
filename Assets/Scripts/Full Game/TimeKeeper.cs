@@ -11,6 +11,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject BarScene;
     [SerializeField] private GameObject Fired;
     [SerializeField] private GameObject Contract;
+
+    [SerializeField] private CountdownMeter countdownMeter;
     // Start is called before the first frame update
     //0.705882
 
@@ -38,6 +40,8 @@ public class TimeKeeper : MonoBehaviour
     {
         yield return new WaitForSeconds(14.1176f);
         nextScene();
+        countdownMeter.showSlider();
+        countdownMeter.Countdown();
         yield return new WaitForSeconds(5.647f);
         nextScene();
         yield return new WaitForSeconds(1.411f);
