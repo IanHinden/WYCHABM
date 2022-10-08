@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FullCoins : MonoBehaviour
 {
-    //ThreeSecondsLeft threeSecondsLeft;
     [SerializeField] Controller controller;
+    [SerializeField] WinLossHandler winloss;
     //Animator starAnim;
 
     int remainingCoins;
@@ -17,7 +17,6 @@ public class FullCoins : MonoBehaviour
     {
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
-        //threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
         remainingCoins = gameObject.transform.childCount;
 
@@ -40,7 +39,7 @@ public class FullCoins : MonoBehaviour
         if (remainingCoins == 0 && levelComplete == false)
         {
             levelComplete = true;
-            Debug.Log("You won, mate");
+            winloss.WinDisplay();
             //threeSecondsLeft.DisplayScoreCard();
             //threeSecondsLeft.WinDisplay();
             controller.OnDisable();
@@ -64,13 +63,13 @@ public class FullCoins : MonoBehaviour
     {
         if (remainingCoins == 0)
         {
-            Debug.Log("Won!");
+            winloss.WinDisplay();
             //threeSecondsLeft.DisplayScoreCard();
             //threeSecondsLeft.WinDisplay();
         }
         else
         {
-            Debug.Log("Lost");
+            winloss.LoseDisplay();
             //threeSecondsLeft.LoseDisplay();
             //playerController.OnDisable();
         }

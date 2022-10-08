@@ -56,8 +56,8 @@ public class Hand : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = (threeSecondsLeft.ReturnTimeToEnd()) + threeSecondsLeft.ReturnSingleMeasure();
-        yield return new WaitForSeconds(deadline);
+        //float deadline = (threeSecondsLeft.ReturnTimeToEnd()) + threeSecondsLeft.ReturnSingleMeasure();
+        yield return new WaitForSeconds(3f);
         DetermineWinOrLoss();
     }
 
@@ -69,7 +69,7 @@ public class Hand : MonoBehaviour
         }
         else
         {
-            threeSecondsLeft.DisplayScoreCard();
+            //threeSecondsLeft.DisplayScoreCard();
             successOrFail.WinDisplay();
         }
     }
