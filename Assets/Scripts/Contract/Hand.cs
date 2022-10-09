@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    SuccessOrFail successOrFail;
-    ThreeSecondsLeft threeSecondsLeft;
-    SceneSwitch sceneSwitch;
+    [SerializeField] UIHandler uihandler;
+
     private PlayerActionControls playerActionControls;
     Print print;
     private bool moved = false;
@@ -18,9 +17,6 @@ public class Hand : MonoBehaviour
         playerActionControls = new PlayerActionControls();
         print = FindObjectOfType<Print>();
 
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        successOrFail = gameObject.AddComponent<SuccessOrFail>();
-        sceneSwitch = FindObjectOfType<SceneSwitch>();
         StartCoroutine(WinOrLose());
     }
 
@@ -46,10 +42,10 @@ public class Hand : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
-        //currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
+        currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
 
-        //print.InkSpawner();
+        print.InkSpawner();
 
         transform.position = currentPosition;
     }
@@ -65,12 +61,12 @@ public class Hand : MonoBehaviour
     {
         if (moved)
         {
-            successOrFail.LoseDisplay();
+            uihandler.LoseDisplay();
         }
         else
         {
             //threeSecondsLeft.DisplayScoreCard();
-            successOrFail.WinDisplay();
+            uihandler.WinDisplay();
         }
     }
 }

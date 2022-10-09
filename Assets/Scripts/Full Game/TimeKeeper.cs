@@ -50,6 +50,9 @@ public class TimeKeeper : MonoBehaviour
         nextScene();
         yield return new WaitForSeconds(1.411f);
         nextScene();
+        uihandler.showSlider();
+        uihandler.Countdown(6);
         yield return new WaitForSeconds(4.235f);
+        uihandler.hideSlider();
     }
 }
