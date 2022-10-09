@@ -6,6 +6,9 @@ using TMPro;
 
 public class UIHandler : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timeFunctions;
+    float singleMeasure;
+
     [SerializeField] Image winicon;
     [SerializeField] Image loseicon;
     Image greencircle;
@@ -20,6 +23,8 @@ public class UIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        singleMeasure = timeFunctions.ReturnSingleMeasure();
+
         greencircle = winicon.GetComponent<Image>();
         redx = loseicon.GetComponent<Image>();
 
@@ -49,25 +54,39 @@ public class UIHandler : MonoBehaviour
         timerSlider.value = 4;
     }
 
-    public void Countdown(float timebetween)
+    public void Countdown(int totalMeasures)
     {
-        StartCoroutine(TriggerCountdownAnimation(timebetween));
+        StartCoroutine(TriggerCountdownAnimation(totalMeasures));
     }
 
-    IEnumerator TriggerCountdownAnimation(float timebetween)
+    IEnumerator TriggerCountdownAnimation(int totalMeasures)
     {
+        float totalTime = totalMeasures * singleMeasure;
+
+        timerSlider.maxValue = totalMeasures;
+        timerSlider.value = totalMeasures;
+        
+        countdown.text = "";
+
+        while(totalTime > 3)
+        {
+            yield return new WaitForSeconds(singleMeasure);
+            totalTime -= singleMeasure;
+            timerSlider.value--;
+        }
+
         countdown.text = "3";
         timerSlider.value = 3;
 
-        yield return new WaitForSeconds(timebetween);
+        yield return new WaitForSeconds(singleMeasure);
         countdown.text = "2";
         timerSlider.value = 2;
 
-        yield return new WaitForSeconds(timebetween);
+        yield return new WaitForSeconds(singleMeasure);
         countdown.text = "1";
         timerSlider.value = 1;
 
-        yield return new WaitForSeconds(timebetween);
+        yield return new WaitForSeconds(singleMeasure);
         countdown.text = "0";
         timerSlider.value = 0;
     }

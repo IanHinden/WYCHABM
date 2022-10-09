@@ -1,0 +1,270 @@
+warning: LF will be replaced by CRLF in Assets/Prefabs/ThreeSecondsLeft.prefab.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Assets/Scenes/41. Full Game.unity.
+The file will have its original line endings in your working directory
+[1mdiff --git a/Assets/Prefabs/ThreeSecondsLeft.prefab b/Assets/Prefabs/ThreeSecondsLeft.prefab[m
+[1mindex 49aae2a..8eab126 100644[m
+[1m--- a/Assets/Prefabs/ThreeSecondsLeft.prefab[m
+[1m+++ b/Assets/Prefabs/ThreeSecondsLeft.prefab[m
+[36m@@ -553,7 +553,7 @@[m [mRectTransform:[m
+   m_RootOrder: 0[m
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+   m_AnchorMin: {x: 0, y: 0}[m
+[31m-  m_AnchorMax: {x: 0, y: 1}[m
+[32m+[m[32m  m_AnchorMax: {x: 0, y: 0}[m
+   m_AnchoredPosition: {x: 0, y: 0}[m
+   m_SizeDelta: {x: 0, y: 0}[m
+   m_Pivot: {x: 0.5, y: 0.5}[m
+[36m@@ -800,7 +800,7 @@[m [mGameObject:[m
+   m_Icon: {fileID: 0}[m
+   m_NavMeshLayer: 0[m
+   m_StaticEditorFlags: 0[m
+[31m-  m_IsActive: 0[m
+[32m+[m[32m  m_IsActive: 1[m
+ --- !u!4 &6385554587839942551[m
+ Transform:[m
+   m_ObjectHideFlags: 0[m
+[1mdiff --git a/Assets/Scenes/41. Full Game.unity b/Assets/Scenes/41. Full Game.unity[m
+[1mindex ba7f48f..c693a5b 100644[m
+[1m--- a/Assets/Scenes/41. Full Game.unity[m	
+[1m+++ b/Assets/Scenes/41. Full Game.unity[m	
+[36m@@ -121,6 +121,55 @@[m [mNavMeshSettings:[m
+     debug:[m
+       m_Flags: 0[m
+   m_NavMeshData: {fileID: 0}[m
+[32m+[m[32m--- !u!1 &24490722[m
+[32m+[m[32mGameObject:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  serializedVersion: 6[m
+[32m+[m[32m  m_Component:[m
+[32m+[m[32m  - component: {fileID: 24490724}[m
+[32m+[m[32m  - component: {fileID: 24490723}[m
+[32m+[m[32m  m_Layer: 0[m
+[32m+[m[32m  m_Name: UIHandler[m
+[32m+[m[32m  m_TagString: Untagged[m
+[32m+[m[32m  m_Icon: {fileID: 0}[m
+[32m+[m[32m  m_NavMeshLayer: 0[m
+[32m+[m[32m  m_StaticEditorFlags: 0[m
+[32m+[m[32m  m_IsActive: 1[m
+[32m+[m[32m--- !u!114 &24490723[m
+[32m+[m[32mMonoBehaviour:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 24490722}[m
+[32m+[m[32m  m_Enabled: 1[m
+[32m+[m[32m  m_EditorHideFlags: 0[m
+[32m+[m[32m  m_Script: {fileID: 11500000, guid: a8e94f849862aa34ea0a65d71ab75879, type: 3}[m
+[32m+[m[32m  m_Name:[m[41m [m
+[32m+[m[32m  m_EditorClassIdentifier:[m[41m [m
+[32m+[m[32m  winicon: {fileID: 515522435}[m
+[32m+[m[32m  loseicon: {fileID: 1726268951}[m
+[32m+[m[32m  panel: {fileID: 380569482}[m
+[32m+[m[32m  timerSlider: {fileID: 1025257555}[m
+[32m+[m[32m  countdown: {fileID: 802840710}[m
+[32m+[m[32m  textmesh: {fileID: 558629537}[m
+[32m+[m[32m--- !u!4 &24490724[m
+[32m+[m[32mTransform:[m
+[32m+[m[32m  m_ObjectHideFlags: 0[m
+[32m+[m[32m  m_CorrespondingSourceObject: {fileID: 0}[m
+[32m+[m[32m  m_PrefabInstance: {fileID: 0}[m
+[32m+[m[32m  m_PrefabAsset: {fileID: 0}[m
+[32m+[m[32m  m_GameObject: {fileID: 24490722}[m
+[32m+[m[32m  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}[m
+[32m+[m[32m  m_LocalPosition: {x: 0, y: 0, z: 0}[m
+[32m+[m[32m  m_LocalScale: {x: 1, y: 1, z: 1}[m
+[32m+[m[32m  m_Children: [][m
+[32m+[m[32m  m_Father: {fileID: 0}[m
+[32m+[m[32m  m_RootOrder: 10[m
+[32m+[m[32m  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+ --- !u!1 &40331906[m
+ GameObject:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -253,50 +302,6 @@[m [mTransform:[m
+   m_Father: {fileID: 873015318}[m
+   m_RootOrder: 3[m
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+[31m---- !u!1 &155764914[m
+[31m-GameObject:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  serializedVersion: 6[m
+[31m-  m_Component:[m
+[31m-  - component: {fileID: 155764916}[m
+[31m-  - component: {fileID: 155764915}[m
+[31m-  m_Layer: 0[m
+[31m-  m_Name: InstructionSetter[m
+[31m-  m_TagString: Untagged[m
+[31m-  m_Icon: {fileID: 0}[m
+[31m-  m_NavMeshLayer: 0[m
+[31m-  m_StaticEditorFlags: 0[m
+[31m-  m_IsActive: 1[m
+[31m---- !u!114 &155764915[m
+[31m-MonoBehaviour:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 155764914}[m
+[31m-  m_Enabled: 1[m
+[31m-  m_EditorHideFlags: 0[m
+[31m-  m_Script: {fileID: 11500000, guid: f8e5dcf6627eb0b41b69ecc361123543, type: 3}[m
+[31m-  m_Name: [m
+[31m-  m_EditorClassIdentifier: [m
+[31m-  textmesh: {fileID: 558629537}[m
+[31m---- !u!4 &155764916[m
+[31m-Transform:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 155764914}[m
+[31m-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}[m
+[31m-  m_LocalPosition: {x: 137.95085, y: 199.32277, z: -534.25}[m
+[31m-  m_LocalScale: {x: 1, y: 1, z: 1}[m
+[31m-  m_Children: [][m
+[31m-  m_Father: {fileID: 0}[m
+[31m-  m_RootOrder: 10[m
+[31m-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+ --- !u!1 &160126478[m
+ GameObject:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -909,52 +914,6 @@[m [mMonoBehaviour:[m
+   m_Name: [m
+   m_EditorClassIdentifier: [m
+   ink: {fileID: 6103411387422138069, guid: 4ad87fa3eb7b0444da3813250a44e207, type: 3}[m
+[31m---- !u!1 &365672665[m
+[31m-GameObject:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  serializedVersion: 6[m
+[31m-  m_Component:[m
+[31m-  - component: {fileID: 365672667}[m
+[31m-  - component: {fileID: 365672666}[m
+[31m-  m_Layer: 0[m
+[31m-  m_Name: CountdownHandler[m
+[31m-  m_TagString: Untagged[m
+[31m-  m_Icon: {fileID: 0}[m
+[31m-  m_NavMeshLayer: 0[m
+[31m-  m_StaticEditorFlags: 0[m
+[31m-  m_IsActive: 1[m
+[31m---- !u!114 &365672666[m
+[31m-MonoBehaviour:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 365672665}[m
+[31m-  m_Enabled: 1[m
+[31m-  m_EditorHideFlags: 0[m
+[31m-  m_Script: {fileID: 11500000, guid: 44f61118bd183fc459e34b1a86be5d8b, type: 3}[m
+[31m-  m_Name: [m
+[31m-  m_EditorClassIdentifier: [m
+[31m-  panel: {fileID: 380569482}[m
+[31m-  timerSlider: {fileID: 1025257555}[m
+[31m-  countdown: {fileID: 802840710}[m
+[31m---- !u!4 &365672667[m
+[31m-Transform:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 365672665}[m
+[31m-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}[m
+[31m-  m_LocalPosition: {x: 616.0163, y: 267.45242, z: -111.625}[m
+[31m-  m_LocalScale: {x: 1, y: 1, z: 1}[m
+[31m-  m_Children: [][m
+[31m-  m_Father: {fileID: 0}[m
+[31m-  m_RootOrder: 11[m
+[31m-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+ --- !u!1 &380569482[m
+ GameObject:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -1528,7 +1487,7 @@[m [mMonoBehaviour:[m
+   m_Name: [m
+   m_EditorClassIdentifier: [m
+   controller: {fileID: 838616370}[m
+[31m-  winloss: {fileID: 1537462023}[m
+[32m+[m[32m  uihandler: {fileID: 24490723}[m
+ --- !u!1001 &620635141[m
+ PrefabInstance:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -7037,51 +6996,6 @@[m [mTilemap:[m
+     e31: 0[m
+     e32: 0[m
+     e33: 1[m
+[31m---- !u!1 &1537462022[m
+[31m-GameObject:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  serializedVersion: 6[m
+[31m-  m_Component:[m
+[31m-  - component: {fileID: 1537462024}[m
+[31m-  - component: {fileID: 1537462023}[m
+[31m-  m_Layer: 0[m
+[31m-  m_Name: WinLossHandler[m
+[31m-  m_TagString: Untagged[m
+[31m-  m_Icon: {fileID: 0}[m
+[31m-  m_NavMeshLayer: 0[m
+[31m-  m_StaticEditorFlags: 0[m
+[31m-  m_IsActive: 1[m
+[31m---- !u!114 &1537462023[m
+[31m-MonoBehaviour:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 1537462022}[m
+[31m-  m_Enabled: 1[m
+[31m-  m_EditorHideFlags: 0[m
+[31m-  m_Script: {fileID: 11500000, guid: 14c308e93ff1d8f478ff5cf9f0e95711, type: 3}[m
+[31m-  m_Name: [m
+[31m-  m_EditorClassIdentifier: [m
+[31m-  winicon: {fileID: 515522435}[m
+[31m-  loseicon: {fileID: 1726268951}[m
+[31m---- !u!4 &1537462024[m
+[31m-Transform:[m
+[31m-  m_ObjectHideFlags: 0[m
+[31m-  m_CorrespondingSourceObject: {fileID: 0}[m
+[31m-  m_PrefabInstance: {fileID: 0}[m
+[31m-  m_PrefabAsset: {fileID: 0}[m
+[31m-  m_GameObject: {fileID: 1537462022}[m
+[31m-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}[m
+[31m-  m_LocalPosition: {x: 602.56195, y: 293.93396, z: -118.48962}[m
+[31m-  m_LocalScale: {x: 1, y: 1, z: 1}[m
+[31m-  m_Children: [][m
+[31m-  m_Father: {fileID: 0}[m
+[31m-  m_RootOrder: 12[m
+[31m-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}[m
+ --- !u!1 &1541216390[m
+ GameObject:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -7690,7 +7604,7 @@[m [mMonoBehaviour:[m
+   ppg: {fileID: 332594859}[m
+   pittiePartyDialogue: {fileID: 98040204}[m
+   bigPittiesText: {fileID: 1764923162}[m
+[31m-  instructionSetter: {fileID: 155764915}[m
+[32m+[m[32m  uihandler: {fileID: 24490723}[m
+ --- !u!1 &1764923160[m
+ GameObject:[m
+   m_ObjectHideFlags: 0[m
+[36m@@ -9356,8 +9270,7 @@[m [mMonoBehaviour:[m
+   BarScene: {fileID: 2101814291}[m
+   Fired: {fileID: 228925647}[m
+   Contract: {fileID: 40331906}[m
+[31m-  countdownMeter: {fileID: 365672666}[m
+[31m-  winloss: {fileID: 1537462023}[m
+[32m+[m[32m  uihandler: {fileID: 24490723}[m
+ --- !u!4 &2006906368[m
+ Transform:[m
+   m_ObjectHideFlags: 0[m
