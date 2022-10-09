@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 838616370}
-  winloss: {fileID: 0}
+  winloss: {fileID: 1537462023}
 --- !u!1001 &620635141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9357,6 +9357,7 @@ MonoBehaviour:
   Fired: {fileID: 228925647}
   Contract: {fileID: 40331906}
   countdownMeter: {fileID: 365672666}
+  winloss: {fileID: 1537462023}
 --- !u!4 &2006906368
 Transform:
   m_ObjectHideFlags: 0

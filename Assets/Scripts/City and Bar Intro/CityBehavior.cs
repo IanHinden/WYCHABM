@@ -10,7 +10,7 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] GameObject ppg;
     [SerializeField] PittiePartyDialogue pittiePartyDialogue;
     [SerializeField] TextMeshPro bigPittiesText;
-    [SerializeField] InstructionSetter instructionSetter;
+    [SerializeField] UIHandler uihandler;
 
     Animator avaAnimator;
     Animator ppgAnimator;
@@ -44,6 +44,6 @@ public class CityBehavior : MonoBehaviour
         avaAnimator.SetTrigger("FadeIn");
         StartCoroutine(pittiePartyDialogue.SetAvaDialogueTwo());
         yield return new WaitForSeconds(2f);
-        instructionSetter.InstructionText("COLLECT");
+        uihandler.InstructionText("COLLECT");
     }
 }

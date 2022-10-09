@@ -12,8 +12,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject Fired;
     [SerializeField] private GameObject Contract;
 
-    [SerializeField] private CountdownMeter countdownMeter;
-    [SerializeField] private WinLossHandler winloss;
+    [SerializeField] private UIHandler uihandler;
     // Start is called before the first frame update
     //0.705882
 
@@ -28,7 +27,7 @@ public class TimeKeeper : MonoBehaviour
 
     private void nextScene()
     {
-        winloss.Clear();
+        uihandler.ClearWinLoss();
 
         GameObject nextActiveScene = (GameObject)allscenes[currentScene + 1];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
@@ -43,11 +42,11 @@ public class TimeKeeper : MonoBehaviour
     {
         yield return new WaitForSeconds(14.1176f);
         nextScene();
-        countdownMeter.showSlider();
+        uihandler.showSlider();
         yield return new WaitForSeconds(2.82f);
-        countdownMeter.Countdown(0.705882f);
+        uihandler.Countdown(0.705882f);
         yield return new WaitForSeconds(2.82f);
-        countdownMeter.hideSlider();
+        uihandler.hideSlider();
         nextScene();
         yield return new WaitForSeconds(1.411f);
         nextScene();

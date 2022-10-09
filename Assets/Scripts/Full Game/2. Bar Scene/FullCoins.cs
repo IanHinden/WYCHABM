@@ -5,7 +5,7 @@ using UnityEngine;
 public class FullCoins : MonoBehaviour
 {
     [SerializeField] Controller controller;
-    [SerializeField] WinLossHandler winloss;
+    [SerializeField] UIHandler uihandler;
     //Animator starAnim;
 
     int remainingCoins;
@@ -39,7 +39,7 @@ public class FullCoins : MonoBehaviour
         if (remainingCoins == 0 && levelComplete == false)
         {
             levelComplete = true;
-            winloss.WinDisplay();
+            uihandler.WinDisplay();
             //threeSecondsLeft.DisplayScoreCard();
             //threeSecondsLeft.WinDisplay();
             controller.OnDisable();
@@ -63,14 +63,12 @@ public class FullCoins : MonoBehaviour
     {
         if (remainingCoins == 0)
         {
-            winloss.WinDisplay();
-            //threeSecondsLeft.DisplayScoreCard();
+            uihandler.WinDisplay();
             //threeSecondsLeft.WinDisplay();
         }
         else
         {
-            winloss.LoseDisplay();
-            //threeSecondsLeft.LoseDisplay();
+            uihandler.LoseDisplay();
             //playerController.OnDisable();
         }
     }
