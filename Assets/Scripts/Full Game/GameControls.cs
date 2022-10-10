@@ -106,7 +106,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Choose"",
                     ""type"": ""PassThrough"",
                     ""id"": ""615e1d2e-b92e-430e-a504-e0a16ccc147a"",
                     ""expectedControlType"": ""Button"",
@@ -141,10 +141,10 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""f70d3d34-e505-4059-88aa-8cb2214bc36d"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Select"",
+                    ""action"": ""Choose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -160,7 +160,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_Select = asset.FindActionMap("Select", throwIfNotFound: true);
         m_Select_LeftSelect = m_Select.FindAction("LeftSelect", throwIfNotFound: true);
         m_Select_RightSelect = m_Select.FindAction("RightSelect", throwIfNotFound: true);
-        m_Select_Select = m_Select.FindAction("Select", throwIfNotFound: true);
+        m_Select_Choose = m_Select.FindAction("Choose", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -245,14 +245,14 @@ public class @GameControls : IInputActionCollection, IDisposable
     private ISelectActions m_SelectActionsCallbackInterface;
     private readonly InputAction m_Select_LeftSelect;
     private readonly InputAction m_Select_RightSelect;
-    private readonly InputAction m_Select_Select;
+    private readonly InputAction m_Select_Choose;
     public struct SelectActions
     {
         private @GameControls m_Wrapper;
         public SelectActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @LeftSelect => m_Wrapper.m_Select_LeftSelect;
         public InputAction @RightSelect => m_Wrapper.m_Select_RightSelect;
-        public InputAction @Select => m_Wrapper.m_Select_Select;
+        public InputAction @Choose => m_Wrapper.m_Select_Choose;
         public InputActionMap Get() { return m_Wrapper.m_Select; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -268,9 +268,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @RightSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
                 @RightSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
                 @RightSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
-                @Select.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
-                @Select.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
-                @Select.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
+                @Choose.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
+                @Choose.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
+                @Choose.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
             }
             m_Wrapper.m_SelectActionsCallbackInterface = instance;
             if (instance != null)
@@ -281,9 +281,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @RightSelect.started += instance.OnRightSelect;
                 @RightSelect.performed += instance.OnRightSelect;
                 @RightSelect.canceled += instance.OnRightSelect;
-                @Select.started += instance.OnSelect;
-                @Select.performed += instance.OnSelect;
-                @Select.canceled += instance.OnSelect;
+                @Choose.started += instance.OnChoose;
+                @Choose.performed += instance.OnChoose;
+                @Choose.canceled += instance.OnChoose;
             }
         }
     }
@@ -296,6 +296,6 @@ public class @GameControls : IInputActionCollection, IDisposable
     {
         void OnLeftSelect(InputAction.CallbackContext context);
         void OnRightSelect(InputAction.CallbackContext context);
-        void OnSelect(InputAction.CallbackContext context);
+        void OnChoose(InputAction.CallbackContext context);
     }
 }

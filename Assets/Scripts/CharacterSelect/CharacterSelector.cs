@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterSelector : MonoBehaviour
 {
+    [SerializeField] UIHandler uihandler;
     private GameControls characterSelectControls;
-    ThreeSecondsLeft threeSecondsLeft;
 
     SpriteRenderer OFGirl;
     SpriteRenderer HomelessGirl;
@@ -14,7 +14,7 @@ public class CharacterSelector : MonoBehaviour
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
     Animator CongressAnim;
-    Animator starAnim;
+    //Animator starAnim;
 
     private bool unlocked = false;
     private bool moved = false;
@@ -29,14 +29,13 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls = new GameControls();
         characterSelectControls.Select.LeftSelect.performed += x => leftSelect();
         characterSelectControls.Select.RightSelect.performed += x => rightSelect();
-        characterSelectControls.Select.Select.performed += x => select();
+        characterSelectControls.Select.Choose.performed += x => select();
 
         characters = FindObjectsOfType<Character>();
         
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
 
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
@@ -106,14 +105,14 @@ public class CharacterSelector : MonoBehaviour
         if (moved == true)
         {
             won = true;
-            threeSecondsLeft.DisplayScoreCard();
-            threeSecondsLeft.WinDisplay();
+            //uihandler.DisplayScoreCard();
+            uihandler.WinDisplay();
             characterSelectControls.Disable();
         }
 
         if(unlocked == true)
         {
-            threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+            //uihandler.DisplayBonusScoreCard(starAnim);
         }
     }
 
@@ -159,8 +158,9 @@ public class CharacterSelector : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = threeSecondsLeft.ReturnTimeToEnd() + threeSecondsLeft.ReturnSingleMeasure();
-        yield return new WaitForSeconds(deadline);
+        //float deadline = threeSecondsLeft.ReturnTimeToEnd() + threeSecondsLeft.ReturnSingleMeasure();
+
+        yield return new WaitForSeconds(3.529f);
         DetermineWinOrLoss();
     }
 
@@ -171,16 +171,16 @@ public class CharacterSelector : MonoBehaviour
             characterSelectControls.Disable();
             if (unlocked)
             {
-                threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+                //uihandler.DisplayBonusScoreCard(starAnim);
             }
             else if (moved)
             {
-                threeSecondsLeft.DisplayScoreCard();
-                threeSecondsLeft.WinDisplay();
+                //uihandler.DisplayScoreCard();
+                uihandler.WinDisplay();
             }
             else
             {
-                threeSecondsLeft.LoseDisplay();
+                uihandler.LoseDisplay();
             }
         }
     }

@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528c3c3a3876c8c4196087ab0d33c078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ink: {fileID: 6103411387422138069, guid: 4ad87fa3eb7b0444da3813250a44e207, type: 3}
+  ink: {fileID: 6473753132278709052, guid: 4ad87fa3eb7b0444da3813250a44e207, type: 3}
 --- !u!1 &380569482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086cbf34dcce34c4f8c54a2db1c778e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uihandler: {fileID: 24490723}
 --- !u!1 &1230715036
 GameObject:
   m_ObjectHideFlags: 0

@@ -93,7 +93,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Select",
+                    "name": "Choose",
                     "type": "PassThrough",
                     "id": "615e1d2e-b92e-430e-a504-e0a16ccc147a",
                     "expectedControlType": "Button",
@@ -128,10 +128,10 @@
                     "name": "",
                     "id": "f70d3d34-e505-4059-88aa-8cb2214bc36d",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "Choose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
