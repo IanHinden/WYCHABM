@@ -27,8 +27,8 @@ public class FullCoins : MonoBehaviour
     {
         levelComplete = true;
         //threeSecondsLeft.DisplayScoreCard();
-        //threeSecondsLeft.WinDisplay();
         //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+        uihandler.WinDisplay();
         Debug.Log("Stolen wages");
         controller.OnDisable();
     }

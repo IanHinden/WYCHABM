@@ -11,6 +11,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject BarScene;
     [SerializeField] private GameObject Fired;
     [SerializeField] private GameObject Contract;
+    [SerializeField] private GameObject Landlord;
+    [SerializeField] private GameObject CharacterSelect;
 
     [SerializeField] private UIHandler uihandler;
     // Start is called before the first frame update
@@ -22,6 +24,8 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(BarScene);
         allscenes.Add(Fired);
         allscenes.Add(Contract);
+        allscenes.Add(Landlord);
+        allscenes.Add(CharacterSelect);
         StartCoroutine(SwitchScene());
     }
 
@@ -41,18 +45,34 @@ public class TimeKeeper : MonoBehaviour
     IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(14.1176f);
-        nextScene();
+        nextScene(); //Bar
         uihandler.showSlider();
         uihandler.Countdown(8);
         yield return new WaitForSeconds(2.82f);
         yield return new WaitForSeconds(2.82f);
         uihandler.hideSlider();
-        nextScene();
+        nextScene(); //Fired
         yield return new WaitForSeconds(1.411f);
-        nextScene();
+        nextScene(); //Contract
         uihandler.showSlider();
         uihandler.Countdown(6);
         yield return new WaitForSeconds(4.235f);
+        uihandler.hideSlider();
+        nextScene(); //Landlord
+        
+        //Need a fix to destory these
+        Ink[] allInk = FindObjectsOfType<Ink>();
+        foreach (Ink obj in allInk)
+        {
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        yield return new WaitForSeconds(4.235f);
+        nextScene(); // Character Select
+        uihandler.showSlider();
+        uihandler.Countdown(6);
+        yield return new WaitForSeconds(4.235f);
+        nextScene();
         uihandler.hideSlider();
     }
 }

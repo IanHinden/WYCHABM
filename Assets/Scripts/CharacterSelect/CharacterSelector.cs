@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSelector : MonoBehaviour
 {
-    private CharacterSelectControls characterSelectControls;
+    private GameControls characterSelectControls;
     ThreeSecondsLeft threeSecondsLeft;
 
     SpriteRenderer OFGirl;
@@ -26,10 +26,10 @@ public class CharacterSelector : MonoBehaviour
     Character[] characters;
     private void Awake()
     {
-        characterSelectControls = new CharacterSelectControls();
-        characterSelectControls.CharacterSelect.LeftSelect.performed += x => leftSelect();
-        characterSelectControls.CharacterSelect.RightSelect.performed += x => rightSelect();
-        characterSelectControls.CharacterSelect.Select.performed += x => select();
+        characterSelectControls = new GameControls();
+        characterSelectControls.Select.LeftSelect.performed += x => leftSelect();
+        characterSelectControls.Select.RightSelect.performed += x => rightSelect();
+        characterSelectControls.Select.Select.performed += x => select();
 
         characters = FindObjectsOfType<Character>();
         
@@ -42,7 +42,7 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
 
-        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
+        //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
         StartCoroutine(WinOrLose());
     }

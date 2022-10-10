@@ -84,6 +84,71 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Select"",
+            ""id"": ""32e7b7f1-2b34-425d-8a26-8d10367176c6"",
+            ""actions"": [
+                {
+                    ""name"": ""LeftSelect"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3f56a20f-52f6-47b8-a710-69e28c606a47"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightSelect"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""76bc8f95-e244-4767-a824-a05d5b0a01e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""615e1d2e-b92e-430e-a504-e0a16ccc147a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""85b668d6-9a47-4a1a-b41a-65d62b32aff6"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84c79184-d382-48e0-93f7-ed4d4da356cd"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f70d3d34-e505-4059-88aa-8cb2214bc36d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -91,6 +156,11 @@ public class @GameControls : IInputActionCollection, IDisposable
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Directions = m_Move.FindAction("Directions", throwIfNotFound: true);
+        // Select
+        m_Select = asset.FindActionMap("Select", throwIfNotFound: true);
+        m_Select_LeftSelect = m_Select.FindAction("LeftSelect", throwIfNotFound: true);
+        m_Select_RightSelect = m_Select.FindAction("RightSelect", throwIfNotFound: true);
+        m_Select_Select = m_Select.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -169,8 +239,63 @@ public class @GameControls : IInputActionCollection, IDisposable
         }
     }
     public MoveActions @Move => new MoveActions(this);
+
+    // Select
+    private readonly InputActionMap m_Select;
+    private ISelectActions m_SelectActionsCallbackInterface;
+    private readonly InputAction m_Select_LeftSelect;
+    private readonly InputAction m_Select_RightSelect;
+    private readonly InputAction m_Select_Select;
+    public struct SelectActions
+    {
+        private @GameControls m_Wrapper;
+        public SelectActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LeftSelect => m_Wrapper.m_Select_LeftSelect;
+        public InputAction @RightSelect => m_Wrapper.m_Select_RightSelect;
+        public InputAction @Select => m_Wrapper.m_Select_Select;
+        public InputActionMap Get() { return m_Wrapper.m_Select; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SelectActions set) { return set.Get(); }
+        public void SetCallbacks(ISelectActions instance)
+        {
+            if (m_Wrapper.m_SelectActionsCallbackInterface != null)
+            {
+                @LeftSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnLeftSelect;
+                @LeftSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnLeftSelect;
+                @LeftSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnLeftSelect;
+                @RightSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
+                @RightSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
+                @RightSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnRightSelect;
+                @Select.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnSelect;
+            }
+            m_Wrapper.m_SelectActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @LeftSelect.started += instance.OnLeftSelect;
+                @LeftSelect.performed += instance.OnLeftSelect;
+                @LeftSelect.canceled += instance.OnLeftSelect;
+                @RightSelect.started += instance.OnRightSelect;
+                @RightSelect.performed += instance.OnRightSelect;
+                @RightSelect.canceled += instance.OnRightSelect;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+            }
+        }
+    }
+    public SelectActions @Select => new SelectActions(this);
     public interface IMoveActions
     {
         void OnDirections(InputAction.CallbackContext context);
+    }
+    public interface ISelectActions
+    {
+        void OnLeftSelect(InputAction.CallbackContext context);
+        void OnRightSelect(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Print : MonoBehaviour
 {
-    [SerializeField] public GameObject ink;
+    [SerializeField] public Ink ink;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +19,13 @@ public class Print : MonoBehaviour
 
     private void spawnInk()
     {
-        GameObject inkBlot = Instantiate(ink) as GameObject;
-        inkBlot.transform.position = gameObject.transform.position;
+        Ink inkBlot = Instantiate(ink) as Ink;
+        inkBlot.transform.position = this.transform.position;
     }
 
     private IEnumerator InkLine()
     {
         yield return new WaitForSeconds(.1f);
         spawnInk();
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 }

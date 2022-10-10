@@ -71,6 +71,71 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Select",
+            "id": "32e7b7f1-2b34-425d-8a26-8d10367176c6",
+            "actions": [
+                {
+                    "name": "LeftSelect",
+                    "type": "PassThrough",
+                    "id": "3f56a20f-52f6-47b8-a710-69e28c606a47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightSelect",
+                    "type": "PassThrough",
+                    "id": "76bc8f95-e244-4767-a824-a05d5b0a01e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Select",
+                    "type": "PassThrough",
+                    "id": "615e1d2e-b92e-430e-a504-e0a16ccc147a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "85b668d6-9a47-4a1a-b41a-65d62b32aff6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84c79184-d382-48e0-93f7-ed4d4da356cd",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f70d3d34-e505-4059-88aa-8cb2214bc36d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
