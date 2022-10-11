@@ -7,6 +7,8 @@ public class TimeKeeper : MonoBehaviour
     ArrayList allscenes = new ArrayList();
     int currentScene = 0;
 
+    [SerializeField] Camera maincamera;
+
     [SerializeField] private GameObject CityAndBarIntro;
     [SerializeField] private GameObject BarScene;
     [SerializeField] private GameObject Fired;
@@ -42,6 +44,13 @@ public class TimeKeeper : MonoBehaviour
         currentScene++;
     }
 
+    private void resetCamera()
+    {
+        Vector3 targetPosition = new Vector3(0f, 0f, -10f);
+
+        maincamera.transform.position = targetPosition;
+    }
+
     IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(14.1176f);
@@ -51,6 +60,9 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(2.82f);
         yield return new WaitForSeconds(2.82f);
         uihandler.hideSlider();
+
+        resetCamera();
+
         nextScene(); //Fired
         yield return new WaitForSeconds(1.411f);
         nextScene(); //Contract

@@ -2399,6 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50e3577320a5144cba6867db5b97bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincamera: {fileID: 1550866436}
 --- !u!61 &735480440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10725,6 +10726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c2350a0eaec8f458d2c48ac9319936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maincamera: {fileID: 1550866436}
   CityAndBarIntro: {fileID: 1541216390}
   BarScene: {fileID: 2101814291}
   Fired: {fileID: 228925647}

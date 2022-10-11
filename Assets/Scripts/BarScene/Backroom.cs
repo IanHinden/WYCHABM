@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Backroom : MonoBehaviour
 {
-    CameraMovement cameraMovement;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        cameraMovement = FindObjectOfType<CameraMovement>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] Camera maincamera;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(cameraMovement.MoveToBackroom());
+        StartCoroutine(MoveToBackroom());
+    }
+
+    public IEnumerator MoveToBackroom()
+    {
+        Vector3 targetPosition = new Vector3(-17.8f, 0f, -10f);
+
+        float elapsedTime = 0;
+        float waitTime = .3f;
+
+        while (elapsedTime < waitTime)
+        {
+            maincamera.transform.position = Vector3.Lerp(transform.position, targetPosition, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }
