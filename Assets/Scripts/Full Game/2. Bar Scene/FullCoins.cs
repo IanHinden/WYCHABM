@@ -6,10 +6,10 @@ public class FullCoins : MonoBehaviour
 {
     [SerializeField] Controller controller;
     [SerializeField] UIHandler uihandler;
+    [SerializeField] ScoreHandler scorehandler;
     //Animator starAnim;
 
     int remainingCoins;
-    //bool stolenWagesRecovered = false;
 
     private bool levelComplete = false;
 
@@ -26,10 +26,9 @@ public class FullCoins : MonoBehaviour
     private void StolenWagesRecovered(int amount)
     {
         levelComplete = true;
-        //threeSecondsLeft.DisplayScoreCard();
+        scorehandler.DisplayScoreCard();
         //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
         uihandler.WinDisplay();
-        Debug.Log("Stolen wages");
         controller.OnDisable();
     }
 
@@ -40,8 +39,7 @@ public class FullCoins : MonoBehaviour
         {
             levelComplete = true;
             uihandler.WinDisplay();
-            //threeSecondsLeft.DisplayScoreCard();
-            //threeSecondsLeft.WinDisplay();
+            scorehandler.DisplayScoreCard();
             controller.OnDisable();
         }
     }
@@ -64,7 +62,7 @@ public class FullCoins : MonoBehaviour
         if (remainingCoins == 0)
         {
             uihandler.WinDisplay();
-            //threeSecondsLeft.WinDisplay();
+            scorehandler.DisplayScoreCard();
         }
         else
         {
