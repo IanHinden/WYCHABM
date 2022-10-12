@@ -15,6 +15,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject Contract;
     [SerializeField] private GameObject Landlord;
     [SerializeField] private GameObject CharacterSelect;
+    [SerializeField] private GameObject Judgement;
 
     [SerializeField] private UIHandler uihandler;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(Contract);
         allscenes.Add(Landlord);
         allscenes.Add(CharacterSelect);
+        allscenes.Add(Judgement);
         StartCoroutine(SwitchScene());
     }
 
@@ -86,5 +88,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(4.235f);
         nextScene();
         uihandler.hideSlider();
+
+        yield return new WaitForSeconds(1.411f);
     }
 }
