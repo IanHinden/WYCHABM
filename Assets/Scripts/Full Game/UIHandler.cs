@@ -108,10 +108,13 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroy(string instructions)
     {
+        anim.ResetTrigger("ResetAnim");
         anim.SetTrigger("StartAnim");
         yield return new WaitForSeconds(.6f);
         textmesh.text = instructions;
         yield return new WaitForSeconds(3f);
         textmesh.text = "";
+        anim.SetTrigger("ResetAnim");
+        anim.ResetTrigger("StartAnim");
     }
 }
