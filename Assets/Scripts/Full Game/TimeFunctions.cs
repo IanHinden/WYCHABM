@@ -17,4 +17,9 @@ public class TimeFunctions : MonoBehaviour
     {
         return measureMS;
     }
+
+    public float ReturnCountMeasure(int count)
+    {
+        return count * measureMS;
+    }
 }
