@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Disappointer : MonoBehaviour
 {
-    ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         StartCoroutine(WinOrLose());
     }
 
     IEnumerator WinOrLose()
     {
-        float deadline = threeSecondsLeft.ReturnTimeToEnd() - threeSecondsLeft.ReturnSingleMeasure();
-        yield return new WaitForSeconds(deadline);
+        yield return new WaitForSeconds(3);
         DetermineWinOrLoss();
     }
 
     private void DetermineWinOrLoss()
     {
-        threeSecondsLeft.LoseDisplay();
+        //threeSecondsLeft.LoseDisplay();
+        // Halloween 1987
+        uihandler.LoseDisplay();
     }
 }

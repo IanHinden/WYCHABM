@@ -27,6 +27,27 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject Evolving;
     [SerializeField] private GameObject NewMrRichmond;
     [SerializeField] private GameObject Driving;
+    [SerializeField] private GameObject CheekToCheek;
+    [SerializeField] private GameObject SeeMen;
+    [SerializeField] private GameObject SecondChorus;
+    [SerializeField] private GameObject WebSurfing;
+    [SerializeField] private GameObject Wishlist;
+    [SerializeField] private GameObject OnlineDating;
+    [SerializeField] private GameObject Tweak;
+    [SerializeField] private GameObject PartyGuy;
+    [SerializeField] private GameObject PartyGirls;
+    [SerializeField] private GameObject Mensch;
+    [SerializeField] private GameObject CarArrival;
+    [SerializeField] private GameObject BarView;
+    [SerializeField] private GameObject MakeADeal;
+    [SerializeField] private GameObject Mix;
+    [SerializeField] private GameObject Bedside;
+    [SerializeField] private GameObject Rings;
+    [SerializeField] private GameObject Sick;
+    [SerializeField] private GameObject PregnancyTest;
+    [SerializeField] private GameObject ThirdChorus;
+    [SerializeField] private GameObject FinalBoss;
+    [SerializeField] private GameObject ScoreScreen;
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -53,6 +74,23 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(Evolving);
         allscenes.Add(NewMrRichmond);
         allscenes.Add(Driving);
+        allscenes.Add(CheekToCheek);
+        allscenes.Add(SeeMen);
+        allscenes.Add(SecondChorus);
+        allscenes.Add(WebSurfing);
+        allscenes.Add(Landlord);
+        allscenes.Add(Wishlist);
+        allscenes.Add(CarArrival);
+        allscenes.Add(BarView);
+        allscenes.Add(MakeADeal);
+        allscenes.Add(Mix);
+        allscenes.Add(Bedside);
+        allscenes.Add(Rings);
+        allscenes.Add(Sick);
+        allscenes.Add(PregnancyTest);
+        allscenes.Add(ThirdChorus);
+        allscenes.Add(FinalBoss);
+        allscenes.Add(ScoreScreen);
 
         StartCoroutine(SwitchScene());
     }
@@ -104,7 +142,7 @@ public class TimeKeeper : MonoBehaviour
             obj.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Character Select
         uihandler.showSlider();
         uihandler.Countdown(6);
@@ -121,27 +159,69 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Don't Disappoint
+        uihandler.showSlider();
+        uihandler.Countdown(4);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
+        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Psycho
+        uihandler.showSlider();
+        uihandler.Countdown(6);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
+        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Job Interview
+        uihandler.showSlider();
+        uihandler.Countdown(6);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Evolving
+        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //New Mr. Richmond
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Driving
+        uihandler.showSlider();
+        uihandler.Countdown(12);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
+
+        nextScene(); //Cheek to Cheek
+        uihandler.hideSlider();
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+
+        nextScene(); //See Men
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+
+        nextScene(); //Second Chorus
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
+
+        nextScene(); //Web Surfing
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+
+        nextScene(); //Wishlist
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+
+        nextScene(); //Online Dating
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
+
+        nextScene(); //Tweak
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+
+        nextScene(); //Party Guy
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+
+        nextScene(); //Party Girls
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+
+        nextScene(); //Mensch
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
     }
 }
