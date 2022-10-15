@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class EyeBalls : MonoBehaviour
 {
-    private WritingControls writingControls;
+    private GameControls gamecontrols;
     private float speed = 5f;
     // Start is called before the first frame update
     void Awake()
     {
-        writingControls = new WritingControls();
+        gamecontrols = new GameControls();
     }
 
     private void OnEnable()
     {
-        writingControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        writingControls.Disable();
+        gamecontrols.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 movementInput = writingControls.Move.Directions.ReadValue<Vector2>();
+        Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
         Vector3 currentPosition = transform.position;
         if (movementInput != Vector2.zero)
         {
-            //currentPosition.y += -1f * speed * Time.deltaTime;
-            //currentPosition.y = Mathf.Clamp(currentPosition.y, -.04f, 0f);
+            currentPosition.y += -1f * speed * Time.deltaTime;
+            currentPosition.y = Mathf.Clamp(currentPosition.y, -.04f, 0f);
             transform.position = currentPosition;
         } else
         {

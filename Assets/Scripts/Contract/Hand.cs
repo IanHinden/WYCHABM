@@ -5,16 +5,17 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
 
-    private PlayerActionControls playerActionControls;
-    Print print;
+    private GameControls gamecontrols;
+    private new Print print;
     private bool moved = false;
 
     private float speed = 5f;
     
     private void Awake()
     {
-        playerActionControls = new PlayerActionControls();
+        gamecontrols = new GameControls();
         print = FindObjectOfType<Print>();
 
         StartCoroutine(WinOrLose());
@@ -22,17 +23,17 @@ public class Hand : MonoBehaviour
 
     private void OnEnable()
     {
-        playerActionControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        playerActionControls.Disable();
+        gamecontrols.Disable();
     }
 
     void Update()
     {
-        Vector2 movementInput = playerActionControls.OverheadMove.Move.ReadValue<Vector2>();
+        Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
 
         if (movementInput.x != 0 || movementInput.y != 0)
         {
@@ -57,7 +58,7 @@ public class Hand : MonoBehaviour
     IEnumerator WinOrLose()
     {
         //float deadline = (threeSecondsLeft.ReturnTimeToEnd()) + threeSecondsLeft.ReturnSingleMeasure();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
     }
 
