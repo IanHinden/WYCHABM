@@ -112,7 +112,7 @@ public class UIHandler : MonoBehaviour
         anim.SetTrigger("StartAnim");
         yield return new WaitForSeconds(.6f);
         textmesh.text = instructions;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         textmesh.text = "";
         anim.SetTrigger("ResetAnim");
         anim.ResetTrigger("StartAnim");
