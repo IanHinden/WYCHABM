@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterSelector : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
+
     private GameControls characterSelectControls;
 
     SpriteRenderer OFGirl;
@@ -158,9 +160,7 @@ public class CharacterSelector : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        //float deadline = threeSecondsLeft.ReturnTimeToEnd() + threeSecondsLeft.ReturnSingleMeasure();
-
-        yield return new WaitForSeconds(3.529f);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
     }
 
