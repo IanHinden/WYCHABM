@@ -7,6 +7,7 @@ public class FullCoins : MonoBehaviour
     [SerializeField] Controller controller;
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] TimeFunctions timefunctions;
     //Animator starAnim;
 
     int remainingCoins;
@@ -26,7 +27,7 @@ public class FullCoins : MonoBehaviour
     private void StolenWagesRecovered(int amount)
     {
         levelComplete = true;
-        scorehandler.DisplayScoreCard();
+        //scorehandler.DisplayScoreCard();
         //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
         uihandler.WinDisplay();
         controller.OnDisable();
@@ -39,17 +40,14 @@ public class FullCoins : MonoBehaviour
         {
             levelComplete = true;
             uihandler.WinDisplay();
-            scorehandler.DisplayScoreCard();
+            //scorehandler.DisplayScoreCard();
             controller.OnDisable();
         }
     }
 
     IEnumerator WinOrLose()
     {
-        //float timeToEnd = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
-
-        //yield return new WaitForSeconds(timeToEnd);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         if (levelComplete == false)
         {
@@ -59,15 +57,19 @@ public class FullCoins : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (remainingCoins == 0)
+        if (!levelComplete)
         {
-            uihandler.WinDisplay();
-            scorehandler.DisplayScoreCard();
-        }
-        else
-        {
-            uihandler.LoseDisplay();
-            //playerController.OnDisable();
+            if (remainingCoins == 0)
+            {
+                uihandler.WinDisplay();
+                controller.OnDisable();
+                scorehandler.DisplayScoreCard();
+            }
+            else
+            {
+                uihandler.LoseDisplay();
+                controller.OnDisable();
+            }
         }
     }
 }

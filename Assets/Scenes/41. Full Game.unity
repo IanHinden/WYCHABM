@@ -7235,6 +7235,7 @@ MonoBehaviour:
   controller: {fileID: 838616370}
   uihandler: {fileID: 24490723}
   scorehandler: {fileID: 0}
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &578208073
 GameObject:
   m_ObjectHideFlags: 0
@@ -11318,7 +11319,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c313bb139af7dee43ba7e85d21562faa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc5eb5a045a5b5f42aa2dd68fa758fea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
