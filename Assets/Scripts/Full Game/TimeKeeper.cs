@@ -78,7 +78,6 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(SeeMen);
         allscenes.Add(SecondChorus);
         allscenes.Add(WebSurfing);
-        allscenes.Add(Landlord);
         allscenes.Add(Wishlist);
         allscenes.Add(CarArrival);
         allscenes.Add(BarView);
