@@ -7,21 +7,30 @@ public class Disappointer : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
 
+    bool CareAboutTheOpinionsOfOthers;
+
     void Awake()
     {
         StartCoroutine(WinOrLose());
+
+        //Halloween 1987
+        CareAboutTheOpinionsOfOthers = true;
     }
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
         DetermineWinOrLoss();
     }
 
     private void DetermineWinOrLoss()
     {
-        //threeSecondsLeft.LoseDisplay();
-        // Halloween 1987
-        uihandler.LoseDisplay();
+        if (CareAboutTheOpinionsOfOthers)
+        {
+            uihandler.LoseDisplay();
+        } else
+        {
+            uihandler.WinDisplay();
+        }
     }
 }

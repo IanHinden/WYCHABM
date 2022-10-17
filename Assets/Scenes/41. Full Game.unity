@@ -17536,6 +17536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uihandler: {fileID: 24490723}
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &1213536985
 GameObject:
   m_ObjectHideFlags: 0
@@ -18729,8 +18730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5a5d03e8234c24194f230a2095e020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uihandler: {fileID: 0}
-  timefunctions: {fileID: 0}
+  uihandler: {fileID: 24490723}
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &1301717579
 GameObject:
   m_ObjectHideFlags: 0

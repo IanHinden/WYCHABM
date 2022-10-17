@@ -9,7 +9,6 @@ public class Coins : MonoBehaviour
     Animator starAnim;
 
     int remainingCoins;
-    bool stolenWagesRecovered = false;
 
     private bool levelComplete = false;
 
