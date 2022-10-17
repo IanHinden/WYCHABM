@@ -1351,12 +1351,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c5493a9c9fbe6be48bc47079e38d4d75, type: 3}
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Sprite: {fileID: 21300000, guid: aeac6e9f8ecea764191513053dca3372, type: 3}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0.29803923}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.57, y: 0.95}
+  m_Size: {x: 23.81, y: 5.8246145}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1370,8 +1370,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98040203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.57, y: -2.48, z: 0}
-  m_LocalScale: {x: 2.427359, y: 2.427359, z: 2.427359}
+  m_LocalPosition: {x: -5.63, y: -2.92, z: 0}
+  m_LocalScale: {x: 0.46078527, y: 0.46078527, z: 0.46078527}
   m_Children:
   - {fileID: 1349787339}
   m_Father: {fileID: 873015318}
@@ -19478,8 +19478,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19514,7 +19514,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -8.828788, y: -1.2612561, z: -8.881343, w: -1.4189125}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
