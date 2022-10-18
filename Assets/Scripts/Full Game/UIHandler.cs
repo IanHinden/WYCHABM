@@ -126,16 +126,19 @@ public class UIHandler : MonoBehaviour
         anim.ResetTrigger("StartAnim");
     }
 
-    public void DisplayScoreCard(int score)
+    public IEnumerator DisplayScoreCard(int score)
     {
-        scoreCardText.text = score.ToString();
+        int prevscore = score - 1;
+        scoreCardText.text = prevscore.ToString();
         scoreCardAnim.SetTrigger("Enter");
+        yield return new WaitForSeconds(.8f);
+        scoreCardText.text = score.ToString();
         StartCoroutine(HideScoreCard());
     }
 
     IEnumerator HideScoreCard()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
     }
 }
