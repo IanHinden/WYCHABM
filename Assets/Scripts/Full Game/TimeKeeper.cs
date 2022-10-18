@@ -99,9 +99,18 @@ public class TimeKeeper : MonoBehaviour
         StartCoroutine(SwitchScene());
     }
 
-    private void nextScene()
+    private void nextScene(int countdown = 0)
     {
         uihandler.ClearWinLoss();
+
+        if(countdown != 0)
+        {
+            uihandler.showSlider();
+            uihandler.Countdown(countdown);
+        } else
+        {
+            uihandler.hideSlider();
+        }
 
         GameObject nextActiveScene = (GameObject)allscenes[currentScene + 1];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
@@ -122,9 +131,7 @@ public class TimeKeeper : MonoBehaviour
     IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
-        nextScene(); //Bar
-        uihandler.showSlider();
-        uihandler.Countdown(8);
+        nextScene(8); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
         uihandler.hideSlider();
 
@@ -132,9 +139,7 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Fired
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2));
-        nextScene(); //Contract
-        uihandler.showSlider();
-        uihandler.Countdown(6);
+        nextScene(6); //Contract
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         uihandler.hideSlider();
         nextScene(); //Landlord
@@ -147,9 +152,7 @@ public class TimeKeeper : MonoBehaviour
         }
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
-        nextScene(); // Character Select
-        uihandler.showSlider();
-        uihandler.Countdown(6);
+        nextScene(6); // Character Select
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Judgement
         uihandler.hideSlider();
@@ -162,27 +165,21 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //The Family
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
-        nextScene(); //Don't Disappoint
-        uihandler.showSlider();
-        uihandler.Countdown(4);
+        nextScene(4); //Don't Disappoint
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
         uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
-        nextScene(); //Psycho
-        uihandler.showSlider();
-        uihandler.Countdown(6);
+        nextScene(6); //Psycho
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
         uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
-        nextScene(); //Job Interview
-        uihandler.showSlider();
-        uihandler.Countdown(6);
+        nextScene(6); //Job Interview
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Evolving
@@ -192,13 +189,10 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //New Mr. Richmond
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
-        nextScene(); //Driving
-        uihandler.showSlider();
-        uihandler.Countdown(12);
+        nextScene(12); //Driving
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
-        nextScene(); //Cheek to Cheek
-        uihandler.hideSlider();
+        nextScene(8); //Cheek to Cheek
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //See Men
@@ -210,16 +204,14 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Web Surfing
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
 
-        nextScene(); //Wishlist
-        uihandler.showSlider();
-        uihandler.Countdown(4);
+        nextScene(4); //Wishlist
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Online Dating
         uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
 
-        nextScene(); //Tweak
+        nextScene(6); //Tweak
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Party Guy
@@ -228,7 +220,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Party Girls
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
-        nextScene(); //Mensch
+        nextScene(8); //Mensch
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Car Arrival
@@ -240,19 +232,19 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Make a Wish
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
-        nextScene(); //Mix
+        nextScene(8); //Mix
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Bedside
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
-        nextScene(); //Rings
+        nextScene(8); //Rings
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Sick
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
-        nextScene(); //Pregnancy Test
+        nextScene(8); //Pregnancy Test
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Third Chorus
