@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class StabCheck : MonoBehaviour
 {
-    //SuccessOrFail successOrFail;
-    ThreeSecondsLeft threeSecondsLeft;
-
-    Animator starAnim;
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
 
     public GameObject oedipalBonus;
 
@@ -17,9 +15,6 @@ public class StabCheck : MonoBehaviour
 
     private void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-
-        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(4).GetComponent<Animator>();
         StartCoroutine(WinOrLose());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,9 +28,9 @@ public class StabCheck : MonoBehaviour
                 Instantiate(oedipalBonus, textPos, Quaternion.identity);
                 if (oedipal == false)
                 {
-                    threeSecondsLeft.DisplayScoreCard();
-                    threeSecondsLeft.WinDisplay();
-                    threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+                    //threeSecondsLeft.DisplayScoreCard();
+                    uihandler.WinDisplay();
+                    //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
                     oedipal = true;
                     levelEnded = true;
                 }
@@ -44,15 +39,13 @@ public class StabCheck : MonoBehaviour
         stabbed = true;
         if (levelEnded == false)
         {
-            threeSecondsLeft.WinDisplay();
+            uihandler.WinDisplay();
         }
     }
 
     IEnumerator WinOrLose()
     {
-        float deadline = (5 * threeSecondsLeft.ReturnSingleMeasure());
-
-        yield return new WaitForSeconds(deadline);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
     }
 
@@ -61,7 +54,7 @@ public class StabCheck : MonoBehaviour
         if (stabbed == false && levelEnded == false)
         {
             levelEnded = true;
-            threeSecondsLeft.LoseDisplay();
+            uihandler.LoseDisplay();
         }
     }
 }

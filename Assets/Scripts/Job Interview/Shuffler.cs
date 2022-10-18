@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Shuffler : MonoBehaviour
 {
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
+
     private SpeechBubble[] speechBubbles;
 
     private SwitchCards switchCards;
-
-    ThreeSecondsLeft threeSecondsLeft;
 
     private bool pressed = false;
     private float timeToPress = 0f;
@@ -23,7 +24,6 @@ public class Shuffler : MonoBehaviour
         switchCards.Selecting.RightSelect.performed += x => ShuffleRight();
         switchCards.Selecting.Select.performed += x => Select();
 
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         StartCoroutine(WinOrLose());
     }
 
@@ -89,13 +89,11 @@ public class Shuffler : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = (5 * threeSecondsLeft.ReturnSingleMeasure());
-
-        yield return new WaitForSeconds(deadline);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         selected = 1;
         if (pressed == false)
         {
-            threeSecondsLeft.LoseDisplay();
+            uihandler.LoseDisplay();
         }
     }
 
@@ -105,11 +103,11 @@ public class Shuffler : MonoBehaviour
         switchCards.Disable();
         if(selected == 0)
         {
-            threeSecondsLeft.DisplayScoreCard();
-            threeSecondsLeft.WinDisplay();
+            //threeSecondsLeft.DisplayScoreCard();
+            uihandler.WinDisplay();
         } else
         {
-            threeSecondsLeft.LoseDisplay();
+            uihandler.LoseDisplay();
         }
     }
 }
