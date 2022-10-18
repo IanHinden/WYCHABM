@@ -19,6 +19,11 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdown;
 
     [SerializeField] TextMeshProUGUI textmesh;
+
+    [SerializeField] GameObject scorecard;
+    private Animator scoreCardAnim;
+    private TextMeshProUGUI scoreCardText;
+
     private Animator anim;
     // Start is called before the first frame update
     void Awake()
@@ -30,6 +35,9 @@ public class UIHandler : MonoBehaviour
 
         textmesh.text = "";
         anim = textmesh.GetComponent<Animator>();
+
+        scoreCardAnim = scorecard.GetComponent<Animator>();
+        scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 
     public void WinDisplay()
@@ -116,5 +124,18 @@ public class UIHandler : MonoBehaviour
         textmesh.text = "";
         anim.SetTrigger("ResetAnim");
         anim.ResetTrigger("StartAnim");
+    }
+
+    public void DisplayScoreCard(int score)
+    {
+        scoreCardText.text = score.ToString();
+        scoreCardAnim.SetTrigger("Enter");
+        StartCoroutine(HideScoreCard());
+    }
+
+    IEnumerator HideScoreCard()
+    {
+        yield return new WaitForSeconds(2);
+        scoreCardAnim.SetTrigger("Exit");
     }
 }

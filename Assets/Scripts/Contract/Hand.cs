@@ -6,6 +6,7 @@ public class Hand : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
 
     private GameControls gamecontrols;
     private new Print print;
@@ -57,7 +58,6 @@ public class Hand : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        //float deadline = (threeSecondsLeft.ReturnTimeToEnd()) + threeSecondsLeft.ReturnSingleMeasure();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
     }
@@ -70,7 +70,7 @@ public class Hand : MonoBehaviour
         }
         else
         {
-            //threeSecondsLeft.DisplayScoreCard();
+            scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
     }

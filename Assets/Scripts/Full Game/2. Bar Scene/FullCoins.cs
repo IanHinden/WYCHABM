@@ -27,7 +27,7 @@ public class FullCoins : MonoBehaviour
     private void StolenWagesRecovered(int amount)
     {
         levelComplete = true;
-        //scorehandler.DisplayScoreCard();
+        scorehandler.IncrementScore();
         //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
         uihandler.WinDisplay();
         controller.OnDisable();
@@ -40,7 +40,7 @@ public class FullCoins : MonoBehaviour
         {
             levelComplete = true;
             uihandler.WinDisplay();
-            //scorehandler.DisplayScoreCard();
+            scorehandler.IncrementScore();
             controller.OnDisable();
         }
     }
@@ -63,7 +63,7 @@ public class FullCoins : MonoBehaviour
             {
                 uihandler.WinDisplay();
                 controller.OnDisable();
-                scorehandler.DisplayScoreCard();
+                scorehandler.IncrementScore();
             }
             else
             {
