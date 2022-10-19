@@ -6,6 +6,7 @@ public class CharacterSelector : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
 
     private GameControls characterSelectControls;
 
@@ -107,7 +108,7 @@ public class CharacterSelector : MonoBehaviour
         if (moved == true)
         {
             won = true;
-            //uihandler.DisplayScoreCard();
+            scorehandler.IncrementScore();
             uihandler.WinDisplay();
             characterSelectControls.Disable();
         }
@@ -175,7 +176,7 @@ public class CharacterSelector : MonoBehaviour
             }
             else if (moved)
             {
-                //uihandler.DisplayScoreCard();
+                scorehandler.IncrementScore();
                 uihandler.WinDisplay();
             }
             else
