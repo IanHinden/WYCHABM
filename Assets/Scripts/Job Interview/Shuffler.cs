@@ -7,6 +7,7 @@ public class Shuffler : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
 
     private SpeechBubble[] speechBubbles;
 
@@ -103,7 +104,7 @@ public class Shuffler : MonoBehaviour
         switchCards.Disable();
         if(selected == 0)
         {
-            //threeSecondsLeft.DisplayScoreCard();
+            scorehandler.IncrementScore();
             uihandler.WinDisplay();
         } else
         {

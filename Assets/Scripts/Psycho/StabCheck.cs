@@ -6,6 +6,7 @@ public class StabCheck : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
 
     public GameObject oedipalBonus;
 
@@ -28,7 +29,7 @@ public class StabCheck : MonoBehaviour
                 Instantiate(oedipalBonus, textPos, Quaternion.identity);
                 if (oedipal == false)
                 {
-                    //threeSecondsLeft.DisplayScoreCard();
+                    scorehandler.IncrementScore();
                     uihandler.WinDisplay();
                     //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
                     oedipal = true;

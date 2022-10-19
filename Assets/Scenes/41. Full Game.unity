@@ -31505,6 +31505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
+  scorehandler: {fileID: 585011356}
 --- !u!1 &1860005560
 GameObject:
   m_ObjectHideFlags: 0
@@ -35041,6 +35042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
+  scorehandler: {fileID: 585011356}
   oedipalBonus: {fileID: 1102356857734148953, guid: ccfcd3c7571beff468abadb37cc05117,
     type: 3}
 --- !u!61 &2093130522
