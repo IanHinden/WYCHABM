@@ -9268,7 +9268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a2d03c1506794da09562175dd6683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uihandler: {fileID: 24490723}
+  timefunctions: {fileID: 1358544022}
+  scorehandler: {fileID: 585011356}
+  wheel: {fileID: 1590683240}
   speed: 40
+  wheelSpeed: 30
 --- !u!212 &631478565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26900,7 +26905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1590683241}
   - component: {fileID: 1590683244}
-  - component: {fileID: 1590683243}
   - component: {fileID: 1590683242}
   m_Layer: 0
   m_Name: SteeringWheel
@@ -26944,20 +26948,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1590683243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590683240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01b63551a82ddd41bd9b9cab8299344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  timeSinceStart: 0
 --- !u!212 &1590683244
 SpriteRenderer:
   m_ObjectHideFlags: 0

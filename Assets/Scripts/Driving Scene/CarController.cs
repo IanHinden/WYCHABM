@@ -4,57 +4,70 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] GameObject wheel;
     public float speed;
+    public float wheelSpeed = 30;
 
-    private Driving driving;
-
-    ThreeSecondsLeft threeSecondsLeft;
+    private GameControls gamecontrols;
+    private Rigidbody2D wheelsrb;
 
     bool lost = false;
     bool introOver = false;
 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        driving = new Driving();
+        wheelsrb = wheel.GetComponent<Rigidbody2D>();
+
+        gamecontrols = new GameControls();
         StartCoroutine(IntroPause());
         StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
     {
-        driving.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        driving.Disable();
+        gamecontrols.Disable();
     }
 
     void Update()
     {
-        float selectInput = driving.Drive.Steer.ReadValue<float>();
+        Vector2 selectInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
         float currentPosition = transform.position.x;
 
         if (introOver == true)
         {
-            currentPosition += selectInput * speed * Time.deltaTime;
+            currentPosition += selectInput.x * speed * Time.deltaTime;
             transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
+
+            if (selectInput.x == -1)
+            {
+                wheelsrb.rotation += speed * Time.deltaTime;
+            }
+            else if (selectInput.x == 1)
+            {
+                wheelsrb.rotation -= speed * Time.deltaTime;
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         lost = true;
-        driving.Disable();
+        gamecontrols.Disable();
         collision.transform.GetComponent<Animator>().enabled = false;
-        threeSecondsLeft.LoseDisplay();
+        uihandler.LoseDisplay();
     }
 
     IEnumerator WinOrLose()
     {
-        float deadline = (10 * threeSecondsLeft.ReturnSingleMeasure());
-        yield return new WaitForSeconds(deadline);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(11));
         DetermineWinOrLoss();
     }
 
@@ -68,11 +81,11 @@ public class CarController : MonoBehaviour
     {
         if (lost == false)
         {
-            threeSecondsLeft.DisplayScoreCard();
-            threeSecondsLeft.WinDisplay();
+            scorehandler.IncrementScore();
+            uihandler.WinDisplay();
         } else
         {
-            threeSecondsLeft.LoseDisplay();
+            uihandler.LoseDisplay();
         }
     }
 }

@@ -4,44 +4,43 @@ using UnityEngine;
 
 public class WheelControl : MonoBehaviour
 {
-    private Vector3 change;
     public float speed;
     public float timeSinceStart;
 
     private Rigidbody2D myRigidBody;
-    private Driving driving;
+    private GameControls gamecontrols;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-        driving = new Driving();
+        gamecontrols = new GameControls();
     }
 
     private void OnEnable()
     {
-        driving.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        driving.Disable();
+        gamecontrols.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
         timeSinceStart += Time.deltaTime;
-        float selectInput = driving.Drive.Steer.ReadValue<float>();
+        Vector2 selectInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
 
         if (timeSinceStart > 5)
         {
-            if (selectInput == -1)
+            if (selectInput.x == -1)
             {
                 myRigidBody.rotation += speed * Time.deltaTime;
             }
-            else if (selectInput == 1)
+            else if (selectInput.x == 1)
             {
                 myRigidBody.rotation -= speed * Time.deltaTime;
             }

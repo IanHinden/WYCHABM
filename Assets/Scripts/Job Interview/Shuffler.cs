@@ -11,7 +11,7 @@ public class Shuffler : MonoBehaviour
 
     private SpeechBubble[] speechBubbles;
 
-    private SwitchCards switchCards;
+    private GameControls gamecontrols;
 
     private bool pressed = false;
     private float timeToPress = 0f;
@@ -19,23 +19,23 @@ public class Shuffler : MonoBehaviour
 
     void Awake()
     {
-        switchCards = new SwitchCards();
+        gamecontrols = new GameControls();
 
-        switchCards.Selecting.LeftSelect.performed += x => ShuffleLeft();
-        switchCards.Selecting.RightSelect.performed += x => ShuffleRight();
-        switchCards.Selecting.Select.performed += x => Select();
+        gamecontrols.Select.LeftSelect.performed += x => ShuffleLeft();
+        gamecontrols.Select.RightSelect.performed += x => ShuffleRight();
+        gamecontrols.Select.Choose.performed += x => Select();
 
         StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
     {
-        switchCards.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        switchCards.Disable();
+        gamecontrols.Disable();
     }
 
     private void ShuffleLeft()
@@ -101,7 +101,7 @@ public class Shuffler : MonoBehaviour
     private void Select()
     {
         pressed = true;
-        switchCards.Disable();
+        gamecontrols.Disable();
         if(selected == 0)
         {
             scorehandler.IncrementScore();
