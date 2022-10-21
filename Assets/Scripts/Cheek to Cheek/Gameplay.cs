@@ -5,10 +5,14 @@ using System.Linq;
 
 public class Gameplay : MonoBehaviour
 {
+    [Header("Essential Functions")]
+    [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
+
+    [Header("Level Objects")]
     [SerializeField] private RichmondLips richmondLips;
     [SerializeField] private Spotlight spotlight;
     [SerializeField] private KissHit kissHit;
-    private ThreeSecondsLeft threeSecondsLeft;
     [SerializeField] private AnimationController animationController;
 
     //private SceneSwitch sceneSwitch;
@@ -21,10 +25,9 @@ public class Gameplay : MonoBehaviour
 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
 
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
+        measureMS = timefunctions.ReturnSingleMeasure();
 
         kissHit = new KissHit();
         kissHit.Action.Select.performed += x => GameAction();
@@ -76,7 +79,7 @@ public class Gameplay : MonoBehaviour
             if(richmondLips.transform.position.y > 2.5 && richmondLips.transform.position.y < 3.2)
             {
                 animationController.KissWinAnimation();
-                threeSecondsLeft.DisplayScoreCard();
+                scorehandler.IncrementScore();
             } else
             {
                 animationController.KissLoseAnimation();
@@ -87,7 +90,7 @@ public class Gameplay : MonoBehaviour
             if(spotlight.transform.position.x > 2.9 && spotlight.transform.position.x < 3.7)
             {
                 animationController.HitWinAnimation();
-                threeSecondsLeft.DisplayScoreCard();
+                scorehandler.IncrementScore();
             } else
             {
                 animationController.HitLoseAnimation();

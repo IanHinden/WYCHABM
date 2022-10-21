@@ -5,8 +5,8 @@ using TMPro;
 
 public class Countdown : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timefunctions;
     private TextMeshProUGUI textmesh;
-    private ThreeSecondsLeft threeSecondsLeft;
 
     private float measureMS;
     private float BPM;
@@ -15,9 +15,9 @@ public class Countdown : MonoBehaviour
     void Awake()
     {
         textmesh = GetComponent<TextMeshProUGUI>();
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
-        BPM = threeSecondsLeft.ReturnBPM();
+        measureMS = timefunctions.ReturnSingleMeasure();
+        BPM = timefunctions.ReturnBPM();
+        textmesh.text = "Haha";
     }
 
     public void StartCountdown()

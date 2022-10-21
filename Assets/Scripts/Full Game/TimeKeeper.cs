@@ -192,7 +192,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene(12); //Driving
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
-        nextScene(8); //Cheek to Cheek
+        nextScene(); //Cheek to Cheek
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //See Men
