@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timefunctions: {fileID: 1358544022}
+  uihandler: {fileID: 24490723}
 --- !u!114 &18434260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12083,6 +12084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timefunctions: {fileID: 1358544022}
+  uihandler: {fileID: 24490723}
 --- !u!114 &827531854
 MonoBehaviour:
   m_ObjectHideFlags: 0

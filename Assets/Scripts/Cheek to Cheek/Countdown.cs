@@ -6,6 +6,7 @@ using TMPro;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] UIHandler uihandler;
     private TextMeshProUGUI textmesh;
 
     private float measureMS;
@@ -17,12 +18,13 @@ public class Countdown : MonoBehaviour
         textmesh = GetComponent<TextMeshProUGUI>();
         measureMS = timefunctions.ReturnSingleMeasure();
         BPM = timefunctions.ReturnBPM();
-        textmesh.text = "Haha";
     }
 
     public void StartCountdown()
     {
-        StartCoroutine(TriggerCountdownAnimation(BPM));
+        //StartCoroutine(TriggerCountdownAnimation(BPM));
+        uihandler.showSlider();
+        uihandler.Countdown(3);
         started = true;
     }
 

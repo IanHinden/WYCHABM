@@ -71,7 +71,7 @@ public class UIHandler : MonoBehaviour
     {
         float totalTime = totalMeasures * singleMeasure;
 
-        timerSlider.maxValue = totalMeasures - 1;
+        timerSlider.maxValue = totalMeasures > 3 ? totalMeasures - 1 : totalMeasures;
         timerSlider.value = totalMeasures;
         
         countdown.text = " ";
