@@ -6,20 +6,22 @@ using System.Linq;
 
 public class SelectChecker : MonoBehaviour
 {
-    SelectArrow[] selectArrows;
-    ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] TimeFunctions timefunctions;
 
-    private Select select;
+    SelectArrow[] selectArrows;
+
+    private GameControls gamecontrols;
 
     int activeArrow = 0;
     void Awake()
     {
-        select = new Select();
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        gamecontrols = new GameControls();
 
-        select.Selecting.DownSelect.performed += x => setNextActiveArrow();
-        select.Selecting.UpSelect.performed += x => setPreviousActiveArrow();
-        select.Selecting.Select.performed += x => selectItem();
+        gamecontrols.Select.DownSelect.performed += x => setNextActiveArrow();
+        gamecontrols.Select.UpSelect.performed += x => setPreviousActiveArrow();
+        gamecontrols.Select.Choose.performed += x => selectItem();
 
 
         selectArrows = FindObjectsOfType<SelectArrow>().OrderBy(m => m.transform.position.x).ToArray();
@@ -33,26 +35,26 @@ public class SelectChecker : MonoBehaviour
 
     private void OnEnable()
     {
-        select.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        select.Disable();
+        gamecontrols.Disable();
     }
 
     public void selectItem()
     {
         if(activeArrow == 2)
         {
-            threeSecondsLeft.DisplayScoreCard();
-            threeSecondsLeft.WinDisplay();
-            select.Disable();
+            scorehandler.IncrementScore();
+            uihandler.WinDisplay();
+            gamecontrols.Disable();
             
         } else
         {
-            threeSecondsLeft.LoseDisplay();
-            select.Disable();
+            uihandler.LoseDisplay();
+            gamecontrols.Disable();
         }
     }
 
@@ -98,13 +100,13 @@ public class SelectChecker : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float timeToEnd = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
 
-        while (timeToEnd > 0)
+        /*while (timeToEnd > 0)
         {
             timeToEnd -= Time.deltaTime;
             yield return null;
-        }
+        }*/
 
         DetermineWinOrLoss();
     }
@@ -113,15 +115,15 @@ public class SelectChecker : MonoBehaviour
     {
         if (activeArrow == 2)
         {
-            threeSecondsLeft.DisplayScoreCard();
-            threeSecondsLeft.WinDisplay();
-            select.Disable();
+            scorehandler.IncrementScore();
+            uihandler.WinDisplay();
+            gamecontrols.Disable();
 
         }
         else
         {
-            threeSecondsLeft.LoseDisplay();
-            select.Disable();
+            uihandler.LoseDisplay();
+            gamecontrols.Disable();
         }
     }
 }

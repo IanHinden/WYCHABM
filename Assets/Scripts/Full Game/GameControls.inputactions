@@ -99,6 +99,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Tap"
+                },
+                {
+                    "name": "DownSelect",
+                    "type": "PassThrough",
+                    "id": "487de438-d155-40b2-ad28-4ea177338bd7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "UpSelect",
+                    "type": "PassThrough",
+                    "id": "854a8ef4-be5f-4bd8-8a76-60b39843b209",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -106,6 +122,17 @@
                     "name": "",
                     "id": "85b668d6-9a47-4a1a-b41a-65d62b32aff6",
                     "path": "<Keyboard>/a",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a8c2751-946a-4eb5-89b3-4ef860dff8e5",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -126,12 +153,67 @@
                 },
                 {
                     "name": "",
+                    "id": "cd29bcb2-374f-4c50-ad28-d07f8240cf24",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f70d3d34-e505-4059-88aa-8cb2214bc36d",
                     "path": "<Keyboard>/space",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Choose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3921d8f-5ecb-4489-936d-09f4d7f6cbc8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc494ee2-e8ba-4da9-8759-a526bfacc6b2",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1950b0aa-7c2a-4355-888e-9d2d197d82ec",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cde7e873-37ea-47f5-ae41-b0db07fcc0be",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

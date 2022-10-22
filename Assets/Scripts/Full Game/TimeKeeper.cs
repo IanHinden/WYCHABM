@@ -215,7 +215,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Party Guy
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Party Girls
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));

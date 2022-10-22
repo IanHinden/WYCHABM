@@ -112,6 +112,22 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Tap""
+                },
+                {
+                    ""name"": ""DownSelect"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""487de438-d155-40b2-ad28-4ea177338bd7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UpSelect"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""854a8ef4-be5f-4bd8-8a76-60b39843b209"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -119,6 +135,17 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""85b668d6-9a47-4a1a-b41a-65d62b32aff6"",
                     ""path"": ""<Keyboard>/a"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a8c2751-946a-4eb5-89b3-4ef860dff8e5"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -139,12 +166,67 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cd29bcb2-374f-4c50-ad28-d07f8240cf24"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f70d3d34-e505-4059-88aa-8cb2214bc36d"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Choose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3921d8f-5ecb-4489-936d-09f4d7f6cbc8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc494ee2-e8ba-4da9-8759-a526bfacc6b2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1950b0aa-7c2a-4355-888e-9d2d197d82ec"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cde7e873-37ea-47f5-ae41-b0db07fcc0be"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -161,6 +243,8 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_Select_LeftSelect = m_Select.FindAction("LeftSelect", throwIfNotFound: true);
         m_Select_RightSelect = m_Select.FindAction("RightSelect", throwIfNotFound: true);
         m_Select_Choose = m_Select.FindAction("Choose", throwIfNotFound: true);
+        m_Select_DownSelect = m_Select.FindAction("DownSelect", throwIfNotFound: true);
+        m_Select_UpSelect = m_Select.FindAction("UpSelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,6 +330,8 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Select_LeftSelect;
     private readonly InputAction m_Select_RightSelect;
     private readonly InputAction m_Select_Choose;
+    private readonly InputAction m_Select_DownSelect;
+    private readonly InputAction m_Select_UpSelect;
     public struct SelectActions
     {
         private @GameControls m_Wrapper;
@@ -253,6 +339,8 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @LeftSelect => m_Wrapper.m_Select_LeftSelect;
         public InputAction @RightSelect => m_Wrapper.m_Select_RightSelect;
         public InputAction @Choose => m_Wrapper.m_Select_Choose;
+        public InputAction @DownSelect => m_Wrapper.m_Select_DownSelect;
+        public InputAction @UpSelect => m_Wrapper.m_Select_UpSelect;
         public InputActionMap Get() { return m_Wrapper.m_Select; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +359,12 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @Choose.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
                 @Choose.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
                 @Choose.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnChoose;
+                @DownSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnDownSelect;
+                @DownSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnDownSelect;
+                @DownSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnDownSelect;
+                @UpSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
+                @UpSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
+                @UpSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
             }
             m_Wrapper.m_SelectActionsCallbackInterface = instance;
             if (instance != null)
@@ -284,6 +378,12 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @Choose.started += instance.OnChoose;
                 @Choose.performed += instance.OnChoose;
                 @Choose.canceled += instance.OnChoose;
+                @DownSelect.started += instance.OnDownSelect;
+                @DownSelect.performed += instance.OnDownSelect;
+                @DownSelect.canceled += instance.OnDownSelect;
+                @UpSelect.started += instance.OnUpSelect;
+                @UpSelect.performed += instance.OnUpSelect;
+                @UpSelect.canceled += instance.OnUpSelect;
             }
         }
     }
@@ -297,5 +397,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnLeftSelect(InputAction.CallbackContext context);
         void OnRightSelect(InputAction.CallbackContext context);
         void OnChoose(InputAction.CallbackContext context);
+        void OnDownSelect(InputAction.CallbackContext context);
+        void OnUpSelect(InputAction.CallbackContext context);
     }
 }
