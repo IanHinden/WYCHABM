@@ -5,12 +5,11 @@ using TMPro;
 
 public class StoryTimer : MonoBehaviour
 {
-    private ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] TimeFunctions timefunctions;
 
     private TextMeshProUGUI sugarDaddiesTM;
 
     private float measureMS;
-    private float timePassed = 0f;
 
     Pointer pointer;
     Animator pointerAnim;
@@ -19,11 +18,10 @@ public class StoryTimer : MonoBehaviour
     private SpriteRenderer charts;
     private SpriteRenderer sugarDaddies;
     private SpriteRenderer pointerSR;
-    // Start is called before the first frame update
+ 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
+        measureMS = timefunctions.ReturnSingleMeasure();
 
         pointer = FindObjectOfType<Pointer>();
         pointerAnim = pointer.GetComponent<Animator>();
@@ -34,46 +32,31 @@ public class StoryTimer : MonoBehaviour
 
         sugarDaddiesTM = FindObjectOfType<SugarDaddiesText>().GetComponent<TextMeshProUGUI>();
         sugarDaddies = FindObjectOfType<SugarDaddies>().GetComponent<SpriteRenderer>();
-        
 
+        StartCoroutine(timedEvents());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator timedEvents()
     {
-        timePassed += Time.deltaTime;
-        timedEvents();
-    }
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        laptop.enabled = true;
+        charts.enabled = true;
+        pointerSR.enabled = true;
 
-    private void timedEvents()
-    {
-        if(timePassed > measureMS * 4)
-        {
-            laptop.enabled = true;
-            charts.enabled = true;
-            pointerSR.enabled = true;
-        }
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        laptop.enabled = false;
+        charts.enabled = false;
+        pointerSR.enabled = false;
 
-        if (timePassed > measureMS * 8)
-        {
-            laptop.enabled = false;
-            charts.enabled = false;
-            pointerSR.enabled = false;
-        }
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        laptop.enabled = true;
+        charts.enabled = true;
+        pointerSR.enabled = true;
+        pointerAnim.SetTrigger("Pointer");
 
-        if (timePassed > measureMS * 12)
-        {
-            laptop.enabled = true;
-            charts.enabled = true;
-            pointerSR.enabled = true;
-            pointerAnim.SetTrigger("Pointer");
-        }
-
-        if (timePassed > measureMS * 16)
-        {
-            sugarDaddies.enabled = true;
-            sugarDaddiesTM.SetText("Sweet Sugar " +
-            "Daddies Site");
-        }
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        sugarDaddies.enabled = true;
+        sugarDaddiesTM.SetText("Sweet Sugar " +
+        "Daddies Site");
     }
 }
