@@ -29304,6 +29304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7d8a1ba3f210b41850601eecbb4681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uihandler: {fileID: 24490723}
+  scorehandler: {fileID: 585011356}
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &1790218202
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ public class Gameplay : MonoBehaviour
 
     private float measureMS;
 
-    private float timePassed = 0f;
     private bool firstScenario = true;
 
     void Awake()

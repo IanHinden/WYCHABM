@@ -102,12 +102,6 @@ public class SelectChecker : MonoBehaviour
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
 
-        /*while (timeToEnd > 0)
-        {
-            timeToEnd -= Time.deltaTime;
-            yield return null;
-        }*/
-
         DetermineWinOrLoss();
     }
 
