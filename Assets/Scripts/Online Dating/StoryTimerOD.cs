@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoryTimerOD : MonoBehaviour
 {
-    private ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] TimeFunctions timefunctions;
 
     private float measureMS;
 
@@ -14,8 +14,7 @@ public class StoryTimerOD : MonoBehaviour
 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
+        measureMS = timefunctions.ReturnSingleMeasure();
 
         flashing = topless.GetComponent<SpriteRenderer>();
         flashingMove = topless.GetComponent<Animator>();
