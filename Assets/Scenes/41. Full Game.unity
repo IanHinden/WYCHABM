@@ -847,6 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d99844c90717d046be8adc122ba2805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
   barScene: {fileID: 1560049094}
   cellPhone: {fileID: 1507364523}
 --- !u!1 &52771034
@@ -10306,6 +10307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5fc2f525aaf8b49a088a6eeefdcaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
   topless: {fileID: 449583531}
 --- !u!1 &690575288
 GameObject:
@@ -12550,7 +12552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &869252881
 Transform:
   m_ObjectHideFlags: 0
@@ -12577,6 +12579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 234ddac2bf6f9c8409a7b51290496164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &873015317
 GameObject:
   m_ObjectHideFlags: 0
@@ -30003,7 +30006,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3

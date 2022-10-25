@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BarViewTiming : MonoBehaviour
 {
-    private ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] TimeFunctions timefunctions;
 
     private float measureMS;
     private float timePassed = 0f;
@@ -18,39 +18,26 @@ public class BarViewTiming : MonoBehaviour
 
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
+        measureMS = timefunctions.ReturnSingleMeasure();
 
         cellPhoneAnim = cellPhone.GetComponent<Animator>();
         barSceneAnim = barScene.transform.GetChild(2).GetComponent<Animator>();
 
         manStaring = FindObjectOfType<ManStaring>().GetComponent<SpriteRenderer>();
+        StartCoroutine(timedEvents());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator timedEvents()
     {
-        timePassed += Time.deltaTime;
-        timedEvents();
-    }
+        yield return new WaitForSeconds(4 * measureMS);
+        cellPhone.SetActive(true);
+        barScene.SetActive(true);
+        manStaring.enabled = false;
 
-    private void timedEvents()
-    {
-        if (timePassed > measureMS * 4)
-        {
-            cellPhone.SetActive(true);
-            barScene.SetActive(true);
-            manStaring.enabled = false;
-        }
+        yield return new WaitForSeconds(4 * measureMS);
+        cellPhoneAnim.SetTrigger("Lower");
 
-        if(timePassed > measureMS * 8)
-        {
-            cellPhoneAnim.SetTrigger("Lower");
-        }
-
-        if (timePassed > measureMS * 10)
-        {
-            barSceneAnim.SetTrigger("Blink");
-        }
+        yield return new WaitForSeconds(2 * measureMS);
+        barSceneAnim.SetTrigger("Blink");
     }
 }
