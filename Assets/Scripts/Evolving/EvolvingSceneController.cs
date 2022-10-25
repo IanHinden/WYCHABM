@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EvolvingSceneController : MonoBehaviour
 {
-    ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] ScoreHandler scorehandler;
     [SerializeField] EvolvingText evolvingText;
     StopEvolving stopEvolving;
 
-    Animator starAnim;
+    //Animator starAnim;
 
     public GameObject BadBoy;
     SpriteRenderer badBoySR;
@@ -19,12 +19,10 @@ public class EvolvingSceneController : MonoBehaviour
     
     void Awake()
     {
-        //evolvingText = FindObjectOfType<EvolvingText>();
         stopEvolving = new StopEvolving();
         badBoySR = BadBoy.GetComponent<SpriteRenderer>();
 
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
+        //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
 
         stopEvolving.Stop.StopEvolve.performed += x => StopEvolution();
         evolving = evolvingText.SetEvolvingDialogue();
@@ -41,7 +39,7 @@ public class EvolvingSceneController : MonoBehaviour
         StopCoroutine(blinking);
         badBoySR.enabled = true;
         StartCoroutine(stopped);
-        threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+        scorehandler.IncrementBonusScore();
         stopEvolving.Disable();
     }
 

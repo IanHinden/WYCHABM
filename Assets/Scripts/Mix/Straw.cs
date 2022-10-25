@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class Straw : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scorehandler;
+
     private Stir stir;
     private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
 
     bool gameOver = false;
-
-    ThreeSecondsLeft threeSecondsLeft;
-    SceneSwitch sceneSwitch;
 
     SpriteRenderer window;
 
@@ -23,8 +23,6 @@ public class Straw : MonoBehaviour
     void Awake()
     {
         stir = new Stir();
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        sceneSwitch = FindObjectOfType<SceneSwitch>();
         window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
         mixedDrink = FindObjectOfType<MixedDrink>();
 
@@ -68,8 +66,7 @@ public class Straw : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        float deadline = (2 * threeSecondsLeft.ReturnTimeToEnd()) - threeSecondsLeft.ReturnSingleMeasure();
-        yield return new WaitForSeconds(deadline);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
         DetermineWinOrLoss();
     }
 
@@ -89,7 +86,7 @@ public class Straw : MonoBehaviour
 
     private void win()
     {
-        threeSecondsLeft.DisplayScoreCard();
+        scorehandler.IncrementScore();
         gameOver = true;
         StartCoroutine(ColorChanges());
 
