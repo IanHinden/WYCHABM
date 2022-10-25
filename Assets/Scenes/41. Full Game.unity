@@ -5310,6 +5310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6474a9edfb92a6a4591fa71f65f6fd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &402460003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,6 +5823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fbf0451c287f94cad325fa77846e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorehandler: {fileID: 0}
   evolvingText: {fileID: 1842123460}
   BadBoy: {fileID: 1142361887}
 --- !u!1 &410869375
@@ -18572,6 +18574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabde89533655a647b97cccd6ddafe0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
+  scorehandler: {fileID: 585011356}
   sun: {fileID: 0}
 --- !u!212 &1279154334
 SpriteRenderer:
@@ -34975,6 +34979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d925f44d7fc3e5d428e2b28fd04e1981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
+  uihandler: {fileID: 24490723}
+  scorehandler: {fileID: 585011356}
 --- !u!1 &2093130518
 GameObject:
   m_ObjectHideFlags: 0

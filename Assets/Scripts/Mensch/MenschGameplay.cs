@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MenschGameplay : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] UIHandler uihandler;
+    [SerializeField] ScoreHandler scorehandler;
+
     FingerControls fingerControls;
     Vector2 movementInput;
 
@@ -16,8 +20,6 @@ public class MenschGameplay : MonoBehaviour
 
     ToolkitButton toolKitButton;
     ShareButton shareButton;
-
-    ThreeSecondsLeft threeSecondsLeft;
 
     Animator starAnim;
 
@@ -42,9 +44,6 @@ public class MenschGameplay : MonoBehaviour
 
         shareButton = FindObjectOfType<ShareButton>();
 
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
-
 
         fingerControls = new FingerControls();
         fingerControls.Press.FingerPress.performed += x => StartPress();
@@ -54,7 +53,7 @@ public class MenschGameplay : MonoBehaviour
     private void CoolFunc(int amount)
     {
         menschAnimationController.BonusAnimations();
-        threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+        scorehandler.IncrementBonusScore();
     }
 
     private void StartPress()
@@ -76,8 +75,8 @@ public class MenschGameplay : MonoBehaviour
             if (shareButton.ButtonPress() == true)
             {
                 fingerControls.Disable();
-                threeSecondsLeft.DisplayScoreCard();
-                threeSecondsLeft.WinDisplay();
+                scorehandler.IncrementScore();
+                uihandler.WinDisplay();
             }
 
             float countdown = .05f;

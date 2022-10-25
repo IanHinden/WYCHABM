@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class StoryTimerPG : MonoBehaviour
 {
-    private ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] TimeFunctions timefunctions;
 
     private float measureMS;
-    private float quarter;
-    private float timePassed = 0f;
 
     private Animator gothGirl;
 
@@ -19,39 +17,26 @@ public class StoryTimerPG : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        measureMS = threeSecondsLeft.ReturnSingleMeasure();
-        quarter = measureMS / 4;
+        measureMS = timefunctions.ReturnSingleMeasure();
 
         gothGirl = FindObjectOfType<GothGirl>().GetComponent<Animator>();
 
         bubbleBackground = FindObjectOfType<BubbleBackground>().GetComponent<SpriteRenderer>();
 
         clubGirl1 = FindObjectOfType<ClubGirl1>().GetComponent<Animator>();
+
+        StartCoroutine(timedEvents());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator timedEvents()
     {
-        timePassed += Time.deltaTime;
-        timedEvents();
-    }
+        yield return new WaitForSeconds(measureMS);
+        gothGirl.SetTrigger("Doorway");
 
-    private void timedEvents()
-    {
-        if (timePassed > measureMS)
-        {
-            gothGirl.SetTrigger("Doorway");
-        }
+        yield return new WaitForSeconds(3 * measureMS);
+        bubbleBackground.enabled = true;
 
-        if(timePassed > measureMS * 4)
-        {
-            bubbleBackground.enabled = true;
-        }
-
-        if(timePassed > measureMS * 5)
-        {
-            clubGirl1.SetTrigger("Pose");
-        }
+        yield return new WaitForSeconds(measureMS);
+        clubGirl1.SetTrigger("Pose");
     }
 }
