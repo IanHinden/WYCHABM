@@ -9523,6 +9523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701aa4477fccb4d43bbeefd59eea10b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorehandler: {fileID: 585011356}
+  timefunctions: {fileID: 1358544022}
+  uihandler: {fileID: 24490723}
 --- !u!50 &639721608
 Rigidbody2D:
   serializedVersion: 4
