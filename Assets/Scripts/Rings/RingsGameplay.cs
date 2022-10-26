@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class RingsGameplay : MonoBehaviour
 {
+    [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] UIHandler uihandler;
+
     Remove remove;
     float clicked = 0;
 
     Animator ringoneanim;
     Animator ringtwoanim;
-
-    ThreeSecondsLeft threeSecondsLeft;
 
     void Awake()
     {
@@ -20,7 +22,7 @@ public class RingsGameplay : MonoBehaviour
         ringoneanim = FindObjectOfType<Ring>().GetComponent<Animator>();
         ringtwoanim = FindObjectOfType<RingTwo>().GetComponent<Animator>();
 
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -70,7 +72,24 @@ public class RingsGameplay : MonoBehaviour
         if (clicked == 19)
         {
             ringtwoanim.SetTrigger("Fourth");
-            threeSecondsLeft.DisplayScoreCard();
+            scorehandler.IncrementScore();
+            uihandler.WinDisplay();
+        }
+    }
+
+    IEnumerator WinOrLose()
+    {
+        remove.Disable();
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
+
+        DetermineWinOrLoss();
+    }
+
+    private void DetermineWinOrLoss()
+    {
+        if (clicked < 19)
+        {
+            uihandler.LoseDisplay();
         }
     }
 }

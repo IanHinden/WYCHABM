@@ -15980,6 +15980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a70fefb3fe1ee4aa4af46810c449ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
   SpaceUp: {fileID: 1297854136}
   SpaceDown: {fileID: 1099403717}
 --- !u!1 &1080107917
@@ -16542,6 +16543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9224b80fab3dac441b00a004b6567844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorehandler: {fileID: 585011356}
+  timefunctions: {fileID: 1358544022}
+  uihandler: {fileID: 24490723}
 --- !u!1 &1099403717
 GameObject:
   m_ObjectHideFlags: 0

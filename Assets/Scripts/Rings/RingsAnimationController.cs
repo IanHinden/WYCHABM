@@ -4,50 +4,41 @@ using UnityEngine;
 
 public class RingsAnimationController : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timefunctions;
     [SerializeField] GameObject SpaceUp;
     [SerializeField] GameObject SpaceDown;
 
-    private float timePassed = 0f;
+    private float measure;
 
     void Awake()
     {
-        SpaceUp.SetActive(true);
-        SpaceDown.SetActive(false);
+        SetSpacebar(true);
+        measure = timefunctions.ReturnSingleMeasure();
+        StartCoroutine(SpaceAnimator());
+    }
+
+    private void SetSpacebar(bool up)
+    {
+        SpaceUp.SetActive(up);
+        SpaceDown.SetActive(!up);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private IEnumerator SpaceAnimator()
     {
-        timePassed += Time.deltaTime;
+        yield return new WaitForSeconds(measure);
+        SetSpacebar(true);
 
-        if(timePassed > 1f && timePassed < 2f)
-        {
-            SpaceUp.SetActive(false);
-            SpaceDown.SetActive(true);
-        }
+        yield return new WaitForSeconds(measure);
+        SetSpacebar(false);
 
-        if (timePassed > 2f && timePassed < 3f)
-        {
-            SpaceUp.SetActive(true);
-            SpaceDown.SetActive(false);
-        }
+        yield return new WaitForSeconds(measure);
+        SetSpacebar(true);
 
-        if (timePassed > 3f && timePassed < 4f)
-        {
-            SpaceUp.SetActive(false);
-            SpaceDown.SetActive(true);
-        }
+        yield return new WaitForSeconds(measure);
+        SetSpacebar(false);
 
-        if (timePassed > 4f && timePassed < 5f)
-        {
-            SpaceUp.SetActive(true);
-            SpaceDown.SetActive(false);
-        }
-
-        if (timePassed > 5f && timePassed < 6f)
-        {
-            SpaceUp.SetActive(false);
-            SpaceDown.SetActive(true);
-        }
+        yield return new WaitForSeconds(measure);
+        SetSpacebar(true);
     }
 }
