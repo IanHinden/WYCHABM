@@ -148,7 +148,8 @@ public class TimeKeeper : MonoBehaviour
         Ink[] allInk = FindObjectsOfType<Ink>();
         foreach (Ink obj in allInk)
         {
-            obj.GetComponent<SpriteRenderer>().enabled = false;
+            //obj.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(obj.gameObject);
         }
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
@@ -246,6 +247,14 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(8); //Pregnancy Test
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+
+        //Need a fix to destory these
+        Droplet[] allDroplets = FindObjectsOfType<Droplet>();
+        foreach (Droplet obj in allDroplets)
+        {
+            //obj.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(obj.gameObject);
+        }
 
         nextScene(); //Third Chorus
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));

@@ -6,11 +6,6 @@ public class Droplet : MonoBehaviour
 {
     public float speed = 5.0f;
 
-    void Awake()
-    {
-
-    }
-
     void Update()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);

@@ -12,10 +12,14 @@ public class Streamer : MonoBehaviour
 
     public Transform shotPoint;
 
-    // Start is called before the first frame update
     void Awake()
     {
         InvokeRepeating("spawnDroplet", 0, 0.1f);
+    }
+
+    public void HoldIt()
+    {
+        CancelInvoke();
     }
 
     private void spawnDroplet()

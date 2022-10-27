@@ -8,6 +8,8 @@ public class Target : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
 
+    [SerializeField] Streamer streamer;
+
     float pregnancyScore = 0;
     bool full = false;
 
@@ -41,6 +43,7 @@ public class Target : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
+        streamer.CancelInvoke();
         if (pregnancyScore < 50 && full == false)
         {
             full = true;
