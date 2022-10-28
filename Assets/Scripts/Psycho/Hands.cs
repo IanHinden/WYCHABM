@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour
 {
-    private StabControls stabControls;
+    private GameControls gamecontrols;
 
     private SpriteRenderer handReady;
     private SpriteRenderer handStab;
@@ -16,7 +16,7 @@ public class Hands : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        stabControls = new StabControls();
+        gamecontrols = new GameControls();
         handReady = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         handStab = this.transform.GetChild(1).GetComponent<SpriteRenderer>();
         stabCollide = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
@@ -24,19 +24,19 @@ public class Hands : MonoBehaviour
 
     private void OnEnable()
     {
-        stabControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        stabControls.Disable();
+        gamecontrols.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float stabInput = stabControls.Stab.Kill.ReadValue<float>();
-        Vector2 movementInput = stabControls.Move.Directions.ReadValue<Vector2>();
+        float stabInput = gamecontrols.Move.Select.ReadValue<float>();
+        Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
 
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
