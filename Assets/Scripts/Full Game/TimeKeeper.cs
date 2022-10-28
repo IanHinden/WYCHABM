@@ -148,7 +148,6 @@ public class TimeKeeper : MonoBehaviour
         Ink[] allInk = FindObjectsOfType<Ink>();
         foreach (Ink obj in allInk)
         {
-            //obj.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(obj.gameObject);
         }
 
@@ -178,6 +177,13 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Get a Job
         uihandler.hideSlider();
+
+        Stabhole[] allStabhole = FindObjectsOfType<Stabhole>();
+        foreach (Stabhole obj in allStabhole)
+        {
+            Destroy(obj.gameObject);
+        }
+
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(6); //Job Interview
@@ -252,7 +258,6 @@ public class TimeKeeper : MonoBehaviour
         Droplet[] allDroplets = FindObjectsOfType<Droplet>();
         foreach (Droplet obj in allDroplets)
         {
-            //obj.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(obj.gameObject);
         }
 
