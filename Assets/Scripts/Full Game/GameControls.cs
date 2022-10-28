@@ -44,6 +44,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Stop"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""54544147-fc9e-42ba-b755-d26a714c37ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2c00572-4e44-42f8-9d02-a5c17b5cc96d"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -274,6 +294,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Directions = m_Move.FindAction("Directions", throwIfNotFound: true);
         m_Move_Select = m_Move.FindAction("Select", throwIfNotFound: true);
+        m_Move_Stop = m_Move.FindAction("Stop", throwIfNotFound: true);
         // Select
         m_Select = asset.FindActionMap("Select", throwIfNotFound: true);
         m_Select_LeftSelect = m_Select.FindAction("LeftSelect", throwIfNotFound: true);
@@ -342,12 +363,14 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private IMoveActions m_MoveActionsCallbackInterface;
     private readonly InputAction m_Move_Directions;
     private readonly InputAction m_Move_Select;
+    private readonly InputAction m_Move_Stop;
     public struct MoveActions
     {
         private @GameControls m_Wrapper;
         public MoveActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Directions => m_Wrapper.m_Move_Directions;
         public InputAction @Select => m_Wrapper.m_Move_Select;
+        public InputAction @Stop => m_Wrapper.m_Move_Stop;
         public InputActionMap Get() { return m_Wrapper.m_Move; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -363,6 +386,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Select.started -= m_Wrapper.m_MoveActionsCallbackInterface.OnSelect;
                 @Select.performed -= m_Wrapper.m_MoveActionsCallbackInterface.OnSelect;
                 @Select.canceled -= m_Wrapper.m_MoveActionsCallbackInterface.OnSelect;
+                @Stop.started -= m_Wrapper.m_MoveActionsCallbackInterface.OnStop;
+                @Stop.performed -= m_Wrapper.m_MoveActionsCallbackInterface.OnStop;
+                @Stop.canceled -= m_Wrapper.m_MoveActionsCallbackInterface.OnStop;
             }
             m_Wrapper.m_MoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +399,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
+                @Stop.started += instance.OnStop;
+                @Stop.performed += instance.OnStop;
+                @Stop.canceled += instance.OnStop;
             }
         }
     }
@@ -446,6 +475,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     {
         void OnDirections(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnStop(InputAction.CallbackContext context);
     }
     public interface ISelectActions
     {

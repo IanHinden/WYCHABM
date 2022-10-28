@@ -5825,7 +5825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fbf0451c287f94cad325fa77846e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorehandler: {fileID: 0}
+  scorehandler: {fileID: 585011356}
   evolvingText: {fileID: 1842123460}
   BadBoy: {fileID: 1142361887}
 --- !u!1 &410869375

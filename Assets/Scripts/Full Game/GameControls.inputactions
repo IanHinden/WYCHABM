@@ -11,7 +11,8 @@
                     "id": "99053ed3-7c9f-434c-aa69-77b50b1c28b1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Select",
@@ -19,7 +20,17 @@
                     "id": "97a746dd-6770-4d98-b141-867a4e13cfab",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stop",
+                    "type": "PassThrough",
+                    "id": "54544147-fc9e-42ba-b755-d26a714c37ca",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -88,6 +99,17 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2c00572-4e44-42f8-9d02-a5c17b5cc96d",
+                    "path": "<Keyboard>/b",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -101,7 +123,8 @@
                     "id": "3f56a20f-52f6-47b8-a710-69e28c606a47",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightSelect",
@@ -109,7 +132,8 @@
                     "id": "76bc8f95-e244-4767-a824-a05d5b0a01e0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Choose",
@@ -117,7 +141,8 @@
                     "id": "615e1d2e-b92e-430e-a504-e0a16ccc147a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap"
+                    "interactions": "Tap",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "DownSelect",
@@ -125,7 +150,8 @@
                     "id": "487de438-d155-40b2-ad28-4ea177338bd7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "UpSelect",
@@ -133,7 +159,8 @@
                     "id": "854a8ef4-be5f-4bd8-8a76-60b39843b209",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

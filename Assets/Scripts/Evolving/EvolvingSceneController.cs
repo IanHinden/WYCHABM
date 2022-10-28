@@ -6,7 +6,7 @@ public class EvolvingSceneController : MonoBehaviour
 {
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] EvolvingText evolvingText;
-    StopEvolving stopEvolving;
+    GameControls gamecontrols;
 
     //Animator starAnim;
 
@@ -19,12 +19,12 @@ public class EvolvingSceneController : MonoBehaviour
     
     void Awake()
     {
-        stopEvolving = new StopEvolving();
+        gamecontrols = new GameControls();
         badBoySR = BadBoy.GetComponent<SpriteRenderer>();
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
 
-        stopEvolving.Stop.StopEvolve.performed += x => StopEvolution();
+        gamecontrols.Move.Stop.performed += x => StopEvolution();
         evolving = evolvingText.SetEvolvingDialogue();
         stopped = evolvingText.SetStoppedDialogue();
         blinking = Blinking();
@@ -40,7 +40,7 @@ public class EvolvingSceneController : MonoBehaviour
         badBoySR.enabled = true;
         StartCoroutine(stopped);
         scorehandler.IncrementBonusScore();
-        stopEvolving.Disable();
+        gamecontrols.Disable();
     }
 
     private IEnumerator Blinking()
@@ -57,11 +57,11 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void OnEnable()
     {
-        stopEvolving.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        stopEvolving.Disable();
+        gamecontrols.Disable();
     }
 }
