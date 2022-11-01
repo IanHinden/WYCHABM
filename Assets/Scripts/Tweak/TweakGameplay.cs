@@ -8,7 +8,7 @@ public class TweakGameplay : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     ControlPadButton[] controlPadButtons;
 
-    private TweakControls tweakControls;
+    private GameControls gamecontrols;
 
     private FiveK fiveK;
     private TenKHundred tenKHundred;
@@ -44,114 +44,114 @@ public class TweakGameplay : MonoBehaviour
         tenKHundredAnimator = tenKHundred.GetComponent<Animator>();
         tenKHundredMesh = tenKHundred.GetComponent<MeshRenderer>();
 
-        tweakControls = new TweakControls();
-        tweakControls.Move.UpArrow.performed += x => upMove();
-        tweakControls.Move.RightArrow.performed += x => rightMove();
-        tweakControls.Move.DownArrow.performed += x => downMove();
-        tweakControls.Move.LeftArrow.performed += x => leftMove();
+        gamecontrols = new GameControls();
+        gamecontrols.Move.Directions.performed += x => upMove(x.ReadValue<Vector2>());
     }
 
-    private void upMove()
+    private void upMove(Vector2 movement)
     {
-        if (state == 0)
+        if (movement.y == 1)
         {
-            state++;
-            redBarAnimator.SetTrigger("Two");
-            blueBarAnimator.SetTrigger("Two");
-            tenKAnimator.SetTrigger("Two");
-            fiveKAnimator.SetTrigger("Two");
-            RotateRight();
+            if (state == 0)
+            {
+                state++;
+                redBarAnimator.SetTrigger("Two");
+                blueBarAnimator.SetTrigger("Two");
+                tenKAnimator.SetTrigger("Two");
+                fiveKAnimator.SetTrigger("Two");
+                RotateRight();
+            }
+
+            if (state == 4)
+            {
+                redBarAnimator.SetTrigger("Six");
+                blueBarAnimator.SetTrigger("Six");
+                tenKAnimator.SetTrigger("Six");
+                fiveKAnimator.SetTrigger("Six");
+                state++;
+                RotateRight();
+            }
         }
 
-        if(state == 4)
+        if(movement.x == 1)
         {
-            redBarAnimator.SetTrigger("Six");
-            blueBarAnimator.SetTrigger("Six");
-            tenKAnimator.SetTrigger("Six");
-            fiveKAnimator.SetTrigger("Six");
-            state++;
-            RotateRight();
-        }
-    }
+            if (state == 1)
+            {
+                state++;
+                redBarAnimator.SetTrigger("Three");
+                blueBarAnimator.SetTrigger("Three");
+                tenKAnimator.SetTrigger("Three");
+                fiveKAnimator.SetTrigger("Three");
+                RotateRight();
+            }
 
-    private void rightMove()
-    {
-        if (state == 1)
-        {
-            state++;
-            redBarAnimator.SetTrigger("Three");
-            blueBarAnimator.SetTrigger("Three");
-            tenKAnimator.SetTrigger("Three");
-            fiveKAnimator.SetTrigger("Three");
-            RotateRight();
-        }
-
-        if (state == 5)
-        {
-            redBarAnimator.SetTrigger("Seven");
-            blueBarAnimator.SetTrigger("Seven");
-            tenKAnimator.SetTrigger("Seven");
-            fiveKMesh.enabled = false;
-            zeroMesh.enabled = false;
-            tenKHundredMesh.enabled = true;
-            tenKHundredAnimator.SetTrigger("Seven");
-            state++;
-            RotateRight();
-        }
-    }
-
-    private void downMove()
-    {
-        if (state == 2)
-        {
-            state++;
-            redBarAnimator.SetTrigger("Four");
-            blueBarAnimator.SetTrigger("Four");
-            tenKAnimator.SetTrigger("Four");
-            fiveKAnimator.SetTrigger("Four");
-            RotateRight();
+            if (state == 5)
+            {
+                redBarAnimator.SetTrigger("Seven");
+                blueBarAnimator.SetTrigger("Seven");
+                tenKAnimator.SetTrigger("Seven");
+                fiveKMesh.enabled = false;
+                zeroMesh.enabled = false;
+                tenKHundredMesh.enabled = true;
+                tenKHundredAnimator.SetTrigger("Seven");
+                state++;
+                RotateRight();
+            }
         }
 
-        if (state == 6)
+        if (movement.y == -1)
         {
-            redBarAnimator.SetTrigger("Eight");
-            blueBarAnimator.SetTrigger("Eight");
-            tenKAnimator.SetTrigger("Eight");
-            tenKHundredAnimator.SetTrigger("Eight");
-            state++;
-            RotateRight();
-        }
-    }
+            if (state == 2)
+            {
+                state++;
+                redBarAnimator.SetTrigger("Four");
+                blueBarAnimator.SetTrigger("Four");
+                tenKAnimator.SetTrigger("Four");
+                fiveKAnimator.SetTrigger("Four");
+                RotateRight();
+            }
 
-    private void leftMove()
-    {
-        if (state == 3)
+            if (state == 6)
+            {
+                redBarAnimator.SetTrigger("Eight");
+                blueBarAnimator.SetTrigger("Eight");
+                tenKAnimator.SetTrigger("Eight");
+                tenKHundredAnimator.SetTrigger("Eight");
+                state++;
+                RotateRight();
+            }
+        }
+        if (movement.x == -1)
         {
-            state++;
-            redBarAnimator.SetTrigger("Five");
-            blueBarAnimator.SetTrigger("Five");
-            tenKAnimator.SetTrigger("Five");
-            fiveKAnimator.SetTrigger("Five");
-            RotateRight();
+            if (state == 3)
+            {
+                state++;
+                redBarAnimator.SetTrigger("Five");
+                blueBarAnimator.SetTrigger("Five");
+                tenKAnimator.SetTrigger("Five");
+                fiveKAnimator.SetTrigger("Five");
+                RotateRight();
+            }
+
+            if (state == 7)
+            {
+                state++;
+                scorehandler.IncrementScore();
+                uihandler.WinDisplay();
+                RotateRight();
+            }
         }
 
-        if (state == 7)
-        {
-            state++;
-            scorehandler.IncrementScore();
-            uihandler.WinDisplay();
-            RotateRight();
-        }
     }
 
     private void OnEnable()
     {
-        tweakControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        tweakControls.Disable();
+        gamecontrols.Disable();
     }
 
     private void RotateRight()
