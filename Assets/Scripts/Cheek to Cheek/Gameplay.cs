@@ -12,7 +12,7 @@ public class Gameplay : MonoBehaviour
     [Header("Level Objects")]
     [SerializeField] private RichmondLips richmondLips;
     [SerializeField] private Spotlight spotlight;
-    [SerializeField] private KissHit kissHit;
+    [SerializeField] private GameControls gamecontrols;
     [SerializeField] private AnimationController animationController;
 
     //private SceneSwitch sceneSwitch;
@@ -28,8 +28,8 @@ public class Gameplay : MonoBehaviour
 
         measureMS = timefunctions.ReturnSingleMeasure();
 
-        kissHit = new KissHit();
-        kissHit.Action.Select.performed += x => GameAction();
+        gamecontrols = new GameControls();
+        gamecontrols.Move.Select.performed += x => GameAction();
         StartCoroutine(GameSwitcher());
 
         countdowns[1].StartCountdown();
@@ -38,12 +38,12 @@ public class Gameplay : MonoBehaviour
 
     private void OnEnable()
     {
-        kissHit.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        kissHit.Disable();
+        gamecontrols.Disable();
     }
 
     private IEnumerator GameSwitcher()
