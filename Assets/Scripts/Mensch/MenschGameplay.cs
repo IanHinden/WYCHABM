@@ -8,7 +8,7 @@ public class MenschGameplay : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
 
-    FingerControls fingerControls;
+    GameControls gamecontrols;
     Vector2 movementInput;
 
     MenschAnimationController menschAnimationController;
@@ -45,8 +45,8 @@ public class MenschGameplay : MonoBehaviour
         shareButton = FindObjectOfType<ShareButton>();
 
 
-        fingerControls = new FingerControls();
-        fingerControls.Press.FingerPress.performed += x => StartPress();
+        gamecontrols = new GameControls();
+        gamecontrols.Move.Select.performed += x => StartPress();
         StartCoroutine(ScreenFade());
     }
 
@@ -74,7 +74,7 @@ public class MenschGameplay : MonoBehaviour
 
             if (shareButton.ButtonPress() == true)
             {
-                fingerControls.Disable();
+                gamecontrols.Disable();
                 scorehandler.IncrementScore();
                 uihandler.WinDisplay();
             }
@@ -98,12 +98,12 @@ public class MenschGameplay : MonoBehaviour
 
     private void OnEnable()
     {
-        fingerControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        fingerControls.Disable();
+        gamecontrols.Disable();
     }
 
     IEnumerator ScreenFade()
@@ -119,7 +119,7 @@ public class MenschGameplay : MonoBehaviour
     {
         timeToLeave -= Time.deltaTime;
 
-        movementInput = fingerControls.Move.Directions.ReadValue<Vector2>();
+        movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
 
         Vector3 currentPosition = tapping.transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
