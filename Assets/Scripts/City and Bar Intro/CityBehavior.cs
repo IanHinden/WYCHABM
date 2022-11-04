@@ -8,12 +8,20 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] GameObject city;
     [SerializeField] GameObject ava;
     [SerializeField] GameObject ppg;
-    [SerializeField] PittiePartyDialogue pittiePartyDialogue;
+    //[SerializeField] PittiePartyDialogue pittiePartyDialogue;
+    [SerializeField] Dialogue dialogue;
     [SerializeField] TextMeshPro bigPittiesText;
     [SerializeField] UIHandler uihandler;
 
     Animator avaAnimator;
     Animator ppgAnimator;
+
+    string[] dialogueText = new string[] {
+        "Ugh... I am so ready for this shift to be over.",
+        "You better collect your tips quickly...",
+        "... before the manager takes his share.",
+        "... I hate that guy."
+    };
 
     void Awake()
     {
@@ -30,20 +38,28 @@ public class CityBehavior : MonoBehaviour
         bigPittiesText.text = "";
 
         avaAnimator.SetTrigger("Enter");
+
         yield return new WaitForSeconds(.5f);
-        StartCoroutine(pittiePartyDialogue.SetAvaDialogue());
+        dialogue.DialogueEnter();
+        StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2f);
+        dialogue.DialogueExit();
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(1f);
         avaAnimator.SetTrigger("FadeOut");
-        StartCoroutine(pittiePartyDialogue.SetPpgDialogue());
+        dialogue.DialogueEnter();
+        StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
         yield return new WaitForSeconds(2f);
-        StartCoroutine(pittiePartyDialogue.SetPpgDialogueTwo());
-        yield return new WaitForSeconds(2f);
+        StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
+        yield return new WaitForSeconds(1f);
+        dialogue.DialogueExit();
+        yield return new WaitForSeconds(1f);
+        dialogue.DialogueEnter();
         ppgAnimator.SetTrigger("Exit");
         avaAnimator.SetTrigger("FadeIn");
-        StartCoroutine(pittiePartyDialogue.SetAvaDialogueTwo());
+        StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
         yield return new WaitForSeconds(2f);
         uihandler.InstructionText("COLLECT");
+        dialogue.DialogueExit();
     }
 }

@@ -26,6 +26,7 @@ public class Dialogue : MonoBehaviour
 
     public IEnumerator SetDialogue(string dialogue)
     {
+        textmesh.text = "";
         foreach (char c in dialogue.ToCharArray())
         {
             textmesh.text += c;
