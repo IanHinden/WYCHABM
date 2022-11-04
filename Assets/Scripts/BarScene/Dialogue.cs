@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueEnter()
     {
+        textmesh.text = "";
         anim.SetBool("Entered", true);
     }
 
