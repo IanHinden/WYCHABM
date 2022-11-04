@@ -7,7 +7,6 @@ public class BarViewTiming : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
 
     private float measureMS;
-    private float timePassed = 0f;
 
     [SerializeField] private GameObject barScene;
     [SerializeField] private GameObject cellPhone;

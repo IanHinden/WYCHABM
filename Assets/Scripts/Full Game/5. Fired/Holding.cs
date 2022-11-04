@@ -6,9 +6,11 @@ public class Holding : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timeFunctions;
+    [SerializeField] Dialogue dialogue;
     // Start is called before the first frame update
     void Awake()
     {
+        dialogue.DialogueExit();
         StartCoroutine(InstructionText());
     }
 

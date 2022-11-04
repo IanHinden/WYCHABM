@@ -16,7 +16,5 @@ public class BarScene : MonoBehaviour
         dialogue.DialogueEnter();
         yield return new WaitForSeconds(1);
         StartCoroutine(dialogue.SetDialogue("Rich man Richmond get the itch, man"));
-        yield return new WaitForSeconds(1);
-        dialogue.DialogueExit();
     }
 }
