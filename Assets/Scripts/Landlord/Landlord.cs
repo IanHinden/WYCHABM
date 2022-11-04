@@ -7,7 +7,7 @@ public class Landlord : MonoBehaviour
     [SerializeField] Dialogue dialogue;
     void Awake()
     {
-        dialogue.DialogueExit();
+        dialogue.transform.position = new Vector2(0, -6.5f);
         StartCoroutine(Dialogue());
     }
 

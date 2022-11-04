@@ -7,15 +7,18 @@ public class Dialogue : MonoBehaviour
 {
     private TextMeshPro textmesh;
     private Animator anim;
+    private SpriteRenderer sr;
 
     void Awake()
     {
         textmesh = this.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         anim = this.gameObject.GetComponent<Animator>();
+        sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void DialogueEnter()
     {
+        sr.enabled = true;
         textmesh.text = "";
         anim.SetBool("Entered", true);
     }
@@ -23,6 +26,13 @@ public class Dialogue : MonoBehaviour
     public void DialogueExit()
     {
         anim.SetBool("Entered", false);
+    }
+
+    public void QuickExit()
+    {
+        textmesh.text = "";
+        sr.enabled = false;
+        DialogueExit();
     }
 
     public IEnumerator SetDialogue(string dialogue)

@@ -10,7 +10,7 @@ public class Holding : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        dialogue.DialogueExit();
+        dialogue.QuickExit();
         StartCoroutine(InstructionText());
     }
 
