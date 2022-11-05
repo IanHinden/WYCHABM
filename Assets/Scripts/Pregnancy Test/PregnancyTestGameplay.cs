@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class PregnancyTestGameplay : MonoBehaviour
 {
-    private PregnancyTestControls pregnancyTestControls;
+    private GameControls gamecontrols;
     private PregnancyTest pregnancyTest;
 
     private float speed = 5f;
     void Awake()
     {
         pregnancyTest = FindObjectOfType<PregnancyTest>();
-        pregnancyTestControls = new PregnancyTestControls();
+        gamecontrols = new GameControls();
     }
 
     private void OnEnable()
     {
-        pregnancyTestControls.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        pregnancyTestControls.Disable();
+        gamecontrols.Disable();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float movementInput = pregnancyTestControls.Move.Moving.ReadValue<float>();
+        Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
 
         Vector3 currentPosition = pregnancyTest.transform.position;
-        currentPosition.x += movementInput * speed * Time.deltaTime;
+        currentPosition.x += movementInput.x * speed * Time.deltaTime;
         pregnancyTest.transform.position = currentPosition;
     }
 }

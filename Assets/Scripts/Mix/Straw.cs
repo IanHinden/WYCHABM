@@ -8,7 +8,7 @@ public class Straw : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
-    private Stir stir;
+    private GameControls gamecontrols;
     private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
@@ -22,7 +22,7 @@ public class Straw : MonoBehaviour
 
     void Awake()
     {
-        stir = new Stir();
+        gamecontrols = new GameControls();
         window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
         mixedDrink = FindObjectOfType<MixedDrink>();
 
@@ -34,20 +34,20 @@ public class Straw : MonoBehaviour
 
     private void OnEnable()
     {
-        stir.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        stir.Disable();
+        gamecontrols.Disable();
     }
 
     void FixedUpdate()
     {
-        float selectInput = stir.MoveStraw.Move.ReadValue<float>();
+        Vector2 selectInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
         float currentPosition = transform.position.x;
 
-        currentPosition += selectInput * speed * Time.deltaTime;
+        currentPosition += selectInput.x * speed * Time.deltaTime;
         currentPosition = Mathf.Clamp(currentPosition, -.87f, .22f);
 
         if (currentPosition != currentPos && gameOver == false)
@@ -72,7 +72,7 @@ public class Straw : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        stir.Disable();
+        gamecontrols.Disable();
         if (moveAmount >= 150 && gameOver == false)
         {
             win();

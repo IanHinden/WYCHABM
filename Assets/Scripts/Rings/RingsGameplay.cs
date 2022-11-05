@@ -8,7 +8,7 @@ public class RingsGameplay : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
 
-    Remove remove;
+    GameControls gamecontrols;
     float clicked = 0;
 
     Animator ringoneanim;
@@ -16,8 +16,8 @@ public class RingsGameplay : MonoBehaviour
 
     void Awake()
     {
-        remove = new Remove();
-        remove.Tap.Up.performed += x => RemoveRing();
+        gamecontrols = new GameControls();
+        gamecontrols.Move.Select.performed += x => RemoveRing();
 
         ringoneanim = FindObjectOfType<Ring>().GetComponent<Animator>();
         ringtwoanim = FindObjectOfType<RingTwo>().GetComponent<Animator>();
@@ -27,12 +27,12 @@ public class RingsGameplay : MonoBehaviour
 
     private void OnEnable()
     {
-        remove.Enable();
+        gamecontrols.Enable();
     }
 
     private void OnDisable()
     {
-        remove.Disable();
+        gamecontrols.Disable();
     }
 
     private void RemoveRing()
@@ -79,7 +79,7 @@ public class RingsGameplay : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        remove.Disable();
+        gamecontrols.Disable();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         DetermineWinOrLoss();
