@@ -24,6 +24,8 @@ public class UIHandler : MonoBehaviour
     private Animator scoreCardAnim;
     private TextMeshProUGUI scoreCardText;
 
+    [SerializeField] GameObject frame;
+
     private Animator anim;
     // Start is called before the first frame update
     void Awake()
@@ -97,6 +99,11 @@ public class UIHandler : MonoBehaviour
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "0";
         timerSlider.value = 0;
+    }
+
+    public void setFrame(bool show)
+    {
+        frame.SetActive(show);
     }
 
     public void showSlider()

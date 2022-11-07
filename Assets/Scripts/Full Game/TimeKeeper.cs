@@ -105,10 +105,12 @@ public class TimeKeeper : MonoBehaviour
 
         if(countdown != 0)
         {
+            uihandler.setFrame(true);
             uihandler.showSlider();
             uihandler.Countdown(countdown);
         } else
         {
+            uihandler.setFrame(false);
             uihandler.hideSlider();
         }
 
