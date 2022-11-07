@@ -5,14 +5,19 @@ using UnityEngine;
 public class Backroom : MonoBehaviour
 {
     [SerializeField] Camera maincamera;
+    private bool moved = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(MoveToBackroom());
+        if (moved == false)
+        {
+            StartCoroutine(MoveToBackroom());
+        }
     }
 
     public IEnumerator MoveToBackroom()
     {
+        moved = true;
         Vector3 targetPosition = new Vector3(-17.8f, 0f, -10f);
 
         float elapsedTime = 0;
