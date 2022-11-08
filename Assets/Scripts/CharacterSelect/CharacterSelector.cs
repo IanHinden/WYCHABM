@@ -8,6 +8,10 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
+    [SerializeField] GameObject CongressSpotlight;
+    [SerializeField] GameObject OFSpotlight;
+    [SerializeField] GameObject HomelessSpotlight;
+
     private GameControls characterSelectControls;
 
     SpriteRenderer OFGirl;
@@ -27,6 +31,7 @@ public class CharacterSelector : MonoBehaviour
     private int selectedGirl = 0;
 
     Character[] characters;
+    GameObject[] spotlight = new GameObject[3];
     private void Awake()
     {
         characterSelectControls = new GameControls();
@@ -43,6 +48,10 @@ public class CharacterSelector : MonoBehaviour
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
+
+        spotlight[0] = CongressSpotlight;
+        spotlight[1] = OFSpotlight;
+        spotlight[2] = HomelessSpotlight;
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
@@ -115,6 +124,9 @@ public class CharacterSelector : MonoBehaviour
 
         if(unlocked == true)
         {
+            won = true;
+            scorehandler.IncrementScore();
+            uihandler.WinDisplay();
             //uihandler.DisplayBonusScoreCard(starAnim);
         }
     }
@@ -138,11 +150,26 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
+    void SelectSpotlight(int pos)
+    {
+        for (int j = 0; j < spotlight.Length; j++)
+        {
+            if(j == pos)
+            {
+                spotlight[j].SetActive(true);
+            } else
+            {
+                spotlight[j].SetActive(false);
+            }
+        }
+    }
+
     void SelectOF()
     {
         HomelessGirl.color = new Color32(255, 255, 255, 255);
         OFGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
+        SelectSpotlight(1);
     }
 
     void SelectHomeless()
@@ -150,6 +177,7 @@ public class CharacterSelector : MonoBehaviour
         OFGirl.color = new Color32(255, 255, 255, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
+        SelectSpotlight(2);
     }
 
     void SelectCongresswoman()
@@ -157,6 +185,7 @@ public class CharacterSelector : MonoBehaviour
         OFGirl.color = new Color32(126, 126, 126, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(255, 255, 255, 255);
+        SelectSpotlight(0);
     }
 
     IEnumerator WinOrLose()
@@ -172,6 +201,8 @@ public class CharacterSelector : MonoBehaviour
             characterSelectControls.Disable();
             if (unlocked)
             {
+                scorehandler.IncrementScore();
+                uihandler.WinDisplay();
                 //uihandler.DisplayBonusScoreCard(starAnim);
             }
             else if (moved)
