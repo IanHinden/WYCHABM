@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    [SerializeField] UIHandler uihandler;
-    [SerializeField] TimeFunctions timefunctions;
-    [SerializeField] ScoreHandler scorehandler;
-
     private GameControls gamecontrols;
     private new Print print;
     private bool moved = false;
@@ -18,8 +14,6 @@ public class Hand : MonoBehaviour
     {
         gamecontrols = new GameControls();
         print = FindObjectOfType<Print>();
-
-        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -30,6 +24,11 @@ public class Hand : MonoBehaviour
     private void OnDisable()
     {
         gamecontrols.Disable();
+    }
+
+    public bool getMoved()
+    {
+        return moved;
     }
 
     void Update()
@@ -54,24 +53,5 @@ public class Hand : MonoBehaviour
         }
 
         transform.position = currentPosition;
-    }
-
-    IEnumerator WinOrLose()
-    {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
-        DetermineWinOrLoss();
-    }
-
-    private void DetermineWinOrLoss()
-    {
-        if (moved)
-        {
-            uihandler.LoseDisplay();
-        }
-        else
-        {
-            scorehandler.IncrementScore();
-            uihandler.WinDisplay();
-        }
     }
 }
