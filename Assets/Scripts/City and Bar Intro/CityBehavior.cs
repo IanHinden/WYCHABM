@@ -6,6 +6,7 @@ using TMPro;
 public class CityBehavior : MonoBehaviour
 {
     [SerializeField] GameObject city;
+    [SerializeField] GameObject avaObjects;
     [SerializeField] GameObject ava;
     [SerializeField] GameObject ppg;
     //[SerializeField] PittiePartyDialogue pittiePartyDialogue;
@@ -13,6 +14,7 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] TextMeshPro bigPittiesText;
     [SerializeField] UIHandler uihandler;
 
+    Animator avaObjAnimator;
     Animator avaAnimator;
     Animator ppgAnimator;
 
@@ -27,6 +29,7 @@ public class CityBehavior : MonoBehaviour
     {
         StartCoroutine(StartAnimations());
 
+        avaObjAnimator = avaObjects.GetComponent<Animator>();
         avaAnimator = ava.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
     }
@@ -37,7 +40,7 @@ public class CityBehavior : MonoBehaviour
         city.SetActive(false);
         bigPittiesText.text = "";
 
-        avaAnimator.SetTrigger("Enter");
+        avaObjAnimator.SetTrigger("Enter");
 
         yield return new WaitForSeconds(.5f);
         dialogue.DialogueEnter();
