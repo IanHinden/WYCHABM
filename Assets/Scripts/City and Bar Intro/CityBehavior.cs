@@ -9,6 +9,7 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] GameObject avaObjects;
     [SerializeField] GameObject ava;
     [SerializeField] GameObject ppg;
+    [SerializeField] GameObject puff;
     //[SerializeField] PittiePartyDialogue pittiePartyDialogue;
     [SerializeField] Dialogue dialogue;
     [SerializeField] TextMeshPro bigPittiesText;
@@ -17,6 +18,7 @@ public class CityBehavior : MonoBehaviour
     Animator avaObjAnimator;
     Animator avaAnimator;
     Animator ppgAnimator;
+    Animator puffAnimator;
 
     string[] dialogueText = new string[] {
         "Ugh... I am so ready for this shift to be over.",
@@ -32,6 +34,7 @@ public class CityBehavior : MonoBehaviour
         avaObjAnimator = avaObjects.GetComponent<Animator>();
         avaAnimator = ava.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
+        puffAnimator = puff.GetComponent<Animator>();
     }
 
     IEnumerator StartAnimations()
@@ -43,6 +46,7 @@ public class CityBehavior : MonoBehaviour
         avaObjAnimator.SetTrigger("Enter");
 
         yield return new WaitForSeconds(.5f);
+        puffAnimator.SetTrigger("TriggerPuff");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2f);
