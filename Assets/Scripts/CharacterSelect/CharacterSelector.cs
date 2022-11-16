@@ -21,6 +21,10 @@ public class CharacterSelector : MonoBehaviour
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
     Animator CongressAnim;
+
+    ParticleSystem CongresswomanParticleSystem;
+    ParticleSystem OFParticleSystem;
+    ParticleSystem HomelessParticleSystem;
     //Animator starAnim;
 
     private bool unlocked = false;
@@ -32,22 +36,34 @@ public class CharacterSelector : MonoBehaviour
 
     Character[] characters;
     GameObject[] spotlight = new GameObject[3];
+    ParticleSystem[] particles = new ParticleSystem[3];
     private void Awake()
     {
         characterSelectControls = new GameControls();
         characterSelectControls.Select.LeftSelect.performed += x => leftSelect();
         characterSelectControls.Select.RightSelect.performed += x => rightSelect();
-        characterSelectControls.Select.Choose.performed += x => select();
+        characterSelectControls.Select.Choose.performed += x => StartCoroutine(select());
 
         characters = FindObjectsOfType<Character>();
         
+        //Sprites
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
 
+        //Animators
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
+
+        //Particle Systems
+        OFParticleSystem = characters[0].transform.GetChild(3).GetComponent<ParticleSystem>();
+        HomelessParticleSystem = characters[1].transform.GetChild(3).GetComponent<ParticleSystem>();
+        CongresswomanParticleSystem = FindObjectOfType<Congress>().transform.GetChild(3).GetComponent<ParticleSystem>();
+
+        particles[0] = CongresswomanParticleSystem;
+        particles[1] = OFParticleSystem;
+        particles[2] = HomelessParticleSystem;
 
         spotlight[0] = CongressSpotlight;
         spotlight[1] = OFSpotlight;
@@ -112,7 +128,7 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
-    private void select()
+    IEnumerator select()
     {
         if (moved == true)
         {
@@ -120,6 +136,10 @@ public class CharacterSelector : MonoBehaviour
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
             characterSelectControls.Disable();
+            var emission = particles[selectedGirl].emission;
+            emission.enabled = true;
+            yield return new WaitForSeconds(.5f);
+            emission.rateOverTime = 3;
         }
 
         if(unlocked == true)
@@ -166,6 +186,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectOF()
     {
+        selectedGirl = 2;
         HomelessGirl.color = new Color32(255, 255, 255, 255);
         OFGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
@@ -174,6 +195,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectHomeless()
     {
+        selectedGirl = 1;
         OFGirl.color = new Color32(255, 255, 255, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
@@ -182,6 +204,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectCongresswoman()
     {
+        selectedGirl = 0;
         OFGirl.color = new Color32(126, 126, 126, 255);
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(255, 255, 255, 255);
