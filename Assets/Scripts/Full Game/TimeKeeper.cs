@@ -7,7 +7,8 @@ public class TimeKeeper : MonoBehaviour
     ArrayList allscenes = new ArrayList();
     int currentScene = 0;
 
-    [SerializeField] Camera maincamera;
+    [SerializeField] GameObject maincamera;
+    [SerializeField] GameObject threedcamera;
 
     [Header("Scenes")]
     [SerializeField] private GameObject CityAndBarIntro;
@@ -189,9 +190,13 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(6); //Job Interview
+        maincamera.SetActive(false);
+        threedcamera.SetActive(true);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Evolving
+        maincamera.SetActive(true);
+        threedcamera.SetActive(false);
         uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 

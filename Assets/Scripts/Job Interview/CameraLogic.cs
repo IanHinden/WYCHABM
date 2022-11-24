@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class CameraLogic : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    [SerializeField] GameObject threedcam;
 
     bool isMoving = false;
     private void Awake()
     {
-        StartCoroutine(moveToX(cam.transform, new Vector3(5.9f, 10.59f, -10), 1f));
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        StartCoroutine(moveToX(threedcam.transform, new Vector3(5.9f, 10.59f, -10), 1f));
     }
 
     IEnumerator moveToX(Transform fromPosition, Vector3 toPosition, float duration)
