@@ -9,12 +9,12 @@ public class CameraLogic : MonoBehaviour
     bool isMoving = false;
     private void Awake()
     {
-        StartCoroutine(moveToX(threedcam.transform, new Vector3(5.9f, 10.59f, -10), 1f));
+        StartCoroutine(moveToX(threedcam.transform, new Vector3(5.9f, 10.59f, -10), .5f));
     }
 
     IEnumerator moveToX(Transform fromPosition, Vector3 toPosition, float duration)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         //Make sure there is only one instance of this function running
         if (isMoving)
         {
