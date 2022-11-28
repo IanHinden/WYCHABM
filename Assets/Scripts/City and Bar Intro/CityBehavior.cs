@@ -22,9 +22,9 @@ public class CityBehavior : MonoBehaviour
 
     string[] dialogueText = new string[] {
         "Ugh... I am so ready for this shift to be over.",
-        "You better collect your tips quickly...",
-        "... before the manager takes his share.",
-        "... I hate that guy."
+        "Ava, you know the new girl?",
+        "... She doesn't know the manager 'splits tips'.",
+        "Don't worry, I'll take care of it."
     };
 
     void Awake()
