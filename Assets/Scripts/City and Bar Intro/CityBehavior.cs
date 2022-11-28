@@ -20,6 +20,8 @@ public class CityBehavior : MonoBehaviour
     Animator ppgAnimator;
     Animator puffAnimator;
 
+    SpriteRenderer avaEyesClosed;
+
     string[] dialogueText = new string[] {
         "Ugh... I am so ready for this shift to be over.",
         "Ava, you know the new girl?",
@@ -35,6 +37,8 @@ public class CityBehavior : MonoBehaviour
         avaAnimator = ava.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
         puffAnimator = puff.GetComponent<Animator>();
+
+        avaEyesClosed = ava.GetComponent<SpriteRenderer>();
     }
 
     IEnumerator StartAnimations()
@@ -55,6 +59,7 @@ public class CityBehavior : MonoBehaviour
         yield return new WaitForSeconds(1f);
         avaAnimator.SetTrigger("FadeOut");
         dialogue.DialogueEnter();
+        avaEyesClosed.enabled = false;
         StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
         yield return new WaitForSeconds(2f);
         StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
