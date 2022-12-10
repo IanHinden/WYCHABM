@@ -53,6 +53,7 @@ public class TimeKeeper : MonoBehaviour
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
     [SerializeField] private TimeFunctions timefunctions;
+    [SerializeField] private Dialogue dialogue;
     // Start is called before the first frame update
     //0.705882
 
@@ -103,6 +104,7 @@ public class TimeKeeper : MonoBehaviour
     private void nextScene(int countdown = 0)
     {
         uihandler.ClearWinLoss();
+        dialogue.DialogueExit();
 
         if(countdown != 0)
         {

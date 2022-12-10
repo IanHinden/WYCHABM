@@ -5,18 +5,25 @@ using UnityEngine;
 public class Landlord : MonoBehaviour
 {
     [SerializeField] Dialogue dialogue;
+    [SerializeField] GameObject landlord;
+    [SerializeField] GameObject ava;
+
+    Animator landlordAnim;
+    Animator avaAnim;
     void Awake()
     {
+        landlordAnim = landlord.GetComponent<Animator>();
+        avaAnim = ava.GetComponent<Animator>();
         dialogue.transform.position = new Vector2(0, -6.5f);
         StartCoroutine(Dialogue());
     }
 
     private IEnumerator Dialogue()
     {
-        yield return new WaitForSeconds(.3f);
+        landlordAnim.SetTrigger("Enter");
+        yield return new WaitForSeconds(.6f);
+        avaAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("If you don't pay your rent by tomorrow, you are out of here!"));
-        yield return new WaitForSeconds(2);
-        dialogue.DialogueExit();
     }
 }

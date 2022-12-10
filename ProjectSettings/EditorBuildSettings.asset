@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2.5 Instructions.unity
     guid: 00000f9fe40f01e46a5ca6695131fa32
-  - enabled: 1
-    path: Assets/Scenes/3. City and Bar Intro.unity
-    guid: c2dc7121b06f42c409919abf56cc2128
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/4. BarScene.unity
     guid: 6bbeafadad597574c96e7544b70fb653

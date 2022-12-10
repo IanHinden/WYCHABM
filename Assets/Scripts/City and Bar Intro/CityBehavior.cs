@@ -72,6 +72,5 @@ public class CityBehavior : MonoBehaviour
         StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
         yield return new WaitForSeconds(2f);
         uihandler.InstructionText("COLLECT");
-        dialogue.DialogueExit();
     }
 }
