@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idleRight
+  m_Name: AvaWalkDown
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7222537069723327875, guid: dfa26e7d128103741a67f5bf96fbca29,
+      value: {fileID: -1197536259328227174, guid: 4b96d9c08b39d6841b5bfe47fa3e683a,
+        type: 3}
+    - time: 0.33333334
+      value: {fileID: -5750451381563773825, guid: 4b96d9c08b39d6841b5bfe47fa3e683a,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,13 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 7222537069723327875, guid: dfa26e7d128103741a67f5bf96fbca29, type: 3}
+    - {fileID: -1197536259328227174, guid: 4b96d9c08b39d6841b5bfe47fa3e683a, type: 3}
+    - {fileID: -5750451381563773825, guid: 4b96d9c08b39d6841b5bfe47fa3e683a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

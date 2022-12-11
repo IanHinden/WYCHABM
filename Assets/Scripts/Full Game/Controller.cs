@@ -39,7 +39,7 @@ public class Controller : MonoBehaviour
         }
         else
         {
-            animator.SetBool("moving", false);
+           animator.SetBool("moving", false);
         }
         transform.position = currentPosition;
     }
