@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FullCoins : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class FullCoins : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] TextMeshProUGUI displayscore;
     //Animator starAnim;
 
+    int totalCoins;
     int remainingCoins;
 
     private bool levelComplete = false;
@@ -19,7 +22,8 @@ public class FullCoins : MonoBehaviour
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
-        remainingCoins = gameObject.transform.childCount;
+        totalCoins = gameObject.transform.childCount;
+        remainingCoins = totalCoins;
 
         StartCoroutine(WinOrLose());
     }
@@ -43,6 +47,7 @@ public class FullCoins : MonoBehaviour
             scorehandler.IncrementScore();
             controller.OnDisable();
         }
+        displayscore.text = totalCoins - remainingCoins + "/" + totalCoins;
     }
 
     IEnumerator WinOrLose()
