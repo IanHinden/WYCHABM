@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
@@ -384,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 697, y: -226}
+  m_AnchoredPosition: {x: 177, y: -226}
   m_SizeDelta: {x: 413.38098, y: 935.92944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &828038897
@@ -537,6 +538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006524502540080422, guid: 8495f14c2eaae20479f190eb1de9c4cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006524502540080423, guid: 8495f14c2eaae20479f190eb1de9c4cb,
         type: 3}

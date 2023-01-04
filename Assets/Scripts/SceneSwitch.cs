@@ -28,7 +28,7 @@ public class SceneSwitch : MonoBehaviour
     public void PlayGame()
     {
         LoadNextScene();
-        theMP.ChangeBGM(newTrack);
+        //theMP.ChangeBGM(newTrack);
     }
 
     IEnumerator WaitAndSwitch()
