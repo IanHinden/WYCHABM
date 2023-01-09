@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 99d4fdc464a14b246b61779d1f4ebb78
+guid: e4a05b38dae10fd4991ff135ff8433cd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3016093784141690031
-    second: CoinSpriteSheet_0
+      213: 3727450050814494709
+    second: drunk-sprite_0
   - first:
-      213: 3394420563121825309
-    second: CoinSpriteSheet_1
+      213: 6505555999684832602
+    second: drunk-sprite_1
   - first:
-      213: 3760143591262298646
-    second: CoinSpriteSheet_2
+      213: 5998924454204848322
+    second: drunk-sprite_2
   - first:
-      213: -7119380908746499529
-    second: CoinSpriteSheet_3
+      213: 1198796047008159489
+    second: drunk-sprite_3
   - first:
-      213: 1593989720197626011
-    second: CoinSpriteSheet_4
-  - first:
-      213: 3450369622003840145
-    second: CoinSpriteSheet_5
+      213: -1738025889610610274
+    second: drunk-sprite_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CoinSpriteSheet_0
+      name: drunk-sprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 191.83333
-        height: 171
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +128,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15b88faeeaea426d0800000000000000
-      internalID: -3016093784141690031
+      spriteID: 5f74fc482109ab330800000000000000
+      internalID: 3727450050814494709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinSpriteSheet_1
+      name: drunk-sprite_1
       rect:
         serializedVersion: 2
-        x: 191
+        x: 200
         y: 0
-        width: 191.83333
-        height: 171
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d16682b84876b1f20800000000000000
-      internalID: 3394420563121825309
+      spriteID: a5d20abb6b0684a50800000000000000
+      internalID: 6505555999684832602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinSpriteSheet_2
+      name: drunk-sprite_2
       rect:
         serializedVersion: 2
-        x: 382
+        x: 400
         y: 0
-        width: 191.83333
-        height: 171
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 612a6a59ca6be2430800000000000000
-      internalID: 3760143591262298646
+      spriteID: 2c8b847e106704350800000000000000
+      internalID: 5998924454204848322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinSpriteSheet_3
+      name: drunk-sprite_3
       rect:
         serializedVersion: 2
-        x: 573
+        x: 600
         y: 0
-        width: 191.83333
-        height: 171
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73a977998c0e23d90800000000000000
-      internalID: -7119380908746499529
+      spriteID: 107501c37aaf2a010800000000000000
+      internalID: 1198796047008159489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinSpriteSheet_4
+      name: drunk-sprite_4
       rect:
         serializedVersion: 2
-        x: 764
+        x: 800
         y: 0
-        width: 191.83333
-        height: 171
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,29 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b98f008843dfe1610800000000000000
-      internalID: 1593989720197626011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoinSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 955
-        y: 0
-        width: 191.83333
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 194765fe3ec22ef20800000000000000
-      internalID: 3450369622003840145
+      spriteID: e99c35f69aa41e7e0800000000000000
+      internalID: -1738025889610610274
       vertices: []
       indices: 
       edges: []
