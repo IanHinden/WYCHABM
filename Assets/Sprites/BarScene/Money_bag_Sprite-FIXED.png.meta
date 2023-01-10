@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: c0b03ebd9dd95b845afd9b59fe83763e
+guid: ed73da0037194b646bc3afd05f989149
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6685245041573976479
-    second: Money_bag_Sprites_0
+      213: -125603005126971684
+    second: Money_bag_Sprite-FIXED_0
   - first:
-      213: 6871220528883139596
-    second: Money_bag_Sprites_1
+      213: -8593742705288833843
+    second: Money_bag_Sprite-FIXED_1
   - first:
-      213: 3401680346207635232
-    second: Money_bag_Sprites_2
+      213: 9080478055042803414
+    second: Money_bag_Sprite-FIXED_2
   - first:
-      213: 8785154176230466101
-    second: Money_bag_Sprites_3
+      213: 6929847456076688120
+    second: Money_bag_Sprite-FIXED_3
   - first:
-      213: -5743304818179232709
-    second: Money_bag_Sprites_4
+      213: 8569403886289394867
+    second: Money_bag_Sprite-FIXED_4
   - first:
-      213: 8065825559757196237
-    second: Money_bag_Sprites_5
+      213: 3269747562964521432
+    second: Money_bag_Sprite-FIXED_5
   - first:
-      213: 5289282309278744047
-    second: Money_bag_Sprites_6
+      213: -6224041412862425474
+    second: Money_bag_Sprite-FIXED_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Money_bag_Sprites_0
+      name: Money_bag_Sprite-FIXED_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 166aa8cfd0d3933a0800000000000000
-      internalID: -6685245041573976479
+      spriteID: cde6fa87bb4c14ef0800000000000000
+      internalID: -125603005126971684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_1
+      name: Money_bag_Sprite-FIXED_1
       rect:
         serializedVersion: 2
-        x: 202
+        x: 144
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c04837d6aaa7b5f50800000000000000
-      internalID: 6871220528883139596
+      spriteID: dc497288a84ecb880800000000000000
+      internalID: -8593742705288833843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_2
+      name: Money_bag_Sprite-FIXED_2
       rect:
         serializedVersion: 2
-        x: 404
+        x: 288
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02742238042353f20800000000000000
-      internalID: 3401680346207635232
+      spriteID: 6d66e8d3ea6540e70800000000000000
+      internalID: 9080478055042803414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_3
+      name: Money_bag_Sprite-FIXED_3
       rect:
         serializedVersion: 2
-        x: 606
+        x: 432
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 532a1437d232be970800000000000000
-      internalID: 8785154176230466101
+      spriteID: 8fa681f9b83cb2060800000000000000
+      internalID: 6929847456076688120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_4
+      name: Money_bag_Sprite-FIXED_4
       rect:
         serializedVersion: 2
-        x: 808
+        x: 576
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c23ab72beab40b0800000000000000
-      internalID: -5743304818179232709
+      spriteID: 3bc91239e63ace670800000000000000
+      internalID: 8569403886289394867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_5
+      name: Money_bag_Sprite-FIXED_5
       rect:
         serializedVersion: 2
-        x: 1010
+        x: 720
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb089dac919fef60800000000000000
-      internalID: 8065825559757196237
+      spriteID: 8d113bba51a706d20800000000000000
+      internalID: 3269747562964521432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_bag_Sprites_6
+      name: Money_bag_Sprite-FIXED_6
       rect:
         serializedVersion: 2
-        x: 1212
+        x: 864
         y: 0
-        width: 202
-        height: 301
+        width: 144
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fed31598c3e476940800000000000000
-      internalID: 5289282309278744047
+      spriteID: e76c307bf43cf99a0800000000000000
+      internalID: -6224041412862425474
       vertices: []
       indices: 
       edges: []
