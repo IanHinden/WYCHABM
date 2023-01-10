@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: c02ea14fa7f3d284ea25c1eb570d2945
+guid: e4bbdc5be0807834ab123dbb26eca08a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6909801940019750648
-    second: Desk-sprites_0
+      213: -8283703922065382086
+    second: Desk-sprite-FIXED_0
   - first:
-      213: -4606769155198564282
-    second: Desk-sprites_1
+      213: 50328113991808368
+    second: Desk-sprite-FIXED_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Desk-sprites_0
+      name: Desk-sprite-FIXED_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 500
-        height: 743
+        height: 766
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80951d8ceb37b10a0800000000000000
-      internalID: -6909801940019750648
+      spriteID: a3568ccfb2f5a0d80800000000000000
+      internalID: -8283703922065382086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desk-sprites_1
+      name: Desk-sprite-FIXED_1
       rect:
         serializedVersion: 2
         x: 500
         y: 0
         width: 500
-        height: 743
+        height: 766
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 648c92e6cd77110c0800000000000000
-      internalID: -4606769155198564282
+      spriteID: 07572bc272dc2b000800000000000000
+      internalID: 50328113991808368
       vertices: []
       indices: 
       edges: []
