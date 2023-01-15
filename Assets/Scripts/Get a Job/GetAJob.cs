@@ -9,6 +9,7 @@ public class GetAJob : MonoBehaviour
     Animator CamAnim;
     void Awake()
     {
+        cam.GetComponent<Camera>().orthographicSize = 3;
         CamAnim = cam.GetComponent<Animator>();
         CamAnim.SetTrigger("GetAJob");
     }
