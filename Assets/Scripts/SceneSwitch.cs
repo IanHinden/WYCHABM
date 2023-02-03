@@ -16,13 +16,11 @@ public class SceneSwitch : MonoBehaviour
     private MusicPlayer theMP;
 
     ThreeSecondsLeft threeSecondsLeft;
-    MicrogameInstructionText microgameInstructionText;
 
     private void Awake()
     {
         theMP = FindObjectOfType<MusicPlayer>();
         threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
-        microgameInstructionText = FindObjectOfType<MicrogameInstructionText>();
         StartCoroutine(WaitAndSwitch());
     }
     public void PlayGame()
@@ -41,10 +39,6 @@ public class SceneSwitch : MonoBehaviour
         {
             float measureSwitchTime = ReturnTimeOfScene();
             yield return new WaitForSeconds(measureSwitchTime - 1);
-            if (microgameInstructionText)
-            /*{
-                microgameInstructionText.InstructionText();
-            }*/
             yield return new WaitForSeconds(1);
             LoadNextScene();
         } else
