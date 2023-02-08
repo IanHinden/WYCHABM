@@ -26,6 +26,8 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] GameObject frame;
 
+    [SerializeField] GameObject startButtonContainer;
+
     private Animator anim;
     // Start is called before the first frame update
     void Awake()
@@ -147,5 +149,10 @@ public class UIHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
+    }
+
+    public void HideStartButton()
+    {
+        startButtonContainer.SetActive(false);
     }
 }

@@ -1,28 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class AsyncController : MonoBehaviour
+public class GameOptions : MonoBehaviour
 {
-    [SerializeField] private GameObject startButton;
-    //[SerializeField] private MusicPlayer mp;
+    [SerializeField] UIHandler uihandler;
 
+    [SerializeField] MusicPlayer mp;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject barIntro;
+
     [SerializeField] GameObject timeKeeper;
 
     AudioSource audioSo;
 
-    public void Awake()
+    private void Awake()
     {
-        //audioSo = mp.GetComponent<AudioSource>();
+        audioSo = mp.GetComponent<AudioSource>();
     }
-    public void StartGame()
+
+    public void BeginGame()
     {
-        Debug.Log("Works?");
-        //audioSo.Play();
+        uihandler.HideStartButton();
+        audioSo.Play();
         barIntro.SetActive(true);
         timeKeeper.SetActive(true);
         titleScreen.SetActive(false);
