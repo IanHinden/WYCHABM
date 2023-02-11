@@ -5,37 +5,48 @@ using UnityEngine.UI;
 
 public class MaskTransition : MonoBehaviour
 {
-    [ExecuteInEditMode]
+    [SerializeField] private float _Speed = .000000001f;
+    [SerializeField] private Image _KeyholeImage;
+
+    public struct SizePos
+    {
+        public Vector2 Size;
+        public Vector2 Pos;
+    }
+
+    [SerializeField] private SizePos PointA = new SizePos() { Size = new Vector2(12508, 14433), Pos = new Vector2(-5293.748f, -6725.214f) }, PointB = new SizePos() { Size = new Vector2(2, 2), Pos = new Vector2(383f, 419f) };
+
     public enum Sides
     {
         Left, Right, Top, Bottom
     }
-    Image[] SideRects = new Image[((int)Sides.Bottom) + 1];
+    private RectTransform[] _SideRects = new RectTransform[(int)Sides.Bottom + 1];
     [SerializeField] Image MaskImage;
 
     void OnEnable()
     {
-        for(int i =0; i < SideRects.Length; i++)
+        for(int i =0; i < _SideRects.Length; i++)
         {
-            if (SideRects[i] != null) continue;
+            if (_SideRects[i] != null) continue;
             GameObject newSideRect = new GameObject("RectSide_" + (Sides)i, typeof(Image));
-            newSideRect.transform.parent = MaskImage.transform.parent;
+            newSideRect.transform.SetParent(MaskImage.transform);
 
-            Image sideRectImg = newSideRect.GetComponent<Image>();
-            sideRectImg.color = Color.black;
-            sideRectImg.rectTransform.anchorMin = Vector2.zero;
-            sideRectImg.rectTransform.anchorMax = Vector2.zero;
-            sideRectImg.rectTransform.pivot = Vector2.zero;
+            Image img = newSideRect.GetComponent<Image>();
+            img.color = Color.black;
+            _SideRects[i] = img.rectTransform;
+            _SideRects[i].parent = transform.parent;
+            _SideRects[i].anchorMin = Vector2.zero;
+            _SideRects[i].anchorMax = Vector2.zero;
+            _SideRects[i].pivot = Vector2.zero;
 
-            SideRects[i] = sideRectImg;
-            SetRectSizePosBySide(SideRects[i].rectTransform, (Sides)i);
+            SetRectSizePosBySide(_SideRects[i], (Sides)i);
         }
     }
 
     private void SetRectSizePosBySide(RectTransform sideRect, Sides side)
     {
-        Vector2 MaskPos = MaskImage.rectTransform.anchoredPosition;
-        Vector2 MaskSize = MaskImage.rectTransform.sizeDelta;
+        Vector2 MaskPos = _KeyholeImage.rectTransform.anchoredPosition;
+        Vector2 MaskSize = _KeyholeImage.rectTransform.sizeDelta;
 
         switch (side)
         {
@@ -58,11 +69,73 @@ public class MaskTransition : MonoBehaviour
         }
     }
 
-    void Update()
+    IEnumerator LerpSizePos()
     {
-        for(int i = 0; i < SideRects.Length; i++)
+        yield return new WaitForSeconds(5f);
+        // Fade in 
+        for (float f = 0; f <= 1f; f += _Speed * Time.fixedDeltaTime * .2f)
         {
-            SetRectSizePosBySide(SideRects[i].rectTransform, (Sides)i);
+            _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointA.Size, PointB.Size, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, PointB.Pos, f);
+            UpdateRects();
+            yield return null;
+        }
+        _KeyholeImage.rectTransform.sizeDelta = PointB.Size;
+        _KeyholeImage.rectTransform.anchoredPosition = PointB.Pos;
+        UpdateRects();
+
+        // Wait
+        yield return new WaitForSeconds(2f);
+
+        // Fade Out
+        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
+        {
+            _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointB.Size, PointA.Size, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointB.Pos, PointA.Pos, f);
+            UpdateRects();
+            yield return null;
+        }
+        _KeyholeImage.rectTransform.sizeDelta = PointA.Size;
+        _KeyholeImage.rectTransform.anchoredPosition = PointA.Pos;
+        UpdateRects();
+
+        yield return new WaitForSeconds(2f);
+    }
+
+    public IEnumerator TransitionOutro()
+    {
+        for (float f = 0; f <= 1f; f += _Speed * Time.fixedDeltaTime * .2f)
+        {
+            _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointA.Size, PointB.Size, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, PointB.Pos, f);
+            UpdateRects();
+            yield return null;
+        }
+        _KeyholeImage.rectTransform.sizeDelta = PointB.Size;
+        _KeyholeImage.rectTransform.anchoredPosition = PointB.Pos;
+        UpdateRects();
+    }
+
+    public IEnumerator TransitionIntro()
+    {
+        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
+        {
+            _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointB.Size, PointA.Size, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointB.Pos, PointA.Pos, f);
+            UpdateRects();
+            yield return null;
+        }
+        _KeyholeImage.rectTransform.sizeDelta = PointA.Size;
+        _KeyholeImage.rectTransform.anchoredPosition = PointA.Pos;
+        UpdateRects();
+    }
+
+    private void UpdateRects()
+    {
+        for (int i = 0; i < _SideRects.Length; i++)
+        {
+            if (_SideRects[i] != null)
+                SetRectSizePosBySide(_SideRects[i], (Sides)i);
         }
     }
 }

@@ -10,7 +10,7 @@ public class GameOptions : MonoBehaviour
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject barIntro;
 
-    [SerializeField] GameObject timeKeeper;
+    [SerializeField] TimeKeeper timeKeeper;
 
     AudioSource audioSo;
 
@@ -24,7 +24,7 @@ public class GameOptions : MonoBehaviour
         uihandler.HideStartButton();
         audioSo.Play();
         barIntro.SetActive(true);
-        timeKeeper.SetActive(true);
+        StartCoroutine(timeKeeper.SwitchScene());
         titleScreen.SetActive(false);
     }
 }

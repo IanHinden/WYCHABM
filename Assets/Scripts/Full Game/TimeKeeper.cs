@@ -10,6 +10,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] GameObject maincamera;
     [SerializeField] GameObject threedcamera;
 
+    [SerializeField] MaskTransition mask;
+
     [Header("Scenes")]
     [SerializeField] private GameObject CityAndBarIntro;
     [SerializeField] private GameObject BarScene;
@@ -97,12 +99,15 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(ThirdChorus);
         allscenes.Add(FinalBoss);
         allscenes.Add(ScoreScreen);
-
-        StartCoroutine(SwitchScene());
     }
 
-    private void nextScene(int countdown = 0)
+    private void nextScene(int countdown = 0, bool outro = false)
     {
+        if (outro)
+        {
+            StartCoroutine(mask.TransitionIntro());
+        }
+
         uihandler.ClearWinLoss();
         dialogue.DialogueExit();
 
@@ -133,10 +138,10 @@ public class TimeKeeper : MonoBehaviour
         maincamera.transform.position = targetPosition;
     }
 
-    IEnumerator SwitchScene()
+    public IEnumerator SwitchScene()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
-        nextScene(8); //Bar
+        yield return FadeOutroEffect(20);
+        nextScene(8, true); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
         uihandler.hideSlider();
 
@@ -275,5 +280,12 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Final Boss
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+    }
+
+    IEnumerator FadeOutroEffect(int measures)
+    {
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - 1.5f);
+        StartCoroutine(mask.TransitionOutro());
+        yield return new WaitForSeconds(1.5f);
     }
 }
