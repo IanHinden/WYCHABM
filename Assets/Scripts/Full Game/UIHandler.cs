@@ -26,6 +26,8 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] GameObject frame;
 
+    [SerializeField] MaskTransition mask;
+
     [SerializeField] GameObject startButtonContainer;
 
     private Animator anim;
@@ -149,6 +151,16 @@ public class UIHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
+    }
+
+    public void MaskOutro()
+    {
+        StartCoroutine(mask.TransitionOutro());
+    }
+
+    public void MaskIntro(float xPos, float yPos)
+    {
+        StartCoroutine(mask.TransitionIntro(xPos, yPos));
     }
 
     public void HideStartButton()

@@ -35,7 +35,7 @@ public class MaskTransition : MonoBehaviour
             Image img = newSideRect.GetComponent<Image>();
             img.color = Color.black;
             _SideRects[i] = img.rectTransform;
-            _SideRects[i].parent = MaskImage.transform.parent;
+            _SideRects[i].SetParent(MaskImage.transform.parent);
             _SideRects[i].transform.SetSiblingIndex(_SideRects[i].parent.childCount - 2);
             _SideRects[i].anchorMin = Vector2.zero;
             _SideRects[i].anchorMax = Vector2.zero;
@@ -118,12 +118,12 @@ public class MaskTransition : MonoBehaviour
         UpdateRects();
     }
 
-    public IEnumerator TransitionIntro()
+    public IEnumerator TransitionIntro(float xPos, float yPos)
     {
         for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointB.Size, PointA.Size, f);
-            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointB.Pos, PointA.Pos, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2(xPos, yPos), PointA.Pos, f);
             UpdateRects();
             yield return null;
         }

@@ -515,6 +515,7 @@ MonoBehaviour:
   textmesh: {fileID: 558629537}
   scorecard: {fileID: 1075564604}
   frame: {fileID: 1082979757}
+  mask: {fileID: 238767050}
   startButtonContainer: {fileID: 2119565888}
 --- !u!4 &24490724
 Transform:
@@ -8139,7 +8140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6284c59eef90cd418deb32d5afdb9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Speed: 0.4
+  _Speed: 0.6
   _KeyholeImage: {fileID: 238767051}
   MaskImage: {fileID: 238767051}
 --- !u!114 &238767051
@@ -17554,7 +17555,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1362544961}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34581,8 +34582,8 @@ RectTransform:
   - {fileID: 1075564605}
   - {fileID: 380569483}
   - {fileID: 238767049}
-  - {fileID: 558629536}
   - {fileID: 2119565889}
+  - {fileID: 558629536}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54719,7 +54720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maincamera: {fileID: 1550866434}
   threedcamera: {fileID: 228920818}
-  mask: {fileID: 238767050}
   CityAndBarIntro: {fileID: 1541216390}
   BarScene: {fileID: 2101814291}
   Fired: {fileID: 228925647}
@@ -56520,7 +56520,7 @@ RectTransform:
   m_Children:
   - {fileID: 592934027}
   m_Father: {fileID: 1362544961}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

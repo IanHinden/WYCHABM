@@ -10,8 +10,6 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] GameObject maincamera;
     [SerializeField] GameObject threedcamera;
 
-    [SerializeField] MaskTransition mask;
-
     [Header("Scenes")]
     [SerializeField] private GameObject CityAndBarIntro;
     [SerializeField] private GameObject BarScene;
@@ -105,11 +103,11 @@ public class TimeKeeper : MonoBehaviour
     {
         if (outro)
         {
-            StartCoroutine(mask.TransitionIntro());
+            uihandler.MaskIntro(346f, 375f);
         }
 
         uihandler.ClearWinLoss();
-        //dialogue.DialogueExit();
+        dialogue.QuickExit();
 
         if(countdown != 0)
         {
@@ -285,7 +283,7 @@ public class TimeKeeper : MonoBehaviour
     IEnumerator FadeOutroEffect(int measures)
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - 1.5f);
-        StartCoroutine(mask.TransitionOutro());
+        uihandler.MaskOutro();
         yield return new WaitForSeconds(1.5f);
     }
 }
