@@ -14,7 +14,8 @@ public class MaskTransition : MonoBehaviour
         public Vector2 Pos;
     }
 
-    [SerializeField] private SizePos PointA = new SizePos() { Size = new Vector2(12508, 14433), Pos = new Vector2(-5293.748f, -6725.214f) }, PointB = new SizePos() { Size = new Vector2(2, 2), Pos = new Vector2(383f, 419f) };
+    [SerializeField] private SizePos PointA = new SizePos() { Size = new Vector2(12508, 14433), Pos = new Vector2(-5293.748f, -6725.214f) }, 
+        PointB = new SizePos() { Size = new Vector2(2, 2), Pos = new Vector2(346f, 375f) };
 
     public enum Sides
     {
@@ -34,7 +35,8 @@ public class MaskTransition : MonoBehaviour
             Image img = newSideRect.GetComponent<Image>();
             img.color = Color.black;
             _SideRects[i] = img.rectTransform;
-            _SideRects[i].parent = transform.parent;
+            _SideRects[i].parent = MaskImage.transform.parent;
+            _SideRects[i].transform.SetSiblingIndex(_SideRects[i].parent.childCount - 2);
             _SideRects[i].anchorMin = Vector2.zero;
             _SideRects[i].anchorMax = Vector2.zero;
             _SideRects[i].pivot = Vector2.zero;
