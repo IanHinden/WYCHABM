@@ -25,10 +25,7 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueExit()
     {
-        if (anim.GetBool("Entered") == true)
-        {
-            anim.SetBool("Entered", false);
-        }
+        anim.SetBool("Entered", false);
     }
 
     public void QuickExit()

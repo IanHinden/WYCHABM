@@ -109,7 +109,7 @@ public class TimeKeeper : MonoBehaviour
         }
 
         uihandler.ClearWinLoss();
-        dialogue.DialogueExit();
+        //dialogue.DialogueExit();
 
         if(countdown != 0)
         {
