@@ -7,8 +7,6 @@ public class StoryTimer : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
 
-    private TextMeshProUGUI sugarDaddiesTM;
-
     private float measureMS;
 
     Pointer pointer;
@@ -16,7 +14,6 @@ public class StoryTimer : MonoBehaviour
 
     private SpriteRenderer laptop;
     private SpriteRenderer charts;
-    private SpriteRenderer sugarDaddies;
     private SpriteRenderer pointerSR;
  
     void Awake()
@@ -29,9 +26,6 @@ public class StoryTimer : MonoBehaviour
 
         laptop = FindObjectOfType<Laptop>().GetComponent<SpriteRenderer>();
         charts = FindObjectOfType<Charts>().GetComponent<SpriteRenderer>();
-
-        sugarDaddiesTM = FindObjectOfType<SugarDaddiesText>().GetComponent<TextMeshProUGUI>();
-        sugarDaddies = FindObjectOfType<SugarDaddies>().GetComponent<SpriteRenderer>();
 
         StartCoroutine(timedEvents());
     }
@@ -53,10 +47,5 @@ public class StoryTimer : MonoBehaviour
         charts.enabled = true;
         pointerSR.enabled = true;
         pointerAnim.SetTrigger("Pointer");
-
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        sugarDaddies.enabled = true;
-        sugarDaddiesTM.SetText("Sweet Sugar " +
-        "Daddies Site");
     }
 }
