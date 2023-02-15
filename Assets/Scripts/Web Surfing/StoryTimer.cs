@@ -13,7 +13,6 @@ public class StoryTimer : MonoBehaviour
     Animator pointerAnim;
 
     private SpriteRenderer laptop;
-    private SpriteRenderer charts;
     private SpriteRenderer pointerSR;
  
     void Awake()
@@ -25,7 +24,6 @@ public class StoryTimer : MonoBehaviour
         pointerSR = pointer.GetComponent<SpriteRenderer>();
 
         laptop = FindObjectOfType<Laptop>().GetComponent<SpriteRenderer>();
-        charts = FindObjectOfType<Charts>().GetComponent<SpriteRenderer>();
 
         StartCoroutine(timedEvents());
     }
@@ -34,17 +32,14 @@ public class StoryTimer : MonoBehaviour
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         laptop.enabled = true;
-        charts.enabled = true;
         pointerSR.enabled = true;
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         laptop.enabled = false;
-        charts.enabled = false;
         pointerSR.enabled = false;
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         laptop.enabled = true;
-        charts.enabled = true;
         pointerSR.enabled = true;
         pointerAnim.SetTrigger("Pointer");
     }
