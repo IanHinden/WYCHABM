@@ -21,7 +21,6 @@ public class AsyncController : MonoBehaviour
     }
     public void StartGame()
     {
-        Debug.Log("Works?");
         audioSo.Play();
         barIntro.SetActive(true);
         timeKeeper.SetActive(true);

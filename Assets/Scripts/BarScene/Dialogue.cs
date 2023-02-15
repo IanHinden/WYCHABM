@@ -41,7 +41,7 @@ public class Dialogue : MonoBehaviour
         foreach (char c in dialogue.ToCharArray())
         {
             textmesh.text += c;
-            float pauseTime = .02f;
+            float pauseTime = .01f;
 
             while (pauseTime > 0)
             {
