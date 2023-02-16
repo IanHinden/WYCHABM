@@ -30,6 +30,8 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] GameObject startButtonContainer;
 
+    [SerializeField] GameObject instructionsMenuPanel;
+
     private Animator anim;
     // Start is called before the first frame update
     void Awake()
@@ -166,5 +168,6 @@ public class UIHandler : MonoBehaviour
     public void HideStartButton()
     {
         startButtonContainer.SetActive(false);
+        instructionsMenuPanel.SetActive(false);
     }
 }
