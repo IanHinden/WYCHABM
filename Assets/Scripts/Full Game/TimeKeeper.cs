@@ -103,7 +103,7 @@ public class TimeKeeper : MonoBehaviour
     {
         if (outro)
         {
-            uihandler.MaskIntro(346f, 375f);
+            uihandler.MaskIntro(320f, 375f);
         }
 
         uihandler.ClearWinLoss();

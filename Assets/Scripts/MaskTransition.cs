@@ -109,7 +109,7 @@ public class MaskTransition : MonoBehaviour
         for (float f = 0; f <= 1f; f += _Speed * Time.fixedDeltaTime * .2f)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointA.Size, PointB.Size, f);
-            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, PointB.Pos, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, new Vector2(346f, 375f), f);
             UpdateRects();
             yield return null;
         }
@@ -123,7 +123,7 @@ public class MaskTransition : MonoBehaviour
         for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointB.Size, PointA.Size, f);
-            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2(xPos, yPos), PointA.Pos, f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(new Vector2(xPos, yPos), new Vector2(-5595, -7906), f);
             UpdateRects();
             yield return null;
         }
