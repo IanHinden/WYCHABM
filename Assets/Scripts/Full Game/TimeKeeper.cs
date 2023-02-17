@@ -138,10 +138,9 @@ public class TimeKeeper : MonoBehaviour
 
     public IEnumerator SwitchScene()
     {
-        yield return FadeOutroEffect(20);
+        yield return FadeOutroEffect(20, new Vector2 (450f, 375f));
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
-        uihandler.hideSlider();
 
         resetCamera();
 
@@ -149,7 +148,6 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2));
         nextScene(6); //Contract
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
-        uihandler.hideSlider();
         nextScene(); //Landlord
         
         //Need a fix to destory these
@@ -163,7 +161,6 @@ public class TimeKeeper : MonoBehaviour
         nextScene(6); // Character Select
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Judgement
-        uihandler.hideSlider();
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2));
 
@@ -177,14 +174,12 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
-        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(6); //Psycho
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
-        uihandler.hideSlider();
 
         Stabhole[] allStabhole = FindObjectsOfType<Stabhole>();
         foreach (Stabhole obj in allStabhole)
@@ -202,7 +197,6 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Evolving
         maincamera.SetActive(true);
         threedcamera.SetActive(false);
-        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //New Mr. Richmond
@@ -227,7 +221,6 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Online Dating
-        uihandler.hideSlider();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
 
         nextScene(6); //Tweak
@@ -280,10 +273,10 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
     }
 
-    IEnumerator FadeOutroEffect(int measures)
+    IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates)
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - 1.5f);
-        uihandler.MaskOutro();
+        uihandler.MaskOutro(maskCoordinates);
         yield return new WaitForSeconds(1.5f);
     }
 }

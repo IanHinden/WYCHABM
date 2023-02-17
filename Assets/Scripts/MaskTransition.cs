@@ -104,12 +104,12 @@ public class MaskTransition : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
-    public IEnumerator TransitionOutro()
+    public IEnumerator TransitionOutro(Vector2 maskCoordinates)
     {
         for (float f = 0; f <= 1f; f += _Speed * Time.fixedDeltaTime * .2f)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointA.Size, PointB.Size, f);
-            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, new Vector2(346f, 375f), f);
+            _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, maskCoordinates, f);
             UpdateRects();
             yield return null;
         }

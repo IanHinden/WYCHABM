@@ -155,9 +155,9 @@ public class UIHandler : MonoBehaviour
         scoreCardAnim.SetTrigger("Exit");
     }
 
-    public void MaskOutro()
+    public void MaskOutro(Vector2 maskCoordinates)
     {
-        StartCoroutine(mask.TransitionOutro());
+        StartCoroutine(mask.TransitionOutro(maskCoordinates));
     }
 
     public void MaskIntro(Vector2 maskCoordinates)
