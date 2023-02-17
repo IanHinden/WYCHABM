@@ -99,11 +99,11 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(ScoreScreen);
     }
 
-    private void nextScene(int countdown = 0, bool outro = false)
+    private void nextScene(int countdown = 0, bool outro = false, Vector2 maskCoordinates = default(Vector2))
     {
         if (outro)
         {
-            uihandler.MaskIntro(320f, 375f);
+            uihandler.MaskIntro(maskCoordinates);
         }
 
         uihandler.ClearWinLoss();
@@ -139,7 +139,7 @@ public class TimeKeeper : MonoBehaviour
     public IEnumerator SwitchScene()
     {
         yield return FadeOutroEffect(20);
-        nextScene(8, true); //Bar
+        nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
         uihandler.hideSlider();
 

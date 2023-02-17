@@ -160,9 +160,9 @@ public class UIHandler : MonoBehaviour
         StartCoroutine(mask.TransitionOutro());
     }
 
-    public void MaskIntro(float xPos, float yPos)
+    public void MaskIntro(Vector2 maskCoordinates)
     {
-        StartCoroutine(mask.TransitionIntro(xPos, yPos));
+        StartCoroutine(mask.TransitionIntro(maskCoordinates));
     }
 
     public void HideStartButton()
