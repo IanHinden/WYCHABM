@@ -157,8 +157,10 @@ public class TimeKeeper : MonoBehaviour
             Destroy(obj.gameObject);
         }
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
-        nextScene(6); // Character Select
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f));
+        //yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        nextScene(6, true, new Vector2(638f, 438f));
+        //nextScene(6); // Character Select
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Judgement
 

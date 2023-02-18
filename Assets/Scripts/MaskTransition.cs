@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MaskTransition : MonoBehaviour
 {
-    [SerializeField] private float _Speed = .000000001f;
+    [SerializeField] private float _Speed = 1.5f;
     [SerializeField] private Image _KeyholeImage;
 
     public struct SizePos
