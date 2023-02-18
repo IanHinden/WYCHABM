@@ -129,14 +129,12 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroy(string instructions)
     {
-        anim.ResetTrigger("ResetAnim");
-        anim.SetTrigger("StartAnim");
         yield return new WaitForSeconds(.6f);
         textmesh.text = instructions;
+        anim.SetBool("Animate", true);
         yield return new WaitForSeconds(2f);
         textmesh.text = "";
-        anim.SetTrigger("ResetAnim");
-        anim.ResetTrigger("StartAnim");
+        anim.SetBool("Animate", false);
     }
 
     public IEnumerator DisplayScoreCard(int score)

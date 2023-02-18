@@ -146,7 +146,6 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Fired
         yield return FadeOutroEffect(2, new Vector2(635f, 375f));
-        //yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2));
         nextScene(6, true, new Vector2(699f, 167f)); //Contract
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); //Landlord
@@ -276,8 +275,8 @@ public class TimeKeeper : MonoBehaviour
 
     IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates)
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - 1f);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - .8f);
         uihandler.MaskOutro(maskCoordinates);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.8f);
     }
 }
