@@ -188,9 +188,9 @@ public class TimeKeeper : MonoBehaviour
             Destroy(obj.gameObject);
         }
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "GET A JOB");
 
-        nextScene(6); //Job Interview
+        nextScene(6, true, new Vector2(699f, 167f)); //Job Interview
         maincamera.SetActive(false);
         threedcamera.SetActive(true);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
@@ -216,15 +216,15 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         nextScene(); //Web Surfing
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        yield return FadeOutroEffect(20, new Vector2(740f, 139f), "SPOIL");
 
-        nextScene(4); //Wishlist
+        nextScene(4, true, new Vector2(699f, 167f)); //Wishlist
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Online Dating
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
+        yield return FadeOutroEffect(10, new Vector2(740f, 139f), "TWEAK");
 
-        nextScene(6); //Tweak
+        nextScene(6, true, new Vector2(699f, 167f)); //Tweak
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Party Guy
