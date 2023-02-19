@@ -157,7 +157,7 @@ public class TimeKeeper : MonoBehaviour
             Destroy(obj.gameObject);
         }
 
-        yield return FadeOutroEffect(6, new Vector2(740f, 139f));
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "SELECT");
         nextScene(6, true, new Vector2(638f, 438f)); //Character Select
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
@@ -169,15 +169,15 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(14));
 
         nextScene(); //The Family
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DON'T");
 
-        nextScene(4); //Don't Disappoint
+        nextScene(4, true, new Vector2(699f, 167f)); //Don't Disappoint
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "STAB");
 
-        nextScene(6); //Psycho
+        nextScene(6, true, new Vector2(699f, 167f)); //Psycho
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
