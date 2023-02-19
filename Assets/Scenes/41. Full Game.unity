@@ -8149,8 +8149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ec9dff808dac5429ef1afefc0bd5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uihandler: {fileID: 24490723}
-  timeFunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
 --- !u!1 &231443572
 GameObject:

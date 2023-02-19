@@ -138,14 +138,14 @@ public class TimeKeeper : MonoBehaviour
 
     public IEnumerator SwitchScene()
     {
-        yield return FadeOutroEffect(20, new Vector2 (450f, 375f));
+        yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         resetCamera();
 
         nextScene(); //Fired
-        yield return FadeOutroEffect(2, new Vector2(635f, 375f));
+        yield return FadeOutroEffect(2, new Vector2(635f, 375f), "SIGN");
         nextScene(6, true, new Vector2(699f, 167f)); //Contract
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); //Landlord
@@ -158,9 +158,8 @@ public class TimeKeeper : MonoBehaviour
         }
 
         yield return FadeOutroEffect(6, new Vector2(740f, 139f));
-        //yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
-        nextScene(6, true, new Vector2(638f, 438f));
-        //nextScene(6); // Character Select
+        nextScene(6, true, new Vector2(638f, 438f)); //Character Select
+
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Judgement
 
@@ -275,9 +274,15 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
     }
 
-    IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates)
+    IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null)
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures) - .8f);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures - 2));
+        if (instruction != null)
+        {
+            uihandler.InstructionText(instruction);
+        }
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2) - .8f);
+ 
         uihandler.MaskOutro(maskCoordinates);
         yield return new WaitForSeconds(.8f);
     }

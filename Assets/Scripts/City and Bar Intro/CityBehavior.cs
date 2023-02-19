@@ -70,7 +70,5 @@ public class CityBehavior : MonoBehaviour
         ppgAnimator.SetTrigger("Exit");
         avaAnimator.SetTrigger("FadeIn");
         StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
-        yield return new WaitForSeconds(2f);
-        uihandler.InstructionText("COLLECT");
     }
 }
