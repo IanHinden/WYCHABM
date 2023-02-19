@@ -242,22 +242,22 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Bar View
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
-        nextScene(); //Make a Wish
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+        nextScene(); //Make a Deal
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX");
 
-        nextScene(8); //Mix
+        nextScene(8, true, new Vector2(699f, 167f)); //Mix
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Bedside
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "STEALTH");
 
-        nextScene(8); //Rings
+        nextScene(8, true, new Vector2(699f, 167f)); //Rings
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Sick
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "AIM");
 
-        nextScene(8); //Pregnancy Test
+        nextScene(8, true, new Vector2(699f, 167f)); //Pregnancy Test
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         //Need a fix to destory these
