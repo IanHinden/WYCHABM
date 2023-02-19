@@ -28,7 +28,5 @@ public class Landlord : MonoBehaviour
         avaAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("Pay the rent or get out."));
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        uihandler.InstructionText("SELECT");
     }
 }
