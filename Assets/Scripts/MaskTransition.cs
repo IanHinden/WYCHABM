@@ -8,6 +8,8 @@ public class MaskTransition : MonoBehaviour
     [SerializeField] private float _Speed = 1.5f;
     [SerializeField] private Image _KeyholeImage;
 
+    [SerializeField] private Sprite twoKeyHoles;
+
     public struct SizePos
     {
         public Vector2 Size;
@@ -22,7 +24,6 @@ public class MaskTransition : MonoBehaviour
         Left, Right, Top, Bottom
     }
     private RectTransform[] _SideRects = new RectTransform[(int)Sides.Bottom + 1];
-    [SerializeField] Image MaskImage;
 
     void OnEnable()
     {
@@ -30,12 +31,12 @@ public class MaskTransition : MonoBehaviour
         {
             if (_SideRects[i] != null) continue;
             GameObject newSideRect = new GameObject("RectSide_" + (Sides)i, typeof(Image));
-            newSideRect.transform.SetParent(MaskImage.transform);
+            newSideRect.transform.SetParent(_KeyholeImage.transform);
 
             Image img = newSideRect.GetComponent<Image>();
             img.color = Color.black;
             _SideRects[i] = img.rectTransform;
-            _SideRects[i].SetParent(MaskImage.transform.parent);
+            _SideRects[i].SetParent(_KeyholeImage.transform.parent);
             _SideRects[i].transform.SetSiblingIndex(_SideRects[i].parent.childCount - 2);
             _SideRects[i].anchorMin = Vector2.zero;
             _SideRects[i].anchorMax = Vector2.zero;
@@ -139,5 +140,10 @@ public class MaskTransition : MonoBehaviour
             if (_SideRects[i] != null)
                 SetRectSizePosBySide(_SideRects[i], (Sides)i);
         }
+    }
+
+    public void ChangeSprite()
+    {
+        _KeyholeImage.sprite = twoKeyHoles;
     }
 }
