@@ -2,9 +2,19 @@
 
 public class GLTest : MonoBehaviour
 {
-    float width = 1;
-    float height = 1;
+    float width = 2;
+    float height = .3f;
+    float startPos = 0;
     private void Awake()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            startPos += .3f;
+            CreateRectangle(startPos, i);
+        }
+    }
+
+    private void CreateRectangle(float startPos, int chance)
     {
         Mesh mesh = new Mesh();
 
@@ -19,7 +29,20 @@ public class GLTest : MonoBehaviour
 
         mesh.triangles = new int[] { 0, 1, 2, 0, 2, 3 };
 
-        GetComponent<MeshFilter>().mesh = mesh;
-    }
+        GameObject go = new GameObject();
+        MeshFilter goMesh = go.AddComponent(typeof(MeshFilter)) as MeshFilter;
+        MeshRenderer goRend = go.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
 
+        goMesh.mesh = mesh;
+
+        if(chance % 2 == 0)
+        {
+            goRend.material.color = Color.red;
+        } else
+        {
+            goRend.material.color = Color.white;
+        }
+
+        go.transform.position = new Vector3(0, startPos, 0);
+    }
 }
