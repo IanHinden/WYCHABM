@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RivalCar
+  m_Controller: {fileID: 9100000, guid: 541a4cd9084c8d741865fb28c702da17, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b2d87a6a391f5f64f9fbcf2b7d95d567, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b3e58783b44a060409fb3a046f70902b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 06536eaa8618fe742bdc4c06dd97b13a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2023166b1828a214a874fe6183e9e538, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: af745589bdcd19a46812cf09ae99ddf8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eb2e65cc31b30d146bfe50c38af13b72, type: 2}
