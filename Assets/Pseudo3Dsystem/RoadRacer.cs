@@ -7,11 +7,11 @@ using Text = TMPro.TextMeshProUGUI;
 [System.Serializable]
 public struct VecTrack
 {
-	[Range(-1,1)]
+	[Range(-1, 1)]
 	public float curva;
 	public float distance;
 
-	public VecTrack(float curva,float distance)
+	public VecTrack(float curva, float distance)
 	{
 		this.curva = curva;
 		this.distance = distance;
@@ -22,24 +22,40 @@ public struct VecTrack
 
 public class RoadRacer : MonoBehaviour
 {
+	private GameControls gameControls;
+	private void Awake()
+	{
+		gameControls = new GameControls();
+	}
+
+	private void OnEnable()
+	{
+		gameControls.Enable();
+	}
+
+	public void OnDisable()
+	{
+		gameControls.Disable();
+	}
+
 	public Transform Car;
 	private Vector3 camToCarOffset;
-	public Transform[] rivalCar; List<Vector2> defaultRivalCarPoses = new List<Vector2>(); 
-	public List <Transform> rivalCarIn = new List<Transform>();//进入画面的敌方赛车
+	public Transform[] rivalCar; List<Vector2> defaultRivalCarPoses = new List<Vector2>();
+	public List<Transform> rivalCarIn = new List<Transform>();//进入画面的敌方赛车
 
 	public Transform backGround;
-	public int screenWeidth = 160 ,screenHeight = 100;
-	public SpriteRenderer pixelPref,treePref;
-	public Color grassColor,shouderColor,shouderLowColor,roadColor,roadLowColor,grassLowColor,treeColor,treeLowColor,whitLineColor;
+	public int screenWeidth = 160, screenHeight = 100;
+	public SpriteRenderer pixelPref, treePref;
+	public Color grassColor, shouderColor, shouderLowColor, roadColor, roadLowColor, grassLowColor, treeColor, treeLowColor, whitLineColor;
 
-	private GameObject grassHolder,roadShouderHolder,roadHolder,treeHolder,whiteLineHolder;
+	private GameObject grassHolder, roadShouderHolder, roadHolder, treeHolder, whiteLineHolder;
 
 	//道路 路肩 草地 树木的 初始位置
 	private List<Vector2> defaultRoadPoses = new List<Vector2>();
 	private List<Vector2> defaultRoadShouderPoses = new List<Vector2>();
 	private List<Vector2> defaultWhiteLinePoses = new List<Vector2>();
-	private List<Vector2>defaultGrassPoses = new List<Vector2>();
-	private List<Vector2>defaultTreePoses = new List<Vector2>();
+	private List<Vector2> defaultGrassPoses = new List<Vector2>();
+	private List<Vector2> defaultTreePoses = new List<Vector2>();
 	//道路 路肩 草地 树木的 初始位置
 
 
@@ -53,7 +69,7 @@ public class RoadRacer : MonoBehaviour
 
 
 	[Header("填入赛道信息参数")]
-	public List <VecTrack> vecTrack = new List<VecTrack>();  // curvature,distance，记录赛道信息
+	public List<VecTrack> vecTrack = new List<VecTrack>();  // curvature,distance，记录赛道信息
 	public float sumDistance = 0.0f;
 
 	public List<SpriteRenderer> grassList = new List<SpriteRenderer>();
@@ -63,8 +79,8 @@ public class RoadRacer : MonoBehaviour
 	public List<SpriteRenderer> treeList = new List<SpriteRenderer>();
 
 	//UI
-	public Text gearText,speedText,startTimeCountText,timeText; 
-	public Image[] speedCountUIBlock,speedCountdisActiveBlock;
+	public Text gearText, speedText, startTimeCountText, timeText;
+	public Image[] speedCountUIBlock, speedCountdisActiveBlock;
 	private int speedUICount = 0;
 	private int speedUIdisActiveCount = 0;
 	private float startTimeCount = 4; // 倒计时
@@ -75,8 +91,8 @@ public class RoadRacer : MonoBehaviour
 	//UI
 
 	//Sound Effect
-	public AudioClip startEngineSound,engineSound;
-	public AudioSource AC1,AC2;
+	public AudioClip startEngineSound, engineSound;
+	public AudioSource AC1, AC2;
 	private float pitch;
 	public GameObject rivalCarSoundObj;
 	//Sound Effect
@@ -85,7 +101,7 @@ public class RoadRacer : MonoBehaviour
 
 
 	// Use this for initialization
-	void Start () 
+	void Start()
 	{
 		camToCarOffset = Car.position - transform.position;
 		startTimeCount = 4;
@@ -110,7 +126,7 @@ public class RoadRacer : MonoBehaviour
 		*/
 
 		//计算总里程
-		foreach(VecTrack vec in vecTrack)
+		foreach (VecTrack vec in vecTrack)
 		{
 			sumDistance += vec.distance;
 		}
@@ -130,7 +146,7 @@ public class RoadRacer : MonoBehaviour
 		treeHolder.name = "treeHolder";
 
 		//rivalCar 的默认位置
-		for(int i = 0; i < rivalCar.Length; i++ )
+		for (int i = 0; i < rivalCar.Length; i++)
 		{
 			defaultRivalCarPoses.Add(rivalCar[i].position);
 		}
@@ -140,33 +156,33 @@ public class RoadRacer : MonoBehaviour
 		//绘制行道树
 		for (int y = 0; y < screenHeight; y++)
 		{
-			for (int x = -100; x < screenWeidth + 100; x++) 
+			for (int x = -100; x < screenWeidth + 100; x++)
 			{
 				float fPerspective = (float)y / (screenHeight / 2.0f);
 
 				float fMiddlepoint = 0.5f;
-				float fRoadWidth =  -0.05f+fPerspective * 1.2f;
+				float fRoadWidth = -0.05f + fPerspective * 1.2f;
 				float fClipWidth = fRoadWidth * 0.15f;
 				float fMiddleWidth = fRoadWidth * 0.015f;
 
 				fRoadWidth *= 0.5f;
 
-				float nLeftGrass = (fMiddlepoint- fRoadWidth - fClipWidth) * screenWeidth;
+				float nLeftGrass = (fMiddlepoint - fRoadWidth - fClipWidth) * screenWeidth;
 				float nLeftClip = (fMiddlepoint - fRoadWidth) * screenWeidth;
 				float nRightClip = (fMiddlepoint + fRoadWidth) * screenWeidth;
 				float nRightGrass = (fMiddlepoint + fRoadWidth + fClipWidth) * screenWeidth;
 
 				int nRow = screenHeight / 2 + y;
-				Color nTreeColor = Mathf.Sin (100f * Mathf.Pow(1.0f - fPerspective,3) + fDistance * 0.1f) > 0.0f ? treeColor : treeLowColor;
+				Color nTreeColor = Mathf.Sin(100f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) > 0.0f ? treeColor : treeLowColor;
 
 
-				if(( x >= nLeftClip-20 && x < nLeftClip -19 )|| (x <= nRightClip+20 && x > nRightClip + 19))
+				if ((x >= nLeftClip - 20 && x < nLeftClip - 19) || (x <= nRightClip + 20 && x > nRightClip + 19))
 				{
-					SpriteRenderer treeTemp = (SpriteRenderer)Instantiate (treePref,new Vector3(x,nRow),Quaternion.identity);treeTemp.color = nTreeColor;
+					SpriteRenderer treeTemp = (SpriteRenderer)Instantiate(treePref, new Vector3(x, nRow), Quaternion.identity); treeTemp.color = nTreeColor;
 					treeTemp.transform.parent = treeHolder.transform;
-					treeList.Add (treeTemp);
-					defaultTreePoses.Add (treeTemp.transform.position);
-					treeTemp.transform.localScale = new Vector2 (2*Mathf.Pow(-1.0f + fPerspective,3) + 3,2*Mathf.Pow(-1.0f + fPerspective,3) + 3);
+					treeList.Add(treeTemp);
+					defaultTreePoses.Add(treeTemp.transform.position);
+					treeTemp.transform.localScale = new Vector2(2 * Mathf.Pow(-1.0f + fPerspective, 3) + 3, 2 * Mathf.Pow(-1.0f + fPerspective, 3) + 3);
 				}
 			}
 		}
@@ -174,9 +190,9 @@ public class RoadRacer : MonoBehaviour
 
 
 		//绘制路，路肩，草地
-		for (int y = 0; y < 2*screenHeight/3; y++) 
+		for (int y = 0; y < 2 * screenHeight / 3; y++)
 		{
-			for(int x = -100; x < screenWeidth + 100; x++)
+			for (int x = -100; x < screenWeidth + 100; x++)
 			{
 				float fPerspective = (float)y / (screenHeight / 2.0f);
 
@@ -196,64 +212,64 @@ public class RoadRacer : MonoBehaviour
 
 				int nRow = screenHeight / 2 + y;
 
-				Color nGrassColor = Mathf.Sin (20.0f * Mathf.Pow(1.0f - fPerspective,3) + fDistance * 0.1f) > 0.0f ? grassColor : grassLowColor;
+				Color nGrassColor = Mathf.Sin(20.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) > 0.0f ? grassColor : grassLowColor;
 
 
 
-				if(x >= -1000 && x < nLeftGrass)
+				if (x >= -1000 && x < nLeftGrass)
 				{
-					SpriteRenderer grassPixTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);grassPixTemp.color = nGrassColor;
+					SpriteRenderer grassPixTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); grassPixTemp.color = nGrassColor;
 					grassPixTemp.transform.parent = grassHolder.transform;
-					grassList.Add (grassPixTemp);
+					grassList.Add(grassPixTemp);
 					defaultGrassPoses.Add(grassPixTemp.transform.position);
 				}
-				if(x >= nLeftGrass && x < nLeftClip)
+				if (x >= nLeftGrass && x < nLeftClip)
 				{
-					SpriteRenderer roadShouderPixTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);roadShouderPixTemp.color = shouderColor;
+					SpriteRenderer roadShouderPixTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); roadShouderPixTemp.color = shouderColor;
 					roadShouderPixTemp.transform.parent = roadShouderHolder.transform;
 					roadShouderList.Add(roadShouderPixTemp);
 					defaultRoadShouderPoses.Add(roadShouderPixTemp.transform.position);
 				}
 
 				/*Road And Line*/
-				if(x >= nLeftClip && x <nLeftMiddleClip)
+				if (x >= nLeftClip && x < nLeftMiddleClip)
 				{
-					SpriteRenderer roadPixLeftTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);roadPixLeftTemp.color = roadColor;
+					SpriteRenderer roadPixLeftTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); roadPixLeftTemp.color = roadColor;
 					roadPixLeftTemp.transform.parent = roadHolder.transform;
 					roadList.Add(roadPixLeftTemp);
 					defaultRoadPoses.Add(roadPixLeftTemp.transform.position);
 				}
-				if(x >= nLeftMiddleClip && x < nRightMiddleClip)
+				if (x >= nLeftMiddleClip && x < nRightMiddleClip)
 				{
-					SpriteRenderer linePixLeftTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);linePixLeftTemp.color = whitLineColor;
+					SpriteRenderer linePixLeftTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); linePixLeftTemp.color = whitLineColor;
 					linePixLeftTemp.transform.parent = whiteLineHolder.transform;
 					whiteLineList.Add(linePixLeftTemp);
 					defaultWhiteLinePoses.Add(linePixLeftTemp.transform.position);
 				}
-				if(x >= nRightMiddleClip && x <nRightClip)
+				if (x >= nRightMiddleClip && x < nRightClip)
 				{
-					SpriteRenderer roadPixLeftTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);roadPixLeftTemp.color = roadColor;
+					SpriteRenderer roadPixLeftTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); roadPixLeftTemp.color = roadColor;
 					roadPixLeftTemp.transform.parent = roadHolder.transform;
 					roadList.Add(roadPixLeftTemp);
 					defaultRoadPoses.Add(roadPixLeftTemp.transform.position);
 				}
 				/*Road And Line*/
 
-				if(x>= nRightClip && x<nRightGrass)
+				if (x >= nRightClip && x < nRightGrass)
 				{
-					SpriteRenderer roadShouderPixTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);roadShouderPixTemp.color = shouderColor;
+					SpriteRenderer roadShouderPixTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); roadShouderPixTemp.color = shouderColor;
 					roadShouderPixTemp.transform.parent = roadShouderHolder.transform;
 					roadShouderList.Add(roadShouderPixTemp);
 					defaultRoadShouderPoses.Add(roadShouderPixTemp.transform.position);
 				}
-				if(x >= nRightGrass && x < screenWeidth + 1000)
+				if (x >= nRightGrass && x < screenWeidth + 1000)
 				{
-					SpriteRenderer grassPixTemp = (SpriteRenderer)Instantiate (pixelPref,new Vector3(x,nRow),Quaternion.identity);grassPixTemp.color = nGrassColor;
+					SpriteRenderer grassPixTemp = (SpriteRenderer)Instantiate(pixelPref, new Vector3(x, nRow), Quaternion.identity); grassPixTemp.color = nGrassColor;
 					grassPixTemp.transform.parent = grassHolder.transform;
 					//if(x >= nRightGrass && x < screenWeidth)
 					//{
-						grassList.Add (grassPixTemp);
-						defaultGrassPoses.Add(grassPixTemp.transform.position);
+					grassList.Add(grassPixTemp);
+					defaultGrassPoses.Add(grassPixTemp.transform.position);
 					//}
 				}
 			}
@@ -275,10 +291,10 @@ public class RoadRacer : MonoBehaviour
 
 	IEnumerator StartTimeCount()
 	{
-		for(int i = 0;i<5;i++)
+		for (int i = 0; i < 5; i++)
 		{
-			startTimeCount = Mathf.Clamp(startTimeCount,-1f,4);
-			if(startTimeCount>-1f)
+			startTimeCount = Mathf.Clamp(startTimeCount, -1f, 4);
+			if (startTimeCount > -1f)
 			{
 				startTimeCount -= 1;
 				//startTimeCountText.text = startTimeCount < 0? "" : startTimeCount.ToString("f0");
@@ -292,30 +308,30 @@ public class RoadRacer : MonoBehaviour
 	//倒计时
 	IEnumerator TimeCount()
 	{
-		for(int i = 0; i < defaultTimeCount+5; i++)
+		for (int i = 0; i < defaultTimeCount + 5; i++)
 		{
-			timeCount = Mathf.Clamp (timeCount,-1,timeCount + 1);
+			timeCount = Mathf.Clamp(timeCount, -1, timeCount + 1);
 
-			if(timeCount > -1f && !finishTheTrack)
+			if (timeCount > -1f && !finishTheTrack)
 			{
-				if(startTimeCount < 0)
+				if (startTimeCount < 0)
 				{
 					timeCount -= 1;
-					timeText.text = timeCount < 0 ? "\r\n"+"\r\n"+"\r\n"+"Time's Up" : timeCount.ToString ("f0");
+					timeText.text = timeCount < 0 ? "\r\n" + "\r\n" + "\r\n" + "Time's Up" : timeCount.ToString("f0");
 				}
-				else if(startTimeCount == 0)
+				else if (startTimeCount == 0)
 				{
 					timeText.text = "Start";
 				}
-				else if(startTimeCount > 0)
+				else if (startTimeCount > 0)
 				{
 					timeText.text = "Ready";
 				}
-				yield return new WaitForSeconds (1f);
+				yield return new WaitForSeconds(1f);
 			}
-			else if(finishTheTrack)
+			else if (finishTheTrack)
 			{
-				timeText.text = "\r\n"+"\r\n"+"\r\n"+"FINISH";
+				timeText.text = "\r\n" + "\r\n" + "\r\n" + "FINISH";
 			}
 		}
 	}
@@ -327,9 +343,11 @@ public class RoadRacer : MonoBehaviour
 	// Update is called once per frame
 	public bool topGear = false;
 
-	void Update ()
+	void Update()
 	{
 		fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
+		Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
+		Debug.Log(movementInput.x);
 		/*if (Input.GetKey (KeyCode.W)) 
 		{
 			//fDistance += 20.0f;   //汽车行驶的距离
@@ -345,22 +363,23 @@ public class RoadRacer : MonoBehaviour
 		else
 		{
 			fSpeed -= 0.8f * Time.deltaTime;
-		}
+		}*/
 			
 
-		if(Input.GetKey(KeyCode.A) && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
+		if(movementInput.x == -1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
 			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
 		{
+			Debug.Log("Pressed");
 			fPlayerCurvature += 0.7f * Time.deltaTime;
 		}
 
-		if(Input.GetKey(KeyCode.D) && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
+		if(movementInput.x == 1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
 			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
 		{
 			fPlayerCurvature -= 0.7f * Time.deltaTime;
 		}
 
-		if (Input.GetKeyDown (KeyCode.RightShift)) 
+		/*if (Input.GetKeyDown (KeyCode.RightShift)) 
 		{
 			//Change The gear
 			topGear = !topGear;
@@ -377,29 +396,29 @@ public class RoadRacer : MonoBehaviour
 
 
 		//Switch The Gear ,Clamp the speed
-		float gearSpeed = topGear? 1.8f : 1.0f; 
+		float gearSpeed = topGear ? 1.8f : 1.0f;
 
-		if (fSpeed < 0.0f) 
+		if (fSpeed < 0.0f)
 		{
 			fSpeed = 0.0f;
 		}
 		if (fSpeed > gearSpeed)
 		{
-			fSpeed = Mathf.Lerp(fSpeed,1.0f,5*Time.deltaTime);
+			fSpeed = Mathf.Lerp(fSpeed, 1.0f, 5 * Time.deltaTime);
 		}
 
 		//Switch The Gear, Clamp The Speed
 
 
 		//Engine Sound According The fSpeed
-		pitch = topGear?fSpeed/gearSpeed+0.5f: fSpeed/gearSpeed-0.3f;
+		pitch = topGear ? fSpeed / gearSpeed + 0.5f : fSpeed / gearSpeed - 0.3f;
 		//AC2.pitch = pitch;
 		//Engine Sound According The fSpeed
 
 
 
 		//Move Car alone track according to car speed
-		if(startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
+		if (startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
 		{
 			fDistance += (300f * fSpeed) * Time.deltaTime;
 		}
@@ -437,10 +456,10 @@ public class RoadRacer : MonoBehaviour
 		int nTrackSection = 0;
 
 		//Find position On track
-		while(nTrackSection < vecTrack.Count && fOffset <= fDistance)  
+		while (nTrackSection < vecTrack.Count && fOffset <= fDistance)
 		{
 			fOffset += vecTrack[nTrackSection].distance;
-			nTrackSection ++;
+			nTrackSection++;
 		}
 
 		float fTargetCurvature = vecTrack[nTrackSection - 1].curva;
@@ -450,92 +469,92 @@ public class RoadRacer : MonoBehaviour
 
 		//float fMiddlepoint = 0.5f + fCurvatrue;//貌似这句不参与计算
 
-		fTranckCurvature +=  (fCurvatrue) * Time.deltaTime * fSpeed; // 速度，和道路弯度 共同决定弯道对赛车的离心力 
-			
+		fTranckCurvature += (fCurvatrue) * Time.deltaTime * fSpeed; // 速度，和道路弯度 共同决定弯道对赛车的离心力 
 
 
 
 
-		for (int i = 0; i < grassList.Count ; i++) 
+
+		for (int i = 0; i < grassList.Count; i++)
 		{
-			float fPerspective = (float)(grassList[i].transform.position.y - screenHeight/2)  / (screenHeight / 2.0f);     // y = nRow - screenHeight/2
-			grassList[i].color = Mathf.Sin (10.0f * Mathf.Pow (1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? grassColor : grassLowColor;
-			grassList[i].transform.position = new Vector2(defaultGrassPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective,3))*screenWeidth, grassList[i].transform.position.y); 
+			float fPerspective = (float)(grassList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     // y = nRow - screenHeight/2
+			grassList[i].color = Mathf.Sin(10.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? grassColor : grassLowColor;
+			grassList[i].transform.position = new Vector2(defaultGrassPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, grassList[i].transform.position.y);
 		}
-		for(int i  = 0; i < roadShouderList.Count; i++)
+		for (int i = 0; i < roadShouderList.Count; i++)
 		{
-			float fPerspective = (float)(roadShouderList[i].transform.position.y -screenHeight/2)  / (screenHeight / 2.0f);     //y = nRow - screenHeight/2
-			roadShouderList[i].color = Mathf.Sin (15.0f * Mathf.Pow (1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? shouderColor : shouderLowColor;
-			roadShouderList[i].transform.position = new Vector2(defaultRoadShouderPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective,3)) * screenWeidth, roadShouderList[i].transform.position.y);
+			float fPerspective = (float)(roadShouderList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     //y = nRow - screenHeight/2
+			roadShouderList[i].color = Mathf.Sin(15.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? shouderColor : shouderLowColor;
+			roadShouderList[i].transform.position = new Vector2(defaultRoadShouderPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadShouderList[i].transform.position.y);
 		}
-		for(int i = 0; i < roadList.Count; i++)
+		for (int i = 0; i < roadList.Count; i++)
 		{
-			float fPerspective = (float)(roadList[i].transform.position.y -screenHeight/2)  / (screenHeight / 2.0f);   
-			roadList[i].color = Mathf.Sin(29.0f * Mathf.Pow (1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? roadLowColor : roadColor;
-			roadList[i].transform.position = new Vector2(defaultRoadPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective,3)) * screenWeidth, roadList[i].transform.position.y);
+			float fPerspective = (float)(roadList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+			roadList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? roadLowColor : roadColor;
+			roadList[i].transform.position = new Vector2(defaultRoadPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadList[i].transform.position.y);
 		}
-		for(int i = 0; i < whiteLineList.Count; i++)
+		for (int i = 0; i < whiteLineList.Count; i++)
 		{
-			float fPerspective = (float)(whiteLineList[i].transform.position.y -screenHeight/2)  / (screenHeight / 2.0f);   
-			whiteLineList[i].color = Mathf.Sin(29.0f * Mathf.Pow (1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? whitLineColor : roadColor;
-			whiteLineList[i].transform.position = new Vector2(defaultWhiteLinePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective,3)) * screenWeidth, whiteLineList[i].transform.position.y);
+			float fPerspective = (float)(whiteLineList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+			whiteLineList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? whitLineColor : roadColor;
+			whiteLineList[i].transform.position = new Vector2(defaultWhiteLinePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, whiteLineList[i].transform.position.y);
 		}
 
-		for(int i = 0; i < treeList.Count; i++)
+		for (int i = 0; i < treeList.Count; i++)
 		{
-			float fPerspective = (float)(treeList[i].transform.position.y -screenHeight/2)  / (screenHeight / 2.0f);  
-			treeList[i].color = Mathf.Sin (100.0f * Mathf.Pow (1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? treeColor : treeLowColor;
-			treeList[i].transform.position = new Vector2(defaultTreePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective,3)) * screenWeidth, treeList[i].transform.position.y);
+			float fPerspective = (float)(treeList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+			treeList[i].color = Mathf.Sin(100.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? treeColor : treeLowColor;
+			treeList[i].transform.position = new Vector2(defaultTreePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, treeList[i].transform.position.y);
 		}
 
 
 		//Pos The Car
 		fCarPos = fPlayerCurvature - fTranckCurvature; // 玩家的控制， 车速度，和道路弯度 决定 赛车偏移量
-		int nCarPos = screenWeidth / 2 + ((int)(screenWeidth * fCarPos)/2) - 7;
-		Car.position = new Vector2 (nCarPos,Car.position.y);
+		int nCarPos = screenWeidth / 2 + ((int)(screenWeidth * fCarPos) / 2) - 7;
+		Car.position = new Vector2(nCarPos, Car.position.y);
 
 
 
 
 		//Pos The Rival Car
-		if(startTimeCount < 0 && !finishTheTrack)
+		if (startTimeCount < 0 && !finishTheTrack)
 		{
-			for(int i = 0 ; i < rivalCar.Length; i++)
+			for (int i = 0; i < rivalCar.Length; i++)
 			{
-				float fRivalPerspective = (float)(rivalCar[i].transform.position.y -screenHeight/2)  / (screenHeight / 2.0f);
-				float fRivalCarPosY = fSpeed > 0 ? rivalCar[i].position.y + 10*fSpeed*Time.deltaTime : rivalCar[i].position.y - 40*Time.deltaTime;
-				rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fRivalPerspective,3)) * screenWeidth,fRivalCarPosY);
+				float fRivalPerspective = (float)(rivalCar[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+				float fRivalCarPosY = fSpeed > 0 ? rivalCar[i].position.y + 10 * fSpeed * Time.deltaTime : rivalCar[i].position.y - 40 * Time.deltaTime;
+				rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
 
-				if (rivalCar [i].transform.position.x < 150 &&
-				   rivalCar [i].transform.position.x > 2 &&
-				   rivalCar [i].transform.position.y < 103 &&
-				   rivalCar [i].transform.position.y > 6)
+				if (rivalCar[i].transform.position.x < 150 &&
+				   rivalCar[i].transform.position.x > 2 &&
+				   rivalCar[i].transform.position.y < 103 &&
+				   rivalCar[i].transform.position.y > 6)
 				{//在画面内才能进行缩放
-					rivalCar [i].transform.localScale = new Vector2 (0.9f - 1 * Mathf.Pow (-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow (-1.0f + fRivalPerspective, 2));
+					rivalCar[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
 
-					if (rivalCar [i].transform.transform.localScale.x < 0) 
+					if (rivalCar[i].transform.transform.localScale.x < 0)
 					{
-						rivalCar [i].GetComponent<SpriteRenderer> ().enabled = false;
-					} 
-					else 
+						rivalCar[i].GetComponent<SpriteRenderer>().enabled = false;
+					}
+					else
 					{
-						rivalCar [i].GetComponent<SpriteRenderer> ().enabled = true;
+						rivalCar[i].GetComponent<SpriteRenderer>().enabled = true;
 					}
 
 
-					if (!rivalCarIn.Contains (rivalCar [i]))           // 敌车进入画面，添加那辆敌车到列表，否则移除它
+					if (!rivalCarIn.Contains(rivalCar[i]))           // 敌车进入画面，添加那辆敌车到列表，否则移除它
 					{
-						rivalCarIn.Add (rivalCar [i]);                  // 敌车进入画面，添加那辆敌车到列表，否则移除它
+						rivalCarIn.Add(rivalCar[i]);                  // 敌车进入画面，添加那辆敌车到列表，否则移除它
 					}
-				} 
-				else if(rivalCar [i].transform.position.x > 150 ||       
-					rivalCar [i].transform.position.x < 2 ||
-					rivalCar [i].transform.position.y > 103 ||
-					rivalCar [i].transform.position.y < 6)
+				}
+				else if (rivalCar[i].transform.position.x > 150 ||
+					rivalCar[i].transform.position.x < 2 ||
+					rivalCar[i].transform.position.y > 103 ||
+					rivalCar[i].transform.position.y < 6)
 				{
-					if(rivalCarIn.Contains(rivalCar[i]))
+					if (rivalCarIn.Contains(rivalCar[i]))
 					{
-						rivalCarIn.Remove (rivalCar [i]);
+						rivalCarIn.Remove(rivalCar[i]);
 					}
 				}
 			}
@@ -551,25 +570,25 @@ public class RoadRacer : MonoBehaviour
 		}*/
 		//Pos The Rival Car
 
-	    
+
 		//判断是否撞车
-		for(int i = 0; i < rivalCar.Length; i++)
+		for (int i = 0; i < rivalCar.Length; i++)
 		{
-			if (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x) < 8f) 
+			if (Mathf.Abs(rivalCar[i].transform.position.x - Car.transform.position.x) < 8f)
 			{
-				if (Mathf.Abs (rivalCar [i].transform.position.y - Car.transform.position.y) < 8f)
+				if (Mathf.Abs(rivalCar[i].transform.position.y - Car.transform.position.y) < 8f)
 				{
-					if(Car.GetComponent<CarAnimEvent>().canExplosion == true)
+					if (Car.GetComponent<CarAnimEvent>().canExplosion == true)
 					{
-						Car.GetComponent<Animator> ().SetTrigger ("Exlosion");
+						Car.GetComponent<Animator>().SetTrigger("Exlosion");
 					}
 					//Debug.Log (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x));
 				}
 			}
-		
+
 		}
 
-		if (Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion")) 
+		if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
 		{
 			fSpeed = 0;
 		}
@@ -577,17 +596,17 @@ public class RoadRacer : MonoBehaviour
 
 
 		//车的转向动画控制
-		Car.GetComponent<Animator> ().SetInteger("InputH",(int)(vecTrack[nTrackSection - 1].curva * 10));
-		for(int i = 0; i < rivalCar.Length; i++ )
+		Car.GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+		for (int i = 0; i < rivalCar.Length; i++)
 		{
-			rivalCar[i].GetComponent<Animator>().SetInteger("InputH",(int)(vecTrack[nTrackSection - 1].curva * 10));
+			rivalCar[i].GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
 		}
 
 
 		//背景图层的视差卷轴效果
-		if(timeCount > -1)
+		if (timeCount > -1)
 		{
-			backGround.transform.position = new Vector3 (backGround.transform.position.x - vecTrack[nTrackSection - 1].curva * fSpeed, backGround.transform.position.y - fDistance/500000*fSpeed);
+			backGround.transform.position = new Vector3(backGround.transform.position.x - vecTrack[nTrackSection - 1].curva * fSpeed, backGround.transform.position.y - fDistance / 500000 * fSpeed);
 		}
 
 		//roadHolder.transform.position = new Vector2(defaultRoadHolderPos.x + fCurvatrue*screenWeidth,roadHolder.transform.position.y); 
@@ -597,22 +616,22 @@ public class RoadRacer : MonoBehaviour
 
 
 		//判断是否到达终点
-		if(fDistance > sumDistance -200)
+		if (fDistance > sumDistance - 200)
 		{
 			finishTheTrack = true;
 			fSpeed -= 2.0f * Time.deltaTime;
-			Car.GetComponent<Animator> ().SetBool("Finish",finishTheTrack);
+			Car.GetComponent<Animator>().SetBool("Finish", finishTheTrack);
 		}
 
 
 
 
 		////控制摄像机跟随
-		Vector3 targetPos = Vector3.Lerp(transform.position,Car.position,Time.deltaTime * 0.2f) - camToCarOffset;
-		transform.position = new Vector3(targetPos.x,transform.position.y,-10);
+		Vector3 targetPos = Vector3.Lerp(transform.position, Car.position, Time.deltaTime * 0.2f) - camToCarOffset;
+		transform.position = new Vector3(targetPos.x, transform.position.y, -10);
 
 
 		////控制摄像机跟随
 	}
-		
+
 }

@@ -5632,7 +5632,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 918596551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: accd49c0efd11a143aa5434ca9dc49db, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dcd6c44dcf07e64c8b9c5044e85fcb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Car: {fileID: 2079464032}
@@ -5642,7 +5642,7 @@ MonoBehaviour:
   - {fileID: 2108815720}
   rivalCarIn: []
   backGround: {fileID: 1105022218}
-  screenWeidth: 160
+  screenWeidth: 220
   screenHeight: 100
   pixelPref: {fileID: 212703326984780928, guid: 8e64c4ae58753984c9bd24332cb4bc55,
     type: 3}
@@ -5684,9 +5684,9 @@ MonoBehaviour:
   - curva: 0
     distance: 1000
   - curva: 0
-    distance: 500
+    distance: 1000
   - curva: 0
-    distance: 2000
+    distance: 1000
   sumDistance: 0
   grassList: []
   roadShouderList: []
@@ -9140,7 +9140,7 @@ MonoBehaviour:
   FX1: {fileID: 918596565}
   mainCam: {fileID: 918596555}
   FX2RenderTexure: {fileID: 8400000, guid: f404203121786144b9e7fd33415b2688, type: 2}
-  currentFX: 0
+  currentFX: 1
   fxIndex: 0
 --- !u!4 &1377323121
 Transform:
