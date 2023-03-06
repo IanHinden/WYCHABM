@@ -347,7 +347,6 @@ public class RoadRacer : MonoBehaviour
 	{
 		fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
 		Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
-		Debug.Log(movementInput.x);
 		/*if (Input.GetKey (KeyCode.W)) 
 		{
 			//fDistance += 20.0f;   //汽车行驶的距离
@@ -369,7 +368,6 @@ public class RoadRacer : MonoBehaviour
 		if(movementInput.x == -1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
 			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
 		{
-			Debug.Log("Pressed");
 			fPlayerCurvature += 0.7f * Time.deltaTime;
 		}
 
