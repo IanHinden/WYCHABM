@@ -625,8 +625,9 @@ public class RoadRacer : MonoBehaviour
 
 
 		////控制摄像机跟随
+		///This code makes the camera follow the player
 		Vector3 targetPos = Vector3.Lerp(transform.position, Car.position, Time.deltaTime * 0.2f) - camToCarOffset;
-		transform.position = new Vector3(targetPos.x, transform.position.y, -10);
+		//transform.position = new Vector3(targetPos.x, transform.position.y, -10);
 
 
 		////控制摄像机跟随
