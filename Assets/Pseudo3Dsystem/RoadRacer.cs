@@ -345,7 +345,14 @@ public class RoadRacer : MonoBehaviour
 
 	void Update()
 	{
-		fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
+		if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+		{
+			fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
+		}
+		else if (timeCount <= -1)
+		{
+			fSpeed -= 0.8f * Time.deltaTime;
+		}
 		Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
 		/*if (Input.GetKey (KeyCode.W)) 
 		{
