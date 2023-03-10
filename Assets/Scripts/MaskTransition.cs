@@ -107,7 +107,7 @@ public class MaskTransition : MonoBehaviour
 
     public IEnumerator TransitionOutro(Vector2 maskCoordinates)
     {
-        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
+        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointA.Size, PointB.Size, f);
             _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(PointA.Pos, maskCoordinates, f);
@@ -121,7 +121,7 @@ public class MaskTransition : MonoBehaviour
 
     public IEnumerator TransitionIntro(Vector2 maskCoordinates)
     {
-        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .2f)
+        for (float f = 0.0f; f <= 1.0f; f += _Speed * Time.fixedDeltaTime * .8f)
         {
             _KeyholeImage.rectTransform.sizeDelta = Vector2.Lerp(PointB.Size, PointA.Size, f);
             _KeyholeImage.rectTransform.anchoredPosition = Vector2.Lerp(maskCoordinates, new Vector2(-5595, -7906), f);

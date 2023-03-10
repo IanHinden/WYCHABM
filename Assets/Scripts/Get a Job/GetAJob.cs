@@ -13,10 +13,4 @@ public class GetAJob : MonoBehaviour
         CamAnim = cam.GetComponent<Animator>();
         CamAnim.SetTrigger("GetAJob");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

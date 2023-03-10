@@ -23,20 +23,6 @@ public struct VecTrack
 public class RoadRacer : MonoBehaviour
 {
 	private GameControls gameControls;
-	private void Awake()
-	{
-		gameControls = new GameControls();
-	}
-
-	private void OnEnable()
-	{
-		gameControls.Enable();
-	}
-
-	public void OnDisable()
-	{
-		gameControls.Disable();
-	}
 
 	public Transform Car;
 	private Vector3 camToCarOffset;
@@ -83,7 +69,7 @@ public class RoadRacer : MonoBehaviour
 	public Image[] speedCountUIBlock, speedCountdisActiveBlock;
 	private int speedUICount = 0;
 	private int speedUIdisActiveCount = 0;
-	private float startTimeCount = 4; // 倒计时
+	private float startTimeCount = 0; // 倒计时
 	private float timeCount;//时间限制计数
 	public float defaultTimeCount;//时间限制（秒）
 
@@ -101,10 +87,11 @@ public class RoadRacer : MonoBehaviour
 
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
+		gameControls = new GameControls();
 		camToCarOffset = Car.position - transform.position;
-		startTimeCount = 4;
+		startTimeCount = 0;
 		timeCount = defaultTimeCount;
 		/*赛道信息，弯道弧度，弯道长度，0为直道
 		vecTrack.Add(new Vector2(0.0f,100.0f));
@@ -156,7 +143,7 @@ public class RoadRacer : MonoBehaviour
 		//绘制行道树
 		for (int y = 0; y < screenHeight; y++)
 		{
-			for (int x = -100; x < screenWeidth + 100; x++)
+			for (int x = -100; x < screenWeidth + 100; x = x + 3)
 			{
 				float fPerspective = (float)y / (screenHeight / 2.0f);
 
@@ -286,7 +273,15 @@ public class RoadRacer : MonoBehaviour
 	}
 	//绘制路，路肩，草地
 
+	private void OnEnable()
+	{
+		gameControls.Enable();
+	}
 
+	public void OnDisable()
+	{
+		gameControls.Disable();
+	}
 	//开始倒计时
 
 	IEnumerator StartTimeCount()

@@ -9,6 +9,10 @@ public class TimeKeeper : MonoBehaviour
 
     [SerializeField] GameObject maincamera;
     [SerializeField] GameObject threedcamera;
+    [SerializeField] GameObject drivecamera;
+
+    private Camera driveCamRender;
+    private AudioListener audioListener;
 
     [Header("Scenes")]
     [SerializeField] private GameObject CityAndBarIntro;
@@ -59,6 +63,9 @@ public class TimeKeeper : MonoBehaviour
 
     void Awake()
     {
+        driveCamRender = drivecamera.transform.GetChild(0).GetComponent<Camera>();
+        audioListener = drivecamera.GetComponent<AudioListener>();
+
         allscenes.Add(CityAndBarIntro);
         allscenes.Add(BarScene);
         allscenes.Add(Fired);
@@ -138,6 +145,8 @@ public class TimeKeeper : MonoBehaviour
 
     public IEnumerator SwitchScene()
     {
+        driveCamRender.enabled = true;
+        drivecamera.SetActive(false);
         yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
@@ -204,9 +213,14 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(12); //Driving
+        drivecamera.SetActive(true);
+        maincamera.SetActive(false);
+        audioListener.enabled = true;
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
         nextScene(); //Cheek to Cheek
+        maincamera.SetActive(true);
+        drivecamera.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //See Men
