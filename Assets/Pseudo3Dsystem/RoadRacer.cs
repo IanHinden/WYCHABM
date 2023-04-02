@@ -340,14 +340,18 @@ public class RoadRacer : MonoBehaviour
 
 	void Update()
 	{
-		if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
-		{
-			fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
-		}
-		else if (timeCount <= -1)
-		{
-			fSpeed -= 0.8f * Time.deltaTime;
-		}
+
+        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+        {
+            if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+            {
+                fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
+            }
+            else if (timeCount <= -1)
+            {
+                fSpeed -= 0.8f * Time.deltaTime;
+            }
+        }
 		Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
 		/*if (Input.GetKey (KeyCode.W)) 
 		{
@@ -385,7 +389,7 @@ public class RoadRacer : MonoBehaviour
 			topGear = !topGear;
 			gearText.text = topGear? "High" : "Low";
 		}*/
-
+		
 
 
 		if (Mathf.Abs(fPlayerCurvature - 0.2f - fTranckCurvature) >= 0.8f) //0.2f 用来修正判定偏右，不等式右边越大，可行驶的道路宽度越宽
@@ -415,13 +419,15 @@ public class RoadRacer : MonoBehaviour
 		//AC2.pitch = pitch;
 		//Engine Sound According The fSpeed
 
-
-
-		//Move Car alone track according to car speed
-		if (startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
 		{
-			fDistance += (300f * fSpeed) * Time.deltaTime;
-		}
+            //Move Car alone track according to car speed
+            if (startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+            {
+                fDistance += (300f * fSpeed) * Time.deltaTime;
+            }
+        }
+
 
 
 		//UI Control
@@ -588,18 +594,30 @@ public class RoadRacer : MonoBehaviour
 
 		}
 
-		if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
-		{
-			fSpeed = 0;
-		}
-		//判断是否撞车
+        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+        {
+            if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+            {
+                fSpeed = 0;
+            }
+        }
+
+        //判断是否撞车
 
 
-		//车的转向动画控制
-		Car.GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+        //车的转向动画控制
+        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+        {
+            Car.GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+        }
+        
 		for (int i = 0; i < rivalCar.Length; i++)
 		{
-			rivalCar[i].GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+
+            if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+            {
+                rivalCar[i].GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+            }
 		}
 
 
