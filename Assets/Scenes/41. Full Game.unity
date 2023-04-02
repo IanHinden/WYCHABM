@@ -53925,7 +53925,7 @@ GameObject:
   - component: {fileID: 1509929511}
   - component: {fileID: 1509929512}
   m_Layer: 0
-  m_Name: Holding
+  m_Name: AvaFired
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53939,8 +53939,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509929510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.019, z: 0}
-  m_LocalScale: {x: 1.3910357, y: 1.3910357, z: 1.3910357}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4616518, y: 0.4616518, z: 0.4616518}
   m_Children: []
   m_Father: {fileID: 228925648}
   m_RootOrder: 1
@@ -53984,7 +53984,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 53e9e0a1e8bf0d54dad9885e2aa1eff0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d72e83e7844c1b0478ad8c01fdc9ff0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -69827,7 +69827,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
