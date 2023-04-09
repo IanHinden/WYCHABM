@@ -6,17 +6,27 @@ public class Print : MonoBehaviour
 {
     [SerializeField] public Ink ink;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject linePrefab;
+    private penLine myLine;
+
+    void Awake()
     {
-        
+        GameObject newLine = Instantiate(linePrefab);
+        myLine = newLine.GetComponent<penLine>();
     }
 
     public void InkSpawner()
     {
-        StartCoroutine(InkLine());
+        //StartCoroutine(InkLine());
+        if (myLine != null)
+        {
+            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+            myLine.updateLine(currentPosition);
+        }
     }
 
+
+    /*
     private void spawnInk()
     {
         Ink inkBlot = Instantiate(ink) as Ink;
@@ -28,4 +38,5 @@ public class Print : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         spawnInk();
     }
+    */
 }

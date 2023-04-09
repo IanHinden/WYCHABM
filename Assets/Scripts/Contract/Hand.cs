@@ -46,11 +46,15 @@ public class Hand : MonoBehaviour
         currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
         currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
 
+        /*
         //Need a better solution to stop constant calls
         if (movementInput.x < 0 || movementInput.y < 0 || movementInput.x > 0 || movementInput.y > 0)
         {
-            print.InkSpawner();
+            //print.InkSpawner();
         }
+        */
+
+        print.InkSpawner();
 
         transform.position = currentPosition;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarScene : MonoBehaviour
 {
     [SerializeField] Dialogue dialogue;
+
     void Awake()
     {
         StartCoroutine(Dialogue());
@@ -15,6 +16,6 @@ public class BarScene : MonoBehaviour
         yield return new WaitForSeconds(2);
         dialogue.DialogueEnter();
         yield return new WaitForSeconds(1);
-        StartCoroutine(dialogue.SetDialogue("Rich man Richmond get the itch, man"));
+        //StartCoroutine(dialogue.SetDialogue("Rich man Richmond get the itch, man"));
     }
 }
