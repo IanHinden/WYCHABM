@@ -9,6 +9,9 @@ public class timingManager : MonoBehaviour
     private Animation myTimer;
     private float wordSpeed = 0.01f;
 
+    public rhythmGameSetUp[] rhythmGames;
+    private int chorusCount = 0;
+
     void Awake()
     {
         myTimer = this.GetComponent<Animation>();
@@ -52,5 +55,22 @@ public class timingManager : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    //Rhythm Game Stuff
+
+    public void increaseChorusCount()
+    {
+        chorusCount++;
+    }
+
+    public void addExampleArrow(string direction)
+    {
+        rhythmGames[chorusCount].addExampleArrow(direction);
+    }
+
+    public void addArrow(string direction)
+    {
+        rhythmGames[chorusCount].addArrow(direction);
     }
 }

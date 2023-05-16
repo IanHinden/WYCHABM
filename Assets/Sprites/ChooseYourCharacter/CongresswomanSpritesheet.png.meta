@@ -1,0 +1,1124 @@
+fileFormatVersion: 2
+guid: c6925b1d83e142a40b110a3c9d0984fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1712473331932263169
+    second: Congresswoman_v10_0
+  - first:
+      213: -167965814110456546
+    second: Congresswoman_v10_1
+  - first:
+      213: -4601223535890970120
+    second: Congresswoman_v10_2
+  - first:
+      213: 1055743716551209904
+    second: Congresswoman_v10_3
+  - first:
+      213: 5878485984401594550
+    second: Congresswoman_v10_4
+  - first:
+      213: -7558555116422198090
+    second: Congresswoman_v10_5
+  - first:
+      213: -1363891299696467202
+    second: Congresswoman_v10_6
+  - first:
+      213: -5000249958685523409
+    second: Congresswoman_v10_7
+  - first:
+      213: 1678672926081966443
+    second: Congresswoman_v10_8
+  - first:
+      213: 2221525751796938332
+    second: Congresswoman_v10_9
+  - first:
+      213: 1282807278638893847
+    second: Congresswoman_v10_10
+  - first:
+      213: -114441102429069440
+    second: Congresswoman_v10_11
+  - first:
+      213: 4068861444920248648
+    second: Congresswoman_v10_12
+  - first:
+      213: 8380166304970635950
+    second: Congresswoman_v10_13
+  - first:
+      213: 8738920950027881808
+    second: Congresswoman_v10_14
+  - first:
+      213: -3360640534162702156
+    second: Congresswoman_v10_15
+  - first:
+      213: 8706544472420028308
+    second: Congresswoman_v10_16
+  - first:
+      213: 3968158457758062675
+    second: Congresswoman_v10_17
+  - first:
+      213: 2672148368940563069
+    second: Congresswoman_v10_18
+  - first:
+      213: 2478016851791211801
+    second: Congresswoman_v10_19
+  - first:
+      213: 5248235763326043824
+    second: Congresswoman_v10_20
+  - first:
+      213: -6209498255997509883
+    second: Congresswoman_v10_21
+  - first:
+      213: -3052230444652669014
+    second: Congresswoman_v10_22
+  - first:
+      213: -906373202708927365
+    second: Congresswoman_v10_23
+  - first:
+      213: -5260919784875056104
+    second: Congresswoman_v10_24
+  - first:
+      213: 6350866695567937992
+    second: Congresswoman_v10_25
+  - first:
+      213: -7222584228491003740
+    second: Congresswoman_v10_26
+  - first:
+      213: 5290378882185323984
+    second: Congresswoman_v10_27
+  - first:
+      213: 6704900610648259861
+    second: Congresswoman_v10_28
+  - first:
+      213: -7167215656973519218
+    second: Congresswoman_v10_29
+  - first:
+      213: -2517743319795402123
+    second: Congresswoman_v10_30
+  - first:
+      213: -2614443710992908461
+    second: Congresswoman_v10_31
+  - first:
+      213: 3357231504438297817
+    second: Congresswoman_v10_32
+  - first:
+      213: 2034974093466216878
+    second: Congresswoman_v10_33
+  - first:
+      213: 5558685242323310976
+    second: Congresswoman_v10_34
+  - first:
+      213: -6394648465241793123
+    second: Congresswoman_v10_35
+  - first:
+      213: -8551768513919290394
+    second: Congresswoman_v10_36
+  - first:
+      213: 7840766508844369155
+    second: Congresswoman_v10_37
+  - first:
+      213: -6991703195736676350
+    second: Congresswoman_v10_38
+  - first:
+      213: 808477957603300385
+    second: Congresswoman_v10_39
+  - first:
+      213: 3180018492181641458
+    second: Congresswoman_v10_40
+  - first:
+      213: -7686436897051196240
+    second: Congresswoman_v10_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Congresswoman_v10_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103f62d1c6de3c710800000000000000
+      internalID: 1712473331932263169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_1
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1579836bf34badf0800000000000000
+      internalID: -167965814110456546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_2
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f94d0b829b2520c0800000000000000
+      internalID: -4601223535890970120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_3
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3b2ee0151c6ae00800000000000000
+      internalID: 1055743716551209904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_4
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b89e557bd3949150800000000000000
+      internalID: 5878485984401594550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_5
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc81762b2e9a1790800000000000000
+      internalID: -7558555116422198090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_6
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2a851d61c721de0800000000000000
+      internalID: -1363891299696467202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_7
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f224360b72b8b9ab0800000000000000
+      internalID: -5000249958685523409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_8
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b616e2dd128db4710800000000000000
+      internalID: 1678672926081966443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_9
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c563d3fa6e174de10800000000000000
+      internalID: 2221525751796938332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_10
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b8e8e5c627dc110800000000000000
+      internalID: 1282807278638893847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_11
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08fd2067c6c696ef0800000000000000
+      internalID: -114441102429069440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_12
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84901c82def777830800000000000000
+      internalID: 4068861444920248648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_13
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaaf876bad45c4470800000000000000
+      internalID: 8380166304970635950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_14
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d81a2ad42e64970800000000000000
+      internalID: 8738920950027881808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_15
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b004775d3b9c51d0800000000000000
+      internalID: -3360640534162702156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_16
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f8cb3811cd3d870800000000000000
+      internalID: 8706544472420028308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_17
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3589127d71bb11730800000000000000
+      internalID: 3968158457758062675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_18
+      rect:
+        serializedVersion: 2
+        x: 3420
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a77dda8c0651520800000000000000
+      internalID: 2672148368940563069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_19
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d6276923fa36220800000000000000
+      internalID: 2478016851791211801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_20
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 261
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b6cc82de9a75d840800000000000000
+      internalID: 5248235763326043824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f5cd94c3e63d9a0800000000000000
+      internalID: -6209498255997509883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_22
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa758ddf49c44a5d0800000000000000
+      internalID: -3052230444652669014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_23
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ce992df5aeb63f0800000000000000
+      internalID: -906373202708927365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_24
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814a2b644557df6b0800000000000000
+      internalID: -5260919784875056104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_25
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c19f2d7c9fc22850800000000000000
+      internalID: 6350866695567937992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_26
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8747c39e934cb90800000000000000
+      internalID: -7222584228491003740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_27
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d562ef40933b6940800000000000000
+      internalID: 5290378882185323984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_28
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d3dffc4979c0d50800000000000000
+      internalID: 6704900610648259861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_29
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86b971655fe88c90800000000000000
+      internalID: -7167215656973519218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_30
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a7bfb4acd2f0dd0800000000000000
+      internalID: -2517743319795402123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_31
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f7309fb41a7bbd0800000000000000
+      internalID: -2614443710992908461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_32
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d48bc21448479e20800000000000000
+      internalID: 3357231504438297817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_33
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea92d20082ead3c10800000000000000
+      internalID: 2034974093466216878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_34
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08913e6d6ca642d40800000000000000
+      internalID: 5558685242323310976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_35
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d14c5e915a147a0800000000000000
+      internalID: -6394648465241793123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_36
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3787688d3025980800000000000000
+      internalID: -8551768513919290394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_37
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305c27ef89fffcc60800000000000000
+      internalID: 7840766508844369155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_38
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208e623bcfa78fe90800000000000000
+      internalID: -6991703195736676350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_39
+      rect:
+        serializedVersion: 2
+        x: 3420
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1249daf3b6a483b00800000000000000
+      internalID: 808477957603300385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_40
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8f8ad58f1b12c20800000000000000
+      internalID: 3180018492181641458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Congresswoman_v10_41
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 2
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b4cecadd5a445590800000000000000
+      internalID: -7686436897051196240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

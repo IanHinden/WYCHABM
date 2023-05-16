@@ -13,6 +13,7 @@ public class Print : MonoBehaviour
     {
         GameObject newLine = Instantiate(linePrefab);
         myLine = newLine.GetComponent<penLine>();
+        myLine.transform.parent = this.transform;
     }
 
     public void InkSpawner()

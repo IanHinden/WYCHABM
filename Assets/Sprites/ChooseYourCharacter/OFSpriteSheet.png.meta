@@ -1,0 +1,1124 @@
+fileFormatVersion: 2
+guid: 992bc64f5cee3b94192fee691422d885
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4334177775963047651
+    second: Sexypose_SpriteSheet (1)_0
+  - first:
+      213: -6210219217999101587
+    second: Sexypose_SpriteSheet (1)_1
+  - first:
+      213: -7042545865062405705
+    second: Sexypose_SpriteSheet (1)_2
+  - first:
+      213: 3553281781226960074
+    second: Sexypose_SpriteSheet (1)_3
+  - first:
+      213: 2168313028184764634
+    second: Sexypose_SpriteSheet (1)_4
+  - first:
+      213: 652131518988426843
+    second: Sexypose_SpriteSheet (1)_5
+  - first:
+      213: -6436378781103811042
+    second: Sexypose_SpriteSheet (1)_6
+  - first:
+      213: -3117926148601393677
+    second: Sexypose_SpriteSheet (1)_7
+  - first:
+      213: 5925716849940087114
+    second: Sexypose_SpriteSheet (1)_8
+  - first:
+      213: 6609175120349180752
+    second: Sexypose_SpriteSheet (1)_9
+  - first:
+      213: -2320064372022501918
+    second: Sexypose_SpriteSheet (1)_10
+  - first:
+      213: -7248831059893206529
+    second: Sexypose_SpriteSheet (1)_11
+  - first:
+      213: -5502460147551595279
+    second: Sexypose_SpriteSheet (1)_12
+  - first:
+      213: -2960155059522334092
+    second: Sexypose_SpriteSheet (1)_13
+  - first:
+      213: 3002074538685951718
+    second: Sexypose_SpriteSheet (1)_14
+  - first:
+      213: 4005146181392073892
+    second: Sexypose_SpriteSheet (1)_15
+  - first:
+      213: -938280389239608269
+    second: Sexypose_SpriteSheet (1)_16
+  - first:
+      213: 6891272428062765805
+    second: Sexypose_SpriteSheet (1)_17
+  - first:
+      213: -6574345303153229821
+    second: Sexypose_SpriteSheet (1)_18
+  - first:
+      213: -4324580478070099787
+    second: Sexypose_SpriteSheet (1)_19
+  - first:
+      213: 8073097692384369806
+    second: Sexypose_SpriteSheet (1)_20
+  - first:
+      213: -1662081855010368468
+    second: Sexypose_SpriteSheet (1)_21
+  - first:
+      213: -2814521118839346511
+    second: Sexypose_SpriteSheet (1)_22
+  - first:
+      213: 3117546844569720067
+    second: Sexypose_SpriteSheet (1)_23
+  - first:
+      213: -1806552098092122110
+    second: Sexypose_SpriteSheet (1)_24
+  - first:
+      213: 8655553190952901010
+    second: Sexypose_SpriteSheet (1)_25
+  - first:
+      213: -5780404292114984440
+    second: Sexypose_SpriteSheet (1)_26
+  - first:
+      213: 1839529250761200841
+    second: Sexypose_SpriteSheet (1)_27
+  - first:
+      213: -4611011915759164734
+    second: Sexypose_SpriteSheet (1)_28
+  - first:
+      213: 2082144770083168050
+    second: Sexypose_SpriteSheet (1)_29
+  - first:
+      213: 2699614557201245495
+    second: Sexypose_SpriteSheet (1)_30
+  - first:
+      213: -3223046367779957289
+    second: Sexypose_SpriteSheet (1)_31
+  - first:
+      213: -8314465810225490165
+    second: Sexypose_SpriteSheet (1)_32
+  - first:
+      213: 1241882195750723952
+    second: Sexypose_SpriteSheet (1)_33
+  - first:
+      213: -4311805636845715704
+    second: Sexypose_SpriteSheet (1)_34
+  - first:
+      213: -8963963468398019402
+    second: Sexypose_SpriteSheet (1)_35
+  - first:
+      213: -4054991018391536986
+    second: Sexypose_SpriteSheet (1)_36
+  - first:
+      213: -2573720436963102576
+    second: Sexypose_SpriteSheet (1)_37
+  - first:
+      213: -1537504063613927069
+    second: Sexypose_SpriteSheet (1)_38
+  - first:
+      213: 4375475750107121116
+    second: Sexypose_SpriteSheet (1)_39
+  - first:
+      213: -162952007502503494
+    second: Sexypose_SpriteSheet (1)_40
+  - first:
+      213: 2500630208591454899
+    second: Sexypose_SpriteSheet (1)_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d197456b648e9d3c0800000000000000
+      internalID: -4334177775963047651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_1
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d610cdd368ed0d9a0800000000000000
+      internalID: -6210219217999101587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_2
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b92f8649d9d34e90800000000000000
+      internalID: -7042545865062405705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_3
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac476e434facf4130800000000000000
+      internalID: 3553281781226960074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_4
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0fdcef535671e10800000000000000
+      internalID: 2168313028184764634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_5
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e14205926dc0900800000000000000
+      internalID: 652131518988426843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_6
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16127899936da6a0800000000000000
+      internalID: -6436378781103811042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd46b4ffa6eab4d0800000000000000
+      internalID: -3117926148601393677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41c93844106c3250800000000000000
+      internalID: 5925716849940087114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05333ca41c188bb50800000000000000
+      internalID: 6609175120349180752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_10
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed1f81feb97dcfd0800000000000000
+      internalID: -2320064372022501918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_11
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff14f369e8af66b90800000000000000
+      internalID: -7248831059893206529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_12
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4917a26a553a3b0800000000000000
+      internalID: -5502460147551595279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_13
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472981d28aa6be6d0800000000000000
+      internalID: -2960155059522334092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_14
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eeee9323e289a920800000000000000
+      internalID: 3002074538685951718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_15
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a403675b33259730800000000000000
+      internalID: 4005146181392073892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_16
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c68ab05fe8af2f0800000000000000
+      internalID: -938280389239608269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_17
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2ff1503c7b2af50800000000000000
+      internalID: 6891272428062765805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_18
+      rect:
+        serializedVersion: 2
+        x: 3420
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3004bc677cb33c4a0800000000000000
+      internalID: -6574345303153229821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_19
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0fa02c7f00cf3c0800000000000000
+      internalID: -4324580478070099787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_20
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 259
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c989ff397690070800000000000000
+      internalID: 8073097692384369806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c241c74eb591fe8e0800000000000000
+      internalID: -1662081855010368468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_22
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1baeeb254ffc0f8d0800000000000000
+      internalID: -2814521118839346511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_23
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305d7317650c34b20800000000000000
+      internalID: 3117546844569720067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_24
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2008bf43076dde6e0800000000000000
+      internalID: -1806552098092122110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_25
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2991f31a4c3be1870800000000000000
+      internalID: 8655553190952901010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_26
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802d7561ce0e7cfa0800000000000000
+      internalID: -5780404292114984440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_27
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4df897b12578910800000000000000
+      internalID: 1839529250761200841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_28
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2e412c7156200c0800000000000000
+      internalID: -4611011915759164734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_29
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f9ebff2a345ec10800000000000000
+      internalID: 2082144770083168050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_30
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7352478f225f67520800000000000000
+      internalID: 2699614557201245495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_31
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5dcd9a7607543d0800000000000000
+      internalID: -3223046367779957289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_32
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b071164c5651d9c80800000000000000
+      internalID: -8314465810225490165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_33
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 071aa9af64d0c3110800000000000000
+      internalID: 1241882195750723952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_34
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fb8434e936924c0800000000000000
+      internalID: -4311805636845715704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_35
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcbe86f7ba999380800000000000000
+      internalID: -8963963468398019402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_36
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa7f5d2727c9b7c0800000000000000
+      internalID: -4054991018391536986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_37
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090b6a316ee484cd0800000000000000
+      internalID: -2573720436963102576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_38
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361829f3330b9aae0800000000000000
+      internalID: -1537504063613927069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_39
+      rect:
+        serializedVersion: 2
+        x: 3420
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd588703300d8bc30800000000000000
+      internalID: 4375475750107121116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_40
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1606533041dbdf0800000000000000
+      internalID: -162952007502503494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sexypose_SpriteSheet (1)_41
+      rect:
+        serializedVersion: 2
+        x: 3800
+        y: 0
+        width: 190
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b264b10de504b220800000000000000
+      internalID: 2500630208591454899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
