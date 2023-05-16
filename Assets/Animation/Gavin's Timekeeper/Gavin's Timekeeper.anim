@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 42.166668
+    m_StopTime: 196.68333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -170,177 +170,44 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 32
-    functionName: addExampleArrow
-    data: Left
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 32.466667
-    functionName: addExampleArrow
-    data: Down
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 32.8
-    functionName: addExampleArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 32.9
-    functionName: addExampleArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 33
-    functionName: addExampleArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 33.1
-    functionName: addExampleArrow
-    data: Left
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 33.6
-    functionName: addExampleArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 33.9
-    functionName: addExampleArrow
-    data: Down
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35
-    functionName: addExampleArrow
-    data: Left
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.1
-    functionName: addExampleArrow
-    data: Down
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.2
-    functionName: addExampleArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.3
-    functionName: addExampleArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.6
-    functionName: addExampleArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.7
-    functionName: addExampleArrow
-    data: Left
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 35.9
-    functionName: addExampleArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 36.6
-    functionName: addExampleArrow
-    data: Left
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 36.666668
-    functionName: addExampleArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 37.5
-    functionName: addArrow
+    functionName: addExampleArrow
     data: Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 37.966667
-    functionName: addArrow
+  - time: 37.6
+    functionName: addExampleArrow
     data: Down
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 38.3
-    functionName: addArrow
-    data: Up
+  - time: 38.2
+    functionName: addExampleArrow
+    data: Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 38.4
-    functionName: addArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 38.5
-    functionName: addArrow
+    functionName: addExampleArrow
     data: Right
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 38.6
-    functionName: addArrow
+  - time: 39.066666
+    functionName: addExampleArrow
     data: Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 39.1
-    functionName: addArrow
+  - time: 39.166668
+    functionName: addExampleArrow
     data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 39.4
-    functionName: addArrow
-    data: Down
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -359,27 +226,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 40.7
-    functionName: addArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 40.8
-    functionName: addArrow
-    data: Up
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 41.1
-    functionName: addArrow
-    data: Right
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 41.2
     functionName: addArrow
     data: Left
@@ -394,7 +240,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 42.1
+  - time: 42.083332
     functionName: addArrow
     data: Left
     objectReferenceParameter: {fileID: 0}
@@ -402,6 +248,188 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 42.166668
+    functionName: addArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 42.4
+    functionName: increaseChorusCount
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 99.01667
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 99.11667
+    functionName: addExampleArrow
+    data: Down
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 99.71667
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 99.916664
+    functionName: addExampleArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 100.583336
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 100.683334
+    functionName: addExampleArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102.01667
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102.11667
+    functionName: addArrow
+    data: Down
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102.71667
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102.916664
+    functionName: addArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 103.6
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 103.683334
+    functionName: addArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 103.916664
+    functionName: increaseChorusCount
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 192.01666
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 192.11667
+    functionName: addExampleArrow
+    data: Down
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 192.71666
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 192.91667
+    functionName: addExampleArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 193.58333
+    functionName: addExampleArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 193.68333
+    functionName: addExampleArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 195.01666
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 195.11667
+    functionName: addArrow
+    data: Down
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 195.71666
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 195.91667
+    functionName: addArrow
+    data: Right
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 196.6
+    functionName: addArrow
+    data: Left
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 196.68333
     functionName: addArrow
     data: Right
     objectReferenceParameter: {fileID: 0}
