@@ -14,6 +14,8 @@ public class GameOptions : MonoBehaviour
 
     AudioSource audioSo;
 
+    private Coroutine gameCoroutine = null;
+
     private void Awake()
     {
         audioSo = mp.GetComponent<AudioSource>();
@@ -24,7 +26,12 @@ public class GameOptions : MonoBehaviour
         uihandler.HideStartButton();
         audioSo.Play();
         barIntro.SetActive(true);
-        StartCoroutine(timeKeeper.SwitchScene());
+        gameCoroutine = StartCoroutine(timeKeeper.SwitchScene());
         titleScreen.SetActive(false);
+    }
+
+    public void EndGame()
+    {
+        StopCoroutine(gameCoroutine);
     }
 }

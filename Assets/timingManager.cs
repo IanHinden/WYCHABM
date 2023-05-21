@@ -22,6 +22,11 @@ public class timingManager : MonoBehaviour
         myTimer.Play();
     }
 
+    public void stopTimer()
+    {
+        myTimer.Stop();
+    }
+
     public void refreshDialogue()
     {
         dialogueBox.text = "";

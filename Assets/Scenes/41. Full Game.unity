@@ -52498,6 +52498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3d206110dc69245892afc119570d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timekeeper: {fileID: 2006906367}
+  timingManager: {fileID: 1099118919}
+  gameoptions: {fileID: 1453100200}
   musicPlayer: {fileID: 729173559}
   pauseMenu: {fileID: 1392818474}
   pauseButton: {fileID: 1209202225}
@@ -95288,6 +95291,8 @@ MonoBehaviour:
   maincamera: {fileID: 1550866434}
   threedcamera: {fileID: 228920818}
   drivecamera: {fileID: 2009168588}
+  instructions: {fileID: 510355965}
+  TitleScreen: {fileID: 1332775048}
   CityAndBarIntro: {fileID: 1541216390}
   BarScene: {fileID: 2101814291}
   Fired: {fileID: 228925647}
