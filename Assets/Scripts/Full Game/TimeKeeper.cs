@@ -7,14 +7,19 @@ public class TimeKeeper : MonoBehaviour
     ArrayList allscenes = new ArrayList();
     int currentScene = 0;
 
+    [Header("Cameras")]
     [SerializeField] GameObject maincamera;
     [SerializeField] GameObject threedcamera;
     [SerializeField] GameObject drivecamera;
+
+    [Header("Menus")]
+    [SerializeField] GameObject instructions;
 
     private Camera driveCamRender;
     private AudioListener audioListener;
 
     [Header("Scenes")]
+    [SerializeField] private GameObject TitleScreen;
     [SerializeField] private GameObject CityAndBarIntro;
     [SerializeField] private GameObject BarScene;
     [SerializeField] private GameObject Fired;
@@ -299,5 +304,23 @@ public class TimeKeeper : MonoBehaviour
  
         uihandler.MaskOutro(maskCoordinates);
         yield return new WaitForSeconds(.8f);
+    }
+
+    public void resetGame()
+    {
+        currentScene = 0;
+        foreach(GameObject scene in allscenes)
+        {
+            scene.SetActive(false);
+        }
+
+        //Reset all UI
+        dialogue.QuickExit();
+        uihandler.ClearWinLoss();
+        uihandler.setFrame(false);
+        uihandler.hideSlider();
+
+        TitleScreen.SetActive(true);
+        instructions.SetActive(true);
     }
 }

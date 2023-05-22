@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class pauseManager : MonoBehaviour
 {
+    public TimeKeeper timekeeper;
+    public timingManager timingManager;
+    public GameOptions gameoptions;
     public AudioSource musicPlayer;
     public GameObject pauseMenu;
     public GameObject pauseButton;
@@ -70,6 +73,16 @@ public class pauseManager : MonoBehaviour
     public void backToMainMenu()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+        isPaused = false;
+        musicPlayer.pitch = 1;
+        musicPlayer.Stop();
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
+        timekeeper.resetGame();
+        timingManager.stopTimer();
+
+        gameoptions.EndGame();
     }
 
     public void instructions()

@@ -94,11 +94,11 @@ public class CharacterSelector : MonoBehaviour
             leftCheck();
         } else
         {
-            if(selectedGirl == 2)
+            if(selectedGirl == 1)
             {
                 selectedGirl--;
                 SelectOF();
-            } else if (selectedGirl == 1)
+            } else if (selectedGirl == 2)
             {
                 selectedGirl--;
                 SelectCongresswoman();
@@ -120,7 +120,7 @@ public class CharacterSelector : MonoBehaviour
                 selectedGirl++;
                 SelectOF();
             }
-            else if (selectedGirl == 1)
+            else if (selectedGirl == 2)
             {
                 selectedGirl++;
                 SelectHomeless();
