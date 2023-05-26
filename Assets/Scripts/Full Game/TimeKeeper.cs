@@ -59,12 +59,17 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject FinalBoss;
     [SerializeField] private GameObject ScoreScreen;
 
+    [Header("Test Scripts")]
+    [SerializeField] CityBehavior citybehavior;
+
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
     [SerializeField] private TimeFunctions timefunctions;
     [SerializeField] private Dialogue dialogue;
     // Start is called before the first frame update
     //0.705882
+
+    Coroutine scene1;
 
     void Awake()
     {
@@ -152,6 +157,7 @@ public class TimeKeeper : MonoBehaviour
     {
         driveCamRender.enabled = true;
         drivecamera.SetActive(false);
+        scene1 = StartCoroutine(citybehavior.StartAnimations());
         yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
@@ -309,7 +315,9 @@ public class TimeKeeper : MonoBehaviour
     public void resetGame()
     {
         currentScene = 0;
-        foreach(GameObject scene in allscenes)
+        StopCoroutine(scene1);
+        citybehavior.Reset();
+        foreach (GameObject scene in allscenes)
         {
             scene.SetActive(false);
         }
