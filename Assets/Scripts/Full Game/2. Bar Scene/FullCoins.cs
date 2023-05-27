@@ -34,27 +34,27 @@ public class FullCoins : MonoBehaviour
     private void CoinSpwaner()
     {
         Coin coin1 = Instantiate(coin, transform);
-        coin1.transform.position = new Vector3(-2.30f, -1.7f, 0);
+        coin1.transform.localPosition = new Vector3(-2.14f, -1.91f, 0);
         coin1.transform.rotation = Quaternion.identity;
 
         Coin coin2 = Instantiate(coin, transform);
-        coin2.transform.position = new Vector3(0f, -1.7f, 0);
+        coin2.transform.localPosition = new Vector3(0.07f, -1.91f, 0);
         coin2.transform.rotation = Quaternion.identity;
 
         Coin coin3 = Instantiate(coin, transform);
-        coin3.transform.position = new Vector3(2.3f, -1.7f, 0);
+        coin3.transform.localPosition = new Vector3(2.08f, -1.91f, 0);
         coin3.transform.rotation = Quaternion.identity;
 
         Coin coin4 = Instantiate(coin, transform);
-        coin4.transform.position = new Vector3(-2.30f, -0.47f, 0);
+        coin4.transform.localPosition = new Vector3(-2.14f, -0.52f, 0);
         coin4.transform.rotation = Quaternion.identity;
 
         Coin coin5 = Instantiate(coin, transform);
-        coin5.transform.position = new Vector3(0f, -0.47f, 0);
+        coin5.transform.localPosition = new Vector3(0.07f, -0.52f, 0);
         coin5.transform.rotation = Quaternion.identity;
 
         Coin coin6 = Instantiate(coin, transform);
-        coin6.transform.position = new Vector3(2.3f, -0.47f, 0);
+        coin6.transform.localPosition = new Vector3(2.08f, -0.52f, 0);
         coin6.transform.rotation = Quaternion.identity;
     }
 
