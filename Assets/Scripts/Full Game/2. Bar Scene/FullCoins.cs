@@ -12,6 +12,8 @@ public class FullCoins : MonoBehaviour
     [SerializeField] TextMeshProUGUI displayscore;
     //Animator starAnim;
 
+    [SerializeField] Coin coin;
+
     int totalCoins;
     int remainingCoins;
 
@@ -19,6 +21,7 @@ public class FullCoins : MonoBehaviour
 
     void Awake()
     {
+        CoinSpwaner();
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
@@ -26,6 +29,33 @@ public class FullCoins : MonoBehaviour
         remainingCoins = totalCoins;
 
         StartCoroutine(WinOrLose());
+    }
+
+    private void CoinSpwaner()
+    {
+        Coin coin1 = Instantiate(coin, transform);
+        coin1.transform.position = new Vector3(-2.30f, -1.7f, 0);
+        coin1.transform.rotation = Quaternion.identity;
+
+        Coin coin2 = Instantiate(coin, transform);
+        coin2.transform.position = new Vector3(0f, -1.7f, 0);
+        coin2.transform.rotation = Quaternion.identity;
+
+        Coin coin3 = Instantiate(coin, transform);
+        coin3.transform.position = new Vector3(2.3f, -1.7f, 0);
+        coin3.transform.rotation = Quaternion.identity;
+
+        Coin coin4 = Instantiate(coin, transform);
+        coin4.transform.position = new Vector3(-2.30f, -0.47f, 0);
+        coin4.transform.rotation = Quaternion.identity;
+
+        Coin coin5 = Instantiate(coin, transform);
+        coin5.transform.position = new Vector3(0f, -0.47f, 0);
+        coin5.transform.rotation = Quaternion.identity;
+
+        Coin coin6 = Instantiate(coin, transform);
+        coin6.transform.position = new Vector3(2.3f, -0.47f, 0);
+        coin6.transform.rotation = Quaternion.identity;
     }
 
     private void StolenWagesRecovered(int amount)

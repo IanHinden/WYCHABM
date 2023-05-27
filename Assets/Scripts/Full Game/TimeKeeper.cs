@@ -59,7 +59,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject FinalBoss;
     [SerializeField] private GameObject ScoreScreen;
 
-    [Header("Test Scripts")]
+    [Header("Reset Scripts")]
     [SerializeField] CityBehavior citybehavior;
 
     [Header("Necesary Functions")]
