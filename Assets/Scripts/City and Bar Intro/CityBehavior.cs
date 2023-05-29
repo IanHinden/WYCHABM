@@ -6,10 +6,21 @@ using TMPro;
 public class CityBehavior : MonoBehaviour
 {
     [SerializeField] GameObject city;
+
+    [Header("Ava Objects")]
     [SerializeField] GameObject avaObjects;
-    [SerializeField] GameObject ava;
-    [SerializeField] GameObject ppg;
+    [SerializeField] GameObject avaPos1;
+    [SerializeField] GameObject closedEyes;
+    [SerializeField] GameObject openEyes;
+    [SerializeField] GameObject avaPos2;
     [SerializeField] GameObject puff;
+
+    [Header("Lucy Objects")]
+    [SerializeField] GameObject ppg;
+    [SerializeField] GameObject talkingEyes;
+    [SerializeField] GameObject staringEyes;
+    [SerializeField] GameObject sweatDrop;
+    
     //[SerializeField] PittiePartyDialogue pittiePartyDialogue;
     [SerializeField] Dialogue dialogue;
     [SerializeField] TextMeshPro bigPittiesText;
@@ -19,8 +30,13 @@ public class CityBehavior : MonoBehaviour
     //Animator avaAnimator;
     Animator ppgAnimator;
     Animator puffAnimator;
+    Animator sweatAnimator;
 
     SpriteRenderer avaEyesClosed;
+    SpriteRenderer avaEyesOpen;
+
+    SpriteRenderer lucyTalkingEyes;
+    SpriteRenderer lucyStaringEyes;
 
     int activeRoutine = 0;
 
@@ -41,11 +57,15 @@ public class CityBehavior : MonoBehaviour
         //StartCoroutine(StartAnimations());
 
         avaObjAnimator = avaObjects.GetComponent<Animator>();
-        //avaAnimator = ava.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
         puffAnimator = puff.GetComponent<Animator>();
+        sweatAnimator = sweatDrop.GetComponent<Animator>();
 
-        avaEyesClosed = ava.GetComponent<SpriteRenderer>();
+        avaEyesClosed = closedEyes.GetComponent<SpriteRenderer>();
+        avaEyesOpen = openEyes.GetComponent<SpriteRenderer>();
+
+        lucyTalkingEyes = talkingEyes.GetComponent<SpriteRenderer>();
+        lucyStaringEyes = staringEyes.GetComponent<SpriteRenderer>();
     }
 
     public IEnumerator StartAnimations()
@@ -65,9 +85,9 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueExit();
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
-        //avaAnimator.SetTrigger("FadeOut");
         dialogue.DialogueEnter();
         avaEyesClosed.enabled = false;
+        avaEyesOpen.enabled = true;
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
         activeRoutine = 2;
         yield return new WaitForSeconds(2f);
@@ -76,9 +96,16 @@ public class CityBehavior : MonoBehaviour
         yield return new WaitForSeconds(1.7f);
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.3f);
+
+        lucyTalkingEyes.enabled = false;
+        lucyStaringEyes.enabled = true;
+        avaPos1.SetActive(false);
+        avaPos2.SetActive(true);
+        sweatAnimator.SetTrigger("SetSweat");
+
+
         dialogue.DialogueEnter();
-        ppgAnimator.SetTrigger("Exit");
-        //avaAnimator.SetTrigger("FadeIn");
+        //ppgAnimator.SetTrigger("Exit");
         dialogue4 = StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
         activeRoutine = 4;
     }
@@ -89,6 +116,12 @@ public class CityBehavior : MonoBehaviour
         city.SetActive(true);
         avaEyesClosed.enabled = true;
         dialogue.DialogueExit();
+
+        avaEyesClosed.enabled = true;
+        avaEyesOpen.enabled = false;
+
+        lucyTalkingEyes.enabled = true;
+        lucyStaringEyes.enabled = false;
 
         if (activeRoutine == 1)
         {
