@@ -16,7 +16,7 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] UIHandler uihandler;
 
     Animator avaObjAnimator;
-    Animator avaAnimator;
+    //Animator avaAnimator;
     Animator ppgAnimator;
     Animator puffAnimator;
 
@@ -41,7 +41,7 @@ public class CityBehavior : MonoBehaviour
         //StartCoroutine(StartAnimations());
 
         avaObjAnimator = avaObjects.GetComponent<Animator>();
-        avaAnimator = ava.GetComponent<Animator>();
+        //avaAnimator = ava.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
         puffAnimator = puff.GetComponent<Animator>();
 
@@ -65,7 +65,7 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueExit();
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
-        avaAnimator.SetTrigger("FadeOut");
+        //avaAnimator.SetTrigger("FadeOut");
         dialogue.DialogueEnter();
         avaEyesClosed.enabled = false;
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
@@ -78,7 +78,7 @@ public class CityBehavior : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         dialogue.DialogueEnter();
         ppgAnimator.SetTrigger("Exit");
-        avaAnimator.SetTrigger("FadeIn");
+        //avaAnimator.SetTrigger("FadeIn");
         dialogue4 = StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
         activeRoutine = 4;
     }
