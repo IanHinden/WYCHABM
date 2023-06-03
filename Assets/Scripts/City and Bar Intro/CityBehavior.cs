@@ -38,8 +38,6 @@ public class CityBehavior : MonoBehaviour
     SpriteRenderer lucyTalkingEyes;
     SpriteRenderer lucyStaringEyes;
 
-    int activeRoutine = 0;
-
     Coroutine dialogue1;
     Coroutine dialogue2;
     Coroutine dialogue3;
@@ -80,7 +78,6 @@ public class CityBehavior : MonoBehaviour
         puffAnimator.SetTrigger("TriggerPuff");
         dialogue.DialogueEnter();
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
-        activeRoutine = 1;
         yield return new WaitForSeconds(2.7f);
         dialogue.DialogueExit();
         ppgAnimator.SetTrigger("Enter");
@@ -89,10 +86,8 @@ public class CityBehavior : MonoBehaviour
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
-        activeRoutine = 2;
         yield return new WaitForSeconds(2f);
         dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
-        activeRoutine = 3;
         yield return new WaitForSeconds(1.7f);
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.3f);
@@ -107,7 +102,6 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueEnter();
         //ppgAnimator.SetTrigger("Exit");
         dialogue4 = StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
-        activeRoutine = 4;
     }
 
     public void Reset()
@@ -127,27 +121,13 @@ public class CityBehavior : MonoBehaviour
         sweatDrop.transform.position = new Vector3(0f, .83f, 0f);
         sweatDrop.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0);
 
-        if (activeRoutine == 1)
-        {
-            StopCoroutine(dialogue1);
-        }
-        else if (activeRoutine == 2)
-        {
-            StopCoroutine(dialogue2);
-        }
-        else if (activeRoutine == 3)
-        {
-            StopCoroutine(dialogue3);
-        }
-        else if (activeRoutine == 4)
-        {
-            StopCoroutine(dialogue4);
-        }
+        if(dialogue1 != null) { StopCoroutine(dialogue1); }
+        if(dialogue2 != null) { StopCoroutine(dialogue2); }
+        if(dialogue3 != null) { StopCoroutine(dialogue3); }
+        if(dialogue4 != null) { StopCoroutine(dialogue4); }
 
         city.transform.position = new Vector2(3.68f, 2.09f);
         avaObjects.transform.position = new Vector2(-16.68f, .86f);
         ppg.transform.position = new Vector2(40.71f, 1.53f);
-
-        activeRoutine = 0;
     }
 }
