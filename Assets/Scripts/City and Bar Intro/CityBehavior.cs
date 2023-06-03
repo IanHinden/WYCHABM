@@ -117,11 +117,15 @@ public class CityBehavior : MonoBehaviour
         avaEyesClosed.enabled = true;
         dialogue.DialogueExit();
 
+        avaPos1.SetActive(true);
+        avaPos2.SetActive(false);
         avaEyesClosed.enabled = true;
         avaEyesOpen.enabled = false;
 
         lucyTalkingEyes.enabled = true;
         lucyStaringEyes.enabled = false;
+        sweatDrop.transform.position = new Vector3(0f, .83f, 0f);
+        sweatDrop.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0);
 
         if (activeRoutine == 1)
         {

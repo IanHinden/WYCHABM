@@ -18,6 +18,11 @@ public class TimeFunctions : MonoBehaviour
         return measureMS;
     }
 
+    public float ReturnQuarterNote()
+    {
+        return measureMS / 4;
+    }
+
     public float ReturnCountMeasure(int count)
     {
         return count * measureMS;
