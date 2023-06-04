@@ -61,6 +61,7 @@ public class TimeKeeper : MonoBehaviour
 
     [Header("Reset Scripts")]
     [SerializeField] CityBehavior citybehavior;
+    [SerializeField] Landlord landlord;
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -69,7 +70,8 @@ public class TimeKeeper : MonoBehaviour
     // Start is called before the first frame update
     //0.705882
 
-    Coroutine scene1;
+    Coroutine cityAndBarCo;
+    Coroutine landlordCo;
 
     void Awake()
     {
@@ -157,7 +159,7 @@ public class TimeKeeper : MonoBehaviour
     {
         driveCamRender.enabled = true;
         drivecamera.SetActive(false);
-        scene1 = StartCoroutine(citybehavior.StartAnimations());
+        cityAndBarCo = StartCoroutine(citybehavior.StartAnimations());
         yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
@@ -167,9 +169,11 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Fired
         yield return FadeOutroEffect(2, new Vector2(635f, 375f), "SIGN");
         nextScene(6, true, new Vector2(699f, 167f)); //Contract
+
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); //Landlord
-        
+        landlordCo = StartCoroutine(landlord.Dialogue());
+
         //Need a fix to destory these
         Ink[] allInk = FindObjectsOfType<Ink>();
         foreach (Ink obj in allInk)
@@ -315,8 +319,11 @@ public class TimeKeeper : MonoBehaviour
     public void resetGame()
     {
         currentScene = 0;
-        StopCoroutine(scene1);
+        StopCoroutine(cityAndBarCo);
+
         citybehavior.Reset();
+        landlord.Reset();
+
         foreach (GameObject scene in allscenes)
         {
             scene.SetActive(false);

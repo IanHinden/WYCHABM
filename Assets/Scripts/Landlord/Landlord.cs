@@ -18,15 +18,21 @@ public class Landlord : MonoBehaviour
         landlordAnim = landlord.GetComponent<Animator>();
         avaAnim = ava.GetComponent<Animator>();
         dialogue.transform.position = new Vector2(0, -6.5f);
-        StartCoroutine(Dialogue());
+        //StartCoroutine(Dialogue());
     }
 
-    private IEnumerator Dialogue()
+    public IEnumerator Dialogue()
     {
         landlordAnim.SetTrigger("Enter");
         yield return new WaitForSeconds(.6f);
         avaAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("Pay the rent or get out."));
+    }
+
+    public void Reset()
+    {
+        landlord.transform.position = new Vector3(-14.02f, -1.41f, 0);
+        ava.transform.position = new Vector3(11.42f, -1.82f, 0);
     }
 }
