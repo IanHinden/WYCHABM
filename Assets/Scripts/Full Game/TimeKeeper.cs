@@ -174,13 +174,6 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Landlord
         landlordCo = StartCoroutine(landlord.Dialogue());
 
-        //Need a fix to destory these
-        Ink[] allInk = FindObjectsOfType<Ink>();
-        foreach (Ink obj in allInk)
-        {
-            Destroy(obj.gameObject);
-        }
-
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "SELECT");
         nextScene(6, true, new Vector2(638f, 438f)); //Character Select
 
