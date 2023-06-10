@@ -31321,6 +31321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd4430efde26c34bb4594aea5d0318c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ava: {fileID: 1207606272}
   controller: {fileID: 1207606274}
   uihandler: {fileID: 24490723}
   scorehandler: {fileID: 585011356}
@@ -95673,6 +95674,7 @@ MonoBehaviour:
   FinalBoss: {fileID: 456584892}
   ScoreScreen: {fileID: 1738708644}
   citybehavior: {fileID: 1741210971}
+  fullcoins: {fileID: 571885436}
   landlord: {fileID: 1080107919}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}

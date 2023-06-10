@@ -61,6 +61,7 @@ public class TimeKeeper : MonoBehaviour
 
     [Header("Reset Scripts")]
     [SerializeField] CityBehavior citybehavior;
+    [SerializeField] FullCoins fullcoins;
     [SerializeField] Landlord landlord;
 
     [Header("Necesary Functions")]
@@ -71,6 +72,7 @@ public class TimeKeeper : MonoBehaviour
     //0.705882
 
     Coroutine cityAndBarCo;
+    Coroutine fullCoins;
     Coroutine landlordCo;
 
     void Awake()
@@ -159,9 +161,12 @@ public class TimeKeeper : MonoBehaviour
     {
         driveCamRender.enabled = true;
         drivecamera.SetActive(false);
-        cityAndBarCo = StartCoroutine(citybehavior.StartAnimations());
+        cityAndBarCo = StartCoroutine(citybehavior.StartAnimations()); //City and Bar Intro
         yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
+        fullCoins = StartCoroutine(fullcoins.WinOrLose());
+
+
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         resetCamera();
@@ -313,9 +318,11 @@ public class TimeKeeper : MonoBehaviour
     {
         currentScene = 0;
         StopCoroutine(cityAndBarCo);
+        StopCoroutine(fullCoins);
 
         citybehavior.Reset();
         landlord.Reset();
+        fullcoins.Reset();
 
         foreach (GameObject scene in allscenes)
         {

@@ -5,6 +5,7 @@ using TMPro;
 
 public class FullCoins : MonoBehaviour
 {
+    [SerializeField] GameObject Ava;
     [SerializeField] Controller controller;
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
@@ -21,14 +22,10 @@ public class FullCoins : MonoBehaviour
 
     void Awake()
     {
-        CoinSpwaner();
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
+        Reset();
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
-        totalCoins = gameObject.transform.childCount;
-        remainingCoins = totalCoins;
-
-        StartCoroutine(WinOrLose());
     }
 
     private void CoinSpwaner()
@@ -80,7 +77,7 @@ public class FullCoins : MonoBehaviour
         displayscore.text = totalCoins - remainingCoins + "/" + totalCoins;
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
@@ -105,6 +102,34 @@ public class FullCoins : MonoBehaviour
                 uihandler.LoseDisplay();
                 controller.OnDisable();
             }
+        }
+    }
+
+    private void CoinReset()
+    {
+        CoinDestroy();
+        CoinSpwaner();
+
+        totalCoins = gameObject.transform.childCount;
+        remainingCoins = totalCoins;
+
+        displayscore.text = totalCoins - remainingCoins + "/" + totalCoins;
+    }
+
+    public void Reset()
+    {
+        CoinReset();
+        Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
+        levelComplete = false;
+    }
+
+    private void CoinDestroy()
+    {
+        Coin[] allCoins = FindObjectsOfType<Coin>();
+
+        foreach (Coin coin in allCoins)
+        {
+            DestroyImmediate(coin.gameObject);
         }
     }
 }
