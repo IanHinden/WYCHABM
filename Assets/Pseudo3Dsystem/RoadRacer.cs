@@ -29,6 +29,8 @@ public class RoadRacer : MonoBehaviour
 	public Transform[] rivalCar; List<Vector2> defaultRivalCarPoses = new List<Vector2>();
 	public List<Transform> rivalCarIn = new List<Transform>();//进入画面的敌方赛车
 
+	public Transform[] cones; List<Vector2> defaultConePositions = new List<Vector2>();
+
 	public Transform backGround;
 	public int screenWeidth = 160, screenHeight = 100;
 	public SpriteRenderer pixelPref, treePref;
@@ -139,6 +141,14 @@ public class RoadRacer : MonoBehaviour
 		}
 
 		//rivalCar 的默认位置
+
+		//cones 的默认位置
+		for (int i = 0; i < cones.Length; i++)
+		{
+			defaultConePositions.Add(cones[i].position);
+		}
+
+		//cones 的默认位置
 
 		//绘制行道树
 		for (int y = 0; y < screenHeight; y++)
@@ -566,6 +576,34 @@ public class RoadRacer : MonoBehaviour
 			}
 		}
 
+		//Pos The Cones
+		if (startTimeCount < 0 && !finishTheTrack)
+		{
+			for (int i = 0; i < cones.Length; i++)
+			{
+				float fRivalPerspective = (float)(cones[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+				float fRivalCarPosY = fSpeed > 0 ? cones[i].position.y + 10 * fSpeed * Time.deltaTime : cones[i].position.y - 40 * Time.deltaTime;
+				cones[i].transform.position = new Vector2(defaultConePositions[i].x + (fCurvatrue * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
+
+				if (cones[i].transform.position.x < 150 &&
+				   cones[i].transform.position.x > 2 &&
+				   cones[i].transform.position.y < 103 &&
+				   cones[i].transform.position.y > 6)
+				{//在画面内才能进行缩放
+					cones[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
+
+					if (cones[i].transform.transform.localScale.x < 0)
+					{
+						cones[i].GetComponent<SpriteRenderer>().enabled = false;
+					}
+					else
+					{
+						cones[i].GetComponent<SpriteRenderer>().enabled = true;
+					}
+				}
+			}
+		}
+
 		/*if (rivalCarIn.Count != 0)  //判断是否有敌车在画面里面(列表是否为空)，如果有，激活敌车音效对象
 		{  
 			rivalCarSoundObj.SetActive (true);
@@ -594,7 +632,19 @@ public class RoadRacer : MonoBehaviour
 
 		}
 
-        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+		for (int i = 0; i < cones.Length; i++)
+		{
+			if (Mathf.Abs(cones[i].transform.position.x - Car.transform.position.x) < 8f)
+			{
+				if (Mathf.Abs(cones[i].transform.position.y - Car.transform.position.y) < 8f)
+				{
+					Debug.Log(cones[i]);
+				}
+			}
+
+		}
+
+		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
         {
             if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
             {
