@@ -286,6 +286,11 @@ public class RoadRacer : MonoBehaviour
 	}
 	//绘制路，路肩，草地
 
+	public float GetScore()
+    {
+		return TimeInLane;
+    }
+
 	private void OnEnable()
 	{
 		gameControls.Enable();
@@ -357,7 +362,6 @@ public class RoadRacer : MonoBehaviour
 		{
 			TimeInLane = TimeInLane + 1;
 		}
-		Debug.Log(TimeInLane);
 	}
 
     void Update()
