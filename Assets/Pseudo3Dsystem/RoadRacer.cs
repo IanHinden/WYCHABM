@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Text = TMPro.TextMeshProUGUI;
 
 [System.Serializable]
+
 public struct VecTrack
 {
 	[Range(-1, 1)]
@@ -18,13 +19,15 @@ public struct VecTrack
 	}
 }
 
-
+//35.7, 94.4, >128 
+//50.2, 142
 
 public class RoadRacer : MonoBehaviour
 {
 	private GameControls gameControls;
 
 	public Transform Car;
+	float TimeInLane = 0f;
 	private Vector3 camToCarOffset;
 	public Transform[] rivalCar; List<Vector2> defaultRivalCarPoses = new List<Vector2>();
 	public List<Transform> rivalCarIn = new List<Transform>();//进入画面的敌方赛车
@@ -79,10 +82,10 @@ public class RoadRacer : MonoBehaviour
 	//UI
 
 	//Sound Effect
-	public AudioClip startEngineSound, engineSound;
-	public AudioSource AC1, AC2;
-	private float pitch;
-	public GameObject rivalCarSoundObj;
+	//public AudioClip startEngineSound, engineSound;
+	//public AudioSource AC1, AC2;
+	//private float pitch;
+	//public GameObject rivalCarSoundObj;
 	//Sound Effect
 
 
@@ -348,9 +351,17 @@ public class RoadRacer : MonoBehaviour
 	// Update is called once per frame
 	public bool topGear = false;
 
-	void Update()
-	{
+    private void FixedUpdate()
+    {
+		if (Car.transform.position.x < 100)
+		{
+			TimeInLane = TimeInLane + 1;
+		}
+		Debug.Log(TimeInLane);
+	}
 
+    void Update()
+	{
         if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
         {
             if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
@@ -425,7 +436,7 @@ public class RoadRacer : MonoBehaviour
 
 
 		//Engine Sound According The fSpeed
-		pitch = topGear ? fSpeed / gearSpeed + 0.5f : fSpeed / gearSpeed - 0.3f;
+		//pitch = topGear ? fSpeed / gearSpeed + 0.5f : fSpeed / gearSpeed - 0.3f;
 		//AC2.pitch = pitch;
 		//Engine Sound According The fSpeed
 
