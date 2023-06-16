@@ -267,7 +267,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""1950b0aa-7c2a-4355-888e-9d2d197d82ec"",
                     ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UpSelect"",
