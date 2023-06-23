@@ -9,5 +9,9 @@ public class detectionSquare : MonoBehaviour
     {
         print("Entered");
         //based on distance from point, deliver rating
+        float distance = Vector3.Distance(transform.position, col.gameObject.transform.position);
+        Debug.Log(distance);
+
+        Destroy(col.gameObject);
     }
 }

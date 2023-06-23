@@ -472,7 +472,7 @@ Transform:
   - {fileID: 1193659665}
   - {fileID: 1417510427}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4835520
 GameObject:
@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 4835525}
   - component: {fileID: 4835524}
   - component: {fileID: 4835523}
+  - component: {fileID: 4835526}
   - component: {fileID: 4835522}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (12)
@@ -513,22 +514,27 @@ RectTransform:
   m_AnchoredPosition: {x: 451, y: 156}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &4835522
-Rigidbody:
+--- !u!50 &4835522
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4835520}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &4835523
 Animation:
   m_ObjectHideFlags: 0
@@ -582,6 +588,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4835520}
   m_CullTransparentMesh: 0
+--- !u!61 &4835526
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835520}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5422159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2255,7 @@ GameObject:
   - component: {fileID: 41415829}
   - component: {fileID: 41415828}
   - component: {fileID: 41415827}
+  - component: {fileID: 41415830}
   - component: {fileID: 41415826}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (5)
@@ -2250,22 +2283,27 @@ RectTransform:
   m_AnchoredPosition: {x: -142, y: -520}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &41415826
-Rigidbody:
+--- !u!50 &41415826
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41415824}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &41415827
 Animation:
   m_ObjectHideFlags: 0
@@ -2319,6 +2357,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41415824}
   m_CullTransparentMesh: 0
+--- !u!61 &41415830
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41415824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &44160740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,7 +5277,7 @@ Transform:
   - {fileID: 1996825460}
   - {fileID: 624864575}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139204176
 GameObject:
@@ -11892,6 +11956,7 @@ GameObject:
   - component: {fileID: 179423744}
   - component: {fileID: 179423743}
   - component: {fileID: 179423742}
+  - component: {fileID: 179423745}
   - component: {fileID: 179423741}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (10)
@@ -11919,22 +11984,27 @@ RectTransform:
   m_AnchoredPosition: {x: 260.2, y: 8}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &179423741
-Rigidbody:
+--- !u!50 &179423741
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179423739}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &179423742
 Animation:
   m_ObjectHideFlags: 0
@@ -11988,6 +12058,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179423739}
   m_CullTransparentMesh: 0
+--- !u!61 &179423745
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179423739}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &179558580
 GameObject:
   m_ObjectHideFlags: 0
@@ -17859,13 +17955,14 @@ GameObject:
   - component: {fileID: 329938813}
   - component: {fileID: 329938812}
   - component: {fileID: 329938811}
+  - component: {fileID: 329938815}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &329938810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17885,22 +17982,27 @@ RectTransform:
   m_AnchoredPosition: {x: 546.7001, y: 256}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &329938811
-Rigidbody:
+--- !u!50 &329938811
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329938809}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &329938812
 Animation:
   m_ObjectHideFlags: 0
@@ -17954,6 +18056,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329938809}
   m_CullTransparentMesh: 0
+--- !u!61 &329938815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329938809}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &330061045
 GameObject:
   m_ObjectHideFlags: 0
@@ -28249,7 +28377,7 @@ Transform:
   m_Children:
   - {fileID: 1803624304}
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444040774
 GameObject:
@@ -28999,7 +29127,7 @@ Transform:
   - {fileID: 961161278}
   - {fileID: 1013223052}
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457446369
 GameObject:
@@ -31146,7 +31274,7 @@ Transform:
   - {fileID: 1476396433}
   - {fileID: 869252881}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &522631547
 GameObject:
@@ -36629,7 +36757,7 @@ Transform:
   - {fileID: 408336888}
   - {fileID: 1142361888}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660619261
 GameObject:
@@ -38290,7 +38418,7 @@ Transform:
   - {fileID: 1344137356}
   - {fileID: 1206336919}
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &695791290
 MonoBehaviour:
@@ -38420,7 +38548,7 @@ Transform:
   - {fileID: 863997543}
   - {fileID: 1542898951}
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699282371
 GameObject:
@@ -44517,6 +44645,7 @@ GameObject:
   - component: {fileID: 824465074}
   - component: {fileID: 824465073}
   - component: {fileID: 824465072}
+  - component: {fileID: 824465075}
   - component: {fileID: 824465071}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (7)
@@ -44544,22 +44673,27 @@ RectTransform:
   m_AnchoredPosition: {x: 546.7001, y: -100}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &824465071
-Rigidbody:
+--- !u!50 &824465071
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824465069}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &824465072
 Animation:
   m_ObjectHideFlags: 0
@@ -44613,6 +44747,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824465069}
   m_CullTransparentMesh: 0
+--- !u!61 &824465075
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824465069}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &827531851
 GameObject:
   m_ObjectHideFlags: 0
@@ -44773,6 +44933,7 @@ GameObject:
   - component: {fileID: 828668337}
   - component: {fileID: 828668336}
   - component: {fileID: 828668335}
+  - component: {fileID: 828668338}
   - component: {fileID: 828668334}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (8)
@@ -44800,22 +44961,27 @@ RectTransform:
   m_AnchoredPosition: {x: 260.2, y: -60}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &828668334
-Rigidbody:
+--- !u!50 &828668334
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828668332}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &828668335
 Animation:
   m_ObjectHideFlags: 0
@@ -44869,6 +45035,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828668332}
   m_CullTransparentMesh: 0
+--- !u!61 &828668338
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828668332}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &829504692
 GameObject:
   m_ObjectHideFlags: 0
@@ -45616,7 +45808,7 @@ RectTransform:
   - {fileID: 1056921}
   - {fileID: 1678745314}
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -47935,7 +48127,7 @@ Transform:
   - {fileID: 1082875870}
   - {fileID: 1935928332}
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910521777
 GameObject:
@@ -48399,7 +48591,7 @@ Transform:
   - {fileID: 1098191253}
   - {fileID: 1767518861}
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &924103386
 GameObject:
@@ -48603,6 +48795,7 @@ GameObject:
   - component: {fileID: 925641012}
   - component: {fileID: 925641011}
   - component: {fileID: 925641010}
+  - component: {fileID: 925641013}
   - component: {fileID: 925641009}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (2)
@@ -48630,22 +48823,27 @@ RectTransform:
   m_AnchoredPosition: {x: 48.80005, y: -624}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &925641009
-Rigidbody:
+--- !u!50 &925641009
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925641007}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &925641010
 Animation:
   m_ObjectHideFlags: 0
@@ -48699,6 +48897,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925641007}
   m_CullTransparentMesh: 0
+--- !u!61 &925641013
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925641007}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &930516552
 GameObject:
   m_ObjectHideFlags: 0
@@ -48902,6 +49126,7 @@ Transform:
   - {fileID: 1807276734}
   - {fileID: 352251512}
   - {fileID: 1804799537}
+  - {fileID: 2073854841}
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55304,7 +55529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1099118921
 MonoBehaviour:
@@ -57717,7 +57942,7 @@ Transform:
   - {fileID: 1902801492}
   - {fileID: 585050492}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1192964301
 GameObject:
@@ -57731,6 +57956,7 @@ GameObject:
   - component: {fileID: 1192964306}
   - component: {fileID: 1192964305}
   - component: {fileID: 1192964304}
+  - component: {fileID: 1192964307}
   - component: {fileID: 1192964303}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (11)
@@ -57758,22 +57984,27 @@ RectTransform:
   m_AnchoredPosition: {x: 355.9, y: 48}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1192964303
-Rigidbody:
+--- !u!50 &1192964303
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192964301}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1192964304
 Animation:
   m_ObjectHideFlags: 0
@@ -57827,6 +58058,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192964301}
   m_CullTransparentMesh: 0
+--- !u!61 &1192964307
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192964301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1193659664
 GameObject:
   m_ObjectHideFlags: 0
@@ -60677,7 +60934,7 @@ Transform:
   - {fileID: 1541853538}
   - {fileID: 1782997839}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264615846
 GameObject:
@@ -60881,6 +61138,7 @@ GameObject:
   - component: {fileID: 1268775733}
   - component: {fileID: 1268775732}
   - component: {fileID: 1268775731}
+  - component: {fileID: 1268775734}
   - component: {fileID: 1268775730}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (3)
@@ -60908,22 +61166,27 @@ RectTransform:
   m_AnchoredPosition: {x: -237.70001, y: -592}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1268775730
-Rigidbody:
+--- !u!50 &1268775730
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268775728}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1268775731
 Animation:
   m_ObjectHideFlags: 0
@@ -60977,6 +61240,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268775728}
   m_CullTransparentMesh: 0
+--- !u!61 &1268775734
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268775728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1276739133
 GameObject:
   m_ObjectHideFlags: 0
@@ -62987,6 +63276,7 @@ GameObject:
   - component: {fileID: 1307985597}
   - component: {fileID: 1307985596}
   - component: {fileID: 1307985595}
+  - component: {fileID: 1307985598}
   - component: {fileID: 1307985594}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (4)
@@ -63014,22 +63304,27 @@ RectTransform:
   m_AnchoredPosition: {x: 48.80005, y: -552}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1307985594
-Rigidbody:
+--- !u!50 &1307985594
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307985592}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1307985595
 Animation:
   m_ObjectHideFlags: 0
@@ -63083,6 +63378,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307985592}
   m_CullTransparentMesh: 0
+--- !u!61 &1307985598
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307985592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1312017238
 GameObject:
   m_ObjectHideFlags: 0
@@ -66466,7 +66787,7 @@ Transform:
   m_Children:
   - {fileID: 405512856}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391146743
 GameObject:
@@ -79631,7 +79952,7 @@ Transform:
   - {fileID: 1816547556}
   - {fileID: 1436592513}
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515032507
 GameObject:
@@ -80095,7 +80416,7 @@ Transform:
   - {fileID: 1189934902}
   - {fileID: 805994603}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1520662540
 MonoBehaviour:
@@ -82551,7 +82872,7 @@ Transform:
   - {fileID: 1005789055}
   - {fileID: 1408960887}
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579241959
 GameObject:
@@ -83585,7 +83906,7 @@ Transform:
   - {fileID: 2141465374}
   - {fileID: 1971239579}
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615487025
 GameObject:
@@ -84221,6 +84542,7 @@ GameObject:
   - component: {fileID: 1644363910}
   - component: {fileID: 1644363909}
   - component: {fileID: 1644363908}
+  - component: {fileID: 1644363911}
   - component: {fileID: 1644363907}
   m_Layer: 5
   m_Name: Left Arrow(Clone)
@@ -84248,22 +84570,27 @@ RectTransform:
   m_AnchoredPosition: {x: 48.80005, y: -692}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1644363907
-Rigidbody:
+--- !u!50 &1644363907
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644363905}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1644363908
 Animation:
   m_ObjectHideFlags: 0
@@ -84317,6 +84644,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644363905}
   m_CullTransparentMesh: 0
+--- !u!61 &1644363911
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644363905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1645291429
 GameObject:
   m_ObjectHideFlags: 0
@@ -84443,6 +84796,7 @@ GameObject:
   - component: {fileID: 1648877555}
   - component: {fileID: 1648877554}
   - component: {fileID: 1648877553}
+  - component: {fileID: 1648877556}
   - component: {fileID: 1648877552}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (6)
@@ -84470,22 +84824,27 @@ RectTransform:
   m_AnchoredPosition: {x: -46.900024, y: -416}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1648877552
-Rigidbody:
+--- !u!50 &1648877552
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648877550}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1648877553
 Animation:
   m_ObjectHideFlags: 0
@@ -84539,6 +84898,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648877550}
   m_CullTransparentMesh: 0
+--- !u!61 &1648877556
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648877550}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1652167145
 GameObject:
   m_ObjectHideFlags: 0
@@ -87568,7 +87953,7 @@ Transform:
   m_Children:
   - {fileID: 394787564}
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741210969
 GameObject:
@@ -89933,6 +90318,7 @@ GameObject:
   - component: {fileID: 1799902078}
   - component: {fileID: 1799902077}
   - component: {fileID: 1799902076}
+  - component: {fileID: 1799902079}
   - component: {fileID: 1799902075}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (13)
@@ -89960,22 +90346,27 @@ RectTransform:
   m_AnchoredPosition: {x: 260.2, y: 256}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1799902075
-Rigidbody:
+--- !u!50 &1799902075
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799902073}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1799902076
 Animation:
   m_ObjectHideFlags: 0
@@ -90029,6 +90420,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799902073}
   m_CullTransparentMesh: 0
+--- !u!61 &1799902079
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799902073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1801215204
 GameObject:
   m_ObjectHideFlags: 0
@@ -94496,7 +94913,7 @@ Transform:
   - {fileID: 2104661298}
   - {fileID: 1920223413}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874865805
 GameObject:
@@ -95765,6 +96182,7 @@ GameObject:
   - component: {fileID: 1905894362}
   - component: {fileID: 1905894361}
   - component: {fileID: 1905894360}
+  - component: {fileID: 1905894363}
   - component: {fileID: 1905894359}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (9)
@@ -95792,22 +96210,27 @@ RectTransform:
   m_AnchoredPosition: {x: 546.7001, y: -24}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &1905894359
-Rigidbody:
+--- !u!50 &1905894359
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905894357}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &1905894360
 Animation:
   m_ObjectHideFlags: 0
@@ -95861,6 +96284,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905894357}
   m_CullTransparentMesh: 0
+--- !u!61 &1905894363
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905894357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1911387544
 GameObject:
   m_ObjectHideFlags: 0
@@ -96437,7 +96886,7 @@ Transform:
   - {fileID: 568213095}
   - {fileID: 600241327}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922426095
 GameObject:
@@ -96988,7 +97437,7 @@ Transform:
   - {fileID: 1860005561}
   - {fileID: 354923534}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935174111
 GameObject:
@@ -98092,7 +98541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961910703
 GameObject:
@@ -100666,7 +101115,7 @@ Transform:
   - {fileID: 1577325577}
   - {fileID: 1090436331}
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021650892
 GameObject:
@@ -101542,7 +101991,7 @@ Transform:
   - {fileID: 1869132578}
   - {fileID: 1372512996}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2050046964
 GameObject:
@@ -101732,7 +102181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2056370993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -102093,7 +102542,7 @@ Transform:
   - {fileID: 449583530}
   - {fileID: 1296046856}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069377360
 GameObject:
@@ -102414,7 +102863,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073854840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -102424,8 +102873,8 @@ Transform:
   - {fileID: 794407497}
   - {fileID: 1923643422}
   - {fileID: 1367309523}
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 936852928}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2073854842
 MonoBehaviour:
@@ -102480,7 +102929,7 @@ Transform:
   - {fileID: 400567817}
   - {fileID: 1768708863}
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082085521
 GameObject:
@@ -104682,6 +105131,7 @@ GameObject:
   - component: {fileID: 2135156980}
   - component: {fileID: 2135156979}
   - component: {fileID: 2135156978}
+  - component: {fileID: 2135156981}
   - component: {fileID: 2135156977}
   m_Layer: 5
   m_Name: Left Arrow(Clone) (1)
@@ -104709,22 +105159,27 @@ RectTransform:
   m_AnchoredPosition: {x: -237.70001, y: -660}
   m_SizeDelta: {x: 75.36391, y: 75.36391}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &2135156977
-Rigidbody:
+--- !u!50 &2135156977
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135156975}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!111 &2135156978
 Animation:
   m_ObjectHideFlags: 0
@@ -104778,6 +105233,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135156975}
   m_CullTransparentMesh: 0
+--- !u!61 &2135156981
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135156975}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2135535115
 GameObject:
   m_ObjectHideFlags: 0
