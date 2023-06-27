@@ -317,8 +317,8 @@ public class TimeKeeper : MonoBehaviour
     public void resetGame()
     {
         currentScene = 0;
-        StopCoroutine(cityAndBarCo);
-        StopCoroutine(fullCoins);
+        if(cityAndBarCo != null) StopCoroutine(cityAndBarCo);
+        if(fullCoins != null) StopCoroutine(fullCoins);
 
         citybehavior.Reset();
         landlord.Reset();
