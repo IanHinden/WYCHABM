@@ -7,6 +7,7 @@ public class detectionSquare : MonoBehaviour
 {
     [SerializeField] GameObject perfect;
     [SerializeField] GameObject good;
+
     void OnTriggerEnter2D(Collider2D col)
     {
         float distance = Vector3.Distance(transform.position, col.gameObject.transform.position);
@@ -32,4 +33,10 @@ public class detectionSquare : MonoBehaviour
         GameObject goodSign = Instantiate(good, new Vector3(640f, 360f, 0), Quaternion.identity);
         goodSign.transform.SetParent(transform);
     }
+
+    /*private void SpawnMiss()
+    {
+        GameObject missSign = Instantiate(miss, new Vector3(640f, 360f, 0), Quaternion.identity);
+        missSign.transform.SetParent(transform);
+    }*/
 }
