@@ -11,7 +11,6 @@ public class detectionSquare : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         float distance = Vector3.Distance(transform.position, col.gameObject.transform.position);
-        Debug.Log(distance);
         if(distance <= 3)
         {
             SpawnPerfect();
@@ -33,10 +32,4 @@ public class detectionSquare : MonoBehaviour
         GameObject goodSign = Instantiate(good, new Vector3(640f, 360f, 0), Quaternion.identity);
         goodSign.transform.SetParent(transform);
     }
-
-    /*private void SpawnMiss()
-    {
-        GameObject missSign = Instantiate(miss, new Vector3(640f, 360f, 0), Quaternion.identity);
-        missSign.transform.SetParent(transform);
-    }*/
 }
