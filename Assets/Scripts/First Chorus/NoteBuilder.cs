@@ -37,6 +37,7 @@ public class NoteBuilder : MonoBehaviour
         Vector3 spawnPosition = transform.position + new Vector3(-189f, 0f, 0f); // Calculate the spawn position
         //Quaternion spawnRotation = Quaternion.Euler(0f, 0f, 90f); // Define the rotation
         GameObject DownArrow = Instantiate(leftArrow, spawnPosition, Quaternion.identity);
+        DownArrow.transform.localScale = Vector3.one;
         DownArrow.transform.SetParent(transform);
         Rigidbody arrowRB = DownArrow.GetComponent<Rigidbody>();
         arrowRB.velocity = Vector3.down * speed;
