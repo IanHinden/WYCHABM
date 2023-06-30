@@ -5,8 +5,19 @@ using UnityEngine.U2D;
 
 public class detectionSquare : MonoBehaviour
 {
+    [SerializeField] TimeFunctions timefunctions;
     [SerializeField] GameObject perfect;
     [SerializeField] GameObject good;
+
+    private Animator anim;
+    private float measure;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        measure = timefunctions.ReturnSingleMeasure();
+        StartCoroutine(Blink());
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -31,5 +42,14 @@ public class detectionSquare : MonoBehaviour
     {
         GameObject goodSign = Instantiate(good, new Vector3(640f, 360f, 0), Quaternion.identity);
         goodSign.transform.SetParent(transform);
+    }
+
+    private IEnumerator Blink()
+    {
+        while (true)
+        {
+            anim.SetTrigger("Blink");
+            yield return new WaitForSeconds(measure / 2);
+        }
     }
 }
