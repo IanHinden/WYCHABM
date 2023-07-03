@@ -14,6 +14,9 @@ public class Landlord : MonoBehaviour
     [SerializeField] GameObject lightning;
     SpriteRenderer lightningSR;
 
+    SpriteRenderer landlordSR;
+    SpriteRenderer avaSR;
+
     Animator landlordAnim;
     Animator avaAnim;
     void Awake()
@@ -22,6 +25,8 @@ public class Landlord : MonoBehaviour
         avaAnim = ava.GetComponent<Animator>();
         dialogue.transform.position = new Vector2(0, -6.5f);
         lightningSR = lightning.GetComponent<SpriteRenderer>();
+        landlordSR = landlord.transform.Find("Landlord").GetComponent<SpriteRenderer>();
+        avaSR = ava.transform.Find("Ava").GetComponent<SpriteRenderer>();
         StartCoroutine(LightningFlash());
     }
 
@@ -45,16 +50,28 @@ public class Landlord : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         lightningSR.color = new Color(1, 1, 1, 1);
+        landlordSR.color = new Color(0, 0, 0, 1);
+        avaSR.color = new Color(0, 0, 0, 1);
         yield return new WaitForSeconds(.03f);
         lightningSR.color = new Color(1, 1, 1, 0);
+        landlordSR.color = new Color(1, 1, 1, 1);
+        avaSR.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(.03f);
         lightningSR.color = new Color(1, 1, 1, 1);
+        landlordSR.color = new Color(0, 0, 0, 1);
+        avaSR.color = new Color(0, 0, 0, 1);
         yield return new WaitForSeconds(.03f);
         lightningSR.color = new Color(1, 1, 1, 0);
+        landlordSR.color = new Color(1, 1, 1, 1);
+        avaSR.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(.03f);
         lightningSR.color = new Color(1, 1, 1, 1);
+        landlordSR.color = new Color(0, 0, 0, 1);
+        avaSR.color = new Color(0, 0, 0, 1);
         yield return new WaitForSeconds(.03f);
         lightningSR.color = new Color(1, 1, 1, 0);
+        landlordSR.color = new Color(1, 1, 1, 1);
+        avaSR.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(.03f);
     }
 }
