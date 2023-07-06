@@ -8,24 +8,29 @@ public class StoryTimerOD : MonoBehaviour
 
     private float measureMS;
 
-    [SerializeField] private Topless topless;
-    private SpriteRenderer flashing;
-    private Animator flashingMove;
+    [SerializeField] GameObject back;
+    [SerializeField] GameObject front;
+
+    private SpriteRenderer backSR;
+    private SpriteRenderer frontSR;
+    //private Animator flashingMove;
 
     void Awake()
     {
         measureMS = timefunctions.ReturnSingleMeasure();
 
-        flashing = topless.GetComponent<SpriteRenderer>();
-        flashingMove = topless.GetComponent<Animator>();
+        backSR = back.GetComponent<SpriteRenderer>();
+        frontSR = front.GetComponent<SpriteRenderer>();
+        //flashingMove = topless.GetComponent<Animator>();
         StartCoroutine(SceneTiming());
     }
 
     private IEnumerator SceneTiming()
     {
         yield return new WaitForSeconds(measureMS * 8f);
-        flashing.enabled = true;
+        frontSR.enabled = true;
+        backSR.enabled = false;
         yield return new WaitForSeconds(measureMS * 1);
-        flashingMove.SetTrigger("Flash");
+        //flashingMove.SetTrigger("Flash");
     }
 }
