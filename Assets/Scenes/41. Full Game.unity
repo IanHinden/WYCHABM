@@ -33977,8 +33977,9 @@ GameObject:
   m_Component:
   - component: {fileID: 413099878}
   - component: {fileID: 413099879}
+  - component: {fileID: 413099880}
   m_Layer: 0
-  m_Name: GameboyFalling
+  m_Name: PortableGamingDeviceFalling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33992,7 +33993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413099877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.11, z: 0}
+  m_LocalPosition: {x: -0.37, y: 3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1009282878}
@@ -34048,6 +34049,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &413099880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413099877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4d18291e04f74d47ab00e77804de4b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &415431565
 GameObject:
   m_ObjectHideFlags: 0
@@ -60355,6 +60375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880566669}
   - component: {fileID: 880566670}
+  - component: {fileID: 880566671}
   m_Layer: 0
   m_Name: Dad
   m_TagString: Untagged
@@ -60370,7 +60391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880566668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.001, z: 0}
+  m_LocalPosition: {x: 11.06, y: 0.001, z: 0}
   m_LocalScale: {x: 0.46294498, y: 0.46294498, z: 0.46294498}
   m_Children: []
   m_Father: {fileID: 1520662539}
@@ -60426,6 +60447,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &880566671
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880566668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76f83cc1272ddb44b88ed4e097aaee25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &880707302
 GameObject:
   m_ObjectHideFlags: 0
@@ -66358,6 +66398,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1017482883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017482884}
+  - component: {fileID: 1017482885}
+  m_Layer: 0
+  m_Name: GetAJobTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017482884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017482883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1520662539}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017482885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017482883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dde899ed50e6744ba7334115b39711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFunctions: {fileID: 1358544022}
+  eyesPlaying: {fileID: 1617966383}
+  eyesShocked: {fileID: 2033851974}
+  portableGamingDeviceInHand: {fileID: 1959395628}
+  portableGamingDeviceFalling: {fileID: 413099877}
 --- !u!1 &1019392931
 GameObject:
   m_ObjectHideFlags: 0
@@ -102817,7 +102905,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520662539}
-  - component: {fileID: 1520662540}
   m_Layer: 0
   m_Name: 15. Get a Job
   m_TagString: Untagged
@@ -102846,22 +102933,10 @@ Transform:
   - {fileID: 1164048424}
   - {fileID: 1569582880}
   - {fileID: 880566669}
+  - {fileID: 1017482884}
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1520662540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520662538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd2af931b69a77498e4f1a6492e7e92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 1550866436}
 --- !u!1 &1525725276
 GameObject:
   m_ObjectHideFlags: 0
@@ -122986,7 +123061,7 @@ GameObject:
   - component: {fileID: 1959395629}
   - component: {fileID: 1959395630}
   m_Layer: 0
-  m_Name: GameboyInHands
+  m_Name: PortableGamingDeviceInHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
