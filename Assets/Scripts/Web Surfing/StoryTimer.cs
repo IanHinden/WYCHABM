@@ -7,6 +7,8 @@ public class StoryTimer : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] GameObject computerScreen;
+
     private float measureMS;
 
     Pointer pointer;
@@ -23,7 +25,7 @@ public class StoryTimer : MonoBehaviour
         pointerAnim = pointer.GetComponent<Animator>();
         pointerSR = pointer.GetComponent<SpriteRenderer>();
 
-        laptop = FindObjectOfType<Laptop>().GetComponent<SpriteRenderer>();
+        //laptop = FindObjectOfType<Laptop>().GetComponent<SpriteRenderer>();
 
         StartCoroutine(timedEvents());
     }
@@ -31,15 +33,15 @@ public class StoryTimer : MonoBehaviour
     private IEnumerator timedEvents()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        laptop.enabled = true;
+        computerScreen.SetActive(true);
         pointerSR.enabled = true;
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        laptop.enabled = false;
+        computerScreen.SetActive(false);
         pointerSR.enabled = false;
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        laptop.enabled = true;
+        computerScreen.SetActive(true);
         pointerSR.enabled = true;
         pointerAnim.SetTrigger("Pointer");
     }
