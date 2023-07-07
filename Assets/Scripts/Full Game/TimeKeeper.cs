@@ -153,8 +153,10 @@ public class TimeKeeper : MonoBehaviour
     private void resetCamera()
     {
         Vector3 targetPosition = new Vector3(0f, 0f, -10f);
+        Camera camera = maincamera.GetComponent<Camera>();
 
         maincamera.transform.position = targetPosition;
+        camera.orthographicSize = 5;
     }
 
     public IEnumerator SwitchScene()
@@ -268,6 +270,7 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Bar View
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
+        resetCamera();
 
         nextScene(); //Make a Deal
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX");
