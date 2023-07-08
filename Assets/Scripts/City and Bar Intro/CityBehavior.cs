@@ -83,10 +83,10 @@ public class CityBehavior : MonoBehaviour
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
         dialogue.DialogueEnter();
-        avaEyesClosed.enabled = false;
-        avaEyesOpen.enabled = true;
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
         yield return new WaitForSeconds(2f);
+        avaEyesClosed.enabled = false;
+        avaEyesOpen.enabled = true;
         dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
         yield return new WaitForSeconds(1.7f);
         dialogue.DialogueExit();
