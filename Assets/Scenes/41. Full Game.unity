@@ -825,7 +825,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 3249e3ff840b40a4292520632ffaf69d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1fb60e8dbc4d97c409c63ee1962556b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -19624,7 +19624,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: e7b36f23e4b515242b71c9ac469b08fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43489168431746a4a9b436ae0c8f482f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -77612,7 +77612,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 2808d980b6e05c545a339d4d9b334d8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3707f8c8ec801194ea0569dc03c94b4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124574,7 +124574,7 @@ GameObject:
   - component: {fileID: 1971239581}
   - component: {fileID: 1971239580}
   m_Layer: 0
-  m_Name: PityPartyDialogueText
+  m_Name: SickText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124596,7 +124596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.33, y: -3.55}
+  m_AnchoredPosition: {x: 7.33, y: -2.96}
   m_SizeDelta: {x: 4.3600006, y: 0.80387115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971239580
@@ -127012,7 +127012,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 81a648badaed8874aa6180d8637b23f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c6ef0b8d56d7284ba4aeedbaf793db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
