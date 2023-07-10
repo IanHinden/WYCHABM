@@ -8,10 +8,10 @@ public class StoryTimer : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
 
     [SerializeField] GameObject computerScreen;
+    [SerializeField] GameObject pointer;
 
     private float measureMS;
 
-    Pointer pointer;
     Animator pointerAnim;
 
     private SpriteRenderer laptop;
@@ -21,7 +21,6 @@ public class StoryTimer : MonoBehaviour
     {
         measureMS = timefunctions.ReturnSingleMeasure();
 
-        pointer = FindObjectOfType<Pointer>();
         pointerAnim = pointer.GetComponent<Animator>();
         pointerSR = pointer.GetComponent<SpriteRenderer>();
 
