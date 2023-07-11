@@ -15,6 +15,6 @@ public class AbsentDad : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
         dialogue.DialogueEnter();
-        StartCoroutine(dialogue.SetDialogue("Sorry, kiddo. Tell mom I won't be home. I got a lot of work to finish at the office. "));
+        StartCoroutine(dialogue.SetDialogue("Tell mom I won't be home. I got a lot of work to finish at the office. "));
     }
 }
