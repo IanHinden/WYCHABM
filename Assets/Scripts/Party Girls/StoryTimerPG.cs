@@ -6,6 +6,8 @@ public class StoryTimerPG : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] GameObject gettingReady;
+
     private float measureMS;
     public float rotationSpeed = 1f;
     public float rotationDuration = 2f;
@@ -14,11 +16,12 @@ public class StoryTimerPG : MonoBehaviour
     {
         measureMS = timefunctions.ReturnSingleMeasure();
 
-        //StartCoroutine(timedEvents());
+        StartCoroutine(timedEvents());
     }
 
     private IEnumerator timedEvents()
     {
         yield return new WaitForSeconds(5f);
+        gettingReady.SetActive(false);
     }
 }

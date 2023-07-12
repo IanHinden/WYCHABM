@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Print : MonoBehaviour
 {
-    [SerializeField] public Ink ink;
-
     public GameObject linePrefab;
     private penLine myLine;
 
@@ -18,7 +16,6 @@ public class Print : MonoBehaviour
 
     public void InkSpawner()
     {
-        //StartCoroutine(InkLine());
         if (myLine != null)
         {
             Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
@@ -26,18 +23,8 @@ public class Print : MonoBehaviour
         }
     }
 
-
-    /*
-    private void spawnInk()
+    public void DeletePenLine()
     {
-        Ink inkBlot = Instantiate(ink) as Ink;
-        inkBlot.transform.position = this.transform.position;
+        Destroy(myLine);
     }
-
-    private IEnumerator InkLine()
-    {
-        yield return new WaitForSeconds(.1f);
-        spawnInk();
-    }
-    */
 }
