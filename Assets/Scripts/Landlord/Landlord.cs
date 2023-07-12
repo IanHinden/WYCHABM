@@ -19,6 +19,8 @@ public class Landlord : MonoBehaviour
 
     Animator landlordAnim;
     Animator avaAnim;
+
+    private float flashTime = .04f;
     void Awake()
     {
         landlordAnim = landlord.GetComponent<Animator>();
@@ -27,7 +29,6 @@ public class Landlord : MonoBehaviour
         lightningSR = lightning.GetComponent<SpriteRenderer>();
         landlordSR = landlord.transform.Find("Landlord").GetComponent<SpriteRenderer>();
         avaSR = ava.transform.Find("Ava").GetComponent<SpriteRenderer>();
-        StartCoroutine(LightningFlash());
     }
 
     public IEnumerator Dialogue()
@@ -37,6 +38,7 @@ public class Landlord : MonoBehaviour
         avaAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("Pay the rent or get out."));
+        StartCoroutine(LightningFlash());
     }
 
     public void Reset()
@@ -48,30 +50,30 @@ public class Landlord : MonoBehaviour
     //TODO This might need to go into a non-Awake function for reset
     private IEnumerator LightningFlash()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(.5f);
         lightningSR.color = new Color(1, 1, 1, 1);
         landlordSR.color = new Color(0, 0, 0, 1);
         avaSR.color = new Color(0, 0, 0, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
         lightningSR.color = new Color(1, 1, 1, 0);
         landlordSR.color = new Color(1, 1, 1, 1);
         avaSR.color = new Color(1, 1, 1, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
         lightningSR.color = new Color(1, 1, 1, 1);
         landlordSR.color = new Color(0, 0, 0, 1);
         avaSR.color = new Color(0, 0, 0, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
         lightningSR.color = new Color(1, 1, 1, 0);
         landlordSR.color = new Color(1, 1, 1, 1);
         avaSR.color = new Color(1, 1, 1, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
         lightningSR.color = new Color(1, 1, 1, 1);
         landlordSR.color = new Color(0, 0, 0, 1);
         avaSR.color = new Color(0, 0, 0, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
         lightningSR.color = new Color(1, 1, 1, 0);
         landlordSR.color = new Color(1, 1, 1, 1);
         avaSR.color = new Color(1, 1, 1, 1);
-        yield return new WaitForSeconds(.03f);
+        yield return new WaitForSeconds(flashTime);
     }
 }
