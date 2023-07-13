@@ -62,6 +62,7 @@ public class TimeKeeper : MonoBehaviour
     [Header("Reset Scripts")]
     [SerializeField] CityBehavior citybehavior;
     [SerializeField] FullCoins fullcoins;
+    [SerializeField] Contract contract;
     [SerializeField] Landlord landlord;
 
     [Header("Necesary Functions")]
@@ -74,6 +75,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine cityAndBarCo;
     Coroutine fullCoins;
     Coroutine landlordCo;
+    Coroutine contractCo;
 
     void Awake()
     {
@@ -176,6 +178,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Fired
         yield return FadeOutroEffect(2, new Vector2(635f, 375f), "SIGN");
         nextScene(6, true, new Vector2(699f, 167f)); //Contract
+        contractCo = StartCoroutine(contract.WinOrLose());
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); //Landlord
@@ -319,13 +322,16 @@ public class TimeKeeper : MonoBehaviour
 
     public void resetGame()
     {
+        resetCamera();
         currentScene = 0;
         if(cityAndBarCo != null) StopCoroutine(cityAndBarCo);
         if(fullCoins != null) StopCoroutine(fullCoins);
+        if(contractCo != null) StopCoroutine(contractCo);
 
         citybehavior.Reset();
         landlord.Reset();
         fullcoins.Reset();
+        contract.Reset();
 
         foreach (GameObject scene in allscenes)
         {

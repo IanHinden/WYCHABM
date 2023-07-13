@@ -31,6 +31,11 @@ public class Hand : MonoBehaviour
         return moved;
     }
 
+    public void resetMoved()
+    {
+        moved = false;
+    }
+
     void Update()
     {
         Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
@@ -45,14 +50,6 @@ public class Hand : MonoBehaviour
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
         currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
         currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
-
-        /*
-        //Need a better solution to stop constant calls
-        if (movementInput.x < 0 || movementInput.y < 0 || movementInput.x > 0 || movementInput.y > 0)
-        {
-            //print.InkSpawner();
-        }
-        */
 
         print.InkSpawner();
 

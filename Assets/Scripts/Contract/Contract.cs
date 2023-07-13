@@ -8,12 +8,9 @@ public class Contract : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] Hand hand;
-    void Awake()
-    {
-        StartCoroutine(WinOrLose());
-    }
+    [SerializeField] Print print;
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
@@ -31,5 +28,13 @@ public class Contract : MonoBehaviour
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
+    }
+
+    public void Reset()
+    {
+        hand.transform.position = new Vector3(3.07f, -1.49f, 0f);
+        hand.resetMoved();
+        print.DeletePenLine();
+        print.createLine();
     }
 }

@@ -34,4 +34,9 @@ public class penLine : MonoBehaviour
         lineRenderer.positionCount = points.Count;
         lineRenderer.SetPosition(points.Count - 1, point);
     }
+
+    public void ResetLine()
+    {
+        lineRenderer.positionCount = 0;
+    }
 }

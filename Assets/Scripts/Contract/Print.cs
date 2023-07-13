@@ -9,9 +9,7 @@ public class Print : MonoBehaviour
 
     void Awake()
     {
-        GameObject newLine = Instantiate(linePrefab);
-        myLine = newLine.GetComponent<penLine>();
-        myLine.transform.parent = this.transform;
+        createLine();
     }
 
     public void InkSpawner()
@@ -23,8 +21,15 @@ public class Print : MonoBehaviour
         }
     }
 
+    public void createLine()
+    {
+        GameObject newLine = Instantiate(linePrefab);
+        myLine = newLine.GetComponent<penLine>();
+        myLine.transform.parent = this.transform;
+    }
+
     public void DeletePenLine()
     {
-        Destroy(myLine);
+        myLine.ResetLine();
     }
 }

@@ -2622,6 +2622,7 @@ MonoBehaviour:
   timefunctions: {fileID: 1358544022}
   scorehandler: {fileID: 585011356}
   hand: {fileID: 402460005}
+  print: {fileID: 356737043}
 --- !u!1 &41415824
 GameObject:
   m_ObjectHideFlags: 0
@@ -28560,7 +28561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402460003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0699997, y: -1.49, z: 179.82118}
+  m_LocalPosition: {x: 3.0699997, y: -1.49, z: 0}
   m_LocalScale: {x: 0.25735343, y: 0.25735343, z: 0.25735343}
   m_Children:
   - {fileID: 356737042}
@@ -36489,7 +36490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472747162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.30999756, y: 0.08999938, z: 179.82118}
+  m_LocalPosition: {x: 0.30999756, y: 0.08999938, z: 0}
   m_LocalScale: {x: 0.68977624, y: 0.66567284, z: 0.5743236}
   m_Children: []
   m_Father: {fileID: 40331907}
@@ -54015,7 +54016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &738065872
 Transform:
   m_ObjectHideFlags: 0
@@ -126947,6 +126948,7 @@ MonoBehaviour:
   ScoreScreen: {fileID: 1738708644}
   citybehavior: {fileID: 1741210971}
   fullcoins: {fileID: 571885436}
+  contract: {fileID: 40331908}
   landlord: {fileID: 1080107919}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
