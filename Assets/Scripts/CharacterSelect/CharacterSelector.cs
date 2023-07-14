@@ -22,6 +22,10 @@ public class CharacterSelector : MonoBehaviour
     Animator HomelessGirlAnim;
     Animator CongressAnim;
 
+    Animator OFGirlMoves;
+    Animator HomelessGirlMoves;
+    Animator CongresswomanMoves;
+
     ParticleSystem CongresswomanParticleSystem;
     ParticleSystem OFParticleSystem;
     ParticleSystem HomelessParticleSystem;
@@ -45,7 +49,7 @@ public class CharacterSelector : MonoBehaviour
         characterSelectControls.Select.Choose.performed += x => StartCoroutine(select());
 
         characters = FindObjectsOfType<Character>();
-        
+
         //Sprites
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -55,6 +59,10 @@ public class CharacterSelector : MonoBehaviour
         OFGirlAnim = characters[0].GetComponent<Animator>();
         HomelessGirlAnim = characters[1].GetComponent<Animator>();
         CongressAnim = FindObjectOfType<Congress>().GetComponent<Animator>();
+
+        OFGirlMoves = characters[1].transform.GetChild(0).GetComponent<Animator>();
+        HomelessGirlMoves = characters[0].transform.GetChild(0).GetComponent<Animator>();
+        CongresswomanMoves = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<Animator>();
 
         //Particle Systems
         OFParticleSystem = characters[0].transform.GetChild(3).GetComponent<ParticleSystem>();
@@ -191,6 +199,8 @@ public class CharacterSelector : MonoBehaviour
         OFGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
         SelectSpotlight(1);
+        StopAllAnimations();
+        OFGirlMoves.SetBool("Breathing", true);
     }
 
     void SelectHomeless()
@@ -200,6 +210,8 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(126, 126, 126, 255);
         SelectSpotlight(2);
+        StopAllAnimations();
+        HomelessGirlMoves.SetBool("Breathing", true);
     }
 
     void SelectCongresswoman()
@@ -209,6 +221,8 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirl.color = new Color32(126, 126, 126, 255);
         CongressWoman.color = new Color32(255, 255, 255, 255);
         SelectSpotlight(0);
+        StopAllAnimations();
+        CongresswomanMoves.SetBool("Breathing", true);
     }
 
     IEnumerator WinOrLose()
@@ -238,5 +252,12 @@ public class CharacterSelector : MonoBehaviour
                 uihandler.LoseDisplay();
             }
         }
+    }
+
+    private void StopAllAnimations()
+    {
+        OFGirlMoves.SetBool("Breathing", false);
+        HomelessGirlMoves.SetBool("Breathing", false);
+        CongresswomanMoves.SetBool("Breathing", false);
     }
 }
