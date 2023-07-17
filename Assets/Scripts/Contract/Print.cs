@@ -30,6 +30,9 @@ public class Print : MonoBehaviour
 
     public void DeletePenLine()
     {
-        myLine.ResetLine();
+        if (myLine != null)
+        {
+            myLine.ResetLine();
+        }
     }
 }
