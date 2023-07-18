@@ -33,11 +33,12 @@ public class Landlord : MonoBehaviour
 
     public IEnumerator Dialogue()
     {
-        landlordAnim.SetTrigger("Enter");
-        yield return new WaitForSeconds(.6f);
         avaAnim.SetTrigger("Enter");
+        yield return new WaitForSeconds(.6f);
+        landlordAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("Pay the rent or get out."));
+        yield return new WaitForSeconds(.3f);
         StartCoroutine(LightningFlash());
     }
 
