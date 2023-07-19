@@ -38,7 +38,7 @@ public class Landlord : MonoBehaviour
         landlordAnim.SetTrigger("Enter");
         dialogue.DialogueEnter();
         StartCoroutine(dialogue.SetDialogue("Pay the rent or get out."));
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.8f);
         StartCoroutine(LightningFlash());
     }
 
