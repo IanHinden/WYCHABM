@@ -95,7 +95,7 @@ public class CityBehavior : MonoBehaviour
         avaPos1.SetActive(false);
         avaPos2.SetActive(true);
 
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.8f);
         lucyTalkingEyes.enabled = false;
         lucyStaringEyes.enabled = true;
         sweatAnimator.SetTrigger("SetSweat");
