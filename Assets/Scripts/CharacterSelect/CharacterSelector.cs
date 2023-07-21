@@ -260,4 +260,9 @@ public class CharacterSelector : MonoBehaviour
         HomelessGirlMoves.SetBool("Breathing", false);
         CongresswomanMoves.SetBool("Breathing", false);
     }
+
+    public void Reset()
+    {
+        StopAllAnimations();
+    }
 }

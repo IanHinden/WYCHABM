@@ -5,8 +5,16 @@ using TMPro;
 
 public class MADAnimationController : MonoBehaviour
 {
+    [SerializeField] Dialogue dialogue;
     void Awake()
     {
+        StartCoroutine(Dialogue());
+    }
 
+    public IEnumerator Dialogue()
+    {
+        yield return new WaitForSeconds(1.5f);
+        dialogue.DialogueEnter();
+        StartCoroutine(dialogue.SetDialogue("Would you like to...                                                                                  make a deal?"));
     }
 }
