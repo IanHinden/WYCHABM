@@ -60,10 +60,10 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject ScoreScreen;
 
     [Header("Reset Scripts")]
-    [SerializeField] CityBehavior citybehavior;
-    [SerializeField] FullCoins fullcoins;
-    [SerializeField] Contract contract;
-    [SerializeField] Landlord landlord;
+    [SerializeField] CityBehavior citybehavior; //Scene 3
+    [SerializeField] FullCoins fullcoins; //Scene 4
+    [SerializeField] Contract contract; //Scene 6
+    [SerializeField] Landlord landlord; //Scene 7
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -236,7 +236,7 @@ public class TimeKeeper : MonoBehaviour
         audioListener.enabled = true;
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
-        nextScene(); //Cheek to Cheek
+        nextScene(3); //Cheek to Cheek
         maincamera.SetActive(true);
         drivecamera.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));

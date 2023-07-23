@@ -15,24 +15,17 @@ public class Gameplay : MonoBehaviour
     [SerializeField] private GameControls gamecontrols;
     [SerializeField] private AnimationController animationController;
 
-    //private SceneSwitch sceneSwitch;
-    private Countdown[] countdowns;
-
     private float measureMS;
 
     private bool firstScenario = true;
 
     void Awake()
     {
-        countdowns = FindObjectsOfType<Countdown>().OrderBy(m => m.transform.position.x).ToArray();
-
         measureMS = timefunctions.ReturnSingleMeasure();
 
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => GameAction();
         StartCoroutine(GameSwitcher());
-
-        countdowns[1].StartCountdown();
     }
 
 
@@ -57,7 +50,7 @@ public class Gameplay : MonoBehaviour
         }
         animationController.CoverSwitch();
         yield return new WaitForSeconds(measureMS);
-        countdowns[0].StartCountdown();
+        //countdowns[0].StartCountdown();
         yield return new WaitForSeconds(measureMS * 3);
         if (animationController.ReturnHitTriggered() == false)
         {
