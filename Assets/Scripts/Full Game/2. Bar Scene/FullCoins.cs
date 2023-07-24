@@ -15,6 +15,8 @@ public class FullCoins : MonoBehaviour
 
     [SerializeField] Coin coin;
 
+    SpriteRenderer avaSprite;
+
     int totalCoins;
     int remainingCoins;
 
@@ -24,6 +26,7 @@ public class FullCoins : MonoBehaviour
     {
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
+        avaSprite = Ava.GetComponent<SpriteRenderer>();
         Reset();
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
     }
@@ -120,6 +123,7 @@ public class FullCoins : MonoBehaviour
     {
         CoinReset();
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
+        avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
     }
 
