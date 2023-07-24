@@ -77,6 +77,8 @@ public class TimeKeeper : MonoBehaviour
     Coroutine fullCoins;
     Coroutine landlordCo;
     Coroutine contractCo;
+    Coroutine characterSelectCo;
+
 
     void Awake()
     {
@@ -187,6 +189,7 @@ public class TimeKeeper : MonoBehaviour
 
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "SELECT");
         nextScene(6, true, new Vector2(638f, 438f)); //Character Select
+        characterSelectCo = StartCoroutine(characterSelector.WinOrLose());
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         nextScene(); // Judgement
@@ -328,6 +331,8 @@ public class TimeKeeper : MonoBehaviour
         if(cityAndBarCo != null) StopCoroutine(cityAndBarCo);
         if(fullCoins != null) StopCoroutine(fullCoins);
         if(contractCo != null) StopCoroutine(contractCo);
+        if(landlordCo != null) StopCoroutine(landlordCo);
+        if(characterSelectCo != null) StopCoroutine(characterSelectCo);
 
         citybehavior.Reset();
         fullcoins.Reset();

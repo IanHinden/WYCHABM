@@ -83,7 +83,7 @@ public class CharacterSelector : MonoBehaviour
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -229,7 +229,7 @@ public class CharacterSelector : MonoBehaviour
         CongresswomanMoves.SetBool("Breathing", true);
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
@@ -279,10 +279,22 @@ public class CharacterSelector : MonoBehaviour
         CongressObjects.transform.position = new Vector3(-16.23f, 0, 0);
         OFObjects.transform.position = new Vector3(0, 0, 0);
         HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, -1133.1f);
+
+        HomelessGirl.color = new Color32(126, 126, 126, 255);
+        OFGirl.color = new Color32(126, 126, 126, 255);
+        CongressWoman.color = new Color32(126, 126, 126, 255);
+
+        for (int j = 0; j < spotlight.Length; j++)
+        {
+            spotlight[j].SetActive(false);
+        }
     }
 
     public void Reset()
     {
+        selectedGirl = 0;
+        won = false;
+        moved = false;
         StopAllAnimations();
         ResetAllTriggers();
         ResetInitialPositions();
