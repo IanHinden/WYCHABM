@@ -64,6 +64,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] FullCoins fullcoins; //Scene 4
     [SerializeField] Contract contract; //Scene 6
     [SerializeField] Landlord landlord; //Scene 7
+    [SerializeField] CharacterSelector characterSelector; //Scene 8
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -329,9 +330,10 @@ public class TimeKeeper : MonoBehaviour
         if(contractCo != null) StopCoroutine(contractCo);
 
         citybehavior.Reset();
-        landlord.Reset();
         fullcoins.Reset();
         contract.Reset();
+        landlord.Reset();
+        characterSelector.Reset();
 
         foreach (GameObject scene in allscenes)
         {

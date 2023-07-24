@@ -8,6 +8,10 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
+    [SerializeField] GameObject CongressObjects;
+    [SerializeField] GameObject OFObjects;
+    [SerializeField] GameObject HomelessObjects;
+
     [SerializeField] GameObject CongressSpotlight;
     [SerializeField] GameObject OFSpotlight;
     [SerializeField] GameObject HomelessSpotlight;
@@ -261,8 +265,26 @@ public class CharacterSelector : MonoBehaviour
         CongresswomanMoves.SetBool("Breathing", false);
     }
 
+    private void ResetAllTriggers()
+    {
+        OFGirlAnim.ResetTrigger("First");
+        HomelessGirlAnim.ResetTrigger("First");
+        OFGirlAnim.ResetTrigger("Second");
+        HomelessGirlAnim.ResetTrigger("Second");
+        CongressAnim.ResetTrigger("First");
+    }
+
+    private void ResetInitialPositions()
+    {
+        CongressObjects.transform.position = new Vector3(-16.23f, 0, 0);
+        OFObjects.transform.position = new Vector3(0, 0, 0);
+        HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, -1133.1f);
+    }
+
     public void Reset()
     {
         StopAllAnimations();
+        ResetAllTriggers();
+        ResetInitialPositions();
     }
 }

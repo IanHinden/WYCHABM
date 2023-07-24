@@ -81039,6 +81039,9 @@ MonoBehaviour:
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   scorehandler: {fileID: 585011356}
+  CongressObjects: {fileID: 1277264319}
+  OFObjects: {fileID: 1564230288}
+  HomelessObjects: {fileID: 1038108480}
   CongressSpotlight: {fileID: 2042162785}
   OFSpotlight: {fileID: 1727141755}
   HomelessSpotlight: {fileID: 659399136}
@@ -132398,6 +132401,7 @@ MonoBehaviour:
   fullcoins: {fileID: 571885436}
   contract: {fileID: 40331908}
   landlord: {fileID: 1080107919}
+  characterSelector: {fileID: 1211561390}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
