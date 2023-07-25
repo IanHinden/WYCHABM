@@ -260,18 +260,40 @@ public class CharacterSelector : MonoBehaviour
 
     private void StopAllAnimations()
     {
-        OFGirlMoves.SetBool("Breathing", false);
-        HomelessGirlMoves.SetBool("Breathing", false);
-        CongresswomanMoves.SetBool("Breathing", false);
+        if (OFGirlMoves != null && OFGirlMoves.runtimeAnimatorController != null)
+        {
+            OFGirlMoves.SetBool("Breathing", false);
+        }
+
+        if (HomelessGirlMoves != null && HomelessGirlMoves.runtimeAnimatorController != null)
+        {
+            HomelessGirlMoves.SetBool("Breathing", false);
+        }
+
+        if (CongresswomanMoves != null && CongresswomanMoves.runtimeAnimatorController != null)
+        {
+            CongresswomanMoves.SetBool("Breathing", false);
+        }
     }
 
     private void ResetAllTriggers()
     {
-        OFGirlAnim.ResetTrigger("First");
-        HomelessGirlAnim.ResetTrigger("First");
-        OFGirlAnim.ResetTrigger("Second");
-        HomelessGirlAnim.ResetTrigger("Second");
-        CongressAnim.ResetTrigger("First");
+        if (OFGirlAnim != null && OFGirlAnim.runtimeAnimatorController != null)
+        {
+            OFGirlAnim.ResetTrigger("First");
+            OFGirlAnim.ResetTrigger("Second");
+        }
+
+        if (HomelessGirlAnim != null && HomelessGirlAnim.runtimeAnimatorController != null)
+        {
+            HomelessGirlAnim.ResetTrigger("First");
+            HomelessGirlAnim.ResetTrigger("Second");
+        }
+
+        if (CongressAnim != null && CongressAnim.runtimeAnimatorController != null)
+        {
+            CongressAnim.ResetTrigger("First");
+        }
     }
 
     private void ResetInitialPositions()
@@ -280,13 +302,13 @@ public class CharacterSelector : MonoBehaviour
         OFObjects.transform.position = new Vector3(0, 0, 0);
         HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, -1133.1f);
 
-        HomelessGirl.color = new Color32(126, 126, 126, 255);
-        OFGirl.color = new Color32(126, 126, 126, 255);
-        CongressWoman.color = new Color32(126, 126, 126, 255);
+        if(HomelessGirl != null) HomelessGirl.color = new Color32(126, 126, 126, 255);
+        if(OFGirl != null) OFGirl.color = new Color32(126, 126, 126, 255);
+        if(CongressWoman != null) CongressWoman.color = new Color32(126, 126, 126, 255);
 
         for (int j = 0; j < spotlight.Length; j++)
         {
-            spotlight[j].SetActive(false);
+            if(spotlight[j] != null) spotlight[j].SetActive(false);
         }
     }
 

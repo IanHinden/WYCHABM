@@ -123,7 +123,7 @@ public class FullCoins : MonoBehaviour
     {
         CoinReset();
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
-        avaSprite.color = new Color(1, 1, 1, 1); 
+        if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
     }
 

@@ -37,7 +37,7 @@ public class MaskTransition : MonoBehaviour
             img.color = Color.black;
             _SideRects[i] = img.rectTransform;
             _SideRects[i].SetParent(_KeyholeImage.transform.parent);
-            _SideRects[i].transform.SetSiblingIndex(_SideRects[i].parent.childCount - 2);
+            _SideRects[i].transform.SetSiblingIndex(_SideRects[i].parent.childCount - 3);
             _SideRects[i].anchorMin = Vector2.zero;
             _SideRects[i].anchorMax = Vector2.zero;
             _SideRects[i].pivot = Vector2.zero;
