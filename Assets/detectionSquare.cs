@@ -5,19 +5,10 @@ using UnityEngine.U2D;
 
 public class detectionSquare : MonoBehaviour
 {
-    [SerializeField] TimeFunctions timefunctions;
     [SerializeField] GameObject perfect;
     [SerializeField] GameObject good;
 
-    private Animator anim;
-    private float measure;
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-        measure = timefunctions.ReturnSingleMeasure();
-        StartCoroutine(Blink());
-    }
+    public static float score = 0;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,8 +16,12 @@ public class detectionSquare : MonoBehaviour
         if(distance <= 3)
         {
             SpawnPerfect();
+            score = score + 2;
+            Debug.Log(score);
         } else if (distance > 3 && distance < 7)
         {
+            score = score + 1;
+            Debug.Log(score);
             SpawnGood();
         }
         Destroy(col.gameObject);
@@ -44,12 +39,13 @@ public class detectionSquare : MonoBehaviour
         goodSign.transform.SetParent(transform);
     }
 
-    private IEnumerator Blink()
+    public float getScore()
     {
-        while (true)
-        {
-            anim.SetTrigger("Blink");
-            yield return new WaitForSeconds(measure / 2);
-        }
+        return score;
+    }
+
+    public void resetScore()
+    {
+        score = 0;
     }
 }
