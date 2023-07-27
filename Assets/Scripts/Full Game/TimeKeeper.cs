@@ -79,6 +79,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine landlordCo;
     Coroutine contractCo;
     Coroutine characterSelectCo;
+    Coroutine firstChorusCo;
 
 
     void Awake()
@@ -198,6 +199,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2));
 
         nextScene(); //First Chorus
+        firstChorusCo = StartCoroutine(firstChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(14));
 
         nextScene(); //The Family
@@ -334,6 +336,7 @@ public class TimeKeeper : MonoBehaviour
         if(contractCo != null) StopCoroutine(contractCo);
         if(landlordCo != null) StopCoroutine(landlordCo);
         if(characterSelectCo != null) StopCoroutine(characterSelectCo);
+        if (firstChorusCo != null) StopCoroutine(firstChorusCo);
 
         citybehavior.Reset();
         fullcoins.Reset();

@@ -988,7 +988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &10218424
@@ -5922,7 +5921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &144364202
@@ -16373,6 +16371,11 @@ MonoBehaviour:
     type: 3}
   detect: {fileID: 1605176053}
   playerside: {fileID: 2114032222}
+  missBar: {fileID: 522942950}
+  rightSquare: {fileID: 1605176053}
+  downSquare: {fileID: 1935174116}
+  upSquare: {fileID: 1405326597}
+  leftSquare: {fileID: 1499468048}
 --- !u!1 &269283600
 GameObject:
   m_ObjectHideFlags: 0
@@ -62887,7 +62890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &812329031
@@ -66644,7 +66646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.2000122, y: 1.7999878}
+  m_AnchoredPosition: {x: -3.1999512, y: 1.7999878}
   m_SizeDelta: {x: -51.816895, y: -55.949707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902750770
@@ -73290,7 +73292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &1058032049
@@ -94340,7 +94341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!95 &1405326598
@@ -99264,7 +99264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!95 &1499468049
@@ -108167,7 +108166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &1525873830
@@ -111766,7 +111764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!95 &1605176054
@@ -113415,7 +113412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &1667240858
@@ -120206,7 +120202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5999756, y: -0.1000061}
+  m_AnchoredPosition: {x: -0.5999756, y: -0.099975586}
   m_SizeDelta: {x: 20.79358, y: 21.729736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821618401
@@ -121541,7 +121537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &1838080966
@@ -127060,7 +127055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!95 &1935174117
@@ -135226,7 +135220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a518f39a50f06af4cbb4bb0e96f83939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timefunctions: {fileID: 1358544022}
   perfect: {fileID: 1348336019}
   good: {fileID: 1042604396}
 --- !u!114 &2107109753

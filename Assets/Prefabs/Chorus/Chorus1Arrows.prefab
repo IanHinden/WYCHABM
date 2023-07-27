@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 6158415014345980422}
   - component: {fileID: 6158415014345980423}
   m_Layer: 5
-  m_Name: GameplayArrows
+  m_Name: Chorus1Arrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
