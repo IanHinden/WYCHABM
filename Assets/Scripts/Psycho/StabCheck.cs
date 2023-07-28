@@ -8,6 +8,9 @@ public class StabCheck : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
+    [SerializeField] GameObject liveDaddy;
+    [SerializeField] GameObject deadDaddy;
+
     public GameObject oedipalBonus;
 
     bool stabbed = false;
@@ -32,6 +35,8 @@ public class StabCheck : MonoBehaviour
                     scorehandler.IncrementScore();
                     uihandler.WinDisplay();
                     //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
+                    liveDaddy.SetActive(false);
+                    deadDaddy.SetActive(true);
                     oedipal = true;
                     levelEnded = true;
                 }
@@ -40,6 +45,8 @@ public class StabCheck : MonoBehaviour
         stabbed = true;
         if (levelEnded == false)
         {
+            liveDaddy.SetActive(false);
+            deadDaddy.SetActive(true);
             uihandler.WinDisplay();
         }
     }

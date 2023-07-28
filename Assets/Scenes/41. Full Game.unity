@@ -28248,7 +28248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &404914102
 Transform:
   m_ObjectHideFlags: 0
@@ -65334,7 +65334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &879742422
 Transform:
   m_ObjectHideFlags: 0
@@ -134364,6 +134364,8 @@ MonoBehaviour:
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   scorehandler: {fileID: 585011356}
+  liveDaddy: {fileID: 404914101}
+  deadDaddy: {fileID: 879742421}
   oedipalBonus: {fileID: 1102356857734148953, guid: ccfcd3c7571beff468abadb37cc05117,
     type: 3}
 --- !u!61 &2093130522
