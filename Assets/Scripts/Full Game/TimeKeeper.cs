@@ -66,6 +66,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Landlord landlord; //Scene 7
     [SerializeField] CharacterSelector characterSelector; //Scene 8
     [SerializeField] FirstChorus firstChorus; //Scene 10
+    [SerializeField] StabCheck stabCheck; //Scene 14
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -80,6 +81,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine contractCo;
     Coroutine characterSelectCo;
     Coroutine firstChorusCo;
+    Coroutine psychoCo;
 
 
     void Awake()
@@ -212,6 +214,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "STAB");
 
         nextScene(6, true, new Vector2(699f, 167f)); //Psycho
+        psychoCo = StartCoroutine(stabCheck.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
@@ -336,7 +339,8 @@ public class TimeKeeper : MonoBehaviour
         if(contractCo != null) StopCoroutine(contractCo);
         if(landlordCo != null) StopCoroutine(landlordCo);
         if(characterSelectCo != null) StopCoroutine(characterSelectCo);
-        if (firstChorusCo != null) StopCoroutine(firstChorusCo);
+        if(firstChorusCo != null) StopCoroutine(firstChorusCo);
+        if (psychoCo != null) StopCoroutine(psychoCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -344,6 +348,7 @@ public class TimeKeeper : MonoBehaviour
         landlord.Reset();
         characterSelector.Reset();
         firstChorus.Reset();
+        stabCheck.Reset();
 
         foreach (GameObject scene in allscenes)
         {

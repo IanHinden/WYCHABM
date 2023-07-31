@@ -60,4 +60,13 @@ public class Hands : MonoBehaviour
             stabCollide.enabled = true;
         }
     }
+
+    public void removeStabHoles()
+    {
+        Stabhole[] allStabhole = FindObjectsOfType<Stabhole>();
+        foreach (Stabhole obj in allStabhole)
+        {
+            Destroy(obj.gameObject);
+        }
+    }
 }

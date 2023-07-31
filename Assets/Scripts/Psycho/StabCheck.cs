@@ -11,6 +11,8 @@ public class StabCheck : MonoBehaviour
     [SerializeField] GameObject liveDaddy;
     [SerializeField] GameObject deadDaddy;
 
+    [SerializeField] Hands hands;
+
     public GameObject oedipalBonus;
 
     bool stabbed = false;
@@ -19,7 +21,7 @@ public class StabCheck : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,7 +53,7 @@ public class StabCheck : MonoBehaviour
         }
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         DetermineWinOrLoss();
@@ -64,5 +66,13 @@ public class StabCheck : MonoBehaviour
             levelEnded = true;
             uihandler.LoseDisplay();
         }
+    }
+
+    public void Reset()
+    {
+        liveDaddy.SetActive(true);
+        deadDaddy.SetActive(false);
+        hands.removeStabHoles();
+        hands.transform.position = new Vector3(5.26f, -2.46f, 0);
     }
 }

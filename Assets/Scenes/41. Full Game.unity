@@ -130484,6 +130484,7 @@ MonoBehaviour:
   landlord: {fileID: 1080107919}
   characterSelector: {fileID: 1211561390}
   firstChorus: {fileID: 267558066}
+  stabCheck: {fileID: 2093130521}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
@@ -134449,6 +134450,7 @@ MonoBehaviour:
   scorehandler: {fileID: 585011356}
   liveDaddy: {fileID: 404914101}
   deadDaddy: {fileID: 879742421}
+  hands: {fileID: 859969734}
   oedipalBonus: {fileID: 1102356857734148953, guid: ccfcd3c7571beff468abadb37cc05117,
     type: 3}
 --- !u!61 &2093130522
