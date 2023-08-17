@@ -718,4 +718,14 @@ public class RoadRacer : MonoBehaviour
 		////控制摄像机跟随
 	}
 
+    public void Reset()
+    {
+		Debug.Log("It works");
+		for (int i = 0; i < defaultConePositions.Count; i++)
+		{
+			Vector2 newPosition = defaultConePositions[i];
+			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
+		}
+	}
+
 }

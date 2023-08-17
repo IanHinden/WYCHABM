@@ -67,6 +67,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] CharacterSelector characterSelector; //Scene 8
     [SerializeField] FirstChorus firstChorus; //Scene 10
     [SerializeField] StabCheck stabCheck; //Scene 14
+    [SerializeField] RoadRacer roadRacer; //Scene 19
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -244,6 +245,7 @@ public class TimeKeeper : MonoBehaviour
         drivecamera.SetActive(true);
         maincamera.SetActive(false);
         audioListener.enabled = true;
+        roadRacer.Reset();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
         nextScene(3); //Cheek to Cheek

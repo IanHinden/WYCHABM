@@ -98470,8 +98470,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481968399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.86, y: -305.58, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -19.86, y: -69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 1912819100}
   m_RootOrder: 0
@@ -126138,7 +126138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912819099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.264015, y: 23.792822, z: 0}
+  m_LocalPosition: {x: 81.264015, y: 110.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1481968400}
@@ -130485,6 +130485,7 @@ MonoBehaviour:
   characterSelector: {fileID: 1211561390}
   firstChorus: {fileID: 267558066}
   stabCheck: {fileID: 2093130521}
+  roadRacer: {fileID: 2009168599}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
