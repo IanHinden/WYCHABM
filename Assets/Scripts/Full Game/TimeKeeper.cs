@@ -66,6 +66,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Landlord landlord; //Scene 7
     [SerializeField] CharacterSelector characterSelector; //Scene 8
     [SerializeField] FirstChorus firstChorus; //Scene 10
+    [SerializeField] AbsentDad absentDad;
     [SerializeField] StabCheck stabCheck; //Scene 14
     [SerializeField] RoadRacer roadRacer; //Scene 19
 
@@ -82,6 +83,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine contractCo;
     Coroutine characterSelectCo;
     Coroutine firstChorusCo;
+    Coroutine absentDadCo;
     Coroutine psychoCo;
 
 
@@ -212,6 +214,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
+        absentDadCo = StartCoroutine(absentDad.Dialogue());
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "STAB");
 
         nextScene(6, true, new Vector2(699f, 167f)); //Psycho

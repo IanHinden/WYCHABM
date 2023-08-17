@@ -130484,6 +130484,7 @@ MonoBehaviour:
   landlord: {fileID: 1080107919}
   characterSelector: {fileID: 1211561390}
   firstChorus: {fileID: 267558066}
+  absentDad: {fileID: 936852929}
   stabCheck: {fileID: 2093130521}
   roadRacer: {fileID: 2009168599}
   uihandler: {fileID: 24490723}
