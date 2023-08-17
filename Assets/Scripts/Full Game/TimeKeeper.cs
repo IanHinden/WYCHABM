@@ -68,6 +68,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] FirstChorus firstChorus; //Scene 10
     [SerializeField] AbsentDad absentDad;
     [SerializeField] StabCheck stabCheck; //Scene 14
+    [SerializeField] GetAJobTime getAJobTime; //Scene 15
     [SerializeField] RoadRacer roadRacer; //Scene 19
 
     [Header("Necesary Functions")]
@@ -84,6 +85,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine characterSelectCo;
     Coroutine firstChorusCo;
     Coroutine absentDadCo;
+    Coroutine getAJobTimeCo;
     Coroutine psychoCo;
 
 
@@ -222,7 +224,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Get a Job
-
+        getAJobTimeCo = StartCoroutine(getAJobTime.AllEvents());
         Stabhole[] allStabhole = FindObjectsOfType<Stabhole>();
         foreach (Stabhole obj in allStabhole)
         {
@@ -345,7 +347,9 @@ public class TimeKeeper : MonoBehaviour
         if(landlordCo != null) StopCoroutine(landlordCo);
         if(characterSelectCo != null) StopCoroutine(characterSelectCo);
         if(firstChorusCo != null) StopCoroutine(firstChorusCo);
-        if (psychoCo != null) StopCoroutine(psychoCo);
+        if(absentDadCo != null) StopCoroutine(absentDadCo);
+        if(psychoCo != null) StopCoroutine(psychoCo);
+        if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -354,6 +358,7 @@ public class TimeKeeper : MonoBehaviour
         characterSelector.Reset();
         firstChorus.Reset();
         stabCheck.Reset();
+        getAJobTime.Reset();
 
         foreach (GameObject scene in allscenes)
         {
