@@ -1,58 +1,102 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EvolvingSceneController : MonoBehaviour
 {
     [SerializeField] ScoreHandler scorehandler;
-    [SerializeField] EvolvingText evolvingText;
+    //[SerializeField] EvolvingText evolvingText;
+    [SerializeField] GameObject evolvingText;
+
+    private TextMeshPro textmesh;
+
     GameControls gamecontrols;
 
     //Animator starAnim;
 
     public GameObject BadBoy;
-    SpriteRenderer badBoySR;
+    public GameObject BadMan;
+    public GameObject Mixed;
 
-    private IEnumerator evolving;
-    private IEnumerator stopped;
+    SpriteRenderer badBoySR;
+    SpriteRenderer badManSR;
+    SpriteRenderer mixedSR;
+
     private IEnumerator blinking;
     
     void Awake()
     {
         gamecontrols = new GameControls();
         badBoySR = BadBoy.GetComponent<SpriteRenderer>();
+        badManSR = BadMan.GetComponent<SpriteRenderer>();
+        mixedSR = Mixed.GetComponent<SpriteRenderer>();
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
 
+        textmesh = evolvingText.GetComponent<TextMeshPro>();
+
         gamecontrols.Move.Stop.performed += x => StopEvolution();
-        evolving = evolvingText.SetEvolvingDialogue();
-        stopped = evolvingText.SetStoppedDialogue();
+        setIntroText();
         blinking = Blinking();
 
-        StartCoroutine(evolving);
         StartCoroutine(blinking);
     }
 
     private void StopEvolution()
     {
-        StopCoroutine(evolving);
         StopCoroutine(blinking);
         badBoySR.enabled = true;
-        StartCoroutine(stopped);
         scorehandler.IncrementBonusScore();
+        setArrestedText();
         gamecontrols.Disable();
     }
 
     private IEnumerator Blinking()
     {
-        badBoySR.enabled = true;
-        yield return new WaitForSeconds(.4f);
-        badBoySR.enabled = false;
-        yield return new WaitForSeconds(.4f);
-        badBoySR.enabled = true;
-        yield return new WaitForSeconds(.4f);
-        badBoySR.enabled = false;
-        yield return new WaitForSeconds(.4f);
+        //.4 * 4
+        displayBadBoy();
+        yield return new WaitForSeconds(.6f);
+        displayBadMan();
+        yield return new WaitForSeconds(.04f);
+        displayMixed();
+        yield return new WaitForSeconds(.04f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.1f);
+        displayBadMan();
+        yield return new WaitForSeconds(.1f);
+        displayMixed();
+        yield return new WaitForSeconds(.04f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.1f);
+        displayBadMan();
+        yield return new WaitForSeconds(.08f);
+        displayMixed();
+        yield return new WaitForSeconds(.08f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.05f);
+        displayBadMan();
+        yield return new WaitForSeconds(.05f);
+        displayMixed();
+        yield return new WaitForSeconds(.08f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.05f);
+        displayBadMan();
+        yield return new WaitForSeconds(.08f);
+        displayMixed();
+        yield return new WaitForSeconds(.08f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.05f);
+        displayBadMan();
+        yield return new WaitForSeconds(.05f);
+        displayMixed();
+        yield return new WaitForSeconds(.08f);
+        displayBadBoy();
+        yield return new WaitForSeconds(.05f);
+        displayBadMan();
+
+        yield return new WaitForSeconds(1f);
+        setEvolvedText();
     }
 
     private void OnEnable()
@@ -63,5 +107,41 @@ public class EvolvingSceneController : MonoBehaviour
     private void OnDisable()
     {
         gamecontrols.Disable();
+    }
+
+    private void displayBadBoy()
+    {
+        badBoySR.enabled = true;
+        badManSR.enabled = false;
+        mixedSR.enabled = false;
+    }
+
+    private void displayBadMan()
+    {
+        badBoySR.enabled = false;
+        badManSR.enabled = true;
+        mixedSR.enabled = false;
+    }
+
+    private void displayMixed()
+    {
+        badBoySR.enabled = false;
+        badManSR.enabled = false;
+        mixedSR.enabled = true;
+    }
+
+    private void setIntroText()
+    {
+        textmesh.text = "What?                Bad Boy is evolving.";
+    }
+
+    private void setEvolvedText()
+    {
+        textmesh.text = "Bad Boy evolved into Bad Man.";
+    }
+
+    private void setArrestedText()
+    {
+        textmesh.text = "Huh? Bad Boy stopped evolving. Arrested development.";
     }
 }
