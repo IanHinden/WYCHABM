@@ -46,9 +46,9 @@ public class EvolvingSceneController : MonoBehaviour
     private void StopEvolution()
     {
         StopCoroutine(blinking);
-        badBoySR.enabled = true;
+        displayBadBoy();
         scorehandler.IncrementBonusScore();
-        setArrestedText();
+        StartCoroutine(setArrestedText());
         gamecontrols.Disable();
     }
 
@@ -96,7 +96,7 @@ public class EvolvingSceneController : MonoBehaviour
         displayBadMan();
 
         yield return new WaitForSeconds(1f);
-        setEvolvedText();
+        StartCoroutine(setEvolvedText());
     }
 
     private void OnEnable()
@@ -132,16 +132,40 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void setIntroText()
     {
-        textmesh.text = "What?                Bad Boy is evolving.";
+        textmesh.text = "What?                BAD BOY is evolving.";
     }
 
-    private void setEvolvedText()
+    private IEnumerator setEvolvedText()
     {
-        textmesh.text = "Bad Boy evolved into Bad Man.";
+        textmesh.text = "";
+        string evolvetext = "BAD BOY evolved into BAD MAN!";
+        foreach (char c in evolvetext.ToCharArray())
+        {
+            textmesh.text += c;
+            float pauseTime = .02f;
+
+            while (pauseTime > 0)
+            {
+                pauseTime -= Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 
-    private void setArrestedText()
+    private IEnumerator setArrestedText()
     {
-        textmesh.text = "Huh? Bad Boy stopped evolving. Arrested development.";
+        textmesh.text = "";
+        string evolvetext = "Huh? BAD BOY stopped evolving! Arrested development.";
+        foreach (char c in evolvetext.ToCharArray())
+        {
+            textmesh.text += c;
+            float pauseTime = .02f;
+
+            while (pauseTime > 0)
+            {
+                pauseTime -= Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 }

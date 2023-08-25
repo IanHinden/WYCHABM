@@ -7,6 +7,10 @@ public class Disappointer : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] GameObject pigheads;
+    [SerializeField] GameObject crazypigs;
+    [SerializeField] GameObject pigbodies;
+
     bool CareAboutTheOpinionsOfOthers;
 
     void Awake()
@@ -27,10 +31,18 @@ public class Disappointer : MonoBehaviour
     {
         if (CareAboutTheOpinionsOfOthers)
         {
+            setPhase2();
             uihandler.LoseDisplay();
         } else
         {
             uihandler.WinDisplay();
         }
+    }
+
+    private void setPhase2()
+    {
+        pigheads.SetActive(false);
+        pigbodies.SetActive(false);
+        crazypigs.SetActive(true);
     }
 }
