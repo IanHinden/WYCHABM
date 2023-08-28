@@ -15,13 +15,11 @@ public class Disappointer : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(WinOrLose());
-
         //Halloween 1987
         CareAboutTheOpinionsOfOthers = true;
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
         DetermineWinOrLoss();
@@ -39,10 +37,22 @@ public class Disappointer : MonoBehaviour
         }
     }
 
+    private void setPhase1()
+    {
+        pigheads.SetActive(true);
+        pigbodies.SetActive(true);
+        crazypigs.SetActive(false);
+    }
+
     private void setPhase2()
     {
         pigheads.SetActive(false);
         pigbodies.SetActive(false);
         crazypigs.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        setPhase1();
     }
 }

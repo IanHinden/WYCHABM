@@ -66,7 +66,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Landlord landlord; //Scene 7
     [SerializeField] CharacterSelector characterSelector; //Scene 8
     [SerializeField] FirstChorus firstChorus; //Scene 10
-    [SerializeField] AbsentDad absentDad;
+    [SerializeField] Disappointer disappointer; //Scene 12
+    [SerializeField] AbsentDad absentDad; //Scene 13
     [SerializeField] StabCheck stabCheck; //Scene 14
     [SerializeField] GetAJobTime getAJobTime; //Scene 15
     [SerializeField] RoadRacer roadRacer; //Scene 19
@@ -84,6 +85,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine contractCo;
     Coroutine characterSelectCo;
     Coroutine firstChorusCo;
+    Coroutine dontDisappointCo;
     Coroutine absentDadCo;
     Coroutine getAJobTimeCo;
     Coroutine psychoCo;
@@ -213,6 +215,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DON'T");
 
         nextScene(4, true, new Vector2(699f, 167f)); //Don't Disappoint
+        dontDisappointCo = StartCoroutine(disappointer.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Absent Dad
@@ -347,6 +350,7 @@ public class TimeKeeper : MonoBehaviour
         if(landlordCo != null) StopCoroutine(landlordCo);
         if(characterSelectCo != null) StopCoroutine(characterSelectCo);
         if(firstChorusCo != null) StopCoroutine(firstChorusCo);
+        if (dontDisappointCo != null) StopCoroutine(dontDisappointCo);
         if(absentDadCo != null) StopCoroutine(absentDadCo);
         if(psychoCo != null) StopCoroutine(psychoCo);
         if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
@@ -357,6 +361,7 @@ public class TimeKeeper : MonoBehaviour
         landlord.Reset();
         characterSelector.Reset();
         firstChorus.Reset();
+        disappointer.Reset();
         stabCheck.Reset();
         getAJobTime.Reset();
 
