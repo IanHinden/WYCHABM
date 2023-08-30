@@ -10,7 +10,7 @@ public class SelectChecker : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
 
-    SelectArrow[] selectArrows;
+    [SerializeField] GameObject arrows;
 
     private GameControls gamecontrols;
 
@@ -23,12 +23,6 @@ public class SelectChecker : MonoBehaviour
         gamecontrols.Select.UpSelect.performed += x => setPreviousActiveArrow();
         gamecontrols.Select.Choose.performed += x => selectItem();
 
-
-        selectArrows = FindObjectsOfType<SelectArrow>().OrderBy(m => m.transform.position.x).ToArray();
-        for (int i = 1; i < selectArrows.Length; i++)
-        {
-            selectArrows[i].GetComponent<Image>().enabled = false;
-        }
 
         StartCoroutine(WinOrLose());
     }
@@ -60,20 +54,20 @@ public class SelectChecker : MonoBehaviour
 
     public void displayCorrectArrow()
     {
-        for(int i = 0; i < selectArrows.Length; i++)
+        for(int i = 0; i < arrows.transform.childCount; i++)
         {
             if (i != activeArrow) {
-                selectArrows[i].GetComponent<Image>().enabled = false;
+                arrows.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = false;
             } else
             {
-                selectArrows[i].GetComponent<Image>().enabled = true;
+                arrows.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = true;
             }
         }
     }
 
     public void setNextActiveArrow()
     {
-        if(activeArrow != selectArrows.Length - 1)
+        if(activeArrow != arrows.transform.childCount - 1)
         {
             activeArrow++;
             displayCorrectArrow();
@@ -93,7 +87,7 @@ public class SelectChecker : MonoBehaviour
         }
         else
         {
-            activeArrow = selectArrows.Length - 1;
+            activeArrow = arrows.transform.childCount - 1;
             displayCorrectArrow();
         }
     }
