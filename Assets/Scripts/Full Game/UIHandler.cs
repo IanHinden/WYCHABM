@@ -75,6 +75,11 @@ public class UIHandler : MonoBehaviour
         StartCoroutine(TriggerCountdownAnimation(totalMeasures));
     }
 
+    public void CountdownCheek()
+    {
+        StartCoroutine(TriggerCountdownCheekAnimation());
+    }
+
     IEnumerator TriggerCountdownAnimation(int totalMeasures)
     {
         float totalTime = totalMeasures * singleMeasure;
@@ -85,6 +90,64 @@ public class UIHandler : MonoBehaviour
         countdown.text = " ";
 
         while(totalTime > 3)
+        {
+            yield return new WaitForSeconds(singleMeasure);
+            totalTime -= singleMeasure;
+            timerSlider.value--;
+        }
+
+        countdown.text = "3";
+        timerSlider.value = 3;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "2";
+        timerSlider.value = 2;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "1";
+        timerSlider.value = 1;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "0";
+        timerSlider.value = 0;
+    }
+
+    IEnumerator TriggerCountdownCheekAnimation()
+    {
+        float totalTime = 3 * singleMeasure;
+
+        timerSlider.maxValue = 3;
+        timerSlider.value = 3;
+
+        countdown.text = " ";
+
+        while (totalTime > 3)
+        {
+            yield return new WaitForSeconds(singleMeasure);
+            totalTime -= singleMeasure;
+            timerSlider.value--;
+        }
+
+        countdown.text = "3";
+        timerSlider.value = 3;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "2";
+        timerSlider.value = 2;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "1";
+        timerSlider.value = 1;
+
+        yield return new WaitForSeconds(singleMeasure);
+        countdown.text = "0";
+        timerSlider.value = 0;
+
+        yield return new WaitForSeconds(singleMeasure);
+
+        countdown.text = " ";
+
+        while (totalTime > 3)
         {
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;

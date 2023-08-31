@@ -146,15 +146,20 @@ public class TimeKeeper : MonoBehaviour
         uihandler.ClearWinLoss();
         dialogue.QuickExit();
 
-        if(countdown != 0)
+        if(countdown > 0)
         {
             uihandler.setFrame(true);
             uihandler.showSlider();
             uihandler.Countdown(countdown);
-        } else
+        } else if(countdown == 0)
         {
             uihandler.setFrame(false);
             uihandler.hideSlider();
+        } else
+        {
+            uihandler.setFrame(true);
+            uihandler.showSlider();
+            uihandler.CountdownCheek();
         }
 
         GameObject nextActiveScene = (GameObject)allscenes[currentScene + 1];
@@ -256,7 +261,7 @@ public class TimeKeeper : MonoBehaviour
         roadRacer.Reset();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
-        nextScene(3); //Cheek to Cheek
+        nextScene(-1); //Cheek to Cheek
         maincamera.SetActive(true);
         drivecamera.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
