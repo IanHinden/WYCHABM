@@ -24,6 +24,7 @@ public class EvolvingSceneController : MonoBehaviour
     SpriteRenderer mixedSR;
 
     private IEnumerator blinking;
+    private IEnumerator evolving;
     
     void Awake()
     {
@@ -39,6 +40,7 @@ public class EvolvingSceneController : MonoBehaviour
         gamecontrols.Move.Stop.performed += x => StopEvolution();
         setIntroText();
         blinking = Blinking();
+        evolving = setEvolvedText();
 
         StartCoroutine(blinking);
     }
@@ -46,6 +48,7 @@ public class EvolvingSceneController : MonoBehaviour
     private void StopEvolution()
     {
         StopCoroutine(blinking);
+        StopCoroutine(evolving);
         displayBadBoy();
         scorehandler.IncrementBonusScore();
         StartCoroutine(setArrestedText());
@@ -96,7 +99,7 @@ public class EvolvingSceneController : MonoBehaviour
         displayBadMan();
 
         yield return new WaitForSeconds(1f);
-        StartCoroutine(setEvolvedText());
+        StartCoroutine(evolving);
     }
 
     private void OnEnable()
