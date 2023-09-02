@@ -22,7 +22,7 @@ public class Avas : MonoBehaviour
 
     IEnumerator Sway()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(.6f);
         Ava1.SetActive(true);
         shadow1.SetActive(true);
         yield return new WaitForSeconds(.7f);
