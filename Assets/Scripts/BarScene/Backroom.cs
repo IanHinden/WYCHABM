@@ -49,7 +49,7 @@ public class Backroom : MonoBehaviour
 
         while (AvaSR.color.a > 0)
         {
-            alpha -= 0.01f;
+            alpha -= 0.10f;
             tmp.a = alpha;
             AvaSR.color = tmp;
 
