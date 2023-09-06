@@ -122444,6 +122444,7 @@ MonoBehaviour:
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   scorehandler: {fileID: 585011356}
+  cameraLogic: {fileID: 992794573}
 --- !u!1 &1847335366
 GameObject:
   m_ObjectHideFlags: 0
@@ -129617,6 +129618,7 @@ MonoBehaviour:
   absentDad: {fileID: 936852929}
   stabCheck: {fileID: 2093130521}
   getAJobTime: {fileID: 1017482885}
+  shuffler: {fileID: 1847153506}
   roadRacer: {fileID: 2009168599}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}

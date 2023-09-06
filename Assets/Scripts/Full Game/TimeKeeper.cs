@@ -70,6 +70,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] AbsentDad absentDad; //Scene 13
     [SerializeField] StabCheck stabCheck; //Scene 14
     [SerializeField] GetAJobTime getAJobTime; //Scene 15
+    [SerializeField] Shuffler shuffler; //Scene 16
     [SerializeField] RoadRacer roadRacer; //Scene 19
 
     [Header("Necesary Functions")]
@@ -89,6 +90,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine absentDadCo;
     Coroutine getAJobTimeCo;
     Coroutine psychoCo;
+    Coroutine jobInterviewCo;
 
 
     void Awake()
@@ -174,10 +176,15 @@ public class TimeKeeper : MonoBehaviour
     private void resetCamera()
     {
         Vector3 targetPosition = new Vector3(0f, 0f, -10f);
+        Vector3 threeDCameraPos = new Vector3(-43.8f, 10.59f, -10f);
+
         Camera camera = maincamera.GetComponent<Camera>();
+        Camera threeDcamera = threedcamera.GetComponent<Camera>();
 
         maincamera.transform.position = targetPosition;
         camera.orthographicSize = 5;
+
+        threeDcamera.transform.position = threeDCameraPos;
     }
 
     public IEnumerator SwitchScene()
@@ -242,6 +249,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "GET A JOB");
 
         nextScene(6, true, new Vector2(699f, 167f)); //Job Interview
+        jobInterviewCo = StartCoroutine(shuffler.WinOrLose());
         maincamera.SetActive(false);
         threedcamera.SetActive(true);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
@@ -359,6 +367,7 @@ public class TimeKeeper : MonoBehaviour
         if(absentDadCo != null) StopCoroutine(absentDadCo);
         if(psychoCo != null) StopCoroutine(psychoCo);
         if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
+        if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -369,6 +378,7 @@ public class TimeKeeper : MonoBehaviour
         disappointer.Reset();
         stabCheck.Reset();
         getAJobTime.Reset();
+        shuffler.Reset();
 
         foreach (GameObject scene in allscenes)
         {

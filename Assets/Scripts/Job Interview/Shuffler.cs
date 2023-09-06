@@ -8,6 +8,7 @@ public class Shuffler : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] CameraLogic cameraLogic;
 
     private SpeechBubble[] speechBubbles;
 
@@ -25,7 +26,7 @@ public class Shuffler : MonoBehaviour
         gamecontrols.Select.RightSelect.performed += x => ShuffleRight();
         gamecontrols.Select.Choose.performed += x => Select();
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -88,8 +89,9 @@ public class Shuffler : MonoBehaviour
         timeToPress = 0f;
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
+        StartCoroutine(cameraLogic.moveToX(new Vector3(5.9f, 10.59f, -10), .5f));
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         selected = 1;
         if (pressed == false)
@@ -110,5 +112,12 @@ public class Shuffler : MonoBehaviour
         {
             uihandler.LoseDisplay();
         }
+    }
+
+    public void Reset()
+    {
+        pressed = false;
+        timeToPress = 0f;
+        // Fill in with logic to reset selection
     }
 }

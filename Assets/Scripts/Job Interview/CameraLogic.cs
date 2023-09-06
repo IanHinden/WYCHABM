@@ -7,12 +7,12 @@ public class CameraLogic : MonoBehaviour
     [SerializeField] GameObject threedcam;
 
     bool isMoving = false;
-    private void Awake()
+    /*private void Awake()
     {
         StartCoroutine(moveToX(threedcam.transform, new Vector3(5.9f, 10.59f, -10), .5f));
-    }
+    }*/
 
-    IEnumerator moveToX(Transform fromPosition, Vector3 toPosition, float duration)
+    public IEnumerator moveToX(Vector3 toPosition, float duration)
     {
         yield return new WaitForSeconds(.5f);
         //Make sure there is only one instance of this function running
@@ -25,12 +25,12 @@ public class CameraLogic : MonoBehaviour
         float counter = 0;
 
         //Get the current position of the object to be moved
-        Vector3 startPos = fromPosition.position;
+        Vector3 startPos = threedcam.transform.position;
 
         while (counter < duration)
         {
             counter += Time.deltaTime;
-            fromPosition.position = Vector3.Lerp(startPos, toPosition, counter / duration);
+            threedcam.transform.position = Vector3.Lerp(startPos, toPosition, counter / duration);
             yield return null;
         }
 
