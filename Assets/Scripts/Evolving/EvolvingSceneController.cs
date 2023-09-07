@@ -114,9 +114,9 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void displayBadBoy()
     {
-        badBoySR.enabled = true;
-        badManSR.enabled = false;
-        mixedSR.enabled = false;
+        if(badBoySR != null) badBoySR.enabled = true;
+        if(badManSR != null) badManSR.enabled = false;
+        if(mixedSR != null) mixedSR.enabled = false;
     }
 
     private void displayBadMan()
@@ -135,7 +135,7 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void setIntroText()
     {
-        textmesh.text = "What?                BAD BOY is evolving.";
+        if(textmesh != null) textmesh.text = "What?                BAD BOY is evolving.";
     }
 
     private IEnumerator setEvolvedText()
@@ -170,5 +170,11 @@ public class EvolvingSceneController : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void Reset()
+    {
+        displayBadBoy();
+        setIntroText();
     }
 }

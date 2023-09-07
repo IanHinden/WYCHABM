@@ -71,6 +71,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] StabCheck stabCheck; //Scene 14
     [SerializeField] GetAJobTime getAJobTime; //Scene 15
     [SerializeField] Shuffler shuffler; //Scene 16
+    [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
 
     [Header("Necesary Functions")]
@@ -367,7 +368,7 @@ public class TimeKeeper : MonoBehaviour
         if(absentDadCo != null) StopCoroutine(absentDadCo);
         if(psychoCo != null) StopCoroutine(psychoCo);
         if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
-        if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
+        if(jobInterviewCo != null) StopCoroutine(jobInterviewCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -379,6 +380,7 @@ public class TimeKeeper : MonoBehaviour
         stabCheck.Reset();
         getAJobTime.Reset();
         shuffler.Reset();
+        evolvingSC.Reset();
 
         foreach (GameObject scene in allscenes)
         {

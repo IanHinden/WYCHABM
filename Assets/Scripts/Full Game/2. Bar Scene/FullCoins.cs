@@ -113,7 +113,7 @@ public class FullCoins : MonoBehaviour
         CoinDestroy();
         CoinSpwaner();
 
-        totalCoins = gameObject.transform.childCount;
+        totalCoins = 6;
         remainingCoins = totalCoins;
 
         displayscore.text = totalCoins - remainingCoins + "/" + totalCoins;
@@ -129,11 +129,10 @@ public class FullCoins : MonoBehaviour
 
     private void CoinDestroy()
     {
-        Coin[] allCoins = FindObjectsOfType<Coin>();
-
-        foreach (Coin coin in allCoins)
+        foreach (Transform child in transform)
         {
-            DestroyImmediate(coin.gameObject);
+            // Destroy each child.
+            Destroy(child.gameObject);
         }
     }
 }
