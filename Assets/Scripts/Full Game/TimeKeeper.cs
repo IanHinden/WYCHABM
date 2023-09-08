@@ -364,7 +364,7 @@ public class TimeKeeper : MonoBehaviour
         if(landlordCo != null) StopCoroutine(landlordCo);
         if(characterSelectCo != null) StopCoroutine(characterSelectCo);
         if(firstChorusCo != null) StopCoroutine(firstChorusCo);
-        if (dontDisappointCo != null) StopCoroutine(dontDisappointCo);
+        if(dontDisappointCo != null) StopCoroutine(dontDisappointCo);
         if(absentDadCo != null) StopCoroutine(absentDadCo);
         if(psychoCo != null) StopCoroutine(psychoCo);
         if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
