@@ -257,6 +257,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
 
         nextScene(); //Evolving
+        evolvingSC.WinOrLose();
         maincamera.SetActive(true);
         threedcamera.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));

@@ -39,6 +39,14 @@ public class EvolvingSceneController : MonoBehaviour
 
         gamecontrols.Move.Stop.performed += x => StopEvolution();
         setIntroText();
+        /*blinking = Blinking();
+        evolving = setEvolvedText();
+
+        StartCoroutine(blinking);*/
+    }
+
+    public void WinOrLose()
+    {
         blinking = Blinking();
         evolving = setEvolvedText();
 
@@ -174,6 +182,8 @@ public class EvolvingSceneController : MonoBehaviour
 
     public void Reset()
     {
+        if (blinking != null) StopCoroutine(blinking);
+        if (evolving != null) StopCoroutine(evolving);
         displayBadBoy();
         setIntroText();
     }
