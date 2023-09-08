@@ -129624,6 +129624,7 @@ MonoBehaviour:
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
+  scoreHandler: {fileID: 585011356}
 --- !u!4 &2006906368
 Transform:
   m_ObjectHideFlags: 0

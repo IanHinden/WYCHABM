@@ -78,6 +78,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private UIHandler uihandler;
     [SerializeField] private TimeFunctions timefunctions;
     [SerializeField] private Dialogue dialogue;
+    [SerializeField] private ScoreHandler scoreHandler;
     // Start is called before the first frame update
     //0.705882
 
@@ -358,6 +359,7 @@ public class TimeKeeper : MonoBehaviour
     {
         resetCamera();
         currentScene = 0;
+        scoreHandler.ResetScore();
         if(cityAndBarCo != null) StopCoroutine(cityAndBarCo);
         if(fullCoins != null) StopCoroutine(fullCoins);
         if(contractCo != null) StopCoroutine(contractCo);
