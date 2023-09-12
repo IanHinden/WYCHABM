@@ -12,6 +12,10 @@ public class ChrisCharacterSelector : MonoBehaviour
     [SerializeField] GameObject HomeslessGirlHolder;
     [SerializeField] GameObject CongresswomanHolder;
 
+    Animator OFGirlHolderAnim;
+    Animator HomelessGirlHolderAnim;
+    Animator CongresswomanHolderAnim;
+
     [SerializeField] GameObject OFGirl;
     [SerializeField] GameObject HomelessGirl;
     [SerializeField] GameObject Congresswoman;
@@ -19,6 +23,14 @@ public class ChrisCharacterSelector : MonoBehaviour
     SpriteRenderer OFGirlSR;
     SpriteRenderer HomelessGirlSR;
     SpriteRenderer CongressWomanSR;
+
+    [SerializeField] GameObject HomelessSign;
+    [SerializeField] GameObject OFSign;
+    [SerializeField] GameObject CongresswomanSign;
+
+    SpriteRenderer HomelessSignSR;
+    SpriteRenderer OFSignSR;
+    SpriteRenderer CongresswomanSignSR;
 
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
@@ -48,7 +60,15 @@ public class ChrisCharacterSelector : MonoBehaviour
         HomelessGirlSR = HomelessGirl.GetComponent<SpriteRenderer>();
         CongressWomanSR = Congresswoman.GetComponent<SpriteRenderer>();
 
+        HomelessSignSR = HomelessSign.GetComponent<SpriteRenderer>();
+        OFSignSR = OFSign.GetComponent<SpriteRenderer>();
+        CongresswomanSignSR = CongresswomanSign.GetComponent<SpriteRenderer>();
+
         //Animators
+        OFGirlHolderAnim = OFGirlHolder.GetComponent<Animator>();
+        HomelessGirlHolderAnim = HomeslessGirlHolder.GetComponent<Animator>();
+        CongresswomanHolderAnim = CongresswomanHolder.GetComponent<Animator>();
+
         OFGirlAnim = OFGirl.GetComponent<Animator>();
         HomelessGirlAnim = HomelessGirl.GetComponent<Animator>();
         CongressAnim = Congresswoman.GetComponent<Animator>();
@@ -140,6 +160,11 @@ public class ChrisCharacterSelector : MonoBehaviour
         HomelessGirlSR.color = deselectColor;
         OFGirlSR.color = selectColor;
         CongressWomanSR.color = deselectColor;
+
+        HomelessSignSR.color = deselectColor;
+        OFSignSR.color = selectColor;
+        CongresswomanSignSR.color = deselectColor; 
+
         //StopAllAnimations();
         //OFGirlMoves.SetBool("Breathing", true);
     }
@@ -150,6 +175,10 @@ public class ChrisCharacterSelector : MonoBehaviour
         OFGirlSR.color = deselectColor;
         HomelessGirlSR.color = selectColor;
         CongressWomanSR.color = deselectColor;
+
+        HomelessSignSR.color = selectColor;
+        OFSignSR.color = deselectColor;
+        CongresswomanSignSR.color = deselectColor;
         //StopAllAnimations();
         //HomelessGirlMoves.SetBool("Breathing", true);
     }
@@ -160,27 +189,22 @@ public class ChrisCharacterSelector : MonoBehaviour
         OFGirlSR.color = deselectColor;
         HomelessGirlSR.color = deselectColor;
         CongressWomanSR.color = selectColor;
+
+        HomelessSignSR.color = deselectColor;
+        OFSignSR.color = deselectColor;
+        CongresswomanSignSR.color = selectColor;
         //StopAllAnimations();
         //CongresswomanMoves.SetBool("Breathing", true);
     }
 
     private void leftCheck()
     {
-        Debug.Log(consecutiveLeftClicks);
-        /*if (consecutiveLeftClicks == 3)
+        if (consecutiveLeftClicks == 3)
         {
-            OFGirlAnim.SetTrigger("First");
-            HomelessGirlAnim.SetTrigger("First");
-        }
-
-        if (consecutiveLeftClicks == 6)
-        {
-            OFGirlAnim.SetTrigger("Second");
-            HomelessGirlAnim.SetTrigger("Second");
-            CongressAnim.SetTrigger("First");
-
             unlocked = true;
-            SelectCongresswoman();
-        }*/
+            OFGirlHolderAnim.SetTrigger("Nudge");
+            HomelessGirlHolderAnim.SetTrigger("Nudge");
+            CongresswomanHolderAnim.SetTrigger("Enter");
+        }
     }
 }
