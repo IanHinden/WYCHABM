@@ -48607,7 +48607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &615581862
 Transform:
   m_ObjectHideFlags: 0
@@ -81774,6 +81774,9 @@ MonoBehaviour:
   CongressSpotlight: {fileID: 2042162785}
   OFSpotlight: {fileID: 1727141755}
   HomelessSpotlight: {fileID: 659399136}
+  CongressSign: {fileID: 1253841154}
+  OFSign: {fileID: 1467773910}
+  HomelessSign: {fileID: 615581861}
 --- !u!1 &1212334551
 GameObject:
   m_ObjectHideFlags: 0
@@ -96590,7 +96593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1406573525
 Transform:
   m_ObjectHideFlags: 0

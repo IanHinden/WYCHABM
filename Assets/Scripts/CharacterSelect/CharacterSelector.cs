@@ -16,6 +16,10 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] GameObject OFSpotlight;
     [SerializeField] GameObject HomelessSpotlight;
 
+    [SerializeField] GameObject CongressSign;
+    [SerializeField] GameObject OFSign;
+    [SerializeField] GameObject HomelessSign;
+
     private GameControls characterSelectControls;
 
     SpriteRenderer OFGirl;
@@ -30,6 +34,10 @@ public class CharacterSelector : MonoBehaviour
     Animator HomelessGirlMoves;
     Animator CongresswomanMoves;
 
+    SpriteRenderer CongressSignSR;
+    SpriteRenderer OFSignSR;
+    SpriteRenderer HomelessSignSR;
+
     ParticleSystem CongresswomanParticleSystem;
     ParticleSystem OFParticleSystem;
     ParticleSystem HomelessParticleSystem;
@@ -41,6 +49,9 @@ public class CharacterSelector : MonoBehaviour
 
     private int consecutiveLeftClicks = 0;
     private int selectedGirl = 0;
+
+    private Color selected = new Color32(255, 255, 255, 255);
+    private Color deselected = new Color32(126, 126, 126, 255);
 
     Character[] characters;
     GameObject[] spotlight = new GameObject[3];
@@ -80,6 +91,10 @@ public class CharacterSelector : MonoBehaviour
         spotlight[0] = CongressSpotlight;
         spotlight[1] = OFSpotlight;
         spotlight[2] = HomelessSpotlight;
+
+        CongressSignSR = CongressSign.GetComponent<SpriteRenderer>();
+        OFSignSR = OFSign.GetComponent<SpriteRenderer>();
+        HomelessSignSR = HomelessSign.GetComponent<SpriteRenderer>();
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
@@ -199,9 +214,14 @@ public class CharacterSelector : MonoBehaviour
     void SelectOF()
     {
         selectedGirl = 2;
-        HomelessGirl.color = new Color32(255, 255, 255, 255);
-        OFGirl.color = new Color32(126, 126, 126, 255);
-        CongressWoman.color = new Color32(126, 126, 126, 255);
+        HomelessGirl.color = selected;
+        OFGirl.color = deselected;
+        CongressWoman.color = deselected;
+
+        CongressSignSR.color = deselected;
+        OFSignSR.color = selected;
+        HomelessSignSR.color = deselected;
+
         SelectSpotlight(1);
         StopAllAnimations();
         OFGirlMoves.SetBool("Breathing", true);
@@ -210,9 +230,14 @@ public class CharacterSelector : MonoBehaviour
     void SelectHomeless()
     {
         selectedGirl = 1;
-        OFGirl.color = new Color32(255, 255, 255, 255);
-        HomelessGirl.color = new Color32(126, 126, 126, 255);
-        CongressWoman.color = new Color32(126, 126, 126, 255);
+        OFGirl.color = selected;
+        HomelessGirl.color = deselected;
+        CongressWoman.color = deselected;
+
+        CongressSignSR.color = deselected;
+        OFSignSR.color = deselected;
+        HomelessSignSR.color = selected;
+
         SelectSpotlight(2);
         StopAllAnimations();
         HomelessGirlMoves.SetBool("Breathing", true);
@@ -221,9 +246,14 @@ public class CharacterSelector : MonoBehaviour
     void SelectCongresswoman()
     {
         selectedGirl = 0;
-        OFGirl.color = new Color32(126, 126, 126, 255);
-        HomelessGirl.color = new Color32(126, 126, 126, 255);
-        CongressWoman.color = new Color32(255, 255, 255, 255);
+        OFGirl.color = deselected;
+        HomelessGirl.color = deselected;
+        CongressWoman.color = selected;
+
+        CongressSignSR.color = selected;
+        OFSignSR.color = deselected;
+        HomelessSignSR.color = deselected;
+
         SelectSpotlight(0);
         StopAllAnimations();
         CongresswomanMoves.SetBool("Breathing", true);
