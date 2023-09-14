@@ -8,7 +8,6 @@ public class MissBar : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         SpawnMiss();
-        Destroy(col.gameObject);
     }
 
     private void SpawnMiss()

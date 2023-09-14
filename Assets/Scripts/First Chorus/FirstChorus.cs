@@ -21,8 +21,6 @@ public class FirstChorus : MonoBehaviour
 
     private void Awake()
     {
-        SpawnGameplayArrows();
-
         detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
 
         allAnimators = new Animator[detectionSquares.Length];
@@ -32,16 +30,6 @@ public class FirstChorus : MonoBehaviour
         }
 
         measure = timefunctions.ReturnSingleMeasure();
-        Reset();
-        //StartCoroutine(Blink());
-    }
-
-    private void SpawnGameplayArrows()
-    {
-        GameplayArrows currGameplayArrows = FindObjectOfType<GameplayArrows>();
-        if (currGameplayArrows != null) Destroy(currGameplayArrows);
-        GameplayArrows gameplayArrowsGroup = Instantiate(gameplayArrows, new Vector3(-142f + 640f, 360f + 1299f, 0), Quaternion.identity);
-        gameplayArrowsGroup.transform.SetParent(playerside.transform);
     }
 
     public IEnumerator Blink()
@@ -97,8 +85,8 @@ public class FirstChorus : MonoBehaviour
 
     public void Reset()
     {
-        SpawnGameplayArrows();
-        //gameplayArrows.transform.position = new Vector3(-142f, 1299f, 0);
+        gameplayArrows.transform.position = new Vector3(428, 1619.5f, 0);
+
         detect.resetScore();
         DestroyAllText();
     }

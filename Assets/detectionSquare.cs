@@ -17,11 +17,9 @@ public class detectionSquare : MonoBehaviour
         {
             SpawnPerfect();
             score = score + 2;
-            Debug.Log(score);
         } else if (distance > 3 && distance < 7)
         {
             score = score + 1;
-            Debug.Log(score);
             SpawnGood();
         }
         Destroy(col.gameObject);
