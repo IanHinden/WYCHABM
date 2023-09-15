@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstChorus : MonoBehaviour
 {
@@ -86,6 +87,24 @@ public class FirstChorus : MonoBehaviour
     public void Reset()
     {
         gameplayArrows.transform.position = new Vector3(428, 1619.5f, 0);
+
+        foreach (Transform child in gameplayArrows.transform)
+        {
+            BoxCollider2D boxCollider = child.GetComponent<BoxCollider2D>();
+            if (boxCollider != null)
+            {
+                // Enable the BoxCollider2D component
+                boxCollider.enabled = true;
+            }
+
+            // Check if the child has an Image component (assuming you're using UI elements)
+            Image image = child.GetComponent<Image>();
+            if (image != null)
+            {
+                // Enable the Image component
+                image.enabled = true;
+            }
+        }
 
         detect.resetScore();
         DestroyAllText();

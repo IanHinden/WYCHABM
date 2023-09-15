@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class detectionSquare : MonoBehaviour
 {
@@ -22,7 +23,12 @@ public class detectionSquare : MonoBehaviour
             score = score + 1;
             SpawnGood();
         }
-        Destroy(col.gameObject);
+
+        Image arrowImage = col.gameObject.GetComponent<Image>();
+        BoxCollider2D arrowBC = col.gameObject.GetComponent<BoxCollider2D>();
+        arrowImage.enabled = false;
+        arrowBC.enabled = false;
+
     }
 
     private void SpawnPerfect()
