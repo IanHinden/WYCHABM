@@ -32,6 +32,12 @@ public class ChrisCharacterSelector : MonoBehaviour
     SpriteRenderer OFSignSR;
     SpriteRenderer CongresswomanSignSR;
 
+    [SerializeField] GameObject OFSelector;
+    [SerializeField] GameObject HomelessSelector;
+
+    SpriteRenderer OFSelectorSR;
+    SpriteRenderer HomelessSelectorSR;
+
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
     Animator CongressAnim;
@@ -63,6 +69,9 @@ public class ChrisCharacterSelector : MonoBehaviour
         HomelessSignSR = HomelessSign.GetComponent<SpriteRenderer>();
         OFSignSR = OFSign.GetComponent<SpriteRenderer>();
         CongresswomanSignSR = CongresswomanSign.GetComponent<SpriteRenderer>();
+
+        OFSelectorSR = OFSelector.GetComponent<SpriteRenderer>();
+        HomelessSelectorSR = HomelessSelector.GetComponent<SpriteRenderer>();
 
         //Animators
         OFGirlHolderAnim = OFGirlHolder.GetComponent<Animator>();
@@ -163,7 +172,10 @@ public class ChrisCharacterSelector : MonoBehaviour
 
         HomelessSignSR.color = deselectColor;
         OFSignSR.color = selectColor;
-        CongresswomanSignSR.color = deselectColor; 
+        CongresswomanSignSR.color = deselectColor;
+
+        OFSelectorSR.enabled = true;
+        HomelessSelectorSR.enabled = false;
 
         //StopAllAnimations();
         //OFGirlMoves.SetBool("Breathing", true);
@@ -179,6 +191,9 @@ public class ChrisCharacterSelector : MonoBehaviour
         HomelessSignSR.color = selectColor;
         OFSignSR.color = deselectColor;
         CongresswomanSignSR.color = deselectColor;
+
+        OFSelectorSR.enabled = false;
+        HomelessSelectorSR.enabled = true;
         //StopAllAnimations();
         //HomelessGirlMoves.SetBool("Breathing", true);
     }
