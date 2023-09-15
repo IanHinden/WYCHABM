@@ -20,6 +20,10 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] GameObject OFSign;
     [SerializeField] GameObject HomelessSign;
 
+    [SerializeField] GameObject OFSelector;
+    [SerializeField] GameObject HomelessSelector;
+    [SerializeField] GameObject CongresswomanSelector;
+
     private GameControls characterSelectControls;
 
     SpriteRenderer OFGirl;
@@ -37,6 +41,10 @@ public class CharacterSelector : MonoBehaviour
     SpriteRenderer CongressSignSR;
     SpriteRenderer OFSignSR;
     SpriteRenderer HomelessSignSR;
+
+    SpriteRenderer OFSelectorSR;
+    SpriteRenderer HomelessSelectorSR;
+    SpriteRenderer CongresswomanSelectorSR;
 
     ParticleSystem CongresswomanParticleSystem;
     ParticleSystem OFParticleSystem;
@@ -69,6 +77,10 @@ public class CharacterSelector : MonoBehaviour
         OFGirl = characters[0].transform.GetChild(0).GetComponent<SpriteRenderer>();
         HomelessGirl = characters[1].transform.GetChild(0).GetComponent<SpriteRenderer>();
         CongressWoman = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        OFSelectorSR = OFSelector.GetComponent<SpriteRenderer>();
+        HomelessSelectorSR = HomelessSelector.GetComponent<SpriteRenderer>();
+        CongresswomanSelectorSR = CongresswomanSelector.GetComponent<SpriteRenderer>();
 
         //Animators
         OFGirlAnim = characters[0].GetComponent<Animator>();
@@ -222,6 +234,10 @@ public class CharacterSelector : MonoBehaviour
         OFSignSR.color = selected;
         HomelessSignSR.color = deselected;
 
+        OFSelectorSR.enabled = true;
+        HomelessSelectorSR.enabled = false;
+        CongresswomanSelectorSR.enabled = false;
+
         SelectSpotlight(1);
         StopAllAnimations();
         OFGirlMoves.SetBool("Breathing", true);
@@ -238,6 +254,10 @@ public class CharacterSelector : MonoBehaviour
         OFSignSR.color = deselected;
         HomelessSignSR.color = selected;
 
+        OFSelectorSR.enabled = false;
+        HomelessSelectorSR.enabled = true;
+        CongresswomanSelectorSR.enabled = false;
+
         SelectSpotlight(2);
         StopAllAnimations();
         HomelessGirlMoves.SetBool("Breathing", true);
@@ -253,6 +273,10 @@ public class CharacterSelector : MonoBehaviour
         CongressSignSR.color = selected;
         OFSignSR.color = deselected;
         HomelessSignSR.color = deselected;
+
+        OFSelectorSR.enabled = false;
+        HomelessSelectorSR.enabled = false;
+        CongresswomanSelectorSR.enabled = true;
 
         SelectSpotlight(0);
         StopAllAnimations();
