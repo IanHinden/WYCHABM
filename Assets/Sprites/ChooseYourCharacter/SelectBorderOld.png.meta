@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 956c1777ec883ed46843b38887d19112
+guid: 036c3caed77887f40b5412a4fe75c633
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -14,6 +14,30 @@ TextureImporter:
   - first:
       213: 7423476714380323027
     second: SelectBorder_3
+  - first:
+      213: -2707119446521905982
+    second: SelectBorder_4
+  - first:
+      213: -2052998462326653847
+    second: SelectBorder_5
+  - first:
+      213: 5097941825714015805
+    second: SelectBorder_6
+  - first:
+      213: 2624816420561501925
+    second: SelectBorder_7
+  - first:
+      213: 7966525371018200374
+    second: SelectBorder_8
+  - first:
+      213: 3059398410049179822
+    second: SelectBorder_9
+  - first:
+      213: -7347997415082342387
+    second: SelectBorder_10
+  - first:
+      213: -6187889322233981227
+    second: SelectBorder_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -116,8 +140,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 383
+        width: 2000
+        height: 1533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,10 +159,10 @@ TextureImporter:
       name: SelectBorder_1
       rect:
         serializedVersion: 2
-        x: 500
+        x: 2000
         y: 0
-        width: 500
-        height: 383
+        width: 2000
+        height: 1533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +180,10 @@ TextureImporter:
       name: SelectBorder_2
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 4000
         y: 0
-        width: 500
-        height: 383
+        width: 2000
+        height: 1533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +201,10 @@ TextureImporter:
       name: SelectBorder_3
       rect:
         serializedVersion: 2
-        x: 1500
+        x: 6000
         y: 0
-        width: 500
-        height: 383
+        width: 2000
+        height: 1533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
