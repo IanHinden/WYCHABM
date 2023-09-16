@@ -19,10 +19,6 @@ public class StabCheck : MonoBehaviour
     bool oedipal = false;
     bool levelEnded = false;
 
-    private void Awake()
-    {
-        //StartCoroutine(WinOrLose());
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "OedipalBonus")
