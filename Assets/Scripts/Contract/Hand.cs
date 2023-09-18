@@ -48,8 +48,8 @@ public class Hand : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
+        //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
+        //currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
 
         print.InkSpawner();
 

@@ -16,7 +16,7 @@ public class Print : MonoBehaviour
     {
         if (myLine != null)
         {
-            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+            Vector3 currentPosition = new Vector3(transform.position.x, transform.position.y, 1);
             myLine.updateLine(currentPosition);
         }
     }
@@ -26,6 +26,9 @@ public class Print : MonoBehaviour
         GameObject newLine = Instantiate(linePrefab);
         myLine = newLine.GetComponent<penLine>();
         myLine.transform.parent = this.transform;
+
+        LineRenderer line = newLine.GetComponent<LineRenderer>();
+        line.sortingOrder = 8;
     }
 
     public void DeletePenLine()
