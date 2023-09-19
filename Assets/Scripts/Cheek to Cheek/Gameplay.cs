@@ -13,9 +13,13 @@ public class Gameplay : MonoBehaviour
     [SerializeField] private GameControls gamecontrols;
     [SerializeField] private AnimationController animationController;
 
+    [SerializeField] MeterObjects meterObjects;
+
     private float measureMS;
 
     private bool firstScenario = true;
+
+    Coroutine meter;
 
     void Awake()
     {
@@ -24,12 +28,15 @@ public class Gameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => GameAction();
 
+        meter = StartCoroutine(meterObjects.StartMeter());
         StartCoroutine(GameSwitcher());
     }
 
     private IEnumerator GameSwitcher()
     {
         yield return new WaitForSeconds(measureMS * 3);
+        meterObjects.ResetMeter();
+        meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
     }
 
@@ -46,13 +53,16 @@ public class Gameplay : MonoBehaviour
 
     private void GameAction()
     {
-        if (firstScenario == true)
+        meterObjects.StopRoutine();
+        StopCoroutine(meter);
+        Debug.Log(meterObjects.getPass());
+        /*if (firstScenario == true)
         {
             Debug.Log("First game");
         }
         else
         {
             Debug.Log("Second game");
-        }
+        }*/
     }
 }
