@@ -28,13 +28,16 @@ public class Gameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => GameAction();
 
-        meter = StartCoroutine(meterObjects.StartMeter());
         StartCoroutine(GameSwitcher());
     }
 
     private IEnumerator GameSwitcher()
     {
+        yield return null;
+        meter = StartCoroutine(meterObjects.StartMeter());
         yield return new WaitForSeconds(measureMS * 3);
+        meterObjects.StopRoutine();
+        if(meter!= null) StopCoroutine(meter);
         meterObjects.ResetMeter();
         meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
@@ -54,15 +57,21 @@ public class Gameplay : MonoBehaviour
     private void GameAction()
     {
         meterObjects.StopRoutine();
-        StopCoroutine(meter);
+        if(meter!= null) StopCoroutine(meter);
         Debug.Log(meterObjects.getPass());
-        /*if (firstScenario == true)
+        if (firstScenario == true)
         {
-            Debug.Log("First game");
+            if(meterObjects.getPass() == true)
+            {
+                animationController.KissWin();
+            } else
+            {
+                animationController.KissLose();
+            }
         }
         else
         {
             Debug.Log("Second game");
-        }*/
+        }
     }
 }

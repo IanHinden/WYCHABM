@@ -24,6 +24,7 @@ public class MeterObjects : MonoBehaviour
 
     int currentRect = 0;
     private bool animating = true;
+    private bool onTheWayUp = true;
 
     void Awake()
     {
@@ -50,36 +51,45 @@ public class MeterObjects : MonoBehaviour
 
     public IEnumerator StartMeter()
     {
-        while (animating == true)
-        {
-            foreach (GameObject rect in allRects)
+        while(animating == true) {
+            while (onTheWayUp == true)
             {
-                yield return new WaitForSeconds(interval);
-                currentRect++;
 
-                if (currentRect == 10)
+                foreach (GameObject rect in allRects)
                 {
-                    pass = true;
+                    yield return new WaitForSeconds(interval);
+                    currentRect++;
+
+                    if (currentRect == 10)
+                    {
+                        pass = true;
+                    }
+
+                    rect.SetActive(true);
                 }
 
-                rect.SetActive(true);
+                onTheWayUp = false;
             }
 
-            for (int i = allRects.Count - 1; i >= 0; i--)
-            {
-                yield return new WaitForSeconds(interval);
-                currentRect--;
-
-                if (currentRect == 9)
+            while (onTheWayUp == false)
+            { 
+                for (int i = allRects.Count - 1; i >= 0; i--)
                 {
-                    pass = false;
+                    yield return new WaitForSeconds(interval);
+                    currentRect--;
+
+                    if (currentRect == 9)
+                    {
+                        pass = false;
+                    }
+
+                    GameObject currRect = allRects[i];
+                    currRect.SetActive(false);
                 }
 
-                GameObject currRect = allRects[i];
-                currRect.SetActive(false);
+                onTheWayUp = true;
             }
         }
-
     }
 
 
@@ -100,6 +110,7 @@ public class MeterObjects : MonoBehaviour
 
     public void ResetMeter()
     {
+        Debug.Log("Reset");
         currentRect = 0;
         animating = true;
 
