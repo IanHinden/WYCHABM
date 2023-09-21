@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    [SerializeField] GameObject Pointing;
+    [SerializeField] GameObject Clapping;
+    [SerializeField] GameObject WatchingObjects;
+    [SerializeField] GameObject Watching1;
+    [SerializeField] GameObject Watching2;
+
     private GameControls gamecontrols;
     private new Print print;
     private bool moved = false;
@@ -43,13 +49,22 @@ public class Hand : MonoBehaviour
         if (movementInput.x != 0 || movementInput.y != 0)
         {
             moved = true;
+            Pointing.SetActive(false);
+            Clapping.SetActive(false);
+            WatchingObjects.SetActive(true);
+            Watching1.SetActive(false);
+            Watching2.SetActive(true);
+        } else
+        {
+            Watching1.SetActive(true);
+            Watching2.SetActive(false);
         }
 
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
         //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
-        //currentPosition.y = Mathf.Clamp(currentPosition.y, -1.8f, -1.2f);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, -2.5f, 1.6f);
 
         print.InkSpawner();
 

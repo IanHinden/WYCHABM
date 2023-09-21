@@ -10,9 +10,15 @@ public class Contract : MonoBehaviour
     [SerializeField] Hand hand;
     [SerializeField] Print print;
 
+    [SerializeField] GameObject Pointing;
+    [SerializeField] GameObject Clapping;
+
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        Pointing.SetActive(false);
+        Clapping.SetActive(true);
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
         DetermineWinOrLoss();
     }
 
