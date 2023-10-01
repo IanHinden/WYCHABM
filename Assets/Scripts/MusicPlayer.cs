@@ -5,6 +5,8 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     AudioSource audioSource;
+
+    public float fadeDuration = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,10 @@ public class MusicPlayer : MonoBehaviour
         audioSource.Stop();
         audioSource.clip = music;
         audioSource.Play();
+    }
+
+    public void FadeOutMusic()
+    {
+        audioSource.Stop();
     }
 }

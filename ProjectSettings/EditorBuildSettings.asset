@@ -8,114 +8,114 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1. LogoScreen.unity
     guid: d773eb6fe6c7e304485780e9e23b6c51
-  - enabled: 1
-    path: Assets/Scenes/2. TitleScreen.unity
-    guid: 7e257850506254e41a35cc2b409876a3
-  - enabled: 1
-    path: Assets/Scenes/2.5 Instructions.unity
-    guid: 00000f9fe40f01e46a5ca6695131fa32
   - enabled: 0
-    path: Assets/Scenes/4. BarScene.unity
-    guid: 6bbeafadad597574c96e7544b70fb653
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/5. Fired.unity
-    guid: b0af856507dcc9a44a6488c74d205247
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/6. Contract.unity
-    guid: 902f632d97317234f8910d3d2cb46792
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/8. Charactert Select.unity
-    guid: 6451eb85b4d58a842aace68ce97c962e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/9. Judgement.unity
-    guid: 1e44a52c53361264eb855ab46ca887cb
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/10. First Chorus 1.unity
-    guid: bea5a3655b8b8a840b909f70830a0fba
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/11. The Family.unity
-    guid: 06d17d694d439254aa482649c616cb81
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/13. Absent Dad.unity
-    guid: a8f06ddff73f6784da8dd98df9ef843f
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/14. Psycho.unity
-    guid: 0071ccd0ea72f9945afeb8a79d903ab7
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/15. Get a Job.unity
-    guid: 9b93085cca753be469341dc9e06f5d69
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/16. Job Interview.unity
-    guid: 09a52bdbfa7d99b4db3be92e18853c22
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/17. Evolving.unity
-    guid: f1ed063556ad1b446b9a2b60843e84dc
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/18. New Mr. Richmond.unity
     guid: be2b261a8ddc31942b8bb884cc0ae91e
   - enabled: 0
-    path: Assets/Scenes/19. DrivingScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/20. Cheek to Cheek.unity
-    guid: 085dc8f382df7274ea1e70389b8cb22e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/21. See Men.unity
-    guid: af09966fdd0c3714393f738dd6b5bea4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/22. Second Chorus.unity
-    guid: febe560d681ebce409f64ea02c3d989c
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/23. Web Surfing.unity
-    guid: 54ec1c5409df47b4d939cb480865244e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/24. Wishlist.unity
-    guid: 44fbc583579f6a24d92c131aeb6e2c72
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/25. Online Dating.unity
-    guid: eff9d7e951ad7a441b5f70ed4a8d36f6
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/26. Tweak.unity
-    guid: 04f3c54b09f925a42809fd33b85e7b9e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/27. Party Guy.unity
-    guid: 4a201c616f1bc1144815f7e97c02eed3
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/28. Party Girls.unity
-    guid: 9f78b39d10e8c174e947f5cc01bfed14
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/29. Mensch.unity
-    guid: 37db3c85bdebb0345adaaf92e88b5848
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/30. Car Arrival.unity
-    guid: ad2e22ddb74c0c641b366112a1adfca8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/31. Bar View.unity
-    guid: 83befcf08a7ae2649be4490937ddcf86
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/32. Make a Deal.unity
-    guid: 70f88f7cc0627764580f323e3828f77b
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/33. Mix.unity
-    guid: c5857f7b0148fd3439f80ec1fd76accb
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/34. Bedside.unity
-    guid: 63d863d3959b3dd479e377007ac5848d
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/35. Rings.unity
-    guid: 1b52e0e69b306a04296cfa9cbccf2c6b
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/36. Sick.unity
-    guid: 505eaac468537d343b92f40254e71017
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/37. Pregnancy Test.unity
-    guid: f13c17652f8d3b14f98c3443eedd0a1a
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/38. Third Chorus.unity
-    guid: 525360334f3669c489a189eb9bdea2b6
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/39. Final Boss.unity
-    guid: 43c8a5f766bd499489f581ab18f8042a
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/40. ScoreScreen.unity
     guid: 8abb3f52eb51eb64d81885747e026318

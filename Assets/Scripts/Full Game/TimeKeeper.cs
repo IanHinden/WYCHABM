@@ -7,6 +7,8 @@ public class TimeKeeper : MonoBehaviour
     ArrayList allscenes = new ArrayList();
     int currentScene = 0;
 
+    [SerializeField] MusicPlayer musicplayer;
+
     [Header("Cameras")]
     [SerializeField] GameObject maincamera;
     [SerializeField] GameObject threedcamera;
@@ -57,6 +59,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private GameObject PregnancyTest;
     [SerializeField] private GameObject ThirdChorus;
     [SerializeField] private GameObject FinalBoss;
+    [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject ScoreScreen;
 
     [Header("Reset Scripts")]
@@ -137,14 +140,15 @@ public class TimeKeeper : MonoBehaviour
         allscenes.Add(PregnancyTest);
         allscenes.Add(ThirdChorus);
         allscenes.Add(FinalBoss);
-        allscenes.Add(ScoreScreen);
+        allscenes.Add(VictoryScreen); //37
+        allscenes.Add(ScoreScreen); //38
     }
 
     private void nextScene(int countdown = 0, bool outro = false, Vector2 maskCoordinates = default(Vector2))
     {
         if (outro)
         {
-            uihandler.MaskIntro(maskCoordinates);
+            //uihandler.MaskIntro(maskCoordinates);
         }
 
         uihandler.ClearWinLoss();
@@ -173,6 +177,29 @@ public class TimeKeeper : MonoBehaviour
         nextActiveScene.SetActive(true);
 
         currentScene++;
+    }
+
+    private IEnumerator WinGame()
+    {
+        nextScene();
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        nextScene();
+
+    }
+
+    private IEnumerator LoseGame()
+    {
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+
+        musicplayer.FadeOutMusic();
+
+        GameObject scoreScreen = (GameObject)allscenes[currentScene + 2];
+        GameObject currentActiveScene = (GameObject)allscenes[currentScene];
+
+        currentActiveScene.SetActive(false);
+        scoreScreen.SetActive(true);
+
+        currentScene = currentScene + 2;
     }
 
     private void resetCamera()
@@ -340,7 +367,16 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         nextScene(); //Final Boss
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        Debug.Log("Time to decide");
+        Debug.Log(scoreHandler.ReturnScore());
+
+        if(scoreHandler.ReturnScore() < 5)
+        {
+            StartCoroutine(LoseGame());
+        } else
+        {
+            StartCoroutine(WinGame());
+        }
     }
 
     IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null)
@@ -352,7 +388,7 @@ public class TimeKeeper : MonoBehaviour
         }
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2) - .8f);
  
-        uihandler.MaskOutro(maskCoordinates);
+        //uihandler.MaskOutro(maskCoordinates);
         yield return new WaitForSeconds(.8f);
     }
 
