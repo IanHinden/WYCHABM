@@ -367,8 +367,6 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         nextScene(); //Final Boss
-        Debug.Log("Time to decide");
-        Debug.Log(scoreHandler.ReturnScore());
 
         if(scoreHandler.ReturnScore() < 5)
         {
