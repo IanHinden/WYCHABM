@@ -18,13 +18,13 @@ public class Straw : MonoBehaviour
     SpriteRenderer window;
 
     public GameObject sun;
-    MixedDrink mixedDrink;
+    //MixedDrink mixedDrink;
 
     void Awake()
     {
         gamecontrols = new GameControls();
-        window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
-        mixedDrink = FindObjectOfType<MixedDrink>();
+        //window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
+        //mixedDrink = FindObjectOfType<MixedDrink>();
 
         sun = GameObject.Find("Sun");
         sun.SetActive(false);
@@ -88,20 +88,23 @@ public class Straw : MonoBehaviour
     {
         scorehandler.IncrementScore();
         gameOver = true;
-        StartCoroutine(ColorChanges());
 
-        GameObject moon = GameObject.Find("Moon");
-        moon.SetActive(false);
+        //Win animation
+        //StartCoroutine(ColorChanges());
 
-        sun.SetActive(true);
+        //GameObject moon = GameObject.Find("Moon");
+        //moon.SetActive(false);
 
-        mixedDrink.GetComponent<SpriteRenderer>().color = new Color(255, 138, 83, 255);
+        //sun.SetActive(true);
+
+        //mixedDrink.GetComponent<SpriteRenderer>().color = new Color(255, 138, 83, 255);
     }
 
     private void lose()
     {
-        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * -300);
+        //Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+        //rb.AddForce(transform.up * -300);
+        //Lose Animation
     }
 
     private IEnumerator ColorChanges()
@@ -115,5 +118,10 @@ public class Straw : MonoBehaviour
             yield return null;
         }
         window.color = new Color(.79f, .33f, .19f, 1f);
+    }
+
+    public void Reset()
+    {
+        Debug.Log("Resetting");
     }
 }
