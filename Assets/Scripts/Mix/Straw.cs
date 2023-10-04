@@ -8,6 +8,8 @@ public class Straw : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
+    [SerializeField] MixAnimationController animationController;
+
     private GameControls gamecontrols;
     private float speed = 3.5f;
     private float moveAmount = 0f;
@@ -17,7 +19,7 @@ public class Straw : MonoBehaviour
 
     SpriteRenderer window;
 
-    public GameObject sun;
+    //public GameObject sun;
     //MixedDrink mixedDrink;
 
     void Awake()
@@ -26,8 +28,8 @@ public class Straw : MonoBehaviour
         //window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
         //mixedDrink = FindObjectOfType<MixedDrink>();
 
-        sun = GameObject.Find("Sun");
-        sun.SetActive(false);
+        //sun = GameObject.Find("Sun");
+        //sun.SetActive(false);
 
         StartCoroutine(WinOrLose());
     }
@@ -105,6 +107,7 @@ public class Straw : MonoBehaviour
         //Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         //rb.AddForce(transform.up * -300);
         //Lose Animation
+        animationController.LoseAnimation();
     }
 
     private IEnumerator ColorChanges()
