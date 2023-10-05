@@ -71,7 +71,13 @@ public class Gameplay : MonoBehaviour
         }
         else
         {
-            Debug.Log("Second game");
+            if(meterObjects.getPass() == true)
+            {
+                animationController.MisstressWin();
+            } else
+            {
+
+            }
         }
     }
 }

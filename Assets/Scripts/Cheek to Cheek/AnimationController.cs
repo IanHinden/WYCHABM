@@ -18,6 +18,21 @@ public class AnimationController : MonoBehaviour
     Animator LeafAnim;
     Animator BrokenHeartAnim;
 
+    [Header("Hit Objects")]
+    [SerializeField] GameObject MistressObjectsNeutral;
+    [SerializeField] GameObject MistressObjectsWin;
+    [SerializeField] GameObject MistressObjectsLose;
+    [SerializeField] GameObject Bruise;
+    [SerializeField] GameObject Hands;
+    [SerializeField] GameObject HandsWin1;
+    [SerializeField] GameObject HandsWin2;
+
+    SpriteRenderer BruiseSR;
+    SpriteRenderer HandsWin1SR;
+    SpriteRenderer HandsWin2SR;
+
+    Animator SlapAnim;
+
     private bool kissTriggered = false;
     private bool hitTriggered = false;
 
@@ -26,6 +41,12 @@ public class AnimationController : MonoBehaviour
         KissNeutralWifeAnim = KissNeutralWife.GetComponent<Animator>();
         LeafAnim = Leaf.GetComponent<Animator>();
         BrokenHeartAnim = BrokenHeart.GetComponent<Animator>();
+
+        BruiseSR = Bruise.GetComponent<SpriteRenderer>();
+        HandsWin1SR = HandsWin1.GetComponent<SpriteRenderer>();
+        HandsWin2SR = HandsWin2.GetComponent<SpriteRenderer>();
+
+        SlapAnim = Hands.GetComponent<Animator>();
     }
 
     public void KissWin()
@@ -40,5 +61,13 @@ public class AnimationController : MonoBehaviour
         KissObjectLose.SetActive(true);
         BrokenHeartAnim.SetTrigger("Break");
         LeafAnim.SetTrigger("Blow");
+    }
+
+    public void MisstressWin()
+    {
+        MistressObjectsNeutral.SetActive(false);
+        MistressObjectsWin.SetActive(true);
+
+        SlapAnim.SetTrigger("Slap");
     }
 }
