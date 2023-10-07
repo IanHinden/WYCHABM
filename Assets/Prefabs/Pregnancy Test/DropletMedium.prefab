@@ -65,22 +65,22 @@ PrefabInstance:
     - target: {fileID: 8763039597380755891, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.14789008
+      value: 0.0448578
       objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755891, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.14789008
+      value: 0.0448578
       objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755891, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.14789008
+      value: 0.0448578
       objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755902, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_Name
-      value: Droplet
+      value: DropletMedium
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723157821e051394993a650d67972e63, type: 3}
