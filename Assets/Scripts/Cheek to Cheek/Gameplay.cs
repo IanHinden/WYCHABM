@@ -39,6 +39,7 @@ public class Gameplay : MonoBehaviour
         meterObjects.StopRoutine();
         if(meter!= null) StopCoroutine(meter);
         meterObjects.ResetMeter();
+        animationController.SwitchScene();
         meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
     }
@@ -58,7 +59,6 @@ public class Gameplay : MonoBehaviour
     {
         meterObjects.StopRoutine();
         if(meter!= null) StopCoroutine(meter);
-        Debug.Log(meterObjects.getPass());
         if (firstScenario == true)
         {
             if(meterObjects.getPass() == true)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     [Header("Kiss Objects")]
+    [SerializeField] GameObject KissObjects;
     [SerializeField] GameObject KissObjectsNeutral;
     [SerializeField] GameObject KissObjectsWin;
     [SerializeField] GameObject KissObjectLose;
@@ -14,11 +15,13 @@ public class AnimationController : MonoBehaviour
     [SerializeField] GameObject Leaf;
     [SerializeField] GameObject BrokenHeart;
 
+    Animator KissScenarioEndAnim;
     Animator KissNeutralWifeAnim;
     Animator LeafAnim;
     Animator BrokenHeartAnim;
 
     [Header("Hit Objects")]
+    [SerializeField] GameObject MistressObjects;
     [SerializeField] GameObject MistressObjectsNeutral;
     [SerializeField] GameObject MistressObjectsWin;
     [SerializeField] GameObject MistressObjectsLose;
@@ -31,6 +34,7 @@ public class AnimationController : MonoBehaviour
     SpriteRenderer HandsWin1SR;
     SpriteRenderer HandsWin2SR;
 
+    Animator MissScenarioBeginAnim;
     Animator SlapAnim;
 
     private bool kissTriggered = false;
@@ -38,6 +42,7 @@ public class AnimationController : MonoBehaviour
 
     private void Awake()
     {
+        KissScenarioEndAnim = KissObjects.GetComponent<Animator>();
         KissNeutralWifeAnim = KissNeutralWife.GetComponent<Animator>();
         LeafAnim = Leaf.GetComponent<Animator>();
         BrokenHeartAnim = BrokenHeart.GetComponent<Animator>();
@@ -46,7 +51,14 @@ public class AnimationController : MonoBehaviour
         HandsWin1SR = HandsWin1.GetComponent<SpriteRenderer>();
         HandsWin2SR = HandsWin2.GetComponent<SpriteRenderer>();
 
+        MissScenarioBeginAnim = MistressObjects.GetComponent<Animator>();
         SlapAnim = Hands.GetComponent<Animator>();
+    }
+
+    public void SwitchScene()
+    {
+        KissScenarioEndAnim.SetTrigger("Switch");
+        MissScenarioBeginAnim.SetTrigger("Switch");
     }
 
     public void KissWin()

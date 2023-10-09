@@ -71894,13 +71894,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955488735}
+  - component: {fileID: 955488736}
   m_Layer: 0
   m_Name: MistressObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &955488735
 Transform:
   m_ObjectHideFlags: 0
@@ -71909,7 +71910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955488734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -9.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488174674}
@@ -71919,6 +71920,25 @@ Transform:
   m_Father: {fileID: 1873605388}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &955488736
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955488734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 308e0618c7c27064583ffb992b951bbb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &961141278
 GameObject:
   m_ObjectHideFlags: 0
@@ -104435,6 +104455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493332236}
+  - component: {fileID: 1493332237}
   m_Layer: 0
   m_Name: KissObjects
   m_TagString: Untagged
@@ -104459,6 +104480,25 @@ Transform:
   m_Father: {fileID: 1873605388}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1493332237
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493332235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e193dd9b3d4afc64c8cec0a20f36b795, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1495694645
 GameObject:
   m_ObjectHideFlags: 0
@@ -132328,12 +132368,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50c2c01f7b60a84e97b4705b680b23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KissObjects: {fileID: 1493332235}
   KissObjectsNeutral: {fileID: 978271958}
   KissObjectsWin: {fileID: 1464388712}
   KissObjectLose: {fileID: 1544818507}
   KissNeutralWife: {fileID: 1661320053}
   Leaf: {fileID: 1851178032}
   BrokenHeart: {fileID: 848089638}
+  MistressObjects: {fileID: 955488734}
   MistressObjectsNeutral: {fileID: 890739298}
   MistressObjectsWin: {fileID: 1956874349}
   MistressObjectsLose: {fileID: 1436503989}
