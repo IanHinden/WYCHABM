@@ -33,14 +33,14 @@ public class Disappointer : MonoBehaviour
 
     private IEnumerator BlinkingBG()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
-        background2.SetActive(false);
-        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
+        yield return new WaitForSeconds(3 *timefunctions.ReturnSingleMeasure());
+        background2.SetActive(true);
+        /*yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
         background2.SetActive(true);
         yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
         background2.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
-        background2.SetActive(true);
+        background2.SetActive(true);*/
     }
 
     private void DetermineWinOrLoss()
@@ -72,5 +72,6 @@ public class Disappointer : MonoBehaviour
     public void Reset()
     {
         setPhase1();
+        background2.SetActive(false);
     }
 }
