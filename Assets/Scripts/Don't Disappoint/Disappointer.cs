@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Disappointer : MonoBehaviour
 {
+    [Header("Required Tools")]
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
 
+    [Header("Pig Objects")]
     [SerializeField] GameObject pigheads;
     [SerializeField] GameObject crazypigs;
     [SerializeField] GameObject pigbodies;
+
+    [Header("Background")]
+    [SerializeField] GameObject background2;
 
     bool CareAboutTheOpinionsOfOthers;
 
@@ -21,8 +26,21 @@ public class Disappointer : MonoBehaviour
 
     public IEnumerator WinOrLose()
     {
+        StartCoroutine(BlinkingBG());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
         DetermineWinOrLoss();
+    }
+
+    private IEnumerator BlinkingBG()
+    {
+        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
+        background2.SetActive(false);
+        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
+        background2.SetActive(true);
+        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
+        background2.SetActive(false);
+        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
+        background2.SetActive(true);
     }
 
     private void DetermineWinOrLoss()
