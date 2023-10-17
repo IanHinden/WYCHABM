@@ -111,6 +111,7 @@ public class MeterObjects : MonoBehaviour
     public void ResetMeter()
     {
         Debug.Log("Reset");
+        pass = false;
         currentRect = 0;
         animating = true;
 
