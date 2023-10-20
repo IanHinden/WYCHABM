@@ -151,8 +151,6 @@ public class RoadRacer : MonoBehaviour
 			defaultConePositions.Add(cones[i].position);
 		}
 
-		Debug.Log(cones.Length);
-
 		//cones 的默认位置
 
 		//绘制行道树

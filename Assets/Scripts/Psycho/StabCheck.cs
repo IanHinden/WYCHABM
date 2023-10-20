@@ -26,8 +26,9 @@ public class StabCheck : MonoBehaviour
             if (levelEnded == false)
             {
                 Vector3 textPos = transform.position;
-                textPos.x = transform.position.x - 3;
-                Instantiate(oedipalBonus, textPos, Quaternion.identity);
+                textPos.x = transform.position.x + 15;
+                GameObject oedBon = Instantiate(oedipalBonus, textPos, Quaternion.identity);
+                oedBon.transform.parent = this.transform.parent.parent;
                 if (oedipal == false)
                 {
                     scorehandler.IncrementScore();

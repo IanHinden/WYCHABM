@@ -7,6 +7,7 @@ public class Hands : MonoBehaviour
     private GameControls gamecontrols;
 
     private SpriteRenderer handReady;
+    private SpriteRenderer handReady2;
     private SpriteRenderer handStab;
     private BoxCollider2D stabCollide;
 
@@ -18,6 +19,7 @@ public class Hands : MonoBehaviour
     {
         gamecontrols = new GameControls();
         handReady = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        handReady2 = this.transform.GetChild(2).GetComponent<SpriteRenderer>();
         handStab = this.transform.GetChild(1).GetComponent<SpriteRenderer>();
         stabCollide = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
     }
@@ -46,6 +48,7 @@ public class Hands : MonoBehaviour
         {
             handStab.enabled = false;
             handReady.enabled = true;
+            handReady2.enabled = true;
             stabCollide.enabled = false;
 
             transform.position = currentPosition;
@@ -57,6 +60,7 @@ public class Hands : MonoBehaviour
             Instantiate(stabHole, holePos, Quaternion.identity);
             handStab.enabled = true;
             handReady.enabled = false;
+            handReady2.enabled = false;
             stabCollide.enabled = true;
         }
     }
