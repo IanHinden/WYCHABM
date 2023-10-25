@@ -202,7 +202,7 @@ public class TimeKeeper : MonoBehaviour
         currentScene = currentScene + 2;
     }
 
-    private void resetCamera()
+    public void resetCamera()
     {
         Vector3 targetPosition = new Vector3(0f, 0f, -10f);
         Vector3 threeDCameraPos = new Vector3(-43.8f, 10.59f, -10f);
