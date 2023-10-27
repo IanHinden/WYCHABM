@@ -82,4 +82,10 @@ public class AnimationController : MonoBehaviour
 
         SlapAnim.SetTrigger("Slap");
     }
+
+    public void MisstressLose()
+    {
+        MistressObjectsNeutral.SetActive(false);
+        MistressObjectsLose.SetActive(true);
+    }
 }

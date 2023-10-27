@@ -19,6 +19,9 @@ public class Gameplay : MonoBehaviour
 
     private bool firstScenario = true;
 
+    private bool firstScenarioPassed = false;
+    private bool secondScenarioPassed = false;
+
     Coroutine meter;
 
     void Awake()
@@ -35,11 +38,19 @@ public class Gameplay : MonoBehaviour
     {
         yield return null;
         meter = StartCoroutine(meterObjects.StartMeter());
-        yield return new WaitForSeconds(measureMS * 3);
+        yield return new WaitForSeconds(measureMS * 2);
+
+        if(firstScenarioPassed == false)
+        {
+            animationController.KissLose();
+        }
+
+        yield return new WaitForSeconds(measureMS * 1);
+
         meterObjects.StopRoutine();
         if(meter!= null) StopCoroutine(meter);
-        meterObjects.ResetMeter();
         animationController.SwitchScene();
+        meterObjects.ResetMeter();
         meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
     }
@@ -63,6 +74,7 @@ public class Gameplay : MonoBehaviour
         {
             if(meterObjects.getPass() == true)
             {
+                firstScenarioPassed = true;
                 animationController.KissWin();
             } else
             {
@@ -76,7 +88,7 @@ public class Gameplay : MonoBehaviour
                 animationController.MisstressWin();
             } else
             {
-
+                animationController.MisstressLose();
             }
         }
     }
