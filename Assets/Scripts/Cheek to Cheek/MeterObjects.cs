@@ -110,15 +110,17 @@ public class MeterObjects : MonoBehaviour
 
     public void ResetMeter()
     {
-        Debug.Log("Reset");
         pass = false;
         currentRect = 0;
-        animating = true;
+        animating = false;
 
         for (int i = 0; i < allRects.Count; i++)
         {
             GameObject currRect = allRects[i];
             currRect.SetActive(false);
         }
+
+        onTheWayUp = true;
+        animating = true;
     }
 }

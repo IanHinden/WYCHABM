@@ -38,21 +38,35 @@ public class Gameplay : MonoBehaviour
     {
         yield return null;
         meter = StartCoroutine(meterObjects.StartMeter());
-        yield return new WaitForSeconds(measureMS * 2);
+        yield return new WaitForSeconds(measureMS * 3);
 
-        if(firstScenarioPassed == false)
+        gamecontrols.Disable();
+        if (firstScenarioPassed == false)
         {
             animationController.KissLose();
         }
 
-        yield return new WaitForSeconds(measureMS * 1);
-
         meterObjects.StopRoutine();
         if(meter!= null) StopCoroutine(meter);
+
         animationController.SwitchScene();
         meterObjects.ResetMeter();
+        yield return new WaitForSeconds(.3f);
         meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
+        gamecontrols.Enable();
+
+        yield return new WaitForSeconds((measureMS * 2) + .7f);
+         
+        gamecontrols.Disable();
+        if (secondScenarioPassed == false)
+        {
+            animationController.MisstressLose();
+        }
+
+        meterObjects.StopRoutine();
+
+        gamecontrols.Disable();
     }
 
 
@@ -80,11 +94,14 @@ public class Gameplay : MonoBehaviour
             {
                 animationController.KissLose();
             }
+
+            gamecontrols.Disable();
         }
         else
         {
             if(meterObjects.getPass() == true)
             {
+                secondScenarioPassed = true;
                 animationController.MisstressWin();
             } else
             {
