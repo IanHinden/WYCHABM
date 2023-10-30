@@ -22,6 +22,8 @@ public class Gameplay : MonoBehaviour
     private bool firstScenarioPassed = false;
     private bool secondScenarioPassed = false;
 
+    private float transitionTime = .3f;
+
     Coroutine meter;
 
     void Awake()
@@ -51,12 +53,12 @@ public class Gameplay : MonoBehaviour
 
         animationController.SwitchScene();
         meterObjects.ResetMeter();
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(transitionTime);
         meter = StartCoroutine(meterObjects.StartMeter());
         firstScenario = false;
         gamecontrols.Enable();
 
-        yield return new WaitForSeconds((measureMS * 2) + .7f);
+        yield return new WaitForSeconds((measureMS * 3) - transitionTime);
          
         gamecontrols.Disable();
         if (secondScenarioPassed == false)

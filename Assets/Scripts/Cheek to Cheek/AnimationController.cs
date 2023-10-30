@@ -29,13 +29,21 @@ public class AnimationController : MonoBehaviour
     [SerializeField] GameObject Hands;
     [SerializeField] GameObject HandsWin1;
     [SerializeField] GameObject HandsWin2;
+    [SerializeField] GameObject SlapWaves;
+    [SerializeField] GameObject FaceSmile;
+    [SerializeField] GameObject FaceWink;
+    [SerializeField] GameObject HandsLose;
 
     SpriteRenderer BruiseSR;
     SpriteRenderer HandsWin1SR;
     SpriteRenderer HandsWin2SR;
+    SpriteRenderer SlapWavesSR;
+    SpriteRenderer FaceSmileSR;
+    SpriteRenderer FaceWinkSR;
 
     Animator MissScenarioBeginAnim;
     Animator SlapAnim;
+    Animator HandsLoseAnim;
 
     private bool kissTriggered = false;
     private bool hitTriggered = false;
@@ -50,9 +58,14 @@ public class AnimationController : MonoBehaviour
         BruiseSR = Bruise.GetComponent<SpriteRenderer>();
         HandsWin1SR = HandsWin1.GetComponent<SpriteRenderer>();
         HandsWin2SR = HandsWin2.GetComponent<SpriteRenderer>();
+        SlapWavesSR = SlapWaves.GetComponent<SpriteRenderer>();
+
+        FaceSmileSR = FaceSmile.GetComponent<SpriteRenderer>();
+        FaceWinkSR = FaceWink.GetComponent<SpriteRenderer>();
 
         MissScenarioBeginAnim = MistressObjects.GetComponent<Animator>();
         SlapAnim = Hands.GetComponent<Animator>();
+        HandsLoseAnim = HandsLose.GetComponent<Animator>();
     }
 
     public void SwitchScene()
@@ -77,6 +90,7 @@ public class AnimationController : MonoBehaviour
 
     public void MisstressWin()
     {
+        StartCoroutine(MisstressWinAppearances());
         MistressObjectsNeutral.SetActive(false);
         MistressObjectsWin.SetActive(true);
 
@@ -87,5 +101,34 @@ public class AnimationController : MonoBehaviour
     {
         MistressObjectsNeutral.SetActive(false);
         MistressObjectsLose.SetActive(true);
+    }
+
+    private IEnumerator MisstressWinAppearances()
+    {
+        yield return new WaitForSeconds(.3f);
+
+        HandsWin1SR.enabled = false;
+        HandsWin2SR.enabled = true;
+
+        BruiseSR.enabled = true;
+
+        SlapWavesSR.enabled = true;
+
+        yield return new WaitForSeconds(.2f);
+        FaceSmileSR.enabled = false;
+        FaceWinkSR.enabled = true;
+
+    }
+
+    public void Reset()
+    {
+        // MistressWin
+        HandsWin1SR.enabled = true;
+        HandsWin2SR.enabled = false;
+        BruiseSR.enabled = false;
+        SlapWavesSR.enabled = false;
+        FaceSmileSR.enabled = true;
+        FaceWinkSR.enabled = false;
+
     }
 }
