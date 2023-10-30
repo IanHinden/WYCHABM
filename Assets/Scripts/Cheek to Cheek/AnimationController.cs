@@ -101,6 +101,7 @@ public class AnimationController : MonoBehaviour
     {
         MistressObjectsNeutral.SetActive(false);
         MistressObjectsLose.SetActive(true);
+        HandsLoseAnim.SetTrigger("HandsLose");
     }
 
     private IEnumerator MisstressWinAppearances()
@@ -129,6 +130,6 @@ public class AnimationController : MonoBehaviour
         SlapWavesSR.enabled = false;
         FaceSmileSR.enabled = true;
         FaceWinkSR.enabled = false;
-
+        HandsLoseAnim.ResetTrigger("HandsLose");
     }
 }
