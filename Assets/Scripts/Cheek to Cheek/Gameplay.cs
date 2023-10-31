@@ -33,10 +33,10 @@ public class Gameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => GameAction();
 
-        StartCoroutine(GameSwitcher());
+        //StartCoroutine(GameSwitcher());
     }
 
-    private IEnumerator GameSwitcher()
+    public IEnumerator GameSwitcher()
     {
         yield return null;
         meter = StartCoroutine(meterObjects.StartMeter());
@@ -58,7 +58,7 @@ public class Gameplay : MonoBehaviour
         firstScenario = false;
         gamecontrols.Enable();
 
-        yield return new WaitForSeconds((measureMS * 3) - transitionTime);
+        yield return new WaitForSeconds((measureMS * 4) - transitionTime);
          
         gamecontrols.Disable();
         if (secondScenarioPassed == false)
@@ -110,5 +110,15 @@ public class Gameplay : MonoBehaviour
                 animationController.MisstressLose();
             }
         }
+    }
+
+    public void Reset()
+    {
+        firstScenario = true;
+
+        firstScenarioPassed = false;
+        secondScenarioPassed = false;
+
+        animationController.Reset();
     }
 }

@@ -76,6 +76,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Shuffler shuffler; //Scene 16
     [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
+    [SerializeField] Gameplay cheekToCheek; //Scene 20
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -96,6 +97,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine getAJobTimeCo;
     Coroutine psychoCo;
     Coroutine jobInterviewCo;
+    Coroutine cheekToCheekCo;
 
 
     void Awake()
@@ -300,6 +302,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
         nextScene(-1); //Cheek to Cheek
+        cheekToCheekCo = StartCoroutine(cheekToCheek.GameSwitcher());
         maincamera.SetActive(true);
         drivecamera.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
@@ -395,17 +398,18 @@ public class TimeKeeper : MonoBehaviour
         resetCamera();
         currentScene = 0;
         scoreHandler.ResetScore();
-        if(cityAndBarCo != null) StopCoroutine(cityAndBarCo);
-        if(fullCoins != null) StopCoroutine(fullCoins);
-        if(contractCo != null) StopCoroutine(contractCo);
-        if(landlordCo != null) StopCoroutine(landlordCo);
-        if(characterSelectCo != null) StopCoroutine(characterSelectCo);
-        if(firstChorusCo != null) StopCoroutine(firstChorusCo);
-        if(dontDisappointCo != null) StopCoroutine(dontDisappointCo);
-        if(absentDadCo != null) StopCoroutine(absentDadCo);
-        if(psychoCo != null) StopCoroutine(psychoCo);
-        if(getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
-        if(jobInterviewCo != null) StopCoroutine(jobInterviewCo);
+        if (cityAndBarCo != null) StopCoroutine(cityAndBarCo);
+        if (fullCoins != null) StopCoroutine(fullCoins);
+        if (contractCo != null) StopCoroutine(contractCo);
+        if (landlordCo != null) StopCoroutine(landlordCo);
+        if (characterSelectCo != null) StopCoroutine(characterSelectCo);
+        if (firstChorusCo != null) StopCoroutine(firstChorusCo);
+        if (dontDisappointCo != null) StopCoroutine(dontDisappointCo);
+        if (absentDadCo != null) StopCoroutine(absentDadCo);
+        if (psychoCo != null) StopCoroutine(psychoCo);
+        if (getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
+        if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
+        if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -418,6 +422,7 @@ public class TimeKeeper : MonoBehaviour
         getAJobTime.Reset();
         shuffler.Reset();
         evolvingSC.Reset();
+        cheekToCheek.Reset();
 
         foreach (GameObject scene in allscenes)
         {
