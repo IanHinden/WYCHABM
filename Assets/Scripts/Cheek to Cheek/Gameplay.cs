@@ -119,6 +119,8 @@ public class Gameplay : MonoBehaviour
         firstScenarioPassed = false;
         secondScenarioPassed = false;
 
+        meterObjects.ResetMeter();
+
         animationController.Reset();
     }
 }

@@ -123,6 +123,29 @@ public class AnimationController : MonoBehaviour
 
     public void Reset()
     {
+        //Entire scene
+        KissObjects.transform.position = new Vector3(0, 0, 0);
+        MistressObjects.transform.position = new Vector3(0, -9.1f, 0);
+        KissScenarioEndAnim.ResetTrigger("Switch");
+        MissScenarioBeginAnim.ResetTrigger("Switch");
+
+        KissObjectsNeutral.SetActive(true);
+        MistressObjectsNeutral.SetActive(true);
+
+        //KissWin
+        KissObjectsWin.SetActive(false);
+
+        //KissLose
+        KissNeutralWife.transform.position = new Vector3(0, 0, 0);
+        BrokenHeartAnim.ResetTrigger("Break");
+        LeafAnim.ResetTrigger("Blow");
+
+        //KissLose
+        KissNeutralWifeAnim.ResetTrigger("Exit");
+        KissObjectLose.SetActive(false);
+        BrokenHeartAnim.ResetTrigger("Break");
+        LeafAnim.ResetTrigger("Blow");
+
         // MistressWin
         HandsWin1SR.enabled = true;
         HandsWin2SR.enabled = false;
