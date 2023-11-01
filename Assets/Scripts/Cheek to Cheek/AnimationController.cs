@@ -139,6 +139,8 @@ public class AnimationController : MonoBehaviour
         KissNeutralWife.transform.position = new Vector3(0, 0, 0);
         BrokenHeartAnim.ResetTrigger("Break");
         LeafAnim.ResetTrigger("Blow");
+        BrokenHeartAnim.SetTrigger("Reset");
+        BrokenHeartAnim.ResetTrigger("Reset");
 
         //KissLose
         KissNeutralWifeAnim.ResetTrigger("Exit");
