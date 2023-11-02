@@ -133,6 +133,7 @@ public class AnimationController : MonoBehaviour
         MistressObjectsNeutral.SetActive(true);
 
         //KissWin
+        KissObjectsNeutral.SetActive(true);
         KissObjectsWin.SetActive(false);
 
         //KissLose
@@ -141,20 +142,29 @@ public class AnimationController : MonoBehaviour
         LeafAnim.ResetTrigger("Blow");
         BrokenHeartAnim.SetTrigger("Reset");
         BrokenHeartAnim.ResetTrigger("Reset");
-
-        //KissLose
         KissNeutralWifeAnim.ResetTrigger("Exit");
         KissObjectLose.SetActive(false);
         BrokenHeartAnim.ResetTrigger("Break");
         LeafAnim.ResetTrigger("Blow");
+        LeafAnim.SetTrigger("Reset");
+        LeafAnim.ResetTrigger("Reset");
 
-        // MistressWin
+        //MistressWin
+        MistressObjectsNeutral.SetActive(true);
+        MistressObjectsWin.SetActive(false);
         HandsWin1SR.enabled = true;
         HandsWin2SR.enabled = false;
         BruiseSR.enabled = false;
         SlapWavesSR.enabled = false;
         FaceSmileSR.enabled = true;
         FaceWinkSR.enabled = false;
+        HandsLoseAnim.ResetTrigger("Slap");
+
+        //MistressLose
+        MistressObjectsNeutral.SetActive(true);
+        MistressObjectsLose.SetActive(false);
         HandsLoseAnim.ResetTrigger("HandsLose");
+        HandsLoseAnim.SetTrigger("Reset");
+        HandsLoseAnim.ResetTrigger("Reset");
     }
 }

@@ -24,6 +24,8 @@ public class Gameplay : MonoBehaviour
 
     private float transitionTime = .3f;
 
+    private float score = 0;
+
     Coroutine meter;
 
     void Awake()
@@ -69,6 +71,7 @@ public class Gameplay : MonoBehaviour
         meterObjects.StopRoutine();
 
         gamecontrols.Disable();
+        Debug.Log(score);
     }
 
 
@@ -92,6 +95,7 @@ public class Gameplay : MonoBehaviour
             {
                 firstScenarioPassed = true;
                 animationController.KissWin();
+                score++;
             } else
             {
                 animationController.KissLose();
@@ -105,6 +109,7 @@ public class Gameplay : MonoBehaviour
             {
                 secondScenarioPassed = true;
                 animationController.MisstressWin();
+                score++;
             } else
             {
                 animationController.MisstressLose();
@@ -114,6 +119,7 @@ public class Gameplay : MonoBehaviour
 
     public void Reset()
     {
+        score = 0;
         firstScenario = true;
 
         firstScenarioPassed = false;
