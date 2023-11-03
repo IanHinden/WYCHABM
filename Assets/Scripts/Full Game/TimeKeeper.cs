@@ -77,6 +77,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
     [SerializeField] Gameplay cheekToCheek; //Scene 20
+    [SerializeField] SelectChecker selectChecker; //Scene 24
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -98,6 +99,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine psychoCo;
     Coroutine jobInterviewCo;
     Coroutine cheekToCheekCo;
+    Coroutine wishlistCo;
 
 
     void Awake()
@@ -317,6 +319,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(20, new Vector2(740f, 139f), "SPOIL");
 
         nextScene(4, true, new Vector2(699f, 167f)); //Wishlist
+        wishlistCo = StartCoroutine(selectChecker.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Online Dating
@@ -410,6 +413,7 @@ public class TimeKeeper : MonoBehaviour
         if (getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
         if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
         if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
+        if (wishlistCo != null) StopCoroutine(wishlistCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -423,6 +427,7 @@ public class TimeKeeper : MonoBehaviour
         shuffler.Reset();
         evolvingSC.Reset();
         cheekToCheek.Reset();
+        selectChecker.Reset();
 
         foreach (GameObject scene in allscenes)
         {

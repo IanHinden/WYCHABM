@@ -135299,6 +135299,7 @@ MonoBehaviour:
   evolvingSC: {fileID: 408336889}
   roadRacer: {fileID: 2009168599}
   cheekToCheek: {fileID: 581709157}
+  selectChecker: {fileID: 1788790009}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}

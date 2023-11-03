@@ -15,6 +15,7 @@ public class SelectChecker : MonoBehaviour
     private GameControls gamecontrols;
 
     int activeArrow = 0;
+    bool selected = false;
     void Awake()
     {
         gamecontrols = new GameControls();
@@ -24,7 +25,7 @@ public class SelectChecker : MonoBehaviour
         gamecontrols.Select.Choose.performed += x => selectItem();
 
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -39,6 +40,7 @@ public class SelectChecker : MonoBehaviour
 
     public void selectItem()
     {
+        selected = true;
         if(activeArrow == 2)
         {
             scorehandler.IncrementScore();
@@ -92,7 +94,7 @@ public class SelectChecker : MonoBehaviour
         }
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
 
@@ -101,17 +103,27 @@ public class SelectChecker : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (activeArrow == 2)
+        if (selected == true)
         {
-            scorehandler.IncrementScore();
-            uihandler.WinDisplay();
-            gamecontrols.Disable();
+            if (activeArrow == 2)
+            {
+                scorehandler.IncrementScore();
+                uihandler.WinDisplay();
+                gamecontrols.Disable();
 
+            }
+            else
+            {
+                uihandler.LoseDisplay();
+                gamecontrols.Disable();
+            }
         }
-        else
-        {
-            uihandler.LoseDisplay();
-            gamecontrols.Disable();
-        }
+    }
+
+    public void Reset()
+    {
+        selected = false;
+        activeArrow = 0;
+        displayCorrectArrow();
     }
 }
