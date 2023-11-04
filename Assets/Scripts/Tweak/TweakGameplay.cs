@@ -6,6 +6,7 @@ public class TweakGameplay : MonoBehaviour
 {
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] UIHandler uihandler;
+    [SerializeField] TimeFunctions timefunctions;
     ControlPadButton[] controlPadButtons;
 
     private GameControls gamecontrols;
@@ -25,6 +26,8 @@ public class TweakGameplay : MonoBehaviour
 
     private float currentlySelected = 0;
     private float state = 0;
+
+    private bool won = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,6 +49,8 @@ public class TweakGameplay : MonoBehaviour
 
         gamecontrols = new GameControls();
         gamecontrols.Move.Directions.performed += x => upMove(x.ReadValue<Vector2>());
+
+        StartCoroutine(WinOrLose());
     }
 
     private void upMove(Vector2 movement)
@@ -136,6 +141,7 @@ public class TweakGameplay : MonoBehaviour
             if (state == 7)
             {
                 state++;
+                won = true;
                 scorehandler.IncrementScore();
                 uihandler.WinDisplay();
                 RotateRight();
@@ -180,5 +186,20 @@ public class TweakGameplay : MonoBehaviour
                 controlPadButtons[i].GetComponent<SpriteRenderer>().enabled = true;
             }
         }
+    }
+
+    public IEnumerator WinOrLose()
+    {
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+
+        if(won == false)
+        {
+            uihandler.LoseDisplay();
+        }
+    }
+
+    public void Reset()
+    {
+        won = false;
     }
 }

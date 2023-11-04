@@ -6585,6 +6585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scorehandler: {fileID: 585011356}
   uihandler: {fileID: 24490723}
+  timefunctions: {fileID: 1358544022}
 --- !u!1 &143842555
 GameObject:
   m_ObjectHideFlags: 0
@@ -135300,6 +135301,7 @@ MonoBehaviour:
   roadRacer: {fileID: 2009168599}
   cheekToCheek: {fileID: 581709157}
   selectChecker: {fileID: 1788790009}
+  tweakGameplay: {fileID: 0}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}
