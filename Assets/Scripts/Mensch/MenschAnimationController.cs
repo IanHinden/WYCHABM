@@ -5,8 +5,6 @@ using UnityEngine;
 public class MenschAnimationController : MonoBehaviour
 {
     Animator blackScreenAnimator;
-    Animator menschLogoAnimator;
-    Animator menschTextAnimator;
     Animator safetyAnimator;
     Animator statusAnimator;
 
@@ -19,11 +17,13 @@ public class MenschAnimationController : MonoBehaviour
     Animator punch;
     void Awake()
     {
-        blackScreenAnimator = FindObjectOfType<BlackScreen>().GetComponent<Animator>();
-        menschLogoAnimator = FindObjectOfType<MenschLogo>().GetComponent<Animator>();
-        menschTextAnimator = FindObjectOfType<MenschText>().GetComponent<Animator>();
+        blackScreenAnimator = Phone.GetComponent<Animator>();
         safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
         statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
+
+        phoneDown = Phone.GetComponent<Animator>();
+        punched = Fist.GetComponent<Animator>();
+        punch = CreepyDriver.GetComponent<Animator>();
 
         phoneDown = Phone.GetComponent<Animator>();
         punched = CreepyDriver.GetComponent<Animator>();
@@ -33,8 +33,6 @@ public class MenschAnimationController : MonoBehaviour
     public void ScreenFade()
     {
         blackScreenAnimator.SetTrigger("FadeOut");
-        menschLogoAnimator.SetTrigger("FadeOut");
-        menschTextAnimator.SetTrigger("FadeOut");
     }
 
     //.47, -2.38

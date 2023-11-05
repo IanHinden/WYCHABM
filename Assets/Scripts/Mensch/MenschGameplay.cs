@@ -12,16 +12,15 @@ public class MenschGameplay : MonoBehaviour
     Vector2 movementInput;
 
     MenschAnimationController menschAnimationController;
-    Tapping tapping;
-    Tapper tapper;
-    Tapped tapped;
+    [SerializeField] GameObject tapping;
+    [SerializeField] GameObject tapper;
+    [SerializeField] GameObject tapped;
+
     SpriteRenderer tapperSR;
     SpriteRenderer tappedSR;
 
     ToolkitButton toolKitButton;
     ShareButton shareButton;
-
-    Animator starAnim;
 
     private float timeToLeave = 3f;
 
@@ -32,10 +31,6 @@ public class MenschGameplay : MonoBehaviour
         CreepyDriver.BonusWin += CoolFunc;
 
         menschAnimationController = FindObjectOfType<MenschAnimationController>();
-        tapping = FindObjectOfType<Tapping>();
-
-        tapper = FindObjectOfType<Tapper>();
-        tapped = FindObjectOfType<Tapped>();
 
         tapperSR = tapper.GetComponent<SpriteRenderer>();
         tappedSR = tapped.GetComponent<SpriteRenderer>();
