@@ -18,8 +18,8 @@ public class MenschAnimationController : MonoBehaviour
     void Awake()
     {
         blackScreenAnimator = Phone.GetComponent<Animator>();
-        safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
-        statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
+        //safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
+        //statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
 
         phoneDown = Phone.GetComponent<Animator>();
         punched = Fist.GetComponent<Animator>();

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ToolkitButton : MonoBehaviour
 {
-    public bool colliding;
-    SpriteRenderer sr;
-    void Awake()
+    [SerializeField] MenschGameplay menschGameplay;
+    //public bool colliding;
+    //SpriteRenderer sr;
+    /*void Awake()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -15,27 +16,29 @@ public class ToolkitButton : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        colliding = true;
+        /*colliding = true;
         if (col.gameObject.name == "Tapping")
         {
             sr.color = new Color(0.358f, 0.358f, 0.358f, 0.169f);
-        }
+        }*/
+        Debug.Log(col.gameObject.name);
+        menschGameplay.Clicked();
     }
 
-    void OnTriggerExit2D(Collider2D col)
+    /*void OnTriggerExit2D(Collider2D col)
     {
         colliding = false;
         if (col.gameObject.name == "Tapping")
         {
             sr.color = new Color(0.358f, 0.358f, 0.358f, 0f);
         }
-    }
+    }*/
 
-    public bool ButtonPress()
+    /*public bool ButtonPress()
     {
         if(colliding == true)
         {
@@ -44,5 +47,5 @@ public class ToolkitButton : MonoBehaviour
         {
             return false;
         }
-    }
+    }*/
 }
