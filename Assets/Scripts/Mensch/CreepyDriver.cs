@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CreepyDriver : MonoBehaviour
 {
-    public static event Action<int> BonusWin = delegate { };
+    public static event Action BonusWin = delegate { };
 
     private void OnTriggerEnter2D()
     {
-        BonusWin(4);
+        BonusWin();
     }
 }
