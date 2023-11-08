@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class MenschAnimationController : MonoBehaviour
 {
-    Animator blackScreenAnimator;
-    Animator safetyAnimator;
-    Animator statusAnimator;
-
+    [SerializeField] GameObject menschLogo;
+    [SerializeField] GameObject interactiveScreen;
     public GameObject Phone;
     public GameObject CreepyDriver;
     public GameObject Fist;
 
+    Animator menschLogoAnim;
     Animator phoneDown;
     Animator punched;
     Animator punch;
     void Awake()
     {
-        blackScreenAnimator = Phone.GetComponent<Animator>();
-        //safetyAnimator = FindObjectOfType<Safety>().GetComponent<Animator>();
-        //statusAnimator = FindObjectOfType<Status>().GetComponent<Animator>();
-
+        menschLogoAnim = menschLogo.GetComponent<Animator>();
         phoneDown = Phone.GetComponent<Animator>();
         punched = Fist.GetComponent<Animator>();
         punch = CreepyDriver.GetComponent<Animator>();
@@ -32,30 +28,15 @@ public class MenschAnimationController : MonoBehaviour
 
     public void ScreenFade()
     {
-        blackScreenAnimator.SetTrigger("FadeOut");
+        menschLogoAnim.SetTrigger("Fade");
+    }
+
+    public void enableScreen()
+    {
+        interactiveScreen.SetActive(true);
     }
 
     //.47, -2.38
-
-    public void SafetyEnter()
-    {
-        safetyAnimator.SetTrigger("Enter");
-    }
-
-    public void SafetyExit()
-    {
-        safetyAnimator.SetTrigger("Exit");
-    }
-
-    public void StatusEnter()
-    {
-        statusAnimator.SetTrigger("Enter");
-    }
-
-    public void StatusExit()
-    {
-        statusAnimator.SetTrigger("Exit");
-    }
 
     public void BonusAnimations()
     {

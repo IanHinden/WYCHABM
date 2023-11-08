@@ -61,7 +61,9 @@ public class MenschGameplay : MonoBehaviour
 
     private void Win()
     {
-        Debug.Log("Win");
+        gamecontrols.Disable();
+        uihandler.WinDisplay();
+        scorehandler.IncrementScore();
     }
 
     private void StartPress()
@@ -98,10 +100,10 @@ public class MenschGameplay : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(1);
         menschAnimationController.ScreenFade();
+        yield return new WaitForSeconds(2);
+        menschAnimationController.enableScreen();
         yield return new WaitForSeconds(1);
-        menschAnimationController.SafetyEnter();
     }
 
     public void Reset()
