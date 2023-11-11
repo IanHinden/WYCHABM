@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] GameObject pressStart;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
-    void Start()
+
+    public void StartGame()
     {
-        
+        pressStart.SetActive(false);
+        titleScreen.SetActive(true);
+        instructionsMenu2.SetActive(false);
+        instructionsMenu3.SetActive(false);
     }
 
     public void switchToNext2()
