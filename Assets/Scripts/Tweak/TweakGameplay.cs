@@ -190,7 +190,7 @@ public class TweakGameplay : MonoBehaviour
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         if(won == false)
         {

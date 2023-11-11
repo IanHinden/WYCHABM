@@ -317,25 +317,26 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Second Chorus
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
+        //Web surfing 20 - 8 = 12; 4 wishlist, 2 Tweak, 4 more Party Guy
         nextScene(); //Web Surfing
-        yield return FadeOutroEffect(20, new Vector2(740f, 139f), "SPOIL");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "SPOIL");
 
-        nextScene(4, true, new Vector2(699f, 167f)); //Wishlist
+        nextScene(8, true, new Vector2(699f, 167f)); //Wishlist
         wishlistCo = StartCoroutine(selectChecker.WinOrLose());
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Online Dating
-        yield return FadeOutroEffect(10, new Vector2(740f, 139f), "TWEAK");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "TWEAK");
 
-        nextScene(6, true, new Vector2(699f, 167f)); //Tweak
+        nextScene(8, true, new Vector2(699f, 167f)); //Tweak
         tweakCo = StartCoroutine(tweakGameplay.WinOrLose());
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Party Guy
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
 
         nextScene(); //Party Girls
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return FadeOutroEffect(6, new Vector2(699f, 167f), "SHARE"); //timefunctions.ReturnCountMeasure(6));
 
         nextScene(8); //Mensch
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
@@ -344,7 +345,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Bar View
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
         resetCamera();
 
         nextScene(); //Make a Deal

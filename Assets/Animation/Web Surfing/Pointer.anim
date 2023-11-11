@@ -66,14 +66,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.1
         value: {x: 3.74, y: 1.48, z: 0}
-        inSlope: {x: 0.7181818, y: 0.44848487, z: 0}
-        outSlope: {x: 0.7181818, y: 0.44848487, z: 0}
+        inSlope: {x: 1.3166666, y: 0.82222223, z: 0}
+        outSlope: {x: 1.3166666, y: 0.82222223, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 5
+        time: 3.5
         value: {x: 4.87, y: 1.89, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -108,7 +108,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 5
+    m_StopTime: 3.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -175,14 +175,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.1
         value: 3.74
-        inSlope: 0.7181818
-        outSlope: 0.7181818
+        inSlope: 1.3166666
+        outSlope: 1.3166666
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 5
+        time: 3.5
         value: 4.87
         inSlope: 0
         outSlope: 0
@@ -248,14 +248,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 2.1
         value: 1.48
-        inSlope: 0.44848487
-        outSlope: 0.44848487
+        inSlope: 0.82222223
+        outSlope: 0.82222223
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 5
+        time: 3.5
         value: 1.89
         inSlope: 0
         outSlope: 0
@@ -328,7 +328,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 5
+        time: 3.5
         value: 0
         inSlope: 0
         outSlope: 0
