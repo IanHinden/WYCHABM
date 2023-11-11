@@ -13,7 +13,8 @@ public class StoryTimerOD : MonoBehaviour
 
     private SpriteRenderer backSR;
     private SpriteRenderer frontSR;
-    //private Animator flashingMove;
+    
+    private Animator flashingMove;
 
     void Awake()
     {
@@ -21,16 +22,22 @@ public class StoryTimerOD : MonoBehaviour
 
         backSR = back.GetComponent<SpriteRenderer>();
         frontSR = front.GetComponent<SpriteRenderer>();
-        //flashingMove = topless.GetComponent<Animator>();
+
+        flashingMove = front.GetComponent<Animator>();
         StartCoroutine(SceneTiming());
     }
 
     private IEnumerator SceneTiming()
     {
-        yield return new WaitForSeconds(measureMS * 8f);
+        yield return new WaitForSeconds(measureMS * 4f);
         frontSR.enabled = true;
         backSR.enabled = false;
-        yield return new WaitForSeconds(measureMS * 1);
-        //flashingMove.SetTrigger("Flash");
+        yield return new WaitForSeconds(measureMS * 2);
+        flashingMove.SetTrigger("Flash");
+    }
+
+    public void Reset()
+    {
+        
     }
 }
