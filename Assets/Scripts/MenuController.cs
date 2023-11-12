@@ -9,8 +9,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
 
+    [SerializeField] GameObject menuSoundEffects;
+    AudioSource menuSoundEffectsAS;
+
+    private void Awake()
+    {
+        menuSoundEffectsAS = menuSoundEffects.GetComponent<AudioSource>();
+    }
     public void StartGame()
     {
+        menuSoundEffectsAS.Play();
         pressStart.SetActive(false);
         titleScreen.SetActive(true);
         instructionsMenu2.SetActive(false);
