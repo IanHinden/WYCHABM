@@ -24,10 +24,9 @@ public class StoryTimerOD : MonoBehaviour
         frontSR = front.GetComponent<SpriteRenderer>();
 
         flashingMove = front.GetComponent<Animator>();
-        StartCoroutine(SceneTiming());
     }
 
-    private IEnumerator SceneTiming()
+    public IEnumerator SceneTiming()
     {
         yield return new WaitForSeconds(measureMS * 4f);
         frontSR.enabled = true;
@@ -38,6 +37,10 @@ public class StoryTimerOD : MonoBehaviour
 
     public void Reset()
     {
-        
+        front.transform.position = new Vector3(0, 0, 0);
+        front.transform.localScale = new Vector3(.4632f, .4632f, .4632f);
+        flashingMove.ResetTrigger("Flash");
+        frontSR.enabled = false;
+        backSR.enabled = true;
     }
 }

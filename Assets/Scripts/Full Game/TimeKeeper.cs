@@ -79,6 +79,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Gameplay cheekToCheek; //Scene 20
     [SerializeField] StoryTimer webSurfing; //Scene 23
     [SerializeField] SelectChecker selectChecker; //Scene 24
+    [SerializeField] StoryTimerOD onlineDating; //Scene 25
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
 
     [Header("Necesary Functions")]
@@ -103,6 +104,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine cheekToCheekCo;
     Coroutine webSurfingCo;
     Coroutine wishlistCo;
+    Coroutine onlineDatingCo;
     Coroutine tweakCo;
 
 
@@ -329,6 +331,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Online Dating
+        onlineDatingCo = StartCoroutine(onlineDating.SceneTiming());
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "TWEAK");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Tweak
@@ -422,6 +425,7 @@ public class TimeKeeper : MonoBehaviour
         if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
         if (webSurfingCo != null) StopCoroutine(webSurfingCo);
         if (wishlistCo != null) StopCoroutine(wishlistCo);
+        if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
 
         citybehavior.Reset();
