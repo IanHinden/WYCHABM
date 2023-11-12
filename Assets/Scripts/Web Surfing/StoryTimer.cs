@@ -18,23 +18,20 @@ public class StoryTimer : MonoBehaviour
     {
         pointerAnim = pointer.GetComponent<Animator>();
         pointerSR = pointer.GetComponent<SpriteRenderer>();
-
-        StartCoroutine(timedEvents());
     }
 
-    private IEnumerator timedEvents()
+    public IEnumerator timedEvents()
     {
-        /*yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        computerScreen.SetActive(true);
-        pointerSR.enabled = true;
-
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
-        computerScreen.SetActive(false);
-        pointerSR.enabled = false;*/
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         computerScreen.SetActive(true);
         pointerSR.enabled = true;
         pointerAnim.SetTrigger("Pointer");
+    }
+
+    public void Reset()
+    {
+        computerScreen.SetActive(false);
+        pointerSR.enabled = false;
     }
 }

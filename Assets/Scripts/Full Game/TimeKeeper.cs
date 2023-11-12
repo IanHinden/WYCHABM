@@ -77,6 +77,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
     [SerializeField] Gameplay cheekToCheek; //Scene 20
+    [SerializeField] StoryTimer webSurfing; //Scene 23
     [SerializeField] SelectChecker selectChecker; //Scene 24
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
 
@@ -100,6 +101,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine psychoCo;
     Coroutine jobInterviewCo;
     Coroutine cheekToCheekCo;
+    Coroutine webSurfingCo;
     Coroutine wishlistCo;
     Coroutine tweakCo;
 
@@ -319,6 +321,7 @@ public class TimeKeeper : MonoBehaviour
 
         //Web surfing 20 - 8 = 12; 4 wishlist, 2 Tweak, 4 more Party Guy
         nextScene(); //Web Surfing
+        webSurfingCo = StartCoroutine(webSurfing.timedEvents());
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "SPOIL");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Wishlist
@@ -417,6 +420,7 @@ public class TimeKeeper : MonoBehaviour
         if (getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
         if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
         if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
+        if (webSurfingCo != null) StopCoroutine(webSurfingCo);
         if (wishlistCo != null) StopCoroutine(wishlistCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
 
@@ -432,6 +436,7 @@ public class TimeKeeper : MonoBehaviour
         shuffler.Reset();
         evolvingSC.Reset();
         cheekToCheek.Reset();
+        webSurfing.Reset();
         selectChecker.Reset();
         tweakGameplay.Reset();
 
