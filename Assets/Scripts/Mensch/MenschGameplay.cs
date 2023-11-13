@@ -38,8 +38,6 @@ public class MenschGameplay : MonoBehaviour
         tappedSR = tapped.GetComponent<SpriteRenderer>();
 
         tappedBC = tapped.GetComponent<BoxCollider2D>();
-
-        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -98,7 +96,7 @@ public class MenschGameplay : MonoBehaviour
         tapping.transform.position = currentPosition;
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         menschAnimationController.ScreenFade();
         yield return new WaitForSeconds(2);

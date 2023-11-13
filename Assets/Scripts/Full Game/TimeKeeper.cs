@@ -81,6 +81,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] SelectChecker selectChecker; //Scene 24
     [SerializeField] StoryTimerOD onlineDating; //Scene 25
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
+    [SerializeField] MenschGameplay menschGameplay; //Scene 29
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -106,6 +107,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine wishlistCo;
     Coroutine onlineDatingCo;
     Coroutine tweakCo;
+    Coroutine menschCo;
 
 
     void Awake()
@@ -345,6 +347,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(6, new Vector2(699f, 167f), "SHARE"); //timefunctions.ReturnCountMeasure(6));
 
         nextScene(8); //Mensch
+        menschCo = StartCoroutine(menschGameplay.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Car Arrival
@@ -427,6 +430,7 @@ public class TimeKeeper : MonoBehaviour
         if (wishlistCo != null) StopCoroutine(wishlistCo);
         if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
+        if (menschCo != null) StopCoroutine(menschCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -442,7 +446,9 @@ public class TimeKeeper : MonoBehaviour
         cheekToCheek.Reset();
         webSurfing.Reset();
         selectChecker.Reset();
+        onlineDating.Reset();
         tweakGameplay.Reset();
+        menschGameplay.Reset();
 
         foreach (GameObject scene in allscenes)
         {
