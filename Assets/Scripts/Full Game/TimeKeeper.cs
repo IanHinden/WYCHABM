@@ -82,6 +82,9 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] StoryTimerOD onlineDating; //Scene 25
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
     [SerializeField] MenschGameplay menschGameplay; //Scene 29
+    [SerializeField] Timing barView; // Scene 31
+    //33, 35, 37. 
+
 
     [Header("Necesary Functions")]
     [SerializeField] private UIHandler uihandler;
@@ -108,6 +111,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine onlineDatingCo;
     Coroutine tweakCo;
     Coroutine menschCo;
+    Coroutine barViewCo;
 
 
     void Awake()
@@ -354,6 +358,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Bar View
+        barViewCo = StartCoroutine(barView.WaitressMove());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
         resetCamera();
 
@@ -431,6 +436,7 @@ public class TimeKeeper : MonoBehaviour
         if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
         if (menschCo != null) StopCoroutine(menschCo);
+        if (barViewCo != null) StopCoroutine(barViewCo);
 
         citybehavior.Reset();
         fullcoins.Reset();

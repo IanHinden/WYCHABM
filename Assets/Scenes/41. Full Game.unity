@@ -37860,7 +37860,7 @@ Transform:
   m_LocalScale: {x: 0.4627477, y: 0.4627477, z: 0.4627477}
   m_Children: []
   m_Father: {fileID: 698525316}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &449410570
 SpriteRenderer:
@@ -59361,13 +59361,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1414456210}
   - {fileID: 1850161765}
   - {fileID: 449410569}
   - {fileID: 1899693021}
   - {fileID: 1764906109}
   - {fileID: 863997543}
   - {fileID: 1542898951}
-  - {fileID: 1414456210}
   m_Father: {fileID: 0}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66486,8 +66486,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -68508,7 +68508,7 @@ Transform:
   m_LocalScale: {x: 0.4627477, y: 0.4627477, z: 0.4627477}
   m_Children: []
   m_Father: {fileID: 698525316}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &863997544
 SpriteRenderer:
@@ -101249,7 +101249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 698525316}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1414456211
 MonoBehaviour:
@@ -113286,7 +113286,7 @@ Transform:
   - {fileID: 1487311577}
   - {fileID: 741775876}
   m_Father: {fileID: 698525316}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544215774
 GameObject:
@@ -122434,7 +122434,7 @@ Transform:
   - {fileID: 387078966}
   - {fileID: 143842556}
   m_Father: {fileID: 698525316}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1764906110
 Animator:
@@ -128131,7 +128131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 698525316}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1850161766
 BoxCollider2D:
@@ -130540,7 +130540,7 @@ Transform:
   m_LocalScale: {x: 0.4627477, y: 0.4627477, z: 0.4627477}
   m_Children: []
   m_Father: {fileID: 698525316}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1899693022
 Animator:
@@ -135449,6 +135449,7 @@ MonoBehaviour:
   onlineDating: {fileID: 683011429}
   tweakGameplay: {fileID: 139204178}
   menschGameplay: {fileID: 2087980706}
+  barView: {fileID: 1414456211}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
   dialogue: {fileID: 401421745}

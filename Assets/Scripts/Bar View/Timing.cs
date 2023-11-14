@@ -6,12 +6,8 @@ public class Timing : MonoBehaviour
 {
     [SerializeField] GameObject waitress;
     [SerializeField] Camera mainCamera;
-    void Awake()
-    {
-        StartCoroutine(WaitressMove());
-    }
 
-    IEnumerator WaitressMove()
+    public IEnumerator WaitressMove()
     {
         waitress.transform.position = new Vector3(-0.63f, -0.13f, 0f);
         yield return new WaitForSeconds(.5f);

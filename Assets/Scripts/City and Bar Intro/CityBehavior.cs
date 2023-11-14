@@ -89,9 +89,9 @@ public class CityBehavior : MonoBehaviour
         avaEyesOpen.enabled = true;
         dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
         yield return new WaitForSeconds(1.7f);
-        dialogue.DialogueExit();
 
         yield return new WaitForSeconds(.3f);
+        dialogue.DialogueExit();
         avaPos1.SetActive(false);
         avaPos2.SetActive(true);
 
