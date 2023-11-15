@@ -17,10 +17,9 @@ public class Avas : MonoBehaviour
 
         shadow1 = shadows.transform.GetChild(0).gameObject;
         shadow2 = shadows.transform.GetChild(1).gameObject;
-        StartCoroutine(Sway());
     }
 
-    IEnumerator Sway()
+    public IEnumerator Sway()
     {
         yield return new WaitForSeconds(.6f);
         Ava1.SetActive(true);
@@ -50,5 +49,11 @@ public class Avas : MonoBehaviour
         Ava2.SetActive(!Ava2.activeSelf);
         shadow1.SetActive(!shadow1.activeSelf);
         shadow2.SetActive(!shadow2.activeSelf);
+    }
+
+    public void Reset()
+    {
+        this.gameObject.transform.localScale = new Vector3(.7f, .7f, 1);
+        shadows.transform.localScale = new Vector3(1, 1, 1);
     }
 }
