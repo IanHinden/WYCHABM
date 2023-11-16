@@ -14,6 +14,7 @@ public class FullCoins : MonoBehaviour
     //Animator starAnim;
 
     [SerializeField] Coin coin;
+    [SerializeField] Backroom backroom;
 
     SpriteRenderer avaSprite;
 
@@ -125,6 +126,7 @@ public class FullCoins : MonoBehaviour
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
+        backroom.ToggleTrigger(true);
     }
 
     private void CoinDestroy()
@@ -134,5 +136,10 @@ public class FullCoins : MonoBehaviour
             // Destroy each child.
             Destroy(child.gameObject);
         }
+    }
+
+    public void setLevelComplete()
+    {
+        levelComplete = true;
     }
 }

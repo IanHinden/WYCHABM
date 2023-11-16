@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Backroom : MonoBehaviour
 {
+    [SerializeField] FullCoins fullCoins;
+
     [SerializeField] Camera maincamera;
     [SerializeField] GameObject Ava;
     [SerializeField] GameObject Ava2;
+
+    BoxCollider2D backroomCol;
 
     SpriteRenderer AvaSR;
     Animator AvaAnim;
@@ -17,10 +21,12 @@ public class Backroom : MonoBehaviour
     {
         AvaSR = Ava.GetComponent<SpriteRenderer>();
         AvaAnim = Ava2.GetComponent<Animator>();
+        backroomCol = gameObject.GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        fullCoins.setLevelComplete();
         if (moved == false)
         {
             StartCoroutine(MoveToBackroom());
@@ -55,5 +61,10 @@ public class Backroom : MonoBehaviour
 
             yield return new WaitForSeconds(0.00000005f); // update interval
         }
+    }
+
+    public void ToggleTrigger(bool on)
+    {
+        backroomCol.enabled = on;
     }
 }
