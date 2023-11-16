@@ -7,7 +7,7 @@ public class AbsentDadDialogue : MonoBehaviour
 {
     private TextMeshProUGUI textmesh;
     private float waitTime = 1f;
-    private string dialogue = "Sorry, kiddo. Tell mom I won't be home. I got a lot of work to finish at the office. ";
+    private string dialogue = "Sorry, kiddo. Tell mom I'm working late.";
 
     void Start()
     {
