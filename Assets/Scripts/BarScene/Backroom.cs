@@ -11,6 +11,7 @@ public class Backroom : MonoBehaviour
     [SerializeField] GameObject Ava2;
 
     BoxCollider2D backroomCol;
+    CapsuleCollider2D capCol;
 
     SpriteRenderer AvaSR;
     Animator AvaAnim;
@@ -22,6 +23,7 @@ public class Backroom : MonoBehaviour
         AvaSR = Ava.GetComponent<SpriteRenderer>();
         AvaAnim = Ava2.GetComponent<Animator>();
         backroomCol = gameObject.GetComponent<BoxCollider2D>();
+        capCol = gameObject.GetComponent<CapsuleCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,6 +67,10 @@ public class Backroom : MonoBehaviour
 
     public void ToggleTrigger(bool on)
     {
-        backroomCol.enabled = on;
+        if (backroomCol != null)
+        {
+            backroomCol.enabled = on;
+            capCol.enabled = !on;
+        }
     }
 }

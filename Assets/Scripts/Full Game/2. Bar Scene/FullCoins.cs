@@ -15,8 +15,13 @@ public class FullCoins : MonoBehaviour
 
     [SerializeField] Coin coin;
     [SerializeField] Backroom backroom;
+    [SerializeField] GameObject officeLight;
 
     SpriteRenderer avaSprite;
+
+    Animator officeLightAnim;
+
+    int timeBeforeDoorClose = 3;
 
     int totalCoins;
     int remainingCoins;
@@ -28,6 +33,7 @@ public class FullCoins : MonoBehaviour
         Coin.CoinGet += MinusCoin;
         StolenWages.WagesGet += StolenWagesRecovered;
         avaSprite = Ava.GetComponent<SpriteRenderer>();
+        officeLightAnim = officeLight.GetComponent<Animator>();
         Reset();
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
     }
@@ -83,7 +89,11 @@ public class FullCoins : MonoBehaviour
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(timeBeforeDoorClose));
+
+        CloseDoor();
+
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7 - timeBeforeDoorClose));
 
         if (levelComplete == false)
         {
@@ -127,6 +137,10 @@ public class FullCoins : MonoBehaviour
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
         backroom.ToggleTrigger(true);
+        officeLightAnim.ResetTrigger("Close");
+
+        officeLight.transform.position = new Vector3(-7.507f, -0.463f, 0);
+        officeLight.transform.localScale = new Vector3(0.1268785f, 0.1268785f, 0.1268785f);
     }
 
     private void CoinDestroy()
@@ -141,5 +155,11 @@ public class FullCoins : MonoBehaviour
     public void setLevelComplete()
     {
         levelComplete = true;
+    }
+
+    private void CloseDoor()
+    {
+        officeLightAnim.SetTrigger("Close");
+        backroom.ToggleTrigger(false);
     }
 }

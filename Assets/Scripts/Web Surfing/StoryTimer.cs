@@ -32,6 +32,9 @@ public class StoryTimer : MonoBehaviour
     public void Reset()
     {
         computerScreen.SetActive(false);
-        pointerSR.enabled = false;
+        if (pointerSR != null)
+        {
+            pointerSR.enabled = false;
+        }
     }
 }

@@ -47640,6 +47640,7 @@ MonoBehaviour:
   displayscore: {fileID: 435156121}
   coin: {fileID: 2991419506877436070, guid: d135d8f70e8b9d94b989bf4837d191bb, type: 3}
   backroom: {fileID: 735480439}
+  officeLight: {fileID: 1238052431}
 --- !u!1 &576622260
 GameObject:
   m_ObjectHideFlags: 0
@@ -60928,6 +60929,7 @@ GameObject:
   - component: {fileID: 735480438}
   - component: {fileID: 735480440}
   - component: {fileID: 735480439}
+  - component: {fileID: 735480441}
   m_Layer: 0
   m_Name: Backroom
   m_TagString: Untagged
@@ -60991,6 +60993,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.50238705, y: 3.3743405}
   m_EdgeRadius: 0
+--- !u!70 &735480441
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735480437}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11980138, y: 0.36739093}
+  m_Size: {x: 0.7396029, y: 3.4279783}
+  m_Direction: 0
 --- !u!1 &735507601
 GameObject:
   m_ObjectHideFlags: 0

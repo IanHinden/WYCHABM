@@ -126,45 +126,49 @@ public class AnimationController : MonoBehaviour
         //Entire scene
         KissObjects.transform.position = new Vector3(0, 0, 0);
         MistressObjects.transform.position = new Vector3(0, -9.1f, 0);
-        KissScenarioEndAnim.ResetTrigger("Switch");
-        MissScenarioBeginAnim.ResetTrigger("Switch");
+        if (KissScenarioEndAnim != null)
+        {
+            KissScenarioEndAnim.ResetTrigger("Switch");
+            MissScenarioBeginAnim.ResetTrigger("Switch");
 
-        KissObjectsNeutral.SetActive(true);
-        MistressObjectsNeutral.SetActive(true);
 
-        //KissWin
-        KissObjectsNeutral.SetActive(true);
-        KissObjectsWin.SetActive(false);
+            KissObjectsNeutral.SetActive(true);
+            MistressObjectsNeutral.SetActive(true);
 
-        //KissLose
-        KissNeutralWife.transform.position = new Vector3(0, 0, 0);
-        BrokenHeartAnim.ResetTrigger("Break");
-        LeafAnim.ResetTrigger("Blow");
-        BrokenHeartAnim.SetTrigger("Reset");
-        BrokenHeartAnim.ResetTrigger("Reset");
-        KissNeutralWifeAnim.ResetTrigger("Exit");
-        KissObjectLose.SetActive(false);
-        BrokenHeartAnim.ResetTrigger("Break");
-        LeafAnim.ResetTrigger("Blow");
-        LeafAnim.SetTrigger("Reset");
-        LeafAnim.ResetTrigger("Reset");
+            //KissWin
+            KissObjectsNeutral.SetActive(true);
+            KissObjectsWin.SetActive(false);
 
-        //MistressWin
-        MistressObjectsNeutral.SetActive(true);
-        MistressObjectsWin.SetActive(false);
-        HandsWin1SR.enabled = true;
-        HandsWin2SR.enabled = false;
-        BruiseSR.enabled = false;
-        SlapWavesSR.enabled = false;
-        FaceSmileSR.enabled = true;
-        FaceWinkSR.enabled = false;
-        HandsLoseAnim.ResetTrigger("Slap");
+            //KissLose
+            KissNeutralWife.transform.position = new Vector3(0, 0, 0);
+            BrokenHeartAnim.ResetTrigger("Break");
+            LeafAnim.ResetTrigger("Blow");
+            BrokenHeartAnim.SetTrigger("Reset");
+            BrokenHeartAnim.ResetTrigger("Reset");
+            KissNeutralWifeAnim.ResetTrigger("Exit");
+            KissObjectLose.SetActive(false);
+            BrokenHeartAnim.ResetTrigger("Break");
+            LeafAnim.ResetTrigger("Blow");
+            LeafAnim.SetTrigger("Reset");
+            LeafAnim.ResetTrigger("Reset");
 
-        //MistressLose
-        MistressObjectsNeutral.SetActive(true);
-        MistressObjectsLose.SetActive(false);
-        HandsLoseAnim.ResetTrigger("HandsLose");
-        HandsLoseAnim.SetTrigger("Reset");
-        HandsLoseAnim.ResetTrigger("Reset");
+            //MistressWin
+            MistressObjectsNeutral.SetActive(true);
+            MistressObjectsWin.SetActive(false);
+            HandsWin1SR.enabled = true;
+            HandsWin2SR.enabled = false;
+            BruiseSR.enabled = false;
+            SlapWavesSR.enabled = false;
+            FaceSmileSR.enabled = true;
+            FaceWinkSR.enabled = false;
+            HandsLoseAnim.ResetTrigger("Slap");
+
+            //MistressLose
+            MistressObjectsNeutral.SetActive(true);
+            MistressObjectsLose.SetActive(false);
+            HandsLoseAnim.ResetTrigger("HandsLose");
+            HandsLoseAnim.SetTrigger("Reset");
+            HandsLoseAnim.ResetTrigger("Reset");
+        }
     }
 }

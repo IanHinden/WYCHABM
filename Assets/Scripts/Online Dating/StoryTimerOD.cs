@@ -39,8 +39,11 @@ public class StoryTimerOD : MonoBehaviour
     {
         front.transform.position = new Vector3(0, 0, 0);
         front.transform.localScale = new Vector3(.4632f, .4632f, .4632f);
-        flashingMove.ResetTrigger("Flash");
-        frontSR.enabled = false;
-        backSR.enabled = true;
+        if (flashingMove != null)
+        {
+            flashingMove.ResetTrigger("Flash");
+            frontSR.enabled = false;
+            backSR.enabled = true;
+        }
     }
 }
