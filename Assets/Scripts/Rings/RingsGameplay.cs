@@ -8,19 +8,15 @@ public class RingsGameplay : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
 
+    [SerializeField] RingsAnimationController ringsAnimationController;
+
     GameControls gamecontrols;
     float clicked = 0;
-
-    Animator ringoneanim;
-    Animator ringtwoanim;
 
     void Awake()
     {
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => RemoveRing();
-
-        ringoneanim = FindObjectOfType<Ring>().GetComponent<Animator>();
-        ringtwoanim = FindObjectOfType<RingTwo>().GetComponent<Animator>();
 
         StartCoroutine(WinOrLose());
     }
@@ -41,37 +37,39 @@ public class RingsGameplay : MonoBehaviour
 
         if(clicked == 1)
         {
-            ringoneanim.SetTrigger("Start");
+            //ringoneanim.SetTrigger("Start");
+            ringsAnimationController.setPos1();
         }
 
         if (clicked == 2)
         {
-            ringoneanim.SetTrigger("Second");
+            //ringoneanim.SetTrigger("Second");
+            ringsAnimationController.SetPos2();
         }
 
         if (clicked == 3)
         {
-            ringoneanim.SetTrigger("Third");
+            //ringoneanim.SetTrigger("Third");
         }
 
         if (clicked == 5)
         {
-            ringtwoanim.SetTrigger("Start");
+            //ringtwoanim.SetTrigger("Start");
         }
 
         if (clicked == 9)
         {
-            ringtwoanim.SetTrigger("Second");
+            //ringtwoanim.SetTrigger("Second");
         }
 
         if (clicked == 14)
         {
-            ringtwoanim.SetTrigger("Third");
+            //ringtwoanim.SetTrigger("Third");
         }
 
         if (clicked == 19)
         {
-            ringtwoanim.SetTrigger("Fourth");
+            //ringtwoanim.SetTrigger("Fourth");
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
@@ -79,6 +77,8 @@ public class RingsGameplay : MonoBehaviour
 
     IEnumerator WinOrLose()
     {
+        StartCoroutine(ringsAnimationController.SpaceAnimator());
+
         gamecontrols.Disable();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
@@ -91,5 +91,10 @@ public class RingsGameplay : MonoBehaviour
         {
             uihandler.LoseDisplay();
         }
+    }
+
+    public void Reset()
+    {
+        clicked = 0;
     }
 }

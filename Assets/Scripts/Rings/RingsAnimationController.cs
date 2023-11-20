@@ -5,16 +5,33 @@ using UnityEngine;
 public class RingsAnimationController : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
+
+    [SerializeField] GameObject rightDog;
+    [SerializeField] GameObject rightDogShocked;
+
+    [SerializeField] GameObject goldRing;
+    [SerializeField] GameObject silverRing;
+
     [SerializeField] GameObject SpaceUp;
     [SerializeField] GameObject SpaceDown;
 
-    private float measure;
+    private SpriteRenderer rightDogSR;
+    private SpriteRenderer rightDogShockedSR;
+
+    private Animator silverRingAnim;
+
+    private float halfMeasure;
 
     void Awake()
     {
+        rightDogSR = rightDog.GetComponent<SpriteRenderer>();
+        rightDogShockedSR = rightDogShocked.GetComponent<SpriteRenderer>();
+
+        silverRingAnim = silverRing.GetComponent<Animator>();
+
         SetSpacebar(true);
-        measure = timefunctions.ReturnSingleMeasure();
-        StartCoroutine(SpaceAnimator());
+        halfMeasure = 2 * timefunctions.ReturnQuarterNote();
+        //StartCoroutine(SpaceAnimator());
     }
 
     private void SetSpacebar(bool up)
@@ -24,21 +41,32 @@ public class RingsAnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private IEnumerator SpaceAnimator()
+    public IEnumerator SpaceAnimator()
     {
-        yield return new WaitForSeconds(measure);
-        SetSpacebar(true);
+        bool currState = false;
+        while (true)
+        {
+            yield return new WaitForSeconds(halfMeasure);
+            SetSpacebar(currState);
+            currState = !currState;
+        }
+    }
 
-        yield return new WaitForSeconds(measure);
-        SetSpacebar(false);
+    public void setPos1()
+    {
+        rightDogSR.enabled = false;
+        rightDogShockedSR.enabled = true;
+        silverRingAnim.SetTrigger("Pos1");
+    }
 
-        yield return new WaitForSeconds(measure);
-        SetSpacebar(true);
+    public void SetPos2()
+    {
+        silverRingAnim.SetTrigger("Pos2");
+    }
 
-        yield return new WaitForSeconds(measure);
-        SetSpacebar(false);
-
-        yield return new WaitForSeconds(measure);
-        SetSpacebar(true);
+    public void Reset()
+    {
+        rightDogSR.enabled = true;
+        rightDogShockedSR.enabled = false;
     }
 }
