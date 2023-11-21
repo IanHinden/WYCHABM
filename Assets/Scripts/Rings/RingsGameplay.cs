@@ -39,17 +39,20 @@ public class RingsGameplay : MonoBehaviour
         {
             //ringoneanim.SetTrigger("Start");
             ringsAnimationController.setPos1();
+            StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f));
         }
 
         if (clicked == 2)
         {
             //ringoneanim.SetTrigger("Second");
             ringsAnimationController.SetPos2();
+            StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f));
         }
 
         if (clicked == 3)
         {
-            //ringoneanim.SetTrigger("Third");
+            ringsAnimationController.SetPos3();
+            StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f));
         }
 
         if (clicked == 5)

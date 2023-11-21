@@ -6,6 +6,10 @@ public class RingsAnimationController : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] GameObject right;
+
+    [SerializeField] GameObject leftDog;
+    [SerializeField] GameObject leftDogShocked;
     [SerializeField] GameObject rightDog;
     [SerializeField] GameObject rightDogShocked;
 
@@ -14,6 +18,9 @@ public class RingsAnimationController : MonoBehaviour
 
     [SerializeField] GameObject SpaceUp;
     [SerializeField] GameObject SpaceDown;
+
+    private SpriteRenderer leftDogSR;
+    private SpriteRenderer leftDogShockedSR;
 
     private SpriteRenderer rightDogSR;
     private SpriteRenderer rightDogShockedSR;
@@ -24,6 +31,8 @@ public class RingsAnimationController : MonoBehaviour
 
     void Awake()
     {
+        leftDogSR = leftDog.GetComponent<SpriteRenderer>();
+        leftDogShockedSR = leftDogShocked.GetComponent<SpriteRenderer>();
         rightDogSR = rightDog.GetComponent<SpriteRenderer>();
         rightDogShockedSR = rightDogShocked.GetComponent<SpriteRenderer>();
 
@@ -52,8 +61,29 @@ public class RingsAnimationController : MonoBehaviour
         }
     }
 
+    public IEnumerator RightHotdogShake(float duration, float magnitude)
+    {
+        Vector3 originalPos = right.transform.localPosition;
+
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-.4f, .4f) * magnitude;
+            float y = Random.Range(-.4f, .4f) * magnitude;
+
+            right.transform.localPosition = new Vector3(x, y, originalPos.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+    }
+
     public void setPos1()
     {
+        leftDogSR.enabled = false;
+        leftDogShockedSR.enabled = true;
         rightDogSR.enabled = false;
         rightDogShockedSR.enabled = true;
         silverRingAnim.SetTrigger("Pos1");
@@ -64,9 +94,21 @@ public class RingsAnimationController : MonoBehaviour
         silverRingAnim.SetTrigger("Pos2");
     }
 
+    public void SetPos3()
+    {
+        silverRingAnim.SetTrigger("Pos3");
+    }
+
     public void Reset()
     {
+        leftDogSR.enabled = true;
+        leftDogShockedSR.enabled = false;
         rightDogSR.enabled = true;
         rightDogShockedSR.enabled = false;
+
+        silverRing.transform.localPosition = new Vector3(-1.42f, -3.79f, 0);
+
+        silverRingAnim.ResetTrigger("Pos1");
+        silverRingAnim.ResetTrigger("Pos2");
     }
 }
