@@ -57,22 +57,17 @@ public class RingsGameplay : MonoBehaviour
 
         if (clicked == 5)
         {
-            //ringtwoanim.SetTrigger("Start");
+            ringsAnimationController.SetPos4();
         }
 
         if (clicked == 9)
         {
-            //ringtwoanim.SetTrigger("Second");
+            ringsAnimationController.SetPos5();
         }
 
         if (clicked == 14)
         {
-            //ringtwoanim.SetTrigger("Third");
-        }
-
-        if (clicked == 19)
-        {
-            //ringtwoanim.SetTrigger("Fourth");
+            ringsAnimationController.SetPos6();
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
@@ -90,7 +85,8 @@ public class RingsGameplay : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (clicked < 19)
+        gamecontrols.Disable();
+        if (clicked < 14)
         {
             uihandler.LoseDisplay();
         }

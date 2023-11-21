@@ -13,7 +13,7 @@ public class RingsAnimationController : MonoBehaviour
     [SerializeField] GameObject rightDog;
     [SerializeField] GameObject rightDogShocked;
 
-    [SerializeField] GameObject goldRing;
+    [SerializeField] GameObject diamondRing;
     [SerializeField] GameObject silverRing;
 
     [SerializeField] GameObject SpaceUp;
@@ -26,6 +26,7 @@ public class RingsAnimationController : MonoBehaviour
     private SpriteRenderer rightDogShockedSR;
 
     private Animator silverRingAnim;
+    private Animator diamongRingAnim;
 
     private float halfMeasure;
 
@@ -37,7 +38,7 @@ public class RingsAnimationController : MonoBehaviour
         rightDogShockedSR = rightDogShocked.GetComponent<SpriteRenderer>();
 
         silverRingAnim = silverRing.GetComponent<Animator>();
-
+        diamongRingAnim = diamondRing.GetComponent<Animator>();
         SetSpacebar(true);
         halfMeasure = 2 * timefunctions.ReturnQuarterNote();
         //StartCoroutine(SpaceAnimator());
@@ -99,6 +100,21 @@ public class RingsAnimationController : MonoBehaviour
         silverRingAnim.SetTrigger("Pos3");
     }
 
+    public void SetPos4()
+    {
+        diamongRingAnim.SetTrigger("Pos4");
+    }
+
+    public void SetPos5()
+    {
+        diamongRingAnim.SetTrigger("Pos5");
+    }
+
+    public void SetPos6()
+    {
+        diamongRingAnim.SetTrigger("Pos6");
+    }
+
     public void Reset()
     {
         leftDogSR.enabled = true;
@@ -110,5 +126,10 @@ public class RingsAnimationController : MonoBehaviour
 
         silverRingAnim.ResetTrigger("Pos1");
         silverRingAnim.ResetTrigger("Pos2");
+        silverRingAnim.ResetTrigger("Pos3");
+
+        diamongRingAnim.ResetTrigger("Pos4");
+        diamongRingAnim.ResetTrigger("Pos5");
+        diamongRingAnim.ResetTrigger("Pos6");
     }
 }
