@@ -77,6 +77,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0448578
       objectReference: {fileID: 0}
+    - target: {fileID: 8763039597380755901, guid: 723157821e051394993a650d67972e63,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.457023
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763039597380755901, guid: 723157821e051394993a650d67972e63,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3.557023
+      objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755902, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_Name

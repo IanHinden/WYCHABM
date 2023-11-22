@@ -7,9 +7,11 @@ public class RingsAnimationController : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
 
     [SerializeField] GameObject right;
+    [SerializeField] GameObject left;
 
     [SerializeField] GameObject leftDog;
     [SerializeField] GameObject leftDogShocked;
+    [SerializeField] GameObject leftDogDifficult;
     [SerializeField] GameObject rightDog;
     [SerializeField] GameObject rightDogShocked;
 
@@ -21,6 +23,7 @@ public class RingsAnimationController : MonoBehaviour
 
     private SpriteRenderer leftDogSR;
     private SpriteRenderer leftDogShockedSR;
+    private SpriteRenderer leftDogDifficultSR;
 
     private SpriteRenderer rightDogSR;
     private SpriteRenderer rightDogShockedSR;
@@ -34,6 +37,7 @@ public class RingsAnimationController : MonoBehaviour
     {
         leftDogSR = leftDog.GetComponent<SpriteRenderer>();
         leftDogShockedSR = leftDogShocked.GetComponent<SpriteRenderer>();
+        leftDogDifficultSR = leftDogDifficult.GetComponent<SpriteRenderer>();
         rightDogSR = rightDog.GetComponent<SpriteRenderer>();
         rightDogShockedSR = rightDogShocked.GetComponent<SpriteRenderer>();
 
@@ -62,9 +66,10 @@ public class RingsAnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator RightHotdogShake(float duration, float magnitude)
+    public IEnumerator RightHotdogShake(float duration, float magnitude, int dog)
     {
-        Vector3 originalPos = right.transform.localPosition;
+        GameObject theDog = dog == 0 ? right : left;
+        Vector3 originalPos = theDog.transform.localPosition;
 
         float elapsed = 0.0f;
 
@@ -73,7 +78,7 @@ public class RingsAnimationController : MonoBehaviour
             float x = Random.Range(-.4f, .4f) * magnitude;
             float y = Random.Range(-.4f, .4f) * magnitude;
 
-            right.transform.localPosition = new Vector3(x, y, originalPos.z);
+            theDog.transform.localPosition = new Vector3(x, y, originalPos.z);
 
             elapsed += Time.deltaTime;
 
@@ -102,6 +107,8 @@ public class RingsAnimationController : MonoBehaviour
 
     public void SetPos4()
     {
+        leftDogShockedSR.enabled = false;
+        leftDogDifficultSR.enabled = true;
         diamongRingAnim.SetTrigger("Pos4");
     }
 
@@ -119,6 +126,7 @@ public class RingsAnimationController : MonoBehaviour
     {
         leftDogSR.enabled = true;
         leftDogShockedSR.enabled = false;
+        leftDogDifficultSR.enabled = false;
         rightDogSR.enabled = true;
         rightDogShockedSR.enabled = false;
 
