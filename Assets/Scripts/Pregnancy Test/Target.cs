@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pregnancyScore == 50 && full == false)
+        if(pregnancyScore == 30 && full == false)
         {
             full = true;
             scorehandler.IncrementScore();
@@ -32,6 +32,7 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         pregnancyScore++;
+        Debug.Log(pregnancyScore);
     }
 
     IEnumerator WinOrLose()

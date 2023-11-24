@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Droplet : MonoBehaviour
 {
-    public float speed = 1f;
-    public Vector3 initialVelocity = new Vector3(1000f, 1000f, 0f);
+    public float speed = .2f;
+
     private void Awake()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
