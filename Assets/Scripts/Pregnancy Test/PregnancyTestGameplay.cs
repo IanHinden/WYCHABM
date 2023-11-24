@@ -5,16 +5,13 @@ using UnityEngine;
 public class PregnancyTestGameplay : MonoBehaviour
 {
     private GameControls gamecontrols;
-    private PregnancyTest pregnancyTest;
 
     [SerializeField] GameObject strawberry;
 
-    private float speed = 5f;
     public float rotationSpeed = 50f;
     public float rotationRange = 90f;
     void Awake()
     {
-        pregnancyTest = FindObjectOfType<PregnancyTest>();
         gamecontrols = new GameControls();
     }
 
@@ -32,10 +29,6 @@ public class PregnancyTestGameplay : MonoBehaviour
     void Update()
     {
         Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
-
-        /*Vector3 currentPosition = pregnancyTest.transform.position;
-        currentPosition.x += movementInput.x * speed * Time.deltaTime;
-        pregnancyTest.transform.position = currentPosition;*/
 
         float desiredRotation = strawberry.transform.rotation.eulerAngles.z + movementInput.x * rotationSpeed * Time.deltaTime;
 

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Droplet : MonoBehaviour
 {
-    public float speed = 5.0f;
-
-    void Update()
+    public float speed = 1f;
+    public Vector3 initialVelocity = new Vector3(1000f, 1000f, 0f);
+    private void Awake()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
-        if(this.transform.position.y < -6.5)
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        // Check if the object has a Rigidbody
+        if (rb != null)
         {
-            Destroy(this.gameObject);
+            // Set the initial velocity
+            rb.velocity = transform.up * speed;
         }
     }
 }

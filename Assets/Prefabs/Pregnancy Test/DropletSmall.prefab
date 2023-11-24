@@ -32,6 +32,21 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 1.5881124
       objectReference: {fileID: 0}
+    - target: {fileID: 354284039886160899, guid: 6037955f1b924bc479f2ddd24c656e3a,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 354284039886160899, guid: 6037955f1b924bc479f2ddd24c656e3a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 354284039886160899, guid: 6037955f1b924bc479f2ddd24c656e3a,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 354284039886160908, guid: 6037955f1b924bc479f2ddd24c656e3a,
         type: 3}
       propertyPath: m_LocalPosition.x
