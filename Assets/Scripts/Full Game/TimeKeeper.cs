@@ -232,6 +232,11 @@ public class TimeKeeper : MonoBehaviour
         camera.orthographicSize = 5;
 
         threeDcamera.transform.position = threeDCameraPos;
+
+        driveCamRender.enabled = true;
+        drivecamera.SetActive(false);
+        maincamera.SetActive(true);
+        threedcamera.SetActive(false);
     }
 
     public IEnumerator SwitchScene()

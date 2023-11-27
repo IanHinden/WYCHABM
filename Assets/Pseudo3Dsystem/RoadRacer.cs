@@ -88,7 +88,10 @@ public class RoadRacer : MonoBehaviour
 	//public GameObject rivalCarSoundObj;
 	//Sound Effect
 
-
+	// The Cards
+	public GameObject rivalCar1;
+	public GameObject rivalCar2;
+	public GameObject rivalCar3;
 
 
 	// Use this for initialization
@@ -552,16 +555,17 @@ public class RoadRacer : MonoBehaviour
 		{
 			for (int i = 0; i < rivalCar.Length; i++)
 			{
+				float customCurve = -.08f;
 				float fRivalPerspective = (float)(rivalCar[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
 				float fRivalCarPosY = fSpeed > 0 ? rivalCar[i].position.y + 10 * fSpeed * Time.deltaTime : rivalCar[i].position.y - 40 * Time.deltaTime;
-				rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
+				rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + ( customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
 
 				if (rivalCar[i].transform.position.x < 150 &&
 				   rivalCar[i].transform.position.x > 2 &&
 				   rivalCar[i].transform.position.y < 103 &&
 				   rivalCar[i].transform.position.y > 6)
 				{//在画面内才能进行缩放
-					rivalCar[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
+					rivalCar[i].transform.localScale = new Vector2(1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
 
 					if (rivalCar[i].transform.transform.localScale.x < 0)
 					{
@@ -596,9 +600,10 @@ public class RoadRacer : MonoBehaviour
 		{
 			for (int i = 0; i < cones.Length; i++)
 			{
+				float customCurve = .08f;
 				float fRivalPerspective = (float)(cones[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
 				float fRivalCarPosY = fSpeed > 0 ? cones[i].position.y + 10 * fSpeed * Time.deltaTime : cones[i].position.y - 40 * Time.deltaTime;
-				cones[i].transform.position = new Vector2(defaultConePositions[i].x + (fCurvatrue * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
+				cones[i].transform.position = new Vector2(defaultConePositions[i].x + ( customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
 
 				if (cones[i].transform.position.x < 150 &&
 				   cones[i].transform.position.x > 2 &&
@@ -609,11 +614,11 @@ public class RoadRacer : MonoBehaviour
 
 					if (cones[i].transform.transform.localScale.x < 0)
 					{
-						cones[i].GetComponent<SpriteRenderer>().enabled = false;
+						if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = false; }
 					}
 					else
 					{
-						cones[i].GetComponent<SpriteRenderer>().enabled = true;
+						if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = true; }
 					}
 				}
 			}
@@ -726,6 +731,10 @@ public class RoadRacer : MonoBehaviour
 			Vector2 newPosition = defaultConePositions[i];
 			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
 		}
+
+		rivalCar1.transform.position = new Vector3(30.4f, -15.3f, 0);
+		rivalCar2.transform.position = new Vector3(48.2f, -27.9f, 0);
+		rivalCar3.transform.position = new Vector3(47.8f, -47.1f, 0);
 	}
 
 }
