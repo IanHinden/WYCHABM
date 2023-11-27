@@ -80,12 +80,12 @@ PrefabInstance:
     - target: {fileID: 8763039597380755900, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_GravityScale
-      value: 0.6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755900, guid: 723157821e051394993a650d67972e63,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8763039597380755901, guid: 723157821e051394993a650d67972e63,
         type: 3}

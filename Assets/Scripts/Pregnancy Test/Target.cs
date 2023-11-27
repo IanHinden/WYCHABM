@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
+    [SerializeField] PregnancyAnimationController pregnancyTestAnimationController;
 
     [SerializeField] Streamer streamer;
 
@@ -18,21 +19,38 @@ public class Target : MonoBehaviour
         StartCoroutine(WinOrLose());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(pregnancyScore == 30 && full == false)
+        ScorePlus();
+    }
+
+    void ScorePlus()
+    {
+        pregnancyScore++;
+        
+        if(pregnancyScore == 5)
         {
+            pregnancyTestAnimationController.SetPixel1();
+        }
+
+        if (pregnancyScore == 5)
+        {
+            pregnancyTestAnimationController.SetPixel2();
+        }
+
+        if (pregnancyScore == 5)
+        {
+            pregnancyTestAnimationController.SetPixel3();
+        }
+
+        if (pregnancyScore == 30 && full == false)
+        {
+            pregnancyTestAnimationController.SetPixel4();
+            pregnancyTestAnimationController.StopPregnancyTest();
             full = true;
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        pregnancyScore++;
-        Debug.Log(pregnancyScore);
     }
 
     IEnumerator WinOrLose()

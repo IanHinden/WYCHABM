@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Droplet : MonoBehaviour
 {
-    public float speed = .2f;
+    public float speed = 10f;
 
     private void Awake()
     {
