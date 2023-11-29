@@ -88,7 +88,11 @@ public class RoadRacer : MonoBehaviour
 	//public GameObject rivalCarSoundObj;
 	//Sound Effect
 
-	// The Cards
+	// Steering wheel animator
+	public GameObject wheel;
+	Animator wheelAnim;
+
+	// The Cars
 	public GameObject rivalCar1;
 	public GameObject rivalCar2;
 	public GameObject rivalCar3;
@@ -101,6 +105,8 @@ public class RoadRacer : MonoBehaviour
 		camToCarOffset = Car.position - transform.position;
 		startTimeCount = 0;
 		timeCount = defaultTimeCount;
+
+		wheelAnim = wheel.GetComponent<Animator>();
 		/*赛道信息，弯道弧度，弯道长度，0为直道
 		vecTrack.Add(new Vector2(0.0f,100.0f));
 		vecTrack.Add(new Vector2(0.0f,200.0f));
@@ -369,7 +375,7 @@ public class RoadRacer : MonoBehaviour
 
     void Update()
 	{
-        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
         {
             if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
             {
@@ -397,9 +403,31 @@ public class RoadRacer : MonoBehaviour
 		{
 			fSpeed -= 0.8f * Time.deltaTime;
 		}*/
-			
 
-		if(movementInput.x == -1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
+		//Steering wheel animation logic
+		if (movementInput != Vector2.zero)
+		{
+			wheelAnim.ResetTrigger("Neutral");
+
+			if(movementInput.x == -1)
+            {
+				wheelAnim.SetTrigger("Left");
+				wheelAnim.ResetTrigger("Right");
+			} else if (movementInput.x == 1)
+            {
+				wheelAnim.SetTrigger("Right");
+				wheelAnim.ResetTrigger("Left");
+			}
+		}
+		else
+		{
+			wheelAnim.ResetTrigger("Right");
+			wheelAnim.ResetTrigger("Left");
+			wheelAnim.SetTrigger("Neutral");
+		}
+
+
+		if (movementInput.x == -1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
 			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
 		{
 			fPlayerCurvature += 0.7f * Time.deltaTime;
@@ -732,9 +760,9 @@ public class RoadRacer : MonoBehaviour
 			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
 		}
 
-		rivalCar1.transform.position = new Vector3(30.4f, -15.3f, 0);
+		rivalCar1.transform.position = new Vector3(13.2f, -5.9f, 0);
 		rivalCar2.transform.position = new Vector3(48.2f, -27.9f, 0);
-		rivalCar3.transform.position = new Vector3(47.8f, -47.1f, 0);
+		rivalCar3.transform.position = new Vector3(24.1f, -47.1f, 0);
 	}
 
 }
