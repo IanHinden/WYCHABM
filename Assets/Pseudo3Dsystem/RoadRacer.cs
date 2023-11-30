@@ -26,6 +26,8 @@ public class RoadRacer : MonoBehaviour
 {
 	private GameControls gameControls;
 
+	private bool ResetStat = false;
+
 	public Transform Car;
 	float TimeInLane = 0f;
 	private Vector3 camToCarOffset;
@@ -97,6 +99,9 @@ public class RoadRacer : MonoBehaviour
 	public GameObject rivalCar2;
 	public GameObject rivalCar3;
 
+
+	// Traffic items
+	public GameObject constructionSign;
 
 	// Use this for initialization
 	void Awake()
@@ -367,7 +372,7 @@ public class RoadRacer : MonoBehaviour
 
     private void FixedUpdate()
     {
-		if (Car.transform.position.x < 100)
+		if (Car.transform.position.x < 100 && constructionSign.transform.position.y > 84)
 		{
 			TimeInLane = TimeInLane + 1;
 		}
@@ -405,25 +410,29 @@ public class RoadRacer : MonoBehaviour
 		}*/
 
 		//Steering wheel animation logic
-		if (movementInput != Vector2.zero)
+		if (ResetStat)
 		{
-			wheelAnim.ResetTrigger("Neutral");
+			if (movementInput != Vector2.zero)
+			{
+				wheelAnim.ResetTrigger("Neutral");
 
-			if(movementInput.x == -1)
-            {
-				wheelAnim.SetTrigger("Left");
-				wheelAnim.ResetTrigger("Right");
-			} else if (movementInput.x == 1)
-            {
-				wheelAnim.SetTrigger("Right");
-				wheelAnim.ResetTrigger("Left");
+				if (movementInput.x == -1)
+				{
+					wheelAnim.SetTrigger("Left");
+					wheelAnim.ResetTrigger("Right");
+				}
+				else if (movementInput.x == 1)
+				{
+					wheelAnim.SetTrigger("Right");
+					wheelAnim.ResetTrigger("Left");
+				}
 			}
-		}
-		else
-		{
-			wheelAnim.ResetTrigger("Right");
-			wheelAnim.ResetTrigger("Left");
-			wheelAnim.SetTrigger("Neutral");
+			else
+			{
+				wheelAnim.ResetTrigger("Right");
+				wheelAnim.ResetTrigger("Left");
+				wheelAnim.SetTrigger("Neutral");
+			}
 		}
 
 
@@ -754,6 +763,7 @@ public class RoadRacer : MonoBehaviour
     public void Reset()
     {
 		Debug.Log("It works");
+		ResetStat = true;
 		for (int i = 0; i < defaultConePositions.Count; i++)
 		{
 			Vector2 newPosition = defaultConePositions[i];

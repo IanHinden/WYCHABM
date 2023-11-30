@@ -136071,6 +136071,7 @@ MonoBehaviour:
   rivalCar1: {fileID: 1787338138}
   rivalCar2: {fileID: 1791904791}
   rivalCar3: {fileID: 224743848}
+  constructionSign: {fileID: 85694241}
   topGear: 0
 --- !u!124 &2009168601
 Behaviour:
