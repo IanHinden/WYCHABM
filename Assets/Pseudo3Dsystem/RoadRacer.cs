@@ -27,6 +27,7 @@ public class RoadRacer : MonoBehaviour
 	private GameControls gameControls;
 
 	private bool ResetStat = false;
+	private bool fail = false;
 
 	public Transform Car;
 	float TimeInLane = 0f;
@@ -380,389 +381,404 @@ public class RoadRacer : MonoBehaviour
 
     void Update()
 	{
-		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
-        {
-            if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
-            {
-                fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
-            }
-            else if (timeCount <= -1)
-            {
-                fSpeed -= 0.8f * Time.deltaTime;
-            }
-        }
-		Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
-		/*if (Input.GetKey (KeyCode.W)) 
+		if (fail == true)
 		{
-			//fDistance += 20.0f;   //汽车行驶的距离
-			if(startTimeCount < 0&&!finishTheTrack && timeCount>-1f && !Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
-			{
-				fSpeed += topGear? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime; 
-			}
-			else if(timeCount <= -1)
-			{
-				fSpeed -= 0.8f * Time.deltaTime;
-			}
+			fSpeed = 0;
 		}
 		else
 		{
-			fSpeed -= 0.8f * Time.deltaTime;
-		}*/
 
-		//Steering wheel animation logic
-		if (ResetStat)
-		{
-			if (movementInput != Vector2.zero)
+			if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
 			{
-				wheelAnim.ResetTrigger("Neutral");
-
-				if (movementInput.x == -1)
+				if (startTimeCount < 0 && !finishTheTrack && timeCount > -1f && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
 				{
-					wheelAnim.SetTrigger("Left");
-					wheelAnim.ResetTrigger("Right");
+					fSpeed += topGear ? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime;
 				}
-				else if (movementInput.x == 1)
+				else if (timeCount <= -1)
 				{
-					wheelAnim.SetTrigger("Right");
-					wheelAnim.ResetTrigger("Left");
+					fSpeed -= 0.8f * Time.deltaTime;
+				}
+			}
+			Vector2 movementInput = gameControls.Move.Directions.ReadValue<Vector2>();
+			/*if (Input.GetKey (KeyCode.W)) 
+			{
+				//fDistance += 20.0f;   //汽车行驶的距离
+				if(startTimeCount < 0&&!finishTheTrack && timeCount>-1f && !Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
+				{
+					fSpeed += topGear? 0.1f * Time.deltaTime : 2.0f * Time.deltaTime; 
+				}
+				else if(timeCount <= -1)
+				{
+					fSpeed -= 0.8f * Time.deltaTime;
 				}
 			}
 			else
 			{
-				wheelAnim.ResetTrigger("Right");
-				wheelAnim.ResetTrigger("Left");
-				wheelAnim.SetTrigger("Neutral");
-			}
-		}
+				fSpeed -= 0.8f * Time.deltaTime;
+			}*/
 
-
-		if (movementInput.x == -1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
-			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
-		{
-			fPlayerCurvature += 0.7f * Time.deltaTime;
-		}
-
-		if(movementInput.x == 1 && !finishTheTrack &&startTimeCount < 0 && timeCount > -1f && 
-			!Car.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("CarExpolosion"))
-		{
-			fPlayerCurvature -= 0.7f * Time.deltaTime;
-		}
-
-		/*if (Input.GetKeyDown (KeyCode.RightShift)) 
-		{
-			//Change The gear
-			topGear = !topGear;
-			gearText.text = topGear? "High" : "Low";
-		}*/
-		
-
-
-		if (Mathf.Abs(fPlayerCurvature - 0.2f - fTranckCurvature) >= 0.8f) //0.2f 用来修正判定偏右，不等式右边越大，可行驶的道路宽度越宽
-		{
-			fSpeed -= 5.0f * Time.deltaTime; //赛车到道路边缘 停下
-		}
-
-
-
-		//Switch The Gear ,Clamp the speed
-		float gearSpeed = topGear ? 1.8f : 1.0f;
-
-		if (fSpeed < 0.0f)
-		{
-			fSpeed = 0.0f;
-		}
-		if (fSpeed > gearSpeed)
-		{
-			fSpeed = Mathf.Lerp(fSpeed, 1.0f, 5 * Time.deltaTime);
-		}
-
-		//Switch The Gear, Clamp The Speed
-
-
-		//Engine Sound According The fSpeed
-		//pitch = topGear ? fSpeed / gearSpeed + 0.5f : fSpeed / gearSpeed - 0.3f;
-		//AC2.pitch = pitch;
-		//Engine Sound According The fSpeed
-
-		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
-		{
-            //Move Car alone track according to car speed
-            if (startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
-            {
-                fDistance += (300f * fSpeed) * Time.deltaTime;
-            }
-        }
-
-
-
-		//UI Control
-		/*if(startTimeCount < 0)
-		{
-			speedText.text = (Mathf.Clamp((300f * fSpeed - 100f),0f,360f)).ToString ("f0") + "KM / H";
-		}*/
-
-		/*speedUICount = (int)Mathf.Clamp ((300f * fSpeed - 100f), 0f, 360f) / 40;
-		speedUIdisActiveCount = speedCountUIBlock.Length - speedUICount;
-		for(int i = 0; i < speedUICount; i++)
-		{
-			if(speedUICount > 0)
+			//Steering wheel animation logic
+			if (ResetStat)
 			{
-				speedCountUIBlock[i].enabled = true;
+				if (movementInput != Vector2.zero)
+				{
+					wheelAnim.ResetTrigger("Neutral");
+
+					if (movementInput.x == -1)
+					{
+						wheelAnim.SetTrigger("Left");
+						wheelAnim.ResetTrigger("Right");
+					}
+					else if (movementInput.x == 1)
+					{
+						wheelAnim.SetTrigger("Right");
+						wheelAnim.ResetTrigger("Left");
+					}
+				}
+				else
+				{
+					wheelAnim.ResetTrigger("Right");
+					wheelAnim.ResetTrigger("Left");
+					wheelAnim.SetTrigger("Neutral");
+				}
 			}
-		}
-		for(int i = 0; i < speedUIdisActiveCount; i++)
-		{
-			if(speedUIdisActiveCount > 0)
+
+
+			if (movementInput.x == -1 && !finishTheTrack && startTimeCount < 0 && timeCount > -1f &&
+				!Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
 			{
-				speedCountdisActiveBlock[i].enabled = false;
+				fPlayerCurvature += 0.7f * Time.deltaTime;
 			}
-		}*/
-		//UI Control
+
+			if (movementInput.x == 1 && !finishTheTrack && startTimeCount < 0 && timeCount > -1f &&
+				!Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+			{
+				fPlayerCurvature -= 0.7f * Time.deltaTime;
+			}
+
+			/*if (Input.GetKeyDown (KeyCode.RightShift)) 
+			{
+				//Change The gear
+				topGear = !topGear;
+				gearText.text = topGear? "High" : "Low";
+			}*/
+
+
+
+			if (Mathf.Abs(fPlayerCurvature - 0.2f - fTranckCurvature) >= 0.8f) //0.2f 用来修正判定偏右，不等式右边越大，可行驶的道路宽度越宽
+			{
+				fSpeed -= 5.0f * Time.deltaTime; //赛车到道路边缘 停下
+			}
+
+
+
+			//Switch The Gear ,Clamp the speed
+			float gearSpeed = topGear ? 1.8f : 1.0f;
+
+			if (fSpeed < 0.0f)
+			{
+				fSpeed = 0.0f;
+			}
+			if (fSpeed > gearSpeed)
+			{
+				fSpeed = Mathf.Lerp(fSpeed, 1.0f, 5 * Time.deltaTime);
+			}
+
+			//Switch The Gear, Clamp The Speed
+
+
+			//Engine Sound According The fSpeed
+			//pitch = topGear ? fSpeed / gearSpeed + 0.5f : fSpeed / gearSpeed - 0.3f;
+			//AC2.pitch = pitch;
+			//Engine Sound According The fSpeed
+
+			if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+			{
+				//Move Car alone track according to car speed
+				if (startTimeCount < 0 && timeCount > -1 && !Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
+				{
+					fDistance += (300f * fSpeed) * Time.deltaTime;
+				}
+			}
+
+
+
+			//UI Control
+			/*if(startTimeCount < 0)
+			{
+				speedText.text = (Mathf.Clamp((300f * fSpeed - 100f),0f,360f)).ToString ("f0") + "KM / H";
+			}*/
+
+			/*speedUICount = (int)Mathf.Clamp ((300f * fSpeed - 100f), 0f, 360f) / 40;
+			speedUIdisActiveCount = speedCountUIBlock.Length - speedUICount;
+			for(int i = 0; i < speedUICount; i++)
+			{
+				if(speedUICount > 0)
+				{
+					speedCountUIBlock[i].enabled = true;
+				}
+			}
+			for(int i = 0; i < speedUIdisActiveCount; i++)
+			{
+				if(speedUIdisActiveCount > 0)
+				{
+					speedCountdisActiveBlock[i].enabled = false;
+				}
+			}*/
+			//UI Control
 
 
 
 
-		//get point On Track
-		float fOffset = 0;
-		int nTrackSection = 0;
+			//get point On Track
+			float fOffset = 0;
+			int nTrackSection = 0;
 
-		//Find position On track
-		while (nTrackSection < vecTrack.Count && fOffset <= fDistance)
-		{
-			fOffset += vecTrack[nTrackSection].distance;
-			nTrackSection++;
-		}
+			//Find position On track
+			while (nTrackSection < vecTrack.Count && fOffset <= fDistance)
+			{
+				fOffset += vecTrack[nTrackSection].distance;
+				nTrackSection++;
+			}
 
-		float fTargetCurvature = vecTrack[nTrackSection - 1].curva;
+			float fTargetCurvature = vecTrack[nTrackSection - 1].curva;
 
-		float fTrackCurveDiff = (fTargetCurvature - fCurvatrue) * Time.deltaTime * fSpeed;
-		fCurvatrue += fTrackCurveDiff;//  像素偏移系数 ----> 转弯量
+			float fTrackCurveDiff = (fTargetCurvature - fCurvatrue) * Time.deltaTime * fSpeed;
+			fCurvatrue += fTrackCurveDiff;//  像素偏移系数 ----> 转弯量
 
-		//float fMiddlepoint = 0.5f + fCurvatrue;//貌似这句不参与计算
+			//float fMiddlepoint = 0.5f + fCurvatrue;//貌似这句不参与计算
 
-		fTranckCurvature += (fCurvatrue) * Time.deltaTime * fSpeed; // 速度，和道路弯度 共同决定弯道对赛车的离心力 
-
-
-
-
-
-		for (int i = 0; i < grassList.Count; i++)
-		{
-			float fPerspective = (float)(grassList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     // y = nRow - screenHeight/2
-			grassList[i].color = Mathf.Sin(10.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? grassColor : grassLowColor;
-			grassList[i].transform.position = new Vector2(defaultGrassPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, grassList[i].transform.position.y);
-		}
-		for (int i = 0; i < roadShouderList.Count; i++)
-		{
-			float fPerspective = (float)(roadShouderList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     //y = nRow - screenHeight/2
-			roadShouderList[i].color = Mathf.Sin(15.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? shouderColor : shouderLowColor;
-			roadShouderList[i].transform.position = new Vector2(defaultRoadShouderPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadShouderList[i].transform.position.y);
-		}
-		for (int i = 0; i < roadList.Count; i++)
-		{
-			float fPerspective = (float)(roadList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
-			roadList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? roadLowColor : roadColor;
-			roadList[i].transform.position = new Vector2(defaultRoadPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadList[i].transform.position.y);
-		}
-		for (int i = 0; i < whiteLineList.Count; i++)
-		{
-			float fPerspective = (float)(whiteLineList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
-			whiteLineList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? whitLineColor : roadColor;
-			whiteLineList[i].transform.position = new Vector2(defaultWhiteLinePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, whiteLineList[i].transform.position.y);
-		}
-
-		for (int i = 0; i < treeList.Count; i++)
-		{
-			float fPerspective = (float)(treeList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
-			treeList[i].color = Mathf.Sin(100.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? treeColor : treeLowColor;
-			treeList[i].transform.position = new Vector2(defaultTreePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, treeList[i].transform.position.y);
-		}
-
-
-		//Pos The Car
-		fCarPos = fPlayerCurvature - fTranckCurvature; // 玩家的控制， 车速度，和道路弯度 决定 赛车偏移量
-		int nCarPos = screenWeidth / 2 + ((int)(screenWeidth * fCarPos) / 2) - 7;
-		Car.position = new Vector2(nCarPos, Car.position.y);
+			fTranckCurvature += (fCurvatrue) * Time.deltaTime * fSpeed; // 速度，和道路弯度 共同决定弯道对赛车的离心力 
 
 
 
 
-		//Pos The Rival Car
-		if (startTimeCount < 0 && !finishTheTrack)
-		{
+
+			for (int i = 0; i < grassList.Count; i++)
+			{
+				float fPerspective = (float)(grassList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     // y = nRow - screenHeight/2
+				grassList[i].color = Mathf.Sin(10.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? grassColor : grassLowColor;
+				grassList[i].transform.position = new Vector2(defaultGrassPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, grassList[i].transform.position.y);
+			}
+			for (int i = 0; i < roadShouderList.Count; i++)
+			{
+				float fPerspective = (float)(roadShouderList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);     //y = nRow - screenHeight/2
+				roadShouderList[i].color = Mathf.Sin(15.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? shouderColor : shouderLowColor;
+				roadShouderList[i].transform.position = new Vector2(defaultRoadShouderPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadShouderList[i].transform.position.y);
+			}
+			for (int i = 0; i < roadList.Count; i++)
+			{
+				float fPerspective = (float)(roadList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+				roadList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? roadLowColor : roadColor;
+				roadList[i].transform.position = new Vector2(defaultRoadPoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, roadList[i].transform.position.y);
+			}
+			for (int i = 0; i < whiteLineList.Count; i++)
+			{
+				float fPerspective = (float)(whiteLineList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+				whiteLineList[i].color = Mathf.Sin(29.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? whitLineColor : roadColor;
+				whiteLineList[i].transform.position = new Vector2(defaultWhiteLinePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, whiteLineList[i].transform.position.y);
+			}
+
+			for (int i = 0; i < treeList.Count; i++)
+			{
+				float fPerspective = (float)(treeList[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+				treeList[i].color = Mathf.Sin(100.0f * Mathf.Pow(1.0f - fPerspective, 3) + fDistance * 0.1f) < 0.0f ? treeColor : treeLowColor;
+				treeList[i].transform.position = new Vector2(defaultTreePoses[i].x + (fCurvatrue * Mathf.Pow(1.0f - fPerspective, 3)) * screenWeidth, treeList[i].transform.position.y);
+			}
+
+
+			//Pos The Car
+			fCarPos = fPlayerCurvature - fTranckCurvature; // 玩家的控制， 车速度，和道路弯度 决定 赛车偏移量
+			int nCarPos = screenWeidth / 2 + ((int)(screenWeidth * fCarPos) / 2) - 7;
+			Car.position = new Vector2(nCarPos, Car.position.y);
+
+
+
+
+			//Pos The Rival Car
+			if (startTimeCount < 0 && !finishTheTrack)
+			{
+				for (int i = 0; i < rivalCar.Length; i++)
+				{
+					float customCurve = -.08f;
+					float fRivalPerspective = (float)(rivalCar[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+					float fRivalCarPosY = fSpeed > 0 ? rivalCar[i].position.y + 10 * fSpeed * Time.deltaTime : rivalCar[i].position.y - 40 * Time.deltaTime;
+					rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + (customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
+
+					if (rivalCar[i].transform.position.x < 150 &&
+					   rivalCar[i].transform.position.x > 2 &&
+					   rivalCar[i].transform.position.y < 103 &&
+					   rivalCar[i].transform.position.y > 6)
+					{//在画面内才能进行缩放
+						rivalCar[i].transform.localScale = new Vector2(1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
+
+						if (rivalCar[i].transform.transform.localScale.x < 0)
+						{
+							rivalCar[i].GetComponent<SpriteRenderer>().enabled = false;
+						}
+						else
+						{
+							rivalCar[i].GetComponent<SpriteRenderer>().enabled = true;
+						}
+
+
+						if (!rivalCarIn.Contains(rivalCar[i]))           // 敌车进入画面，添加那辆敌车到列表，否则移除它
+						{
+							rivalCarIn.Add(rivalCar[i]);                  // 敌车进入画面，添加那辆敌车到列表，否则移除它
+						}
+					}
+					else if (rivalCar[i].transform.position.x > 150 ||
+						rivalCar[i].transform.position.x < 2 ||
+						rivalCar[i].transform.position.y > 103 ||
+						rivalCar[i].transform.position.y < 6)
+					{
+						if (rivalCarIn.Contains(rivalCar[i]))
+						{
+							rivalCarIn.Remove(rivalCar[i]);
+						}
+					}
+				}
+			}
+
+			//Pos The Cones
+			if (startTimeCount < 0 && !finishTheTrack)
+			{
+				for (int i = 0; i < cones.Length; i++)
+				{
+					float customCurve = .08f;
+					float fRivalPerspective = (float)(cones[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
+					float fRivalCarPosY = fSpeed > 0 ? cones[i].position.y + 10 * fSpeed * Time.deltaTime : cones[i].position.y - 40 * Time.deltaTime;
+					cones[i].transform.position = new Vector2(defaultConePositions[i].x + (customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
+
+					if (cones[i].transform.position.x < 150 &&
+					   cones[i].transform.position.x > 2 &&
+					   cones[i].transform.position.y < 103 &&
+					   cones[i].transform.position.y > 6)
+					{//在画面内才能进行缩放
+						cones[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
+
+						if (cones[i].transform.transform.localScale.x < 0)
+						{
+							if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = false; }
+						}
+						else
+						{
+							if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = true; }
+						}
+					}
+				}
+			}
+
+			/*if (rivalCarIn.Count != 0)  //判断是否有敌车在画面里面(列表是否为空)，如果有，激活敌车音效对象
+			{  
+				rivalCarSoundObj.SetActive (true);
+			} 
+			else if(rivalCarIn.Count == 0)
+			{
+				rivalCarSoundObj.SetActive (false);
+			}*/
+			//Pos The Rival Car
+
+
+			//判断是否撞车
 			for (int i = 0; i < rivalCar.Length; i++)
 			{
-				float customCurve = -.08f;
-				float fRivalPerspective = (float)(rivalCar[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
-				float fRivalCarPosY = fSpeed > 0 ? rivalCar[i].position.y + 10 * fSpeed * Time.deltaTime : rivalCar[i].position.y - 40 * Time.deltaTime;
-				rivalCar[i].transform.position = new Vector2(defaultRivalCarPoses[i].x + ( customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
-
-				if (rivalCar[i].transform.position.x < 150 &&
-				   rivalCar[i].transform.position.x > 2 &&
-				   rivalCar[i].transform.position.y < 103 &&
-				   rivalCar[i].transform.position.y > 6)
-				{//在画面内才能进行缩放
-					rivalCar[i].transform.localScale = new Vector2(1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 1.9f/*0.9f*/ - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
-
-					if (rivalCar[i].transform.transform.localScale.x < 0)
-					{
-						rivalCar[i].GetComponent<SpriteRenderer>().enabled = false;
-					}
-					else
-					{
-						rivalCar[i].GetComponent<SpriteRenderer>().enabled = true;
-					}
-
-
-					if (!rivalCarIn.Contains(rivalCar[i]))           // 敌车进入画面，添加那辆敌车到列表，否则移除它
-					{
-						rivalCarIn.Add(rivalCar[i]);                  // 敌车进入画面，添加那辆敌车到列表，否则移除它
-					}
-				}
-				else if (rivalCar[i].transform.position.x > 150 ||
-					rivalCar[i].transform.position.x < 2 ||
-					rivalCar[i].transform.position.y > 103 ||
-					rivalCar[i].transform.position.y < 6)
+				if (Mathf.Abs(rivalCar[i].transform.position.x - Car.transform.position.x) < 8f)
 				{
-					if (rivalCarIn.Contains(rivalCar[i]))
+					if (Mathf.Abs(rivalCar[i].transform.position.y - Car.transform.position.y) < 8f)
 					{
-						rivalCarIn.Remove(rivalCar[i]);
+						if (Car.GetComponent<CarAnimEvent>().canExplosion == true)
+						{
+							Car.GetComponent<Animator>().SetTrigger("Exlosion");
+						}
+						//Debug.Log (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x));
 					}
 				}
-			}
-		}
 
-		//Pos The Cones
-		if (startTimeCount < 0 && !finishTheTrack)
-		{
+			}
+
 			for (int i = 0; i < cones.Length; i++)
 			{
-				float customCurve = .08f;
-				float fRivalPerspective = (float)(cones[i].transform.position.y - screenHeight / 2) / (screenHeight / 2.0f);
-				float fRivalCarPosY = fSpeed > 0 ? cones[i].position.y + 10 * fSpeed * Time.deltaTime : cones[i].position.y - 40 * Time.deltaTime;
-				cones[i].transform.position = new Vector2(defaultConePositions[i].x + ( customCurve /*fCurvatrue*/ * Mathf.Pow(1.0f - fRivalPerspective, 3)) * screenWeidth, fRivalCarPosY);
-
-				if (cones[i].transform.position.x < 150 &&
-				   cones[i].transform.position.x > 2 &&
-				   cones[i].transform.position.y < 103 &&
-				   cones[i].transform.position.y > 6)
-				{//在画面内才能进行缩放
-					cones[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
-
-					if (cones[i].transform.transform.localScale.x < 0)
-					{
-						if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = false; }
-					}
-					else
-					{
-						if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = true; }
-					}
-				}
-			}
-		}
-
-		/*if (rivalCarIn.Count != 0)  //判断是否有敌车在画面里面(列表是否为空)，如果有，激活敌车音效对象
-		{  
-			rivalCarSoundObj.SetActive (true);
-		} 
-		else if(rivalCarIn.Count == 0)
-		{
-			rivalCarSoundObj.SetActive (false);
-		}*/
-		//Pos The Rival Car
-
-
-		//判断是否撞车
-		for (int i = 0; i < rivalCar.Length; i++)
-		{
-			if (Mathf.Abs(rivalCar[i].transform.position.x - Car.transform.position.x) < 8f)
-			{
-				if (Mathf.Abs(rivalCar[i].transform.position.y - Car.transform.position.y) < 8f)
+				if (Mathf.Abs(cones[i].transform.position.x - Car.transform.position.x) < 8f)
 				{
-					if (Car.GetComponent<CarAnimEvent>().canExplosion == true)
+					if (Mathf.Abs(cones[i].transform.position.y - Car.transform.position.y) < 8f)
 					{
-						Car.GetComponent<Animator>().SetTrigger("Exlosion");
+						Debug.Log(cones[i]);
 					}
-					//Debug.Log (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x));
 				}
+
 			}
 
-		}
-
-		for (int i = 0; i < cones.Length; i++)
-		{
-			if (Mathf.Abs(cones[i].transform.position.x - Car.transform.position.x) < 8f)
+			if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
 			{
-				if (Mathf.Abs(cones[i].transform.position.y - Car.transform.position.y) < 8f)
+				if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
 				{
-					Debug.Log(cones[i]);
+					fSpeed = 0;
+					LoseLogic();
 				}
 			}
 
+			//判断是否撞车
+
+
+			//车的转向动画控制
+			if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+			{
+				Car.GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+			}
+
+			for (int i = 0; i < rivalCar.Length; i++)
+			{
+
+				if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
+				{
+					rivalCar[i].GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
+				}
+			}
+
+
+			//背景图层的视差卷轴效果
+			if (timeCount > -1)
+			{
+				backGround.transform.position = new Vector3(backGround.transform.position.x - vecTrack[nTrackSection - 1].curva * fSpeed, backGround.transform.position.y - fDistance / 500000 * fSpeed);
+			}
+
+			//roadHolder.transform.position = new Vector2(defaultRoadHolderPos.x + fCurvatrue*screenWeidth,roadHolder.transform.position.y); 
+			//roadShouderHolder.transform.position = new Vector2(defaultRoadShouderHolderPos.x + fCurvatrue *screenWeidth, roadShouderHolder.transform.position.y);
+			//grassHolder.transform.position = new Vector2(defaultGrassHolderPos.x + fCurvatrue* screenWeidth,grassHolder.transform.position.y);
+			//Debug.Log(fCurvatrue * 1000);
+
+
+			//判断是否到达终点
+			if (fDistance > sumDistance - 200)
+			{
+				finishTheTrack = true;
+				fSpeed -= 2.0f * Time.deltaTime;
+				Car.GetComponent<Animator>().SetBool("Finish", finishTheTrack);
+			}
+
+
+
+
+			////控制摄像机跟随
+			///This code makes the camera follow the player
+			Vector3 targetPos = Vector3.Lerp(transform.position, Car.position, Time.deltaTime * 0.2f) - camToCarOffset;
+			//transform.position = new Vector3(targetPos.x, transform.position.y, -10);
+
+
+			////控制摄像机跟随
+			///
 		}
+	}
 
-		if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
-        {
-            if (Car.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("CarExpolosion"))
-            {
-                fSpeed = 0;
-            }
-        }
-
-        //判断是否撞车
-
-
-        //车的转向动画控制
-        if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
-        {
-            Car.GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
-        }
-        
-		for (int i = 0; i < rivalCar.Length; i++)
-		{
-
-            if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
-            {
-                rivalCar[i].GetComponent<Animator>().SetInteger("InputH", (int)(vecTrack[nTrackSection - 1].curva * 10));
-            }
-		}
-
-
-		//背景图层的视差卷轴效果
-		if (timeCount > -1)
-		{
-			backGround.transform.position = new Vector3(backGround.transform.position.x - vecTrack[nTrackSection - 1].curva * fSpeed, backGround.transform.position.y - fDistance / 500000 * fSpeed);
-		}
-
-		//roadHolder.transform.position = new Vector2(defaultRoadHolderPos.x + fCurvatrue*screenWeidth,roadHolder.transform.position.y); 
-		//roadShouderHolder.transform.position = new Vector2(defaultRoadShouderHolderPos.x + fCurvatrue *screenWeidth, roadShouderHolder.transform.position.y);
-		//grassHolder.transform.position = new Vector2(defaultGrassHolderPos.x + fCurvatrue* screenWeidth,grassHolder.transform.position.y);
-		//Debug.Log(fCurvatrue * 1000);
-
-
-		//判断是否到达终点
-		if (fDistance > sumDistance - 200)
-		{
-			finishTheTrack = true;
-			fSpeed -= 2.0f * Time.deltaTime;
-			Car.GetComponent<Animator>().SetBool("Finish", finishTheTrack);
-		}
-
-
-
-
-		////控制摄像机跟随
-		///This code makes the camera follow the player
-		Vector3 targetPos = Vector3.Lerp(transform.position, Car.position, Time.deltaTime * 0.2f) - camToCarOffset;
-		//transform.position = new Vector3(targetPos.x, transform.position.y, -10);
-
-
-		////控制摄像机跟随
+	private void LoseLogic()
+    {
+		fail = true;
 	}
 
     public void Reset()
     {
-		Debug.Log("It works");
+		fail = false;
 		ResetStat = true;
 		for (int i = 0; i < defaultConePositions.Count; i++)
 		{
@@ -770,9 +786,9 @@ public class RoadRacer : MonoBehaviour
 			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
 		}
 
-		rivalCar1.transform.position = new Vector3(13.2f, -5.9f, 0);
-		rivalCar2.transform.position = new Vector3(48.2f, -27.9f, 0);
-		rivalCar3.transform.position = new Vector3(24.1f, -47.1f, 0);
+		rivalCar1.transform.position = new Vector3(13.2f, 44.1f, 0);
+		rivalCar2.transform.position = new Vector3(48.2f, 19.8f, 0);
+		rivalCar3.transform.position = new Vector3(0.9f, 4.7f, 0);
 	}
 
 }
