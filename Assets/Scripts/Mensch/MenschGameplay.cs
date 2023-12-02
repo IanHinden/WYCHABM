@@ -53,7 +53,8 @@ public class MenschGameplay : MonoBehaviour
     private void BonusWinEvents()
     {
         Debug.Log("Bonus win");
-        //menschAnimationController.BonusAnimations();
+        gamecontrols.Disable();
+        menschAnimationController.BonusAnimations();
         scorehandler.IncrementBonusScore();
     }
 

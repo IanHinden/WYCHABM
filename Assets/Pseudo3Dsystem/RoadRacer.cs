@@ -385,7 +385,7 @@ public class RoadRacer : MonoBehaviour
 		{
 			fSpeed = 0;
 		}
-		else
+		else if (ResetStat)
 		{
 
 			if (Car.GetComponent<Animator>().enabled && Car.transform.gameObject.activeInHierarchy)
@@ -418,7 +418,6 @@ public class RoadRacer : MonoBehaviour
 			}*/
 
 			//Steering wheel animation logic
-			if (ResetStat)
 			{
 				if (movementInput != Vector2.zero)
 				{

@@ -12,17 +12,17 @@ public class MenschAnimationController : MonoBehaviour
 
     Animator menschLogoAnim;
     Animator phoneDown;
-    Animator punched;
+    Animator fistPunchedAnim;
     Animator punch;
     void Awake()
     {
         menschLogoAnim = menschLogo.GetComponent<Animator>();
         phoneDown = Phone.GetComponent<Animator>();
-        punched = Fist.GetComponent<Animator>();
+        fistPunchedAnim = Fist.GetComponent<Animator>();
         punch = CreepyDriver.GetComponent<Animator>();
 
         phoneDown = Phone.GetComponent<Animator>();
-        punched = CreepyDriver.GetComponent<Animator>();
+        //punched = CreepyDriver.GetComponent<Animator>();
         punch = Fist.GetComponent<Animator>();
     }
 
@@ -40,8 +40,23 @@ public class MenschAnimationController : MonoBehaviour
 
     public void BonusAnimations()
     {
+        PhoneDown();
+        Punch();
+        //punch.SetTrigger("Punch");
+    }
+
+    public void PhoneDown()
+    {
         phoneDown.SetTrigger("PhoneDown");
-        punched.SetTrigger("Punched");
-        punch.SetTrigger("Punch");
+    }
+
+    public void Punch()
+    {
+        fistPunchedAnim.SetTrigger("Punched");
+    }
+
+    public void Reset()
+    {
+        phoneDown.ResetTrigger("PhoneDown");
     }
 }
