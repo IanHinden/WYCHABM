@@ -31570,6 +31570,7 @@ MonoBehaviour:
   Phone: {fileID: 1129808926}
   CreepyDriver: {fileID: 1996825459}
   Fist: {fileID: 574837941}
+  Finger: {fileID: 624864574}
 --- !u!1 &408166206
 GameObject:
   m_ObjectHideFlags: 0
@@ -51724,6 +51725,7 @@ GameObject:
   - component: {fileID: 624864575}
   - component: {fileID: 624864577}
   - component: {fileID: 624864576}
+  - component: {fileID: 624864578}
   m_Layer: 0
   m_Name: Tapping
   m_TagString: Untagged
@@ -51794,6 +51796,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &624864578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624864574}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9848fa789a88ff4ab44271598e96e56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &626026868
 GameObject:
   m_ObjectHideFlags: 0
