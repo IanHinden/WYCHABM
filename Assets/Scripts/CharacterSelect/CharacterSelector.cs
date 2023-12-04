@@ -92,9 +92,9 @@ public class CharacterSelector : MonoBehaviour
         CongresswomanMoves = FindObjectOfType<Congress>().transform.GetChild(0).GetComponent<Animator>();
 
         //Particle Systems
-        OFParticleSystem = characters[0].transform.GetChild(3).GetComponent<ParticleSystem>();
+        OFParticleSystem = characters[0].transform.GetChild(2).GetComponent<ParticleSystem>();
         HomelessParticleSystem = characters[1].transform.GetChild(3).GetComponent<ParticleSystem>();
-        CongresswomanParticleSystem = FindObjectOfType<Congress>().transform.GetChild(3).GetComponent<ParticleSystem>();
+        CongresswomanParticleSystem = FindObjectOfType<Congress>().transform.GetChild(2).GetComponent<ParticleSystem>();
 
         particles[0] = CongresswomanParticleSystem;
         particles[1] = OFParticleSystem;
@@ -171,6 +171,7 @@ public class CharacterSelector : MonoBehaviour
     {
         if (moved == true)
         {
+            StartCoroutine(Blink(selectedGirl));
             won = true;
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
@@ -363,6 +364,37 @@ public class CharacterSelector : MonoBehaviour
         for (int j = 0; j < spotlight.Length; j++)
         {
             if(spotlight[j] != null) spotlight[j].SetActive(false);
+        }
+    }
+
+    IEnumerator Blink(int selected)
+    {
+        SpriteRenderer selectedSR = ReturnSelectedSR(selected);
+        Debug.Log(selectedSR);
+        while (Time.time < 2f)
+        {
+            selectedSR.color = Color.white;
+            yield return new WaitForSeconds(.01f);
+
+            selectedSR.color = Color.black;
+            yield return new WaitForSeconds(.01f);
+
+            selectedSR.color = Color.white;
+            yield return new WaitForSeconds(.01f);
+        }
+    }
+
+    private SpriteRenderer ReturnSelectedSR(int selected)
+    {
+        if(selected == 0)
+        {
+            return CongressWoman;
+        } else if (selected == 1)
+        {
+            return OFGirl;
+        } else
+        {
+            return HomelessGirl;
         }
     }
 
