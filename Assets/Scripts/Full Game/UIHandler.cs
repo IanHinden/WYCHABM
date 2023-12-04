@@ -64,6 +64,11 @@ public class UIHandler : MonoBehaviour
         redx.enabled = false;
     }
 
+    public void ClearInstructions()
+    {
+        textmesh.text = "";
+    }
+
     private void ResetSliderTimer()
     {
         timerSlider.maxValue = 4;
@@ -230,5 +235,13 @@ public class UIHandler : MonoBehaviour
     {
         startButtonContainer.SetActive(false);
         instructionsMenuPanel.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        ClearWinLoss();
+        setFrame(false);
+        hideSlider();
+        ClearInstructions();
     }
 }

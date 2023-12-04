@@ -20,7 +20,10 @@ public class PsychoAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        oedipaBonus.SetActive(false);
-        oedipalBonusAnim.ResetTrigger("Bonus");
+        if (oedipalBonusAnim != null)
+        {
+            oedipaBonus.SetActive(false);
+            oedipalBonusAnim.ResetTrigger("Bonus");
+        }
     }
 }
