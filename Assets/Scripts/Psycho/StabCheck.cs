@@ -27,13 +27,12 @@ public class StabCheck : MonoBehaviour
             {
                 Vector3 textPos = transform.position;
                 textPos.x = transform.position.x + 15;
-                GameObject oedBon = Instantiate(oedipalBonus, textPos, Quaternion.identity);
-                oedBon.transform.parent = this.transform.parent.parent;
+                //GameObject oedBon = Instantiate(oedipalBonus, textPos, Quaternion.identity);
+                //oedBon.transform.parent = this.transform.parent.parent;
                 if (oedipal == false)
                 {
                     scorehandler.IncrementScore();
                     uihandler.WinDisplay();
-                    //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
                     liveDaddy.SetActive(false);
                     deadDaddy.SetActive(true);
                     oedipal = true;
