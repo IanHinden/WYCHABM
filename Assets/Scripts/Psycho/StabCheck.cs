@@ -8,6 +8,8 @@ public class StabCheck : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
 
+    [SerializeField] PsychoAnimationController psychoAnimationController;
+
     [SerializeField] GameObject liveDaddy;
     [SerializeField] GameObject deadDaddy;
 
@@ -21,7 +23,7 @@ public class StabCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "OedipalBonus")
+        if (collision.name == "OedipalBonusSpawner")
         {
             if (levelEnded == false)
             {
@@ -29,6 +31,7 @@ public class StabCheck : MonoBehaviour
                 textPos.x = transform.position.x + 15;
                 //GameObject oedBon = Instantiate(oedipalBonus, textPos, Quaternion.identity);
                 //oedBon.transform.parent = this.transform.parent.parent;
+                psychoAnimationController.StartOedipalBonus();
                 if (oedipal == false)
                 {
                     scorehandler.IncrementScore();
@@ -66,9 +69,13 @@ public class StabCheck : MonoBehaviour
 
     public void Reset()
     {
+        stabbed = false;
+        oedipal = false;
+        levelEnded = false;
         liveDaddy.SetActive(true);
         deadDaddy.SetActive(false);
         hands.removeStabHoles();
-        hands.transform.position = new Vector3(5.26f, -2.46f, 0);
+        hands.transform.position = new Vector3(2.75f, -.99f, 0);
+        psychoAnimationController.Reset();
     }
 }
