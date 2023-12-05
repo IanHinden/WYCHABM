@@ -27,6 +27,8 @@ public class TweakGameplay : MonoBehaviour
     private float currentlySelected = 0;
     private float state = 0;
 
+    Coroutine currentBlink;
+
     private bool won = false;
     // Start is called before the first frame update
     void Awake()
@@ -50,7 +52,7 @@ public class TweakGameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Directions.performed += x => upMove(x.ReadValue<Vector2>());
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void upMove(Vector2 movement)
@@ -145,6 +147,7 @@ public class TweakGameplay : MonoBehaviour
                 scorehandler.IncrementScore();
                 uihandler.WinDisplay();
                 RotateRight();
+                //Instead of rotating right, maybe animate win?
             }
         }
 
@@ -175,6 +178,7 @@ public class TweakGameplay : MonoBehaviour
 
     private void displayCorrectArrow()
     {
+        if(currentBlink != null) StopCoroutine(currentBlink);
         for (int i = 0; i < controlPadButtons.Length; i++)
         {
             if (i != currentlySelected)
@@ -183,13 +187,29 @@ public class TweakGameplay : MonoBehaviour
             }
             else
             {
-                controlPadButtons[i].GetComponent<SpriteRenderer>().enabled = true;
+                SpriteRenderer currentSR = controlPadButtons[i].GetComponent<SpriteRenderer>();
+                currentSR.enabled = true;
+                currentBlink = StartCoroutine(Blink(currentSR));
+
             }
+        }
+    }
+
+    IEnumerator Blink(SpriteRenderer currentSR)
+    {
+        while (true)
+        {
+            currentSR.enabled = false;
+            yield return new WaitForSeconds(.1f);
+
+            currentSR.enabled = true;
+            yield return new WaitForSeconds(.1f);
         }
     }
 
     public IEnumerator WinOrLose()
     {
+        currentBlink = StartCoroutine(Blink(controlPadButtons[0].GetComponent<SpriteRenderer>()));
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         if(won == false)
