@@ -184,9 +184,7 @@ public class CharacterSelector : MonoBehaviour
 
         if(unlocked == true)
         {
-            won = true;
-            scorehandler.IncrementScore();
-            uihandler.WinDisplay();
+            Debug.Log("Bonus score here");
             //uihandler.DisplayBonusScoreCard(starAnim);
         }
     }
@@ -370,8 +368,9 @@ public class CharacterSelector : MonoBehaviour
     IEnumerator Blink(int selected)
     {
         SpriteRenderer selectedSR = ReturnSelectedSR(selected);
-        Debug.Log(selectedSR);
-        while (Time.time < 2f)
+
+        float blinkTime = (selected == 1 || selected == 2) ? 1.5f : 3f; 
+        while (Time.time < blinkTime)
         {
             selectedSR.color = Color.white;
             yield return new WaitForSeconds(.01f);
