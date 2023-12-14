@@ -78,14 +78,14 @@ public class CityBehavior : MonoBehaviour
         puffAnimator.SetTrigger("TriggerPuff");
         dialogue.DialogueEnter();
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(2.2f);
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.5f);
         dialogue.DialogueEnter();
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;
         //dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
