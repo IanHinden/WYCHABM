@@ -44,10 +44,10 @@ public class CityBehavior : MonoBehaviour
     Coroutine dialogue4;
 
     string[] dialogueText = new string[] {
-        "Ugh... I am so ready for this shift to be over.",
-        "Ava, you know the new girl?",
+        "Ugh... I am so done today.",
+        "Ava! The new girl doesn't know the manager 'splits tips'",
         "... She doesn't know the manager 'splits tips'.",
-        "Don't worry, I'll take care of it."
+        "Don't worry, I got this."
     };
 
     void Awake()
@@ -79,23 +79,27 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueEnter();
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2.7f);
-        dialogue.DialogueExit();
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
+        dialogue.DialogueExit();
+        yield return new WaitForSeconds(.5f);
         dialogue.DialogueEnter();
         dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;
-        dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
+        //dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
         yield return new WaitForSeconds(1.7f);
 
         yield return new WaitForSeconds(.3f);
+
+        yield return new WaitForSeconds(.8f);
         dialogue.DialogueExit();
+        yield return new WaitForSeconds(.5f);
+
         avaPos1.SetActive(false);
         avaPos2.SetActive(true);
 
-        yield return new WaitForSeconds(.8f);
         lucyTalkingEyes.enabled = false;
         lucyStaringEyes.enabled = true;
         sweatAnimator.SetTrigger("SetSweat");
