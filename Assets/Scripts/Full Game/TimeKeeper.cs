@@ -254,11 +254,11 @@ public class TimeKeeper : MonoBehaviour
         resetCamera();
 
         nextScene(); //Fired
-        yield return FadeOutroEffect(2, new Vector2(635f, 375f), "SIGN");
-        nextScene(6, true, new Vector2(699f, 167f)); //Contract
+        yield return FadeOutroEffect(3, new Vector2(635f, 375f), "SIGN");
+        nextScene(5, true, new Vector2(699f, 167f)); //Contract
         contractCo = StartCoroutine(contract.WinOrLose());
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         nextScene(); //Landlord
         landlordCo = StartCoroutine(landlord.Dialogue());
 

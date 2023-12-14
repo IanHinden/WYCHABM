@@ -15,7 +15,7 @@ public class Contract : MonoBehaviour
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
         Pointing.SetActive(false);
         Clapping.SetActive(true);
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
