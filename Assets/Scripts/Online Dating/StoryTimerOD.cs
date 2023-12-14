@@ -11,6 +11,9 @@ public class StoryTimerOD : MonoBehaviour
     [SerializeField] GameObject back;
     [SerializeField] GameObject front;
 
+    [SerializeField] GameObject emptyBubbles;
+    [SerializeField] GameObject fullBubbles;
+
     private SpriteRenderer backSR;
     private SpriteRenderer frontSR;
     
@@ -31,6 +34,9 @@ public class StoryTimerOD : MonoBehaviour
         yield return new WaitForSeconds(measureMS * 4f);
         frontSR.enabled = true;
         backSR.enabled = false;
+
+        fullBubbles.SetActive(false);
+        emptyBubbles.SetActive(true);
         yield return new WaitForSeconds(measureMS * 2);
         flashingMove.SetTrigger("Flash");
     }
@@ -39,6 +45,10 @@ public class StoryTimerOD : MonoBehaviour
     {
         front.transform.position = new Vector3(0, 0, 0);
         front.transform.localScale = new Vector3(.4632f, .4632f, .4632f);
+        
+        fullBubbles.SetActive(true);
+        emptyBubbles.SetActive(false);
+
         if (flashingMove != null)
         {
             flashingMove.ResetTrigger("Flash");
