@@ -32,15 +32,15 @@ public class PartyGuyAnimationController : MonoBehaviour
 
     public void setDeliveredText(bool setVisible)
     {
-        deliveredTextSR.enabled = setVisible;
+        if(deliveredTextSR != null) deliveredTextSR.enabled = setVisible;
     }
 
     public void Reset()
     {
         setDeliveredText(false);
 
-        bP2NiteTextAnim.ResetTrigger("TextAppear");
-        hellYeahTextAnim.ResetTrigger("TextAppear");
+        if(bP2NiteTextAnim != null) bP2NiteTextAnim.ResetTrigger("TextAppear");
+        if(hellYeahTextAnim != null) hellYeahTextAnim.ResetTrigger("TextAppear");
 
         bP2NiteText.transform.position = new Vector3(2.32f, 0.62f, 0f);
         bP2NiteText.transform.localScale = new Vector3(0.4632813f, 0, .4632813f);
