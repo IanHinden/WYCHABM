@@ -81,6 +81,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] SelectChecker selectChecker; //Scene 24
     [SerializeField] StoryTimerOD onlineDating; //Scene 25
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
+    [SerializeField] SceneBehavior partyGuy; //Scene 27
     [SerializeField] MenschGameplay menschGameplay; //Scene 29
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
@@ -110,6 +111,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine webSurfingCo;
     Coroutine wishlistCo;
     Coroutine onlineDatingCo;
+    Coroutine partyGuyCo;
     Coroutine tweakCo;
     Coroutine menschCo;
     Coroutine avasCo;
@@ -352,6 +354,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Party Guy
+        partyGuyCo = StartCoroutine(partyGuy.SceneTiming());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
 
         nextScene(); //Party Girls
@@ -443,6 +446,7 @@ public class TimeKeeper : MonoBehaviour
         if (wishlistCo != null) StopCoroutine(wishlistCo);
         if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
+        if (partyGuyCo != null) StopCoroutine(partyGuyCo);
         if (menschCo != null) StopCoroutine(menschCo);
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
