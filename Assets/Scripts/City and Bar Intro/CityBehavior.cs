@@ -47,7 +47,7 @@ public class CityBehavior : MonoBehaviour
         "Ugh... I am so done today.",
         "Ava! The new girl doesn't know the manager 'splits tips'",
         "... She doesn't know the manager 'splits tips'.",
-        "Don't worry, I got this."
+        "Don't worry, Luce! I got this."
     };
 
     void Awake()
