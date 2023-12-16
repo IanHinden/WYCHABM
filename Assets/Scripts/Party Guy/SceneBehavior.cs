@@ -18,13 +18,14 @@ public class SceneBehavior : MonoBehaviour
 
     public IEnumerator SceneTiming()
     {
-        partyGuyAnimationController.Reset();
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
         switchToAva();
         yield return new WaitForSeconds(1f);
         partyGuyAnimationController.sendBP2NiteText();
         yield return new WaitForSeconds(1f);
         partyGuyAnimationController.sendHellYeahText();
+        yield return new WaitForSeconds(1f);
+        partyGuyAnimationController.setDeliveredText(true);
     }
 
     private void switchToAva()
@@ -37,5 +38,6 @@ public class SceneBehavior : MonoBehaviour
     {
         sittingObjects.SetActive(true);
         avaTexts.SetActive(false);
+        partyGuyAnimationController.Reset();
     }
 }

@@ -467,6 +467,7 @@ public class TimeKeeper : MonoBehaviour
         selectChecker.Reset();
         onlineDating.Reset();
         tweakGameplay.Reset();
+        partyGuy.Reset();
         menschGameplay.Reset();
         avas.Reset();
 
