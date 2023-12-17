@@ -254,11 +254,18 @@ public class UIHandler : MonoBehaviour
         bonusScore.text = score;
     }
 
+    private void ClearSetScoreScreenText()
+    {
+        standardScore.text = "";
+        bonusScore.text = "";
+    }
+
     public void Reset()
     {
         ClearWinLoss();
         setFrame(false);
         hideSlider();
         ClearInstructions();
+        ClearSetScoreScreenText();
     }
 }
