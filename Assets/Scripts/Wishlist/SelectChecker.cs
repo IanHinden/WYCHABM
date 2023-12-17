@@ -103,20 +103,10 @@ public class SelectChecker : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (selected == true)
+        if (selected == false)
         {
-            if (activeArrow == 2)
-            {
-                scorehandler.IncrementScore();
-                uihandler.WinDisplay();
-                gamecontrols.Disable();
-
-            }
-            else
-            {
-                uihandler.LoseDisplay();
-                gamecontrols.Disable();
-            }
+            uihandler.LoseDisplay();
+            gamecontrols.Disable();
         }
     }
 
