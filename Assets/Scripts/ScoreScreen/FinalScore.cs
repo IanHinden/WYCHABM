@@ -5,18 +5,23 @@ using TMPro;
 
 public class FinalScore : MonoBehaviour
 {
-    private TextMeshPro textmesh;
-    ThreeSecondsLeft threeSecondsLeft;
+    [SerializeField] UIHandler uiHandler;
+    [SerializeField] ScoreHandler scoreHandler;
+
+    private string standardScore;
+    private string bonusScore;
 
     void Awake()
     {
-        textmesh = this.gameObject.GetComponent<TextMeshPro>();
-        threeSecondsLeft = FindObjectOfType<ThreeSecondsLeft>();
         ScoreText();
     }
 
     public void ScoreText()
     {
-        textmesh.text = "Final Score: " + threeSecondsLeft.ReturnScore() + "/16" + '\n' + "Bonus Score: " + threeSecondsLeft.ReturnBonusScore() + "/8";
+        standardScore = scoreHandler.ReturnScore().ToString();
+        bonusScore = scoreHandler.ReturnBonusScore().ToString();
+
+        uiHandler.SetScoreScreenStandardScore(standardScore + "/16");
+        uiHandler.SetScoreScreenBonusScore(bonusScore + "/10");
     }
 }

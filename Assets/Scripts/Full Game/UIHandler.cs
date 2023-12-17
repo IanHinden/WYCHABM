@@ -9,17 +9,20 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TimeFunctions timeFunctions;
     float singleMeasure;
 
+    [Header("Win/Lose UI")]
     [SerializeField] Image winicon;
     [SerializeField] Image loseicon;
     Image greencircle;
     Image redx;
 
+    [Header("Time Remaining UI")]
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
     [SerializeField] TextMeshProUGUI countdown;
 
     [SerializeField] TextMeshProUGUI textmesh;
 
+    [Header("Score UI")]
     [SerializeField] GameObject scorecard;
     private Animator scoreCardAnim;
     private TextMeshProUGUI scoreCardText;
@@ -31,6 +34,10 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject startButtonContainer;
 
     [SerializeField] GameObject instructionsMenuPanel;
+
+    [Header("Score Screen")]
+    [SerializeField] TextMeshProUGUI standardScore;
+    [SerializeField] TextMeshProUGUI bonusScore;
 
     private Animator anim;
     // Start is called before the first frame update
@@ -235,6 +242,16 @@ public class UIHandler : MonoBehaviour
     {
         startButtonContainer.SetActive(false);
         instructionsMenuPanel.SetActive(false);
+    }
+
+    public void SetScoreScreenStandardScore(string score)
+    {
+        standardScore.text = score;
+    }
+
+    public void SetScoreScreenBonusScore(string score)
+    {
+        bonusScore.text = score;
     }
 
     public void Reset()
