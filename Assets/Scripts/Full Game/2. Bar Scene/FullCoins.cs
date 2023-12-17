@@ -137,7 +137,7 @@ public class FullCoins : MonoBehaviour
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
         backroom.ToggleTrigger(true);
-        officeLightAnim.ResetTrigger("Close");
+        if(officeLightAnim != null) officeLightAnim.ResetTrigger("Close");
 
         officeLight.transform.position = new Vector3(-7.507f, -0.463f, 0);
         officeLight.transform.localScale = new Vector3(0.1268785f, 0.1268785f, 0.1268785f);

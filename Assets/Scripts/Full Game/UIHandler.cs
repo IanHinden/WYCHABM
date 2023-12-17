@@ -31,7 +31,9 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] MaskTransition mask;
 
+    [Header("Start/Pause UI")]
     [SerializeField] GameObject startButtonContainer;
+    [SerializeField] GameObject pauseButton;
 
     [SerializeField] GameObject instructionsMenuPanel;
 
@@ -53,6 +55,16 @@ public class UIHandler : MonoBehaviour
 
         scoreCardAnim = scorecard.GetComponent<Animator>();
         scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+    }
+
+    public void HidePauseButton()
+    {
+        pauseButton.SetActive(false);
+    }
+
+    public void ShowPauseButton()
+    {
+        pauseButton.SetActive(true);
     }
 
     public void WinDisplay()
@@ -267,5 +279,6 @@ public class UIHandler : MonoBehaviour
         hideSlider();
         ClearInstructions();
         ClearSetScoreScreenText();
+        HidePauseButton();
     }
 }

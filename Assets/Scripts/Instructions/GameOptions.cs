@@ -24,6 +24,7 @@ public class GameOptions : MonoBehaviour
     public void BeginGame()
     {
         uihandler.HideStartButton();
+        uihandler.ShowPauseButton();
         audioSo.Play();
         barIntro.SetActive(true);
         gameCoroutine = StartCoroutine(timeKeeper.SwitchScene());
