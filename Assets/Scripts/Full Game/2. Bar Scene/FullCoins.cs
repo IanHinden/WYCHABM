@@ -11,7 +11,6 @@ public class FullCoins : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] TextMeshProUGUI displayscore;
-    //Animator starAnim;
 
     [SerializeField] Coin coin;
     [SerializeField] Backroom backroom;
@@ -27,15 +26,14 @@ public class FullCoins : MonoBehaviour
     int remainingCoins;
 
     private bool levelComplete = false;
+    private bool bonusWin = false;
 
     void Awake()
     {
         Coin.CoinGet += MinusCoin;
-        StolenWages.WagesGet += StolenWagesRecovered;
         avaSprite = Ava.GetComponent<SpriteRenderer>();
         officeLightAnim = officeLight.GetComponent<Animator>();
         Reset();
-        //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(2).GetComponent<Animator>();
     }
 
     private void CoinSpwaner()
@@ -65,15 +63,6 @@ public class FullCoins : MonoBehaviour
         coin6.transform.rotation = Quaternion.identity;
     }
 
-    private void StolenWagesRecovered(int amount)
-    {
-        levelComplete = true;
-        scorehandler.IncrementScore();
-        //threeSecondsLeft.DisplayBonusScoreCard(starAnim);
-        uihandler.WinDisplay();
-        controller.OnDisable();
-    }
-
     private void MinusCoin(int amount)
     {
         remainingCoins--;
@@ -95,7 +84,7 @@ public class FullCoins : MonoBehaviour
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7 - timeBeforeDoorClose));
 
-        if (levelComplete == false)
+        if (levelComplete == false || bonusWin == true)
         {
             DetermineWinOrLoss();
         }
@@ -117,6 +106,11 @@ public class FullCoins : MonoBehaviour
                 controller.OnDisable();
             }
         }
+
+        if (bonusWin == true)
+        {
+            scorehandler.IncrementBonusScore();
+        }
     }
 
     private void CoinReset()
@@ -136,8 +130,9 @@ public class FullCoins : MonoBehaviour
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
         levelComplete = false;
-        backroom.ToggleTrigger(true);
+        backroom.Reset();
         if(officeLightAnim != null) officeLightAnim.ResetTrigger("Close");
+        bonusWin = false;
 
         officeLight.transform.position = new Vector3(-7.507f, -0.463f, 0);
         officeLight.transform.localScale = new Vector3(0.1268785f, 0.1268785f, 0.1268785f);
@@ -155,6 +150,12 @@ public class FullCoins : MonoBehaviour
     public void setLevelComplete()
     {
         levelComplete = true;
+    }
+
+    public void setBonusWin()
+    {
+        bonusWin = true;
+        displayscore.text = "2000/" + totalCoins;
     }
 
     private void CloseDoor()

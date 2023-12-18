@@ -184,8 +184,7 @@ public class CharacterSelector : MonoBehaviour
 
         if(unlocked == true)
         {
-            Debug.Log("Bonus score here");
-            //uihandler.DisplayBonusScoreCard(starAnim);
+            scorehandler.IncrementBonusScore();
         }
     }
 

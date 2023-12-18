@@ -18,6 +18,7 @@ public class ScoreHandler : MonoBehaviour
     public void IncrementBonusScore()
     {
         bonusScore++;
+        Debug.Log("Bonus score is: " + bonusScore.ToString());
         //Put code here to display bonus score card
     }
 

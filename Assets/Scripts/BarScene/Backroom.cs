@@ -14,6 +14,7 @@ public class Backroom : MonoBehaviour
     CapsuleCollider2D capCol;
 
     SpriteRenderer AvaSR;
+    SpriteRenderer Ava2SR;
     Animator AvaAnim;
 
     private bool moved = false;
@@ -21,6 +22,7 @@ public class Backroom : MonoBehaviour
     private void Awake()
     {
         AvaSR = Ava.GetComponent<SpriteRenderer>();
+        Ava2SR = Ava2.GetComponent<SpriteRenderer>();
         AvaAnim = Ava2.GetComponent<Animator>();
         backroomCol = gameObject.GetComponent<BoxCollider2D>();
         capCol = gameObject.GetComponent<CapsuleCollider2D>();
@@ -29,6 +31,7 @@ public class Backroom : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         fullCoins.setLevelComplete();
+        fullCoins.setBonusWin();
         if (moved == false)
         {
             StartCoroutine(MoveToBackroom());
@@ -72,5 +75,14 @@ public class Backroom : MonoBehaviour
             backroomCol.enabled = on;
             capCol.enabled = !on;
         }
+    }
+
+    public void Reset()
+    {
+        moved = false;
+        Ava2.transform.position = new Vector3(-11.11f, 2.266f, 36.627f);
+        Ava2SR.color = new Color(255, 255, 255, 0);
+
+        ToggleTrigger(true);
     }
 }
