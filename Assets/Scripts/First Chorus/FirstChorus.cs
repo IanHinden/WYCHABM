@@ -7,6 +7,8 @@ public class FirstChorus : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] Chorus1AnimationController chorus1AnimationController;
+
     [SerializeField] GameplayArrows gameplayArrows;
     [SerializeField] detectionSquare detect;
     [SerializeField] GameObject playerside;
@@ -106,6 +108,7 @@ public class FirstChorus : MonoBehaviour
             }
         }
 
+        chorus1AnimationController.Reset();
         detect.resetScore();
         DestroyAllText();
     }

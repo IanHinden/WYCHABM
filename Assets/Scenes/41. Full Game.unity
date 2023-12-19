@@ -18391,6 +18391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timefunctions: {fileID: 1358544022}
+  chorus1AnimationController: {fileID: 1870716515}
   gameplayArrows: {fileID: 1143379020}
   detect: {fileID: 1605176053}
   playerside: {fileID: 2114032222}

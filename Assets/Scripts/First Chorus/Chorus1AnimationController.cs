@@ -21,15 +21,20 @@ public class Chorus1AnimationController : MonoBehaviour
 
     private IEnumerator CardAnimations()
     {
-        yield return new WaitForSeconds(timeFunctions.ReturnSingleMeasure());
+        yield return new WaitForSeconds(timeFunctions.ReturnSingleMeasure() * 2);
         Chorus1AvaAnim.SetTrigger("Enter");
-        yield return new WaitForSeconds(timeFunctions.ReturnSingleMeasure());
+        yield return new WaitForSeconds(timeFunctions.ReturnSingleMeasure() * 4);
         Chorus1RRAnim.SetTrigger("Enter");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Reset()
     {
-        
+        Chorus1Ava.transform.position = new Vector3(-8.16f, -0.53f, 0f);
+        Chorus1Ava.transform.eulerAngles = new Vector3(0, 0, 10);
+        Chorus1AvaAnim.ResetTrigger("Enter");
+
+        Chorus1RR.transform.position = new Vector3(8.69f, -0.49f, 0f);
+        Chorus1RR.transform.eulerAngles = new Vector3(0, 0, 20);
+        Chorus1RRAnim.ResetTrigger("Enter");
     }
 }
