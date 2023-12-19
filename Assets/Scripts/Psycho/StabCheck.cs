@@ -29,9 +29,8 @@ public class StabCheck : MonoBehaviour
             {
                 Vector3 textPos = transform.position;
                 textPos.x = transform.position.x + 15;
-                //GameObject oedBon = Instantiate(oedipalBonus, textPos, Quaternion.identity);
-                //oedBon.transform.parent = this.transform.parent.parent;
                 psychoAnimationController.StartOedipalBonus();
+                StartCoroutine(FreudStickVictory());
                 if (oedipal == false)
                 {
                     scorehandler.IncrementScore();
@@ -50,6 +49,13 @@ public class StabCheck : MonoBehaviour
             deadDaddy.SetActive(true);
             uihandler.WinDisplay();
         }
+    }
+
+    public IEnumerator FreudStickVictory()
+    {
+        psychoAnimationController.RaisePopsicleStick();
+        yield return new WaitForSeconds(1f);
+        psychoAnimationController.WigglePopsicleStick();
     }
 
     public IEnumerator WinOrLose()
