@@ -19,17 +19,9 @@ public class Straw : MonoBehaviour
 
     SpriteRenderer window;
 
-    //public GameObject sun;
-    //MixedDrink mixedDrink;
-
     void Awake()
     {
         gamecontrols = new GameControls();
-        //window = FindObjectOfType<Window>().GetComponent<SpriteRenderer>();
-        //mixedDrink = FindObjectOfType<MixedDrink>();
-
-        //sun = GameObject.Find("Sun");
-        //sun.SetActive(false);
 
         StartCoroutine(WinOrLose());
     }
@@ -91,40 +83,19 @@ public class Straw : MonoBehaviour
         scorehandler.IncrementScore();
         gameOver = true;
 
-        //Win animation
-        //StartCoroutine(ColorChanges());
-
-        //GameObject moon = GameObject.Find("Moon");
-        //moon.SetActive(false);
-
-        //sun.SetActive(true);
+        animationController.WinAnimation();
 
         //mixedDrink.GetComponent<SpriteRenderer>().color = new Color(255, 138, 83, 255);
     }
 
     private void lose()
     {
-        //Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        //rb.AddForce(transform.up * -300);
-        //Lose Animation
         animationController.LoseAnimation();
-    }
-
-    private IEnumerator ColorChanges()
-    {
-        float timeElapsed = 0;
-
-        while(timeElapsed < 1f)
-        {
-            window.color = Color.Lerp(new Color(0f, 0.13f, 0.45f, 1f), new Color(.79f, .33f, .19f, 1f), timeElapsed/1f)/*new Color32(168, 122, 0, 255)*/;
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-        window.color = new Color(.79f, .33f, .19f, 1f);
     }
 
     public void Reset()
     {
-        Debug.Log("Resetting");
+        moveAmount = 0;
+        animationController.Reset();
     }
 }
