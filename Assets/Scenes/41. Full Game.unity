@@ -51153,6 +51153,9 @@ MonoBehaviour:
   nightLight: {fileID: 2059917552}
   dayLight: {fileID: 35560967}
   clouds: {fileID: 1101990646}
+  clouds2: {fileID: 509813414}
+  clouds3: {fileID: 715733453}
+  clouds4: {fileID: 1438511557}
 --- !u!1 &620309523
 GameObject:
   m_ObjectHideFlags: 0
@@ -60524,6 +60527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715733453}
   - component: {fileID: 715733454}
+  - component: {fileID: 715733455}
   m_Layer: 0
   m_Name: Cloud3
   m_TagString: Untagged
@@ -60595,6 +60599,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &715733455
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715733452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b86b7647c88ee9b419e861bbaa0a7a2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &719697211
 GameObject:
   m_ObjectHideFlags: 0
@@ -104136,6 +104159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438511557}
   - component: {fileID: 1438511558}
+  - component: {fileID: 1438511559}
   m_Layer: 0
   m_Name: Cloud4
   m_TagString: Untagged
@@ -104207,6 +104231,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1438511559
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438511556}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9bb71a01b10f4b0448746e1790516051, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1443024830
 GameObject:
   m_ObjectHideFlags: 0

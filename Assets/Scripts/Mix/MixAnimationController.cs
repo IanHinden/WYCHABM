@@ -17,6 +17,9 @@ public class MixAnimationController : MonoBehaviour
 
     [Header("Clouds")]
     [SerializeField] Transform clouds;
+    [SerializeField] Transform clouds2;
+    [SerializeField] Transform clouds3;
+    [SerializeField] Transform clouds4;
 
     SpriteRenderer moonCloseEyeSR;
     SpriteRenderer moonOpenEyeSR;
