@@ -77,5 +77,17 @@ public class MixAnimationController : MonoBehaviour
     {
         moonOpenEyeSR.enabled = true;
         moonCloseEyeSR.enabled = false;
+
+        foreach (Transform child in clouds)
+        {
+            // Check if the child has an Animator component
+            Animator animator = child.GetComponent<Animator>();
+
+            if (animator != null)
+            {
+                // Replace "YourTriggerName" with the name of your trigger
+                animator.ResetTrigger("Lose");
+            }
+        }
     }
 }

@@ -315,7 +315,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //New Mr. Richmond
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DRIVE");
 
         nextScene(12); //Driving
         drivecamera.SetActive(true);
