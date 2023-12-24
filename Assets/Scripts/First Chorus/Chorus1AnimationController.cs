@@ -29,12 +29,15 @@ public class Chorus1AnimationController : MonoBehaviour
 
     public void Reset()
     {
-        Chorus1Ava.transform.position = new Vector3(-8.16f, -0.53f, 0f);
-        Chorus1Ava.transform.eulerAngles = new Vector3(0, 0, 10);
-        Chorus1AvaAnim.ResetTrigger("Enter");
+        if (Chorus1AvaAnim != null)
+        {
+            Chorus1Ava.transform.position = new Vector3(-8.16f, -0.53f, 0f);
+            Chorus1Ava.transform.eulerAngles = new Vector3(0, 0, 10);
+            Chorus1AvaAnim.ResetTrigger("Enter");
 
-        Chorus1RR.transform.position = new Vector3(8.69f, -0.49f, 0f);
-        Chorus1RR.transform.eulerAngles = new Vector3(0, 0, 20);
-        Chorus1RRAnim.ResetTrigger("Enter");
+            Chorus1RR.transform.position = new Vector3(8.69f, -0.49f, 0f);
+            Chorus1RR.transform.eulerAngles = new Vector3(0, 0, 20);
+            Chorus1RRAnim.ResetTrigger("Enter");
+        }
     }
 }

@@ -80,8 +80,11 @@ public class Backroom : MonoBehaviour
     public void Reset()
     {
         moved = false;
-        Ava2.transform.position = new Vector3(-11.11f, 2.266f, 36.627f);
-        Ava2SR.color = new Color(255, 255, 255, 0);
+        if (Ava2SR != null)
+        {
+            Ava2.transform.position = new Vector3(-11.11f, 2.266f, 36.627f);
+            Ava2SR.color = new Color(255, 255, 255, 0);
+        }
 
         ToggleTrigger(true);
     }
