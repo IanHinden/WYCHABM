@@ -8,6 +8,7 @@ public class Gameplay : MonoBehaviour
     [Header("Essential Functions")]
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] UIHandler uiHandler;
 
     [Header("Level Objects")]
     [SerializeField] private GameControls gamecontrols;
@@ -40,6 +41,7 @@ public class Gameplay : MonoBehaviour
 
     public IEnumerator GameSwitcher()
     {
+        uiHandler.InstructionTextKissHit("KISS");
         yield return null;
         meter = StartCoroutine(meterObjects.StartMeter());
         yield return new WaitForSeconds(measureMS * 3);
@@ -54,6 +56,7 @@ public class Gameplay : MonoBehaviour
         if(meter!= null) StopCoroutine(meter);
 
         animationController.SwitchScene();
+        uiHandler.InstructionTextKissHit("HIT");
         meterObjects.ResetMeter();
         yield return new WaitForSeconds(transitionTime);
         meter = StartCoroutine(meterObjects.StartMeter());

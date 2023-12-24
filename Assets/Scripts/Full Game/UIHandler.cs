@@ -21,6 +21,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdown;
 
     [SerializeField] TextMeshProUGUI textmesh;
+    [SerializeField] TextMeshProUGUI kissHitText;
 
     [Header("Score UI")]
     [SerializeField] GameObject scorecard;
@@ -42,6 +43,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI bonusScore;
 
     private Animator anim;
+    private Animator kissHitAnim;
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,6 +54,7 @@ public class UIHandler : MonoBehaviour
 
         textmesh.text = "";
         anim = textmesh.GetComponent<Animator>();
+        kissHitAnim = kissHitText.GetComponent<Animator>();
 
         scoreCardAnim = scorecard.GetComponent<Animator>();
         scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -214,6 +217,11 @@ public class UIHandler : MonoBehaviour
         StartCoroutine(AnimateAndDestroy(instructions));
     }
 
+    public void InstructionTextKissHit(string instructions)
+    {
+        StartCoroutine(AnimateAndDestroyKissHit(instructions));
+    }
+
     private IEnumerator AnimateAndDestroy(string instructions)
     {
         yield return new WaitForSeconds(.6f);
@@ -222,6 +230,16 @@ public class UIHandler : MonoBehaviour
         yield return new WaitForSeconds(2f);
         textmesh.text = "";
         anim.SetBool("Animate", false);
+    }
+
+    private IEnumerator AnimateAndDestroyKissHit(string instructions)
+    {
+        yield return new WaitForSeconds(.3f);
+        kissHitText.text = instructions;
+        kissHitAnim.SetBool("Animate", true);
+        yield return new WaitForSeconds(1.5f);
+        kissHitText.text = "";
+        kissHitAnim.SetBool("Animate", false);
     }
 
     public IEnumerator DisplayScoreCard(int score)
