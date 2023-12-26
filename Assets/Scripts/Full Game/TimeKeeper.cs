@@ -85,7 +85,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] MenschGameplay menschGameplay; //Scene 29
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
-    //30, 33, 35, 37. 
+    [SerializeField] Straw mixGameplay; //Scene 33
+    //30, 35, 37. 
 
 
     [Header("Necesary Functions")]
@@ -116,6 +117,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine menschCo;
     Coroutine avasCo;
     Coroutine barViewCo;
+    Coroutine mixGameplayCo;
 
 
     void Awake()
@@ -377,6 +379,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Mix
+        mixGameplayCo = StartCoroutine(mixGameplay.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Bedside
@@ -450,6 +453,7 @@ public class TimeKeeper : MonoBehaviour
         if (menschCo != null) StopCoroutine(menschCo);
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
+        if (mixGameplayCo != null) StopCoroutine(mixGameplayCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -470,6 +474,7 @@ public class TimeKeeper : MonoBehaviour
         partyGuy.Reset();
         menschGameplay.Reset();
         avas.Reset();
+        mixGameplay.Reset();
 
         foreach (GameObject scene in allscenes)
         {

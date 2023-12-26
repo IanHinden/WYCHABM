@@ -23,7 +23,7 @@ public class Straw : MonoBehaviour
     {
         gamecontrols = new GameControls();
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -58,7 +58,7 @@ public class Straw : MonoBehaviour
         transform.position = new Vector3(currentPosition, transform.position.y, transform.position.z);
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
         DetermineWinOrLoss();

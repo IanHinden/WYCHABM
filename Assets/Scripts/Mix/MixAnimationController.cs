@@ -17,9 +17,10 @@ public class MixAnimationController : MonoBehaviour
 
     [Header("Clouds")]
     [SerializeField] Transform clouds;
-    [SerializeField] Transform clouds2;
-    [SerializeField] Transform clouds3;
-    [SerializeField] Transform clouds4;
+    [SerializeField] GameObject clouds1;
+    [SerializeField] GameObject clouds2;
+    [SerializeField] GameObject clouds3;
+    [SerializeField] GameObject clouds4;
 
     SpriteRenderer moonCloseEyeSR;
     SpriteRenderer moonOpenEyeSR;
@@ -89,5 +90,10 @@ public class MixAnimationController : MonoBehaviour
                 animator.ResetTrigger("Lose");
             }
         }
+
+        clouds1.transform.position = new Vector3(-.03f, .35f, 0);
+        clouds2.transform.position = new Vector3(-.03f, .35f, 0);
+        clouds3.transform.position = new Vector3(-.03f, .35f, 0);
+        clouds4.transform.position = new Vector3(3.1f, .35f, 0);
     }
 }
