@@ -55,5 +55,10 @@ public class Avas : MonoBehaviour
     {
         this.gameObject.transform.localScale = new Vector3(.7f, .7f, 1);
         shadows.transform.localScale = new Vector3(1, 1, 1);
+
+        Ava1.SetActive(false);
+        Ava2.SetActive(false);
+        shadow1.SetActive(false);
+        shadow2.SetActive(false);
     }
 }

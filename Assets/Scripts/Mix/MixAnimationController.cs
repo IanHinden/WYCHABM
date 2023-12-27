@@ -76,24 +76,27 @@ public class MixAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        moonOpenEyeSR.enabled = true;
-        moonCloseEyeSR.enabled = false;
-
-        foreach (Transform child in clouds)
+        if (moonOpenEyeSR != null)
         {
-            // Check if the child has an Animator component
-            Animator animator = child.GetComponent<Animator>();
+            moonOpenEyeSR.enabled = true;
+            moonCloseEyeSR.enabled = false;
 
-            if (animator != null)
+            foreach (Transform child in clouds)
             {
-                // Replace "YourTriggerName" with the name of your trigger
-                animator.ResetTrigger("Lose");
-            }
-        }
+                // Check if the child has an Animator component
+                Animator animator = child.GetComponent<Animator>();
 
-        clouds1.transform.position = new Vector3(-.03f, .35f, 0);
-        clouds2.transform.position = new Vector3(-.03f, .35f, 0);
-        clouds3.transform.position = new Vector3(-.03f, .35f, 0);
-        clouds4.transform.position = new Vector3(3.1f, .35f, 0);
+                if (animator != null)
+                {
+                    // Replace "YourTriggerName" with the name of your trigger
+                    animator.ResetTrigger("Lose");
+                }
+            }
+
+            clouds1.transform.position = new Vector3(-.03f, .35f, 0);
+            clouds2.transform.position = new Vector3(-.03f, .35f, 0);
+            clouds3.transform.position = new Vector3(-.03f, .35f, 0);
+            clouds4.transform.position = new Vector3(3.1f, .35f, 0);
+        }
     }
 }
