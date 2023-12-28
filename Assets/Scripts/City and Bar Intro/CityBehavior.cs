@@ -45,7 +45,7 @@ public class CityBehavior : MonoBehaviour
 
     string[] dialogueText = new string[] {
         "Ugh... I am so done today.",
-        "Ava! The new girl doesn't know the manager 'splits tips'",
+        "The new girl doesn't know the manager 'splits tips'...",
         "... She doesn't know the manager 'splits tips'.",
         "Don't worry, Luce! I got this."
     };
@@ -84,7 +84,7 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.5f);
         dialogue.DialogueEnter();
-        dialogue2 = StartCoroutine(dialogue.SetDialogue(dialogueText[1]));
+        dialogue2 = StartCoroutine(dialogue.AvaNameEnter(dialogueText[1]));
         yield return new WaitForSeconds(2f);
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;

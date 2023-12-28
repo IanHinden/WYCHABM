@@ -482,7 +482,8 @@ public class TimeKeeper : MonoBehaviour
         }
 
         //Reset all UI
-        dialogue.QuickExit();
+        //dialogue.QuickExit();
+        dialogue.Reset();
         //uihandler.ClearWinLoss();
         //uihandler.setFrame(false);
         //uihandler.hideSlider();
