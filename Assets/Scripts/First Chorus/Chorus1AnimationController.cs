@@ -9,6 +9,12 @@ public class Chorus1AnimationController : MonoBehaviour
     [SerializeField] GameObject Chorus1Ava;
     [SerializeField] GameObject Chorus1RR;
 
+    [SerializeField] GameObject Would;
+    [SerializeField] GameObject You;
+    [SerializeField] GameObject Call;
+    [SerializeField] GameObject Him;
+    [SerializeField] GameObject Badman;
+
     Animator Chorus1AvaAnim;
     Animator Chorus1RRAnim;
     void Awake()
@@ -17,6 +23,7 @@ public class Chorus1AnimationController : MonoBehaviour
         Chorus1RRAnim = Chorus1RR.GetComponent<Animator>();
 
         StartCoroutine(CardAnimations());
+        StartCoroutine(LyricsTimer());
     }
 
     private IEnumerator CardAnimations()
@@ -25,6 +32,22 @@ public class Chorus1AnimationController : MonoBehaviour
         Chorus1AvaAnim.SetTrigger("Enter");
         yield return new WaitForSeconds(timeFunctions.ReturnSingleMeasure() * 4);
         Chorus1RRAnim.SetTrigger("Enter");
+    }
+
+    private IEnumerator LyricsTimer()
+    {
+        yield return new WaitForSeconds(7.524022f);
+        Would.SetActive(true);
+        You.SetActive(true);
+        yield return new WaitForSeconds(0.2102633f);
+        Call.SetActive(true);
+        yield return new WaitForSeconds(0.1721108f);
+        Him.SetActive(true);
+        yield return new WaitForSeconds(0.1680734f);
+        Badman.SetActive(true);
+        //yield return new WaitForSeconds(0.1945287f);
+        //yield return new WaitForSeconds(0.5377512f);
+        //yield return new WaitForSeconds(0.5015675f);
     }
 
     public void Reset()
