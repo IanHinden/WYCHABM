@@ -8,6 +8,8 @@ public class Dialogue : MonoBehaviour
     private TextMeshPro textmesh;
     private TextMeshPro avaNameDialogueText;
 
+    [SerializeField] GameObject splitTips;
+
     private Animator anim;
     private Animator avaNameDialogueAnim;
     private SpriteRenderer sr;
@@ -30,35 +32,10 @@ public class Dialogue : MonoBehaviour
         anim.SetBool("Entered", true);
     }
 
-    public IEnumerator AvaNameEnter(string dialogue)
-    {
-        AvaTextShake();
-        textmesh.text = "          ";
-
-        yield return new WaitForSeconds(.8f);
-
-        foreach (char c in dialogue.ToCharArray())
-        {
-            textmesh.text += c;
-            float pauseTime = .01f;
-
-            while (pauseTime > 0)
-            {
-                pauseTime -= Time.deltaTime;
-                yield return null;
-            }
-        }
-    }
-
-    private void AvaTextShake()
-    {
-        avaNameDialogueText.text = "AVA!";
-        avaNameDialogueAnim.Play("AvaNameDialogue");
-    }
-
     public void DialogueExit()
     {
         anim.SetBool("Entered", false);
+        ResetSplitTips();
     }
 
     public void QuickExit()
@@ -66,6 +43,7 @@ public class Dialogue : MonoBehaviour
         textmesh.text = "";
         sr.enabled = false;
         DialogueExit();
+        ResetSplitTips();
     }
 
     public IEnumerator SetDialogue(string dialogue)
@@ -85,10 +63,78 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    public IEnumerator AvaNameEnter(string dialogue, string dialogue2)
+    {
+        AvaTextShake();
+        textmesh.text = "          ";
+
+        yield return new WaitForSeconds(.8f);
+
+        foreach (char c in dialogue.ToCharArray())
+        {
+            textmesh.text += c;
+            float pauseTime = .01f;
+
+            while (pauseTime > 0)
+            {
+                pauseTime -= Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        StartCoroutine(SplitTipsText());
+
+        textmesh.text += "                   ";
+
+        foreach (char c in dialogue2.ToCharArray())
+        {
+            textmesh.text += c;
+            float pauseTime = .01f;
+
+            while (pauseTime > 0)
+            {
+                pauseTime -= Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
+
+    private void AvaTextShake()
+    {
+        avaNameDialogueText.text = "AVA!";
+        avaNameDialogueAnim.Play("AvaNameDialogue");
+    }
+
+    private IEnumerator SplitTipsText()
+    {
+        for (int i = 0; i < splitTips.transform.childCount; i++)
+        {
+            splitTips.transform.GetChild(i).gameObject.SetActive(true);
+            Animator letterAnim = splitTips.transform.GetChild(i).GetComponent<Animator>();
+            letterAnim.Play("s");
+            yield return new WaitForSeconds(.01f);
+        }
+    }
+
+    private void ResetSplitTips()
+    {
+        for (int i = 0; i < splitTips.transform.childCount; i++)
+        {
+            splitTips.transform.GetChild(i).gameObject.SetActive(false);
+            Animator letterAnim = splitTips.transform.GetChild(i).GetComponent<Animator>();
+            letterAnim.Play("New State");
+        }
+    }
+
     public void Reset()
     {
         QuickExit();
         avaNameDialogueText.text = "";
         avaNameDialogueAnim.Play("New State");
+
+        for (int i = 0; i < splitTips.transform.childCount; i++)
+        {
+            splitTips.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 }
