@@ -29,6 +29,7 @@ public class Landlord : MonoBehaviour
         lightningSR = lightning.GetComponent<SpriteRenderer>();
         landlordSR = landlord.transform.Find("Landlord").GetComponent<SpriteRenderer>();
         avaSR = ava.transform.Find("Ava").GetComponent<SpriteRenderer>();
+        //StartCoroutine(Dialogue());
     }
 
     public IEnumerator Dialogue()
@@ -44,6 +45,8 @@ public class Landlord : MonoBehaviour
 
     public void Reset()
     {
+        landlordAnim.enabled = true;
+        avaAnim.enabled = true;
         landlord.transform.position = new Vector3(-14.02f, -1.41f, 0);
         ava.transform.position = new Vector3(16.08f, .07f, 0);
     }
@@ -51,6 +54,8 @@ public class Landlord : MonoBehaviour
     //TODO This might need to go into a non-Awake function for reset
     private IEnumerator LightningFlash()
     {
+        landlordAnim.enabled = false;
+        avaAnim.enabled = false;
         yield return new WaitForSeconds(.5f);
         lightningSR.color = new Color(1, 1, 1, 1);
         landlordSR.color = new Color(0, 0, 0, 1);
