@@ -120,9 +120,12 @@ public class Dialogue : MonoBehaviour
     {
         for (int i = 0; i < splitTips.transform.childCount; i++)
         {
-            splitTips.transform.GetChild(i).gameObject.SetActive(false);
-            Animator letterAnim = splitTips.transform.GetChild(i).GetComponent<Animator>();
-            letterAnim.Play("New State");
+            if (splitTips.transform.GetChild(i).gameObject.activeInHierarchy == true)
+            {
+                Animator letterAnim = splitTips.transform.GetChild(i).GetComponent<Animator>();
+                letterAnim.Play("New State");
+                splitTips.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 

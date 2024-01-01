@@ -45,10 +45,12 @@ public class Landlord : MonoBehaviour
 
     public void Reset()
     {
-        landlordAnim.enabled = true;
-        avaAnim.enabled = true;
-        landlord.transform.position = new Vector3(-14.02f, -1.41f, 0);
-        ava.transform.position = new Vector3(16.08f, .07f, 0);
+        if (landlordAnim != null) {
+            landlordAnim.enabled = true;
+            avaAnim.enabled = true;
+            landlord.transform.position = new Vector3(-14.02f, -1.41f, 0);
+            ava.transform.position = new Vector3(16.08f, .07f, 0);
+        }
     }
 
     //TODO This might need to go into a non-Awake function for reset
