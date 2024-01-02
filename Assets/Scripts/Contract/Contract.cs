@@ -38,7 +38,7 @@ public class Contract : MonoBehaviour
 
     public void Reset()
     {
-        hand.transform.position = new Vector3(3.07f, -1.49f, 0f);
+        hand.transform.position = new Vector3(0f, -0.021f, 0f);
         hand.resetMoved();
         print.DeletePenLine();
         print.createLine();
