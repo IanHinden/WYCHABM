@@ -77,6 +77,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
     [SerializeField] Gameplay cheekToCheek; //Scene 20
+    [SerializeField] SecondChorus secondChorus; //Scene 22
     [SerializeField] StoryTimer webSurfing; //Scene 23
     [SerializeField] SelectChecker selectChecker; //Scene 24
     [SerializeField] StoryTimerOD onlineDating; //Scene 25
@@ -109,6 +110,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine psychoCo;
     Coroutine jobInterviewCo;
     Coroutine cheekToCheekCo;
+    Coroutine secondChorusCo;
     Coroutine webSurfingCo;
     Coroutine wishlistCo;
     Coroutine onlineDatingCo;
@@ -336,6 +338,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
 
         nextScene(); //Second Chorus
+        secondChorusCo = StartCoroutine(secondChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         //Web surfing 20 - 8 = 12; 4 wishlist, 2 Tweak, 4 more Party Guy
@@ -445,6 +448,7 @@ public class TimeKeeper : MonoBehaviour
         if (getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
         if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
         if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
+        if (secondChorusCo != null) StopCoroutine(secondChorusCo);
         if (webSurfingCo != null) StopCoroutine(webSurfingCo);
         if (wishlistCo != null) StopCoroutine(wishlistCo);
         if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
@@ -467,6 +471,7 @@ public class TimeKeeper : MonoBehaviour
         shuffler.Reset();
         evolvingSC.Reset();
         cheekToCheek.Reset();
+        secondChorus.Reset();
         webSurfing.Reset();
         selectChecker.Reset();
         onlineDating.Reset();

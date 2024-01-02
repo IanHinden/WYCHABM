@@ -18713,7 +18713,6 @@ MonoBehaviour:
   chorus1AnimationController: {fileID: 1870716515}
   gameplayArrows: {fileID: 1143379020}
   detect: {fileID: 1605176053}
-  playerside: {fileID: 2114032222}
   missBar: {fileID: 522942950}
   rightSquare: {fileID: 1605176053}
   downSquare: {fileID: 1935174116}
@@ -135870,6 +135869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1934865179}
+  - component: {fileID: 1934865180}
   m_Layer: 0
   m_Name: 22. Second Chorus
   m_TagString: Untagged
@@ -135893,6 +135893,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934865180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934865178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e095e7fd5be8d3d49bc40d8cc83201bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timefunctions: {fileID: 1358544022}
+  gameplayArrows: {fileID: 799836022}
+  detect: {fileID: 10218423}
 --- !u!1 &1935174111
 GameObject:
   m_ObjectHideFlags: 0
@@ -139971,6 +139986,7 @@ MonoBehaviour:
   evolvingSC: {fileID: 408336889}
   roadRacer: {fileID: 2009168599}
   cheekToCheek: {fileID: 581709157}
+  secondChorus: {fileID: 1934865180}
   webSurfing: {fileID: 869252882}
   selectChecker: {fileID: 1788790009}
   onlineDating: {fileID: 683011429}
