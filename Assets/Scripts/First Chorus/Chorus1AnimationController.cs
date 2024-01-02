@@ -22,6 +22,12 @@ public class Chorus1AnimationController : MonoBehaviour
         Chorus1AvaAnim = Chorus1Ava.GetComponent<Animator>();
         Chorus1RRAnim = Chorus1RR.GetComponent<Animator>();
 
+        //StartCoroutine(CardAnimations());
+        //StartCoroutine(LyricsTimer());
+    }
+
+    public void AnimationLogic()
+    {
         StartCoroutine(CardAnimations());
         StartCoroutine(LyricsTimer());
     }

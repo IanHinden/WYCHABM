@@ -11,7 +11,7 @@ public class FirstChorus : MonoBehaviour
 
     [SerializeField] GameplayArrows gameplayArrows;
     [SerializeField] detectionSquare detect;
-    [SerializeField] GameObject playerside;
+    //[SerializeField] GameObject playerside;
     [SerializeField] MissBar missBar;
     [SerializeField] detectionSquare rightSquare;
     [SerializeField] detectionSquare downSquare;
@@ -37,6 +37,7 @@ public class FirstChorus : MonoBehaviour
 
     public IEnumerator Blink()
     {
+        chorus1AnimationController.AnimationLogic();
         while (true)
         {
             foreach (Animator animator in allAnimators)
