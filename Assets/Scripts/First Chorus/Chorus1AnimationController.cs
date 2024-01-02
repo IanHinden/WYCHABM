@@ -61,6 +61,12 @@ public class Chorus1AnimationController : MonoBehaviour
             Chorus1RR.transform.position = new Vector3(8.69f, -0.49f, 0f);
             Chorus1RR.transform.eulerAngles = new Vector3(0, 0, 20);
             Chorus1RRAnim.ResetTrigger("Enter");
+
+            Would.SetActive(false);
+            You.SetActive(false);
+            Call.SetActive(false);
+            Him.SetActive(false);
+            Badman.SetActive(false);
         }
     }
 }
