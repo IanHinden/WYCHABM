@@ -40,6 +40,7 @@ public class StoryTimer : MonoBehaviour
         computerScreen.SetActive(false);
         greenLaptopScreen.SetActive(true);
         purpleLaptopScreen.SetActive(false);
+        pointer.transform.position = new Vector3(-2.24f, -1.63f, 0);
         if (pointerSR != null)
         {
             pointerSR.enabled = false;
