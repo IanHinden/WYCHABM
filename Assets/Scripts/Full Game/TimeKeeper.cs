@@ -87,6 +87,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
     [SerializeField] Straw mixGameplay; //Scene 33
+    [SerializeField] ThirdChorus thirdChorus; //Scene 38
     //30, 35, 37. 
 
 
@@ -120,6 +121,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine avasCo;
     Coroutine barViewCo;
     Coroutine mixGameplayCo;
+    Coroutine thirdChorusCo;
 
 
     void Awake()
@@ -405,6 +407,7 @@ public class TimeKeeper : MonoBehaviour
         }
 
         nextScene(); //Third Chorus
+        firstChorusCo = StartCoroutine(thirdChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         nextScene(); //Final Boss
@@ -458,6 +461,7 @@ public class TimeKeeper : MonoBehaviour
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
         if (mixGameplayCo != null) StopCoroutine(mixGameplayCo);
+        if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
@@ -480,6 +484,7 @@ public class TimeKeeper : MonoBehaviour
         menschGameplay.Reset();
         avas.Reset();
         mixGameplay.Reset();
+        thirdChorus.Reset();
 
         foreach (GameObject scene in allscenes)
         {
