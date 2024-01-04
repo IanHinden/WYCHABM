@@ -6763,6 +6763,8 @@ MonoBehaviour:
   scorehandler: {fileID: 585011356}
   uihandler: {fileID: 24490723}
   timefunctions: {fileID: 1358544022}
+  redBar: {fileID: 1645291429}
+  blueBar: {fileID: 2138480064}
 --- !u!1 &143182609
 GameObject:
   m_ObjectHideFlags: 0

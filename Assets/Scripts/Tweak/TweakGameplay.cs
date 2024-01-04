@@ -7,6 +7,10 @@ public class TweakGameplay : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+
+    [SerializeField] GameObject redBar;
+    [SerializeField] GameObject blueBar;
+
     ControlPadButton[] controlPadButtons;
 
     private GameControls gamecontrols;
@@ -28,9 +32,10 @@ public class TweakGameplay : MonoBehaviour
     private float state = 0;
 
     Coroutine currentBlink;
+    Coroutine rotateWinCo;
 
     private bool won = false;
-    // Start is called before the first frame update
+
     void Awake()
     {
         controlPadButtons = FindObjectsOfType<ControlPadButton>().OrderBy(go => go.name).ToArray();
@@ -146,7 +151,7 @@ public class TweakGameplay : MonoBehaviour
                 won = true;
                 scorehandler.IncrementScore();
                 uihandler.WinDisplay();
-                RotateRight();
+                rotateWinCo = StartCoroutine(RotateWin());
                 //Instead of rotating right, maybe animate win?
             }
         }
@@ -176,6 +181,14 @@ public class TweakGameplay : MonoBehaviour
         }
     }
 
+    private IEnumerator RotateWin()
+    {
+        while (won == true) {
+            RotateRight();
+            yield return new WaitForSeconds(.3f);
+        }
+    }
+
     private void displayCorrectArrow()
     {
         if(currentBlink != null) StopCoroutine(currentBlink);
@@ -189,8 +202,7 @@ public class TweakGameplay : MonoBehaviour
             {
                 SpriteRenderer currentSR = controlPadButtons[i].GetComponent<SpriteRenderer>();
                 currentSR.enabled = true;
-                currentBlink = StartCoroutine(Blink(currentSR));
-
+                if(state != 0) currentBlink = StartCoroutine(Blink(currentSR));
             }
         }
     }
@@ -220,6 +232,14 @@ public class TweakGameplay : MonoBehaviour
 
     public void Reset()
     {
+        redBar.transform.localScale = new Vector3(0.655565f, 1.389891f, 1);
+        redBar.transform.localPosition = new Vector3(2.04f, -9.26f, 0);
+        blueBar.transform.localScale = new Vector3(0.4398549f, 1.55402f, 1);
+        blueBar.transform.localPosition = new Vector3(4.623f, -9.2f, 0);
+        StopCoroutine(rotateWinCo);
+        currentlySelected = 0;
+        state = 0;
+        displayCorrectArrow();
         won = false;
     }
 }
