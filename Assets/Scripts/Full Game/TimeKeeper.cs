@@ -87,6 +87,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
     [SerializeField] Straw mixGameplay; //Scene 33
+    [SerializeField] Target pregnancyTest; //Scene 37
     [SerializeField] ThirdChorus thirdChorus; //Scene 38
     //30, 35, 37. 
 
@@ -121,6 +122,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine avasCo;
     Coroutine barViewCo;
     Coroutine mixGameplayCo;
+    Coroutine pregnancyTestCo;
     Coroutine thirdChorusCo;
 
 
@@ -397,6 +399,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(4, new Vector2(740f, 139f), "AIM");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Pregnancy Test
+        pregnancyTestCo = StartCoroutine(pregnancyTest.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         //Need a fix to destory these
@@ -407,7 +410,7 @@ public class TimeKeeper : MonoBehaviour
         }
 
         nextScene(); //Third Chorus
-        firstChorusCo = StartCoroutine(thirdChorus.Blink());
+        thirdChorusCo = StartCoroutine(thirdChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         nextScene(); //Final Boss
@@ -461,6 +464,7 @@ public class TimeKeeper : MonoBehaviour
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
         if (mixGameplayCo != null) StopCoroutine(mixGameplayCo);
+        if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
         if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
 
         citybehavior.Reset();
@@ -484,6 +488,7 @@ public class TimeKeeper : MonoBehaviour
         menschGameplay.Reset();
         avas.Reset();
         mixGameplay.Reset();
+        pregnancyTest.Reset();
         thirdChorus.Reset();
 
         foreach (GameObject scene in allscenes)

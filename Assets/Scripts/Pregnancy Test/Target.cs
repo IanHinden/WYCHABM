@@ -9,15 +9,11 @@ public class Target : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] PregnancyAnimationController pregnancyTestAnimationController;
 
+    [SerializeField] GameObject strawberry;
     [SerializeField] Streamer streamer;
 
     float pregnancyScore = 0;
     bool full = false;
-
-    void Awake()
-    {
-        StartCoroutine(WinOrLose());
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,8 +49,9 @@ public class Target : MonoBehaviour
         }
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
+        streamer.StartStream();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         DetermineWinOrLoss();
@@ -68,5 +65,10 @@ public class Target : MonoBehaviour
             full = true;
             uihandler.LoseDisplay();
         }
+    }
+
+    public void Reset()
+    {
+        strawberry.transform.rotation = Quaternion.identity;
     }
 }

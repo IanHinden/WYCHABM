@@ -191,18 +191,21 @@ public class TweakGameplay : MonoBehaviour
 
     private void displayCorrectArrow()
     {
-        if(currentBlink != null) StopCoroutine(currentBlink);
-        for (int i = 0; i < controlPadButtons.Length; i++)
+        if (controlPadButtons != null)
         {
-            if (i != currentlySelected)
+            if (currentBlink != null) StopCoroutine(currentBlink);
+            for (int i = 0; i < controlPadButtons.Length; i++)
             {
-                controlPadButtons[i].GetComponent<SpriteRenderer>().enabled = false;
-            }
-            else
-            {
-                SpriteRenderer currentSR = controlPadButtons[i].GetComponent<SpriteRenderer>();
-                currentSR.enabled = true;
-                if(state != 0) currentBlink = StartCoroutine(Blink(currentSR));
+                if (i != currentlySelected)
+                {
+                    controlPadButtons[i].GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    SpriteRenderer currentSR = controlPadButtons[i].GetComponent<SpriteRenderer>();
+                    currentSR.enabled = true;
+                    if (state != 0) currentBlink = StartCoroutine(Blink(currentSR));
+                }
             }
         }
     }
@@ -236,7 +239,7 @@ public class TweakGameplay : MonoBehaviour
         redBar.transform.localPosition = new Vector3(2.04f, -9.26f, 0);
         blueBar.transform.localScale = new Vector3(0.4398549f, 1.55402f, 1);
         blueBar.transform.localPosition = new Vector3(4.623f, -9.2f, 0);
-        StopCoroutine(rotateWinCo);
+        if(rotateWinCo != null) StopCoroutine(rotateWinCo);
         currentlySelected = 0;
         state = 0;
         displayCorrectArrow();

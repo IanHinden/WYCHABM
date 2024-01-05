@@ -43,7 +43,7 @@ public class SecondChorus : MonoBehaviour
 
     public void Reset()
     {
-        gameplayArrows.transform.localPosition = new Vector3(-7f, 1600f, 0);
+        gameplayArrows.transform.localPosition = new Vector3(-7f, 1580f, 0);
 
         foreach (Transform child in gameplayArrows.transform)
         {
