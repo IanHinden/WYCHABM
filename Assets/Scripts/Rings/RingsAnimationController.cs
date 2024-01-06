@@ -28,6 +28,12 @@ public class RingsAnimationController : MonoBehaviour
     private SpriteRenderer rightDogSR;
     private SpriteRenderer rightDogShockedSR;
 
+    private SpriteRenderer diamondRingFrontSR;
+    private SpriteRenderer diamonRingBackSR;
+
+    private SpriteRenderer silverRingFrontSR;
+    private SpriteRenderer silverRingBackSR;
+
     private Animator silverRingAnim;
     private Animator diamongRingAnim;
 
@@ -41,7 +47,13 @@ public class RingsAnimationController : MonoBehaviour
         rightDogSR = rightDog.GetComponent<SpriteRenderer>();
         rightDogShockedSR = rightDogShocked.GetComponent<SpriteRenderer>();
 
-        silverRingAnim = silverRing.GetComponent<Animator>();
+        diamondRingFrontSR = diamondRing.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        diamonRingBackSR = diamondRing.transform.GetChild(1).GetComponent<SpriteRenderer>();
+
+        silverRingFrontSR = silverRing.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        silverRingBackSR = silverRing.transform.GetChild(1).GetComponent<SpriteRenderer>();
+
+    silverRingAnim = silverRing.GetComponent<Animator>();
         diamongRingAnim = diamondRing.GetComponent<Animator>();
         SetSpacebar(true);
         halfMeasure = 2 * timefunctions.ReturnQuarterNote();
@@ -130,6 +142,13 @@ public class RingsAnimationController : MonoBehaviour
         rightDogSR.enabled = true;
         rightDogShockedSR.enabled = false;
 
+        diamondRingFrontSR.color = new Color(1, 1, 1, 1);
+        diamonRingBackSR.color = new Color(1, 1, 1, 1);
+
+        silverRingFrontSR.color = new Color(1, 1, 1, 1);
+        silverRingBackSR.color = new Color(1, 1, 1, 1);
+
+        diamondRing.transform.localPosition = new Vector3(-3.13f, -3.79f, 0);
         silverRing.transform.localPosition = new Vector3(-1.42f, -3.79f, 0);
 
         silverRingAnim.ResetTrigger("Pos1");

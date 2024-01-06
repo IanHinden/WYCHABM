@@ -87,6 +87,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
     [SerializeField] Straw mixGameplay; //Scene 33
+    [SerializeField] RingsGameplay ringsGameplay; //Scene 35
     [SerializeField] Target pregnancyTest; //Scene 37
     [SerializeField] ThirdChorus thirdChorus; //Scene 38
     //30, 35, 37. 
@@ -122,6 +123,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine avasCo;
     Coroutine barViewCo;
     Coroutine mixGameplayCo;
+    Coroutine ringsCo;
     Coroutine pregnancyTestCo;
     Coroutine thirdChorusCo;
 
@@ -393,6 +395,7 @@ public class TimeKeeper : MonoBehaviour
         yield return FadeOutroEffect(4, new Vector2(740f, 139f), "STEALTH");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Rings
+        ringsCo = StartCoroutine(ringsGameplay.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Sick
@@ -464,6 +467,7 @@ public class TimeKeeper : MonoBehaviour
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
         if (mixGameplayCo != null) StopCoroutine(mixGameplayCo);
+        if (ringsCo != null) StopCoroutine(ringsCo);
         if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
         if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
 
@@ -488,6 +492,7 @@ public class TimeKeeper : MonoBehaviour
         menschGameplay.Reset();
         avas.Reset();
         mixGameplay.Reset();
+        ringsGameplay.Reset();
         pregnancyTest.Reset();
         thirdChorus.Reset();
 

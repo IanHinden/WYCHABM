@@ -18,7 +18,7 @@ public class RingsGameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => RemoveRing();
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -76,11 +76,11 @@ public class RingsGameplay : MonoBehaviour
         }
     }
 
-    IEnumerator WinOrLose()
+    public IEnumerator WinOrLose()
     {
         StartCoroutine(ringsAnimationController.SpaceAnimator());
 
-        gamecontrols.Disable();
+        gamecontrols.Enable();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         DetermineWinOrLoss();
@@ -98,5 +98,6 @@ public class RingsGameplay : MonoBehaviour
     public void Reset()
     {
         clicked = 0;
+        ringsAnimationController.Reset();
     }
 }
