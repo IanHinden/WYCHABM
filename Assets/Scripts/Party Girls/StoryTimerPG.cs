@@ -15,13 +15,11 @@ public class StoryTimerPG : MonoBehaviour
     void Awake()
     {
         measureMS = timefunctions.ReturnSingleMeasure();
-
-        StartCoroutine(timedEvents());
     }
 
-    private IEnumerator timedEvents()
+    public IEnumerator timedEvents()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         gettingReady.SetActive(false);
     }
 

@@ -83,6 +83,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] StoryTimerOD onlineDating; //Scene 25
     [SerializeField] TweakGameplay tweakGameplay; //Scene 26
     [SerializeField] SceneBehavior partyGuy; //Scene 27
+    [SerializeField] StoryTimerPG storyTimerPG;
     [SerializeField] MenschGameplay menschGameplay; //Scene 29
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
@@ -118,6 +119,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine wishlistCo;
     Coroutine onlineDatingCo;
     Coroutine partyGuyCo;
+    Coroutine storyTimerPGCo;
     Coroutine tweakCo;
     Coroutine menschCo;
     Coroutine avasCo;
@@ -369,6 +371,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(10));
 
         nextScene(); //Party Girls
+        storyTimerPGCo = StartCoroutine(storyTimerPG.timedEvents());
         yield return FadeOutroEffect(6, new Vector2(699f, 167f), "SHARE"); //timefunctions.ReturnCountMeasure(6));
 
         nextScene(8); //Mensch
@@ -463,6 +466,7 @@ public class TimeKeeper : MonoBehaviour
         if (onlineDatingCo != null) StopCoroutine(onlineDatingCo);
         if (tweakCo != null) StopCoroutine(tweakCo);
         if (partyGuyCo != null) StopCoroutine(partyGuyCo);
+        if (storyTimerPGCo != null) StopCoroutine(storyTimerPGCo);
         if (menschCo != null) StopCoroutine(menschCo);
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
@@ -489,6 +493,7 @@ public class TimeKeeper : MonoBehaviour
         onlineDating.Reset();
         tweakGameplay.Reset();
         partyGuy.Reset();
+        storyTimerPG.Reset();
         menschGameplay.Reset();
         avas.Reset();
         barView.Reset();
