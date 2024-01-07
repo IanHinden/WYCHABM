@@ -136,27 +136,30 @@ public class RingsAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        leftDogSR.enabled = true;
-        leftDogShockedSR.enabled = false;
-        leftDogDifficultSR.enabled = false;
-        rightDogSR.enabled = true;
-        rightDogShockedSR.enabled = false;
+        if (leftDogSR != null)
+        {
+            leftDogSR.enabled = true;
+            leftDogShockedSR.enabled = false;
+            leftDogDifficultSR.enabled = false;
+            rightDogSR.enabled = true;
+            rightDogShockedSR.enabled = false;
 
-        diamondRingFrontSR.color = new Color(1, 1, 1, 1);
-        diamonRingBackSR.color = new Color(1, 1, 1, 1);
+            diamondRingFrontSR.color = new Color(1, 1, 1, 1);
+            diamonRingBackSR.color = new Color(1, 1, 1, 1);
 
-        silverRingFrontSR.color = new Color(1, 1, 1, 1);
-        silverRingBackSR.color = new Color(1, 1, 1, 1);
+            silverRingFrontSR.color = new Color(1, 1, 1, 1);
+            silverRingBackSR.color = new Color(1, 1, 1, 1);
 
-        diamondRing.transform.localPosition = new Vector3(-3.13f, -3.79f, 0);
-        silverRing.transform.localPosition = new Vector3(-1.42f, -3.79f, 0);
+            diamondRing.transform.localPosition = new Vector3(-3.13f, -3.79f, 0);
+            silverRing.transform.localPosition = new Vector3(-1.42f, -3.79f, 0);
 
-        silverRingAnim.ResetTrigger("Pos1");
-        silverRingAnim.ResetTrigger("Pos2");
-        silverRingAnim.ResetTrigger("Pos3");
+            silverRingAnim.ResetTrigger("Pos1");
+            silverRingAnim.ResetTrigger("Pos2");
+            silverRingAnim.ResetTrigger("Pos3");
 
-        diamongRingAnim.ResetTrigger("Pos4");
-        diamongRingAnim.ResetTrigger("Pos5");
-        diamongRingAnim.ResetTrigger("Pos6");
+            diamongRingAnim.ResetTrigger("Pos4");
+            diamongRingAnim.ResetTrigger("Pos5");
+            diamongRingAnim.ResetTrigger("Pos6");
+        }
     }
 }

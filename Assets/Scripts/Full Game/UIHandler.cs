@@ -42,8 +42,12 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI standardScore;
     [SerializeField] TextMeshProUGUI bonusScore;
 
+    [Header("Various Scene UI")]
+    [SerializeField] TextMeshProUGUI insertCoinText;
+
     private Animator anim;
     private Animator kissHitAnim;
+    private Animator insertCoinsAnim;
     // Start is called before the first frame update
     void Awake()
     {
@@ -58,6 +62,8 @@ public class UIHandler : MonoBehaviour
 
         scoreCardAnim = scorecard.GetComponent<Animator>();
         scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        insertCoinsAnim = insertCoinText.GetComponent<Animator>();
     }
 
     public void HidePauseButton()
@@ -256,6 +262,17 @@ public class UIHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
+    }
+
+    public void InsertCoinsTextEnter()
+    {
+        insertCoinText.color = new Color(1, 1, 1, 0);
+        insertCoinsAnim.Play("InsertCoin");
+    }
+
+    public void ResetInsertCoinsText()
+    {
+        insertCoinsAnim.Play("New State");
     }
 
     public void MaskOutro(Vector2 maskCoordinates)

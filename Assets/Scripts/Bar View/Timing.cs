@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Timing : MonoBehaviour
 {
+    [SerializeField] UIHandler uiHandler;
+
     [SerializeField] GameObject waitress;
     [SerializeField] Camera mainCamera;
 
     public IEnumerator WaitressMove()
     {
+        uiHandler.InsertCoinsTextEnter();
         waitress.transform.position = new Vector3(-0.63f, -0.13f, 0f);
         yield return new WaitForSeconds(.5f);
         waitress.transform.position = new Vector3(-0.39f, -0.1f, 0f);
@@ -32,4 +35,8 @@ public class Timing : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        uiHandler.ResetInsertCoinsText();
+    }
 }
