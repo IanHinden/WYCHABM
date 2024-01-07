@@ -45,9 +45,6 @@ public class AnimationController : MonoBehaviour
     Animator SlapAnim;
     Animator HandsLoseAnim;
 
-    private bool kissTriggered = false;
-    private bool hitTriggered = false;
-
     private void Awake()
     {
         KissScenarioEndAnim = KissObjects.GetComponent<Animator>();

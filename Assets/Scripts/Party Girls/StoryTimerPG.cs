@@ -19,7 +19,7 @@ public class StoryTimerPG : MonoBehaviour
 
     public IEnumerator timedEvents()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         gettingReady.SetActive(false);
     }
 

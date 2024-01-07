@@ -75,8 +75,8 @@ public class RoadRacer : MonoBehaviour
 	//UI
 	public Text gearText, speedText, startTimeCountText, timeText;
 	public Image[] speedCountUIBlock, speedCountdisActiveBlock;
-	private int speedUICount = 0;
-	private int speedUIdisActiveCount = 0;
+	//private int speedUICount = 0;
+	//private int speedUIdisActiveCount = 0;
 	private float startTimeCount = 0; // 倒计时
 	private float timeCount;//时间限制计数
 	public float defaultTimeCount;//时间限制（秒）
