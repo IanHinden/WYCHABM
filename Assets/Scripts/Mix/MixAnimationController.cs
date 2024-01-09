@@ -22,6 +22,9 @@ public class MixAnimationController : MonoBehaviour
     [SerializeField] GameObject clouds3;
     [SerializeField] GameObject clouds4;
 
+    SpriteRenderer nightBackgroundSR;
+    SpriteRenderer nightLightSR;
+    SpriteRenderer dayLightSR;
     SpriteRenderer moonCloseEyeSR;
     SpriteRenderer moonOpenEyeSR;
 
@@ -33,6 +36,10 @@ public class MixAnimationController : MonoBehaviour
 
     void Awake()
     {
+        nightBackgroundSR = nightBackground.GetComponent<SpriteRenderer>();
+        nightLightSR = nightLight.GetComponent<SpriteRenderer>();
+        dayLightSR = dayLight.GetComponent<SpriteRenderer>();
+
         moonCloseEyeSR = MoonCloseEye.GetComponent<SpriteRenderer>();
         moonOpenEyeSR = MoonOpenEye.GetComponent<SpriteRenderer>();
 
@@ -92,6 +99,19 @@ public class MixAnimationController : MonoBehaviour
                     animator.ResetTrigger("Lose");
                 }
             }
+
+            moonAnim.ResetTrigger("Win");
+            sunAnim.ResetTrigger("Win");
+            nightBackgroundAnim.ResetTrigger("Win");
+            nightLightAnim.ResetTrigger("Win");
+            dayLightAnim.ResetTrigger("Win");
+
+            Moon.transform.position = new Vector3(0, 0, 0);
+            Sun.transform.position = new Vector3(12.26f, 1.47f, 0);
+
+            nightBackgroundSR.color = new Color(1, 1, 1, 1);
+            nightLightSR.color = new Color(1, 1, 1, 1);
+            dayLightSR.color = new Color(1, 1, 1, 0);
 
             clouds1.transform.position = new Vector3(-.03f, .35f, 0);
             clouds2.transform.position = new Vector3(-.03f, .35f, 0);
