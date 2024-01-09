@@ -7,6 +7,8 @@ public class MenschAnimationController : MonoBehaviour
     [SerializeField] GameObject menschLogo;
     [SerializeField] GameObject interactiveScreen;
 
+    private SpriteRenderer menschLogoSR;
+
     public GameObject Phone;
     public GameObject CreepyDriver;
     public GameObject Fist;
@@ -24,6 +26,8 @@ public class MenschAnimationController : MonoBehaviour
         fistPunchedAnim = Fist.GetComponent<Animator>();
         driverPunchedAnim = CreepyDriver.GetComponent<Animator>();
         fingerAnim = Finger.GetComponent<Animator>();
+
+        menschLogoSR = menschLogo.GetComponent<SpriteRenderer>();
     }
 
     public void ScreenFade()
@@ -31,9 +35,20 @@ public class MenschAnimationController : MonoBehaviour
         menschLogoAnim.SetTrigger("Fade");
     }
 
+    public void ResetScreenFade()
+    {
+        menschLogoAnim.ResetTrigger("Fade");
+        menschLogoSR.color = new Color(1, 1, 1, 0);
+    }
+
     public void enableScreen()
     {
         interactiveScreen.SetActive(true);
+    }
+
+    public void playDriverKiss()
+    {
+        driverPunchedAnim.Play("DriverKiss");
     }
 
     //.47, -2.38
@@ -69,12 +84,26 @@ public class MenschAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        fingerAnim.enabled = true;
-        phoneDown.ResetTrigger("PhoneDown");
-        fistPunchedAnim.ResetTrigger("Punched");
-        driverPunchedAnim.ResetTrigger("Punched");
-        fingerAnim.ResetTrigger("FingerDown");
+        if (fingerAnim != false)
+        {
+            fingerAnim.enabled = true;
+            interactiveScreen.SetActive(false);
+            
+            phoneDown.ResetTrigger("PhoneDown");
+            fistPunchedAnim.ResetTrigger("Punched");
+            driverPunchedAnim.ResetTrigger("Punched");
+            fingerAnim.ResetTrigger("FingerDown");
 
+            fingerAnim.enabled = false;
+            //driverPunchedAnim.Play("DriverKiss");
+
+            Fist.transform.position = new Vector3(6.3f, -9.14f, 0);
+            Phone.transform.position = new Vector3(-1.39f, -0.06f, 0);
+            
+            ResetScreenFade();
+        }
+
+        //Possibly need to turn off Finger animator before I can enable controls again
         //Reset positions of everything
     }
 }

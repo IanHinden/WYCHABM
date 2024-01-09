@@ -52,7 +52,6 @@ public class MenschGameplay : MonoBehaviour
 
     private void BonusWinEvents()
     {
-        Debug.Log("Bonus win");
         gamecontrols.Disable();
         menschAnimationController.BonusAnimations();
         scorehandler.IncrementBonusScore();
@@ -100,6 +99,7 @@ public class MenschGameplay : MonoBehaviour
     public IEnumerator WinOrLose()
     {
         menschAnimationController.ScreenFade();
+        menschAnimationController.playDriverKiss();
         yield return new WaitForSeconds(2);
         menschAnimationController.enableScreen();
         yield return new WaitForSeconds(1);
@@ -107,6 +107,7 @@ public class MenschGameplay : MonoBehaviour
 
     public void Reset()
     {
-        Debug.Log("reset");
+        tapping.transform.position = new Vector3(3.56f, -1.42f, 0);
+        menschAnimationController.Reset();
     }
 }

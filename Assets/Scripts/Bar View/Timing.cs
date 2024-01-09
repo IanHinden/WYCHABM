@@ -46,6 +46,9 @@ public class Timing : MonoBehaviour
 
     public void Reset()
     {
-        insertCoinsTextAnim.Play("New State");
+        if (insertCoinsTextAnim != null)
+        {
+            insertCoinsTextAnim.Play("New State");
+        }
     }
 }

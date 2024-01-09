@@ -74,7 +74,6 @@ public class Gameplay : MonoBehaviour
         meterObjects.StopRoutine();
 
         gamecontrols.Disable();
-        Debug.Log(score);
     }
 
 

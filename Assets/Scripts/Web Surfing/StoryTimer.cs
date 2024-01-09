@@ -25,7 +25,6 @@ public class StoryTimer : MonoBehaviour
 
     public IEnumerator timedEvents()
     {
-        Debug.Log("Yeah");
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         computerScreen.SetActive(true);
         pointerSR.enabled = true;
