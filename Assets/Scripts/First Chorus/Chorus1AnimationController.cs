@@ -17,10 +17,13 @@ public class Chorus1AnimationController : MonoBehaviour
 
     Animator Chorus1AvaAnim;
     Animator Chorus1RRAnim;
+    Animator BadmanAnim;
     void Awake()
     {
         Chorus1AvaAnim = Chorus1Ava.GetComponent<Animator>();
         Chorus1RRAnim = Chorus1RR.GetComponent<Animator>();
+
+        BadmanAnim = Badman.GetComponent<Animator>();
 
         //StartCoroutine(CardAnimations());
         //StartCoroutine(LyricsTimer());
@@ -51,6 +54,7 @@ public class Chorus1AnimationController : MonoBehaviour
         Him.SetActive(true);
         yield return new WaitForSeconds(0.1680734f);
         Badman.SetActive(true);
+        BadmanAnim.Play("BadmanSlide");
         //yield return new WaitForSeconds(0.1945287f);
         //yield return new WaitForSeconds(0.5377512f);
         //yield return new WaitForSeconds(0.5015675f);
