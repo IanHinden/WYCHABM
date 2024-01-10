@@ -15,7 +15,6 @@ public class Timing : MonoBehaviour
     private void Awake()
     {
         insertCoinsTextAnim = insertCoinsText.GetComponent<Animator>();
-        StartCoroutine(WaitressMove());
     }
 
     public IEnumerator WaitressMove()
@@ -41,14 +40,6 @@ public class Timing : MonoBehaviour
             mainCamera.orthographicSize = Mathf.Lerp(startOrthographicSize, 3.5f, t);
             mainCamera.transform.position = Vector3.Lerp(startPosition, new Vector3(-2.32f, 0.81f, -10f), t);
             yield return null;
-        }
-    }
-
-    public void Reset()
-    {
-        if (insertCoinsTextAnim != null)
-        {
-            insertCoinsTextAnim.Play("New State");
         }
     }
 }
