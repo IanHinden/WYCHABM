@@ -31,7 +31,7 @@ public class PsychoAnimationController : MonoBehaviour
     public void StartOedipalBonus()
     {
         oedipaBonus.SetActive(true);
-        oedipalBonusAnim.SetTrigger("Bonus");
+        oedipalBonusAnim.SetBool("Bonus", true);
     }
 
     public void Reset()
@@ -39,7 +39,7 @@ public class PsychoAnimationController : MonoBehaviour
         if (oedipalBonusAnim != null)
         {
             oedipaBonus.SetActive(false);
-            oedipalBonusAnim.ResetTrigger("Bonus");
+            oedipalBonusAnim.SetBool("Bonus", false);
             freudStickHolderAnim.ResetTrigger("Raise");
             freudStickAnim.ResetTrigger("Wiggle");
         }
