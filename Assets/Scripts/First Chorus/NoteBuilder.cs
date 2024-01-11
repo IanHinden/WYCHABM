@@ -12,8 +12,11 @@ public class NoteBuilder : MonoBehaviour
     [SerializeField] GameObject rightArrow;
 
     float speed = 200f;
+    private float time = 0;
     void Awake()
     {
+        spawnDownArrow();
+        spawnLeftArrow();
         gamecontrols = new GameControls();
 
         gamecontrols.Select.UpSelect.performed += x => spawnUpArrow();
@@ -34,6 +37,7 @@ public class NoteBuilder : MonoBehaviour
 
     private void spawnDownArrow()
     {
+        TimeStamp();
         Vector3 spawnPosition = transform.position + new Vector3(-189f, 0f, 0f); // Calculate the spawn position
         //Quaternion spawnRotation = Quaternion.Euler(0f, 0f, 90f); // Define the rotation
         GameObject DownArrow = Instantiate(leftArrow, spawnPosition, Quaternion.identity);
@@ -45,6 +49,7 @@ public class NoteBuilder : MonoBehaviour
 
     private void spawnUpArrow()
     {
+        TimeStamp();
         Vector3 spawnPosition = transform.position + new Vector3(-284.1f, 0f, 0f); // Calculate the spawn position
         Quaternion spawnRotation = Quaternion.Euler(0f, 0f, 180f); // Define the rotation
         GameObject UpArrow = Instantiate(leftArrow, spawnPosition, spawnRotation);
@@ -55,6 +60,7 @@ public class NoteBuilder : MonoBehaviour
 
     private void spawnLeftArrow()
     {
+        TimeStamp();
         Vector3 spawnPosition = transform.position + new Vector3(-379.8f, 0f, 0f); // Calculate the spawn position
         Quaternion spawnRotation = Quaternion.Euler(0f, 0f, -90f); // Define the rotation
         GameObject LeftArrow = Instantiate(leftArrow, spawnPosition, spawnRotation);
@@ -64,11 +70,23 @@ public class NoteBuilder : MonoBehaviour
     }
     private void spawnRightArrow()
     {
+        TimeStamp();
         Vector3 spawnPosition = transform.position + new Vector3(-93.3f, 0f, 0f); // Calculate the spawn position
         Quaternion spawnRotation = Quaternion.Euler(0f, 0f, 90f); // Define the rotation
         GameObject RightArrow = Instantiate(leftArrow, spawnPosition, spawnRotation);
         RightArrow.transform.SetParent(transform);
         Rigidbody arrowRB = RightArrow.GetComponent<Rigidbody>();
         arrowRB.velocity = Vector3.down * speed;
+    }
+
+    private void TimeStamp()
+    {
+        Debug.Log(time);
+        time = 0;
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
     }
 }
