@@ -49,16 +49,16 @@ public class Hand : MonoBehaviour
         if (movementInput.x != 0 || movementInput.y != 0)
         {
             moved = true;
-            Pointing.SetActive(false);
-            Clapping.SetActive(false);
-            WatchingObjects.SetActive(true);
-            Watching1.SetActive(false);
-            Watching2.SetActive(true);
-        } else
+            //Pointing.SetActive(false);
+            //Clapping.SetActive(false);
+            //WatchingObjects.SetActive(true);
+            //Watching1.SetActive(false);
+            //Watching2.SetActive(true);
+        }/* else
         {
             Watching1.SetActive(true);
             Watching2.SetActive(false);
-        }
+        }*/
 
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;

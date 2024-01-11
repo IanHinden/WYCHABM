@@ -7,18 +7,16 @@ public class Contract : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
-    [SerializeField] Hand hand;
-    [SerializeField] Print print;
 
-    [SerializeField] GameObject Pointing;
-    [SerializeField] GameObject Clapping;
+    [SerializeField] ContractAnimationController contractAnimationController;
+
+    [SerializeField] Hand hand;
+    [SerializeField] new Print print;
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
-        Pointing.SetActive(false);
-        Clapping.SetActive(true);
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
+        StartCoroutine(contractAnimationController.PlayRandomAnimation());
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(4));
         DetermineWinOrLoss();
     }
 
