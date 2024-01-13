@@ -89,7 +89,7 @@ public class FirstChorus : MonoBehaviour
 
     public void Reset()
     {
-        gameplayArrows.transform.localPosition = new Vector3(-142f, 1299f, 0);
+        gameplayArrows.transform.localPosition = new Vector3(-42f, 751f, 0);
 
         foreach (Transform child in gameplayArrows.transform)
         {

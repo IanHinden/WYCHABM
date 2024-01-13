@@ -43,7 +43,7 @@ public class ThirdChorus : MonoBehaviour
 
     public void Reset()
     {
-        gameplayArrows.transform.localPosition = new Vector3(-139f, 1964f, 0);
+        gameplayArrows.transform.localPosition = new Vector3(226f, 1568f, 0);
 
         foreach (Transform child in gameplayArrows.transform)
         {
