@@ -45,14 +45,15 @@ public class Chorus1AnimationController : MonoBehaviour
 
     private IEnumerator LyricsTimer()
     {
-        yield return new WaitForSeconds(7.524022f);
+        yield return new WaitForSeconds(7.25545f);
         Would.SetActive(true);
+        yield return new WaitForSeconds(0.3358743f);
         You.SetActive(true);
-        yield return new WaitForSeconds(0.2102633f);
+        yield return new WaitForSeconds(0.1854832f);
         Call.SetActive(true);
-        yield return new WaitForSeconds(0.1721108f);
+        yield return new WaitForSeconds(0.1500647f);
         Him.SetActive(true);
-        yield return new WaitForSeconds(0.1680734f);
+        yield return new WaitForSeconds(0.2023925f);
         Badman.SetActive(true);
         BadmanAnim.Play("BadmanSlide");
         //yield return new WaitForSeconds(0.1945287f);
