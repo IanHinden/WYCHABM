@@ -129,7 +129,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine pregnancyTestCo;
     Coroutine thirdChorusCo;
 
-
+    Coroutine WinOrLoseGameCo;
     void Awake()
     {
         driveCamRender = drivecamera.transform.GetChild(0).GetComponent<Camera>();
@@ -423,10 +423,10 @@ public class TimeKeeper : MonoBehaviour
 
         if(scoreHandler.ReturnScore() < 5)
         {
-            StartCoroutine(LoseGame());
+            WinOrLoseGameCo = StartCoroutine(LoseGame());
         } else
         {
-            StartCoroutine(WinGame());
+            WinOrLoseGameCo = StartCoroutine(WinGame());
         }
     }
 
@@ -474,6 +474,8 @@ public class TimeKeeper : MonoBehaviour
         if (ringsCo != null) StopCoroutine(ringsCo);
         if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
         if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
+
+        if (WinOrLoseGameCo != null) StopCoroutine(WinOrLoseGameCo);
 
         citybehavior.Reset();
         fullcoins.Reset();
