@@ -289,6 +289,7 @@ public class TimeKeeper : MonoBehaviour
         firstChorusCo = StartCoroutine(firstChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(14));
 
+        uihandler.ClearRhythmRating();
         nextScene(); //The Family
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DON'T");
 
@@ -350,6 +351,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
         //Web surfing 20 - 8 = 12; 4 wishlist, 2 Tweak, 4 more Party Guy
+        uihandler.ClearRhythmRating();
         nextScene(); //Web Surfing
         webSurfingCo = StartCoroutine(webSurfing.timedEvents());
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "SPOIL");
@@ -419,6 +421,7 @@ public class TimeKeeper : MonoBehaviour
         thirdChorusCo = StartCoroutine(thirdChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
 
+        uihandler.ClearRhythmRating();
         nextScene(); //Final Boss
 
         if(scoreHandler.ReturnScore() < 5)

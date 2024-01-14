@@ -33,6 +33,7 @@ public class FirstChorus : MonoBehaviour
         }
 
         measure = timefunctions.ReturnSingleMeasure();
+        StartCoroutine(Blink());
     }
 
     public IEnumerator Blink()

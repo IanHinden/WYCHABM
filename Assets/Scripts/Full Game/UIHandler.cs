@@ -12,6 +12,7 @@ public class UIHandler : MonoBehaviour
     [Header("Win/Lose UI")]
     [SerializeField] Image winicon;
     [SerializeField] Image loseicon;
+    [SerializeField] RhythmRatingDisplay rhythmRatingDisplay;
     Image greencircle;
     Image redx;
 
@@ -291,6 +292,11 @@ public class UIHandler : MonoBehaviour
         bonusScore.text = "";
     }
 
+    public void ClearRhythmRating()
+    {
+        rhythmRatingDisplay.ClearText();
+    }
+
     public void Reset()
     {
         ClearWinLoss();
@@ -299,5 +305,6 @@ public class UIHandler : MonoBehaviour
         ClearInstructions();
         ClearSetScoreScreenText();
         HidePauseButton();
+        ClearRhythmRating();
     }
 }
