@@ -28,6 +28,7 @@ public class RoadRacer : MonoBehaviour
 
 	private bool ResetStat = false;
 	private bool fail = false;
+	private bool standardPass = true;
 
 	public Transform Car;
 	float TimeInLane = 0f;
@@ -304,6 +305,11 @@ public class RoadRacer : MonoBehaviour
 	public float GetScore()
     {
 		return TimeInLane;
+    }
+
+	public bool GetStandardPass()
+    {
+		return standardPass;
     }
 
 	private void OnEnable()
@@ -773,11 +779,13 @@ public class RoadRacer : MonoBehaviour
 	private void LoseLogic()
     {
 		fail = true;
+		standardPass = false;
 	}
 
     public void Reset()
     {
 		fail = false;
+		standardPass = true;
 		ResetStat = true;
 		for (int i = 0; i < defaultConePositions.Count; i++)
 		{
@@ -785,9 +793,16 @@ public class RoadRacer : MonoBehaviour
 			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
 		}
 
+		TimeInLane = 0;
+
+		Car.position = new Vector3(111.3f, 74.905f, 0);
+
 		rivalCar1.transform.position = new Vector3(13.2f, 44.1f, 0);
 		rivalCar2.transform.position = new Vector3(48.2f, 19.8f, 0);
 		rivalCar3.transform.position = new Vector3(0.9f, 4.7f, 0);
+
+		fTranckCurvature = 0.0f;//由弯道弧度，车速度共同决定的离心力
+		fPlayerCurvature = 0.0f;//玩家对方向控制的系数
 	}
 
 }

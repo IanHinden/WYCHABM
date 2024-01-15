@@ -24,17 +24,17 @@ public class Target : MonoBehaviour
     {
         pregnancyScore++;
         
-        if(pregnancyScore == 5)
+        if(pregnancyScore == 7)
         {
             pregnancyTestAnimationController.SetPixel1();
         }
 
-        if (pregnancyScore == 5)
+        if (pregnancyScore == 14)
         {
             pregnancyTestAnimationController.SetPixel2();
         }
 
-        if (pregnancyScore == 5)
+        if (pregnancyScore == 21)
         {
             pregnancyTestAnimationController.SetPixel3();
         }

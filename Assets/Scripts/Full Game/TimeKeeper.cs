@@ -76,6 +76,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] Shuffler shuffler; //Scene 16
     [SerializeField] EvolvingSceneController evolvingSC; //Scene 17
     [SerializeField] RoadRacer roadRacer; //Scene 19
+    [SerializeField] DriveWinLoseLogic driveWinLoseLogic; //Scene 19
     [SerializeField] Gameplay cheekToCheek; //Scene 20
     [SerializeField] SecondChorus secondChorus; //Scene 22
     [SerializeField] StoryTimer webSurfing; //Scene 23
@@ -113,6 +114,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine getAJobTimeCo;
     Coroutine psychoCo;
     Coroutine jobInterviewCo;
+    Coroutine driveWinLoseLogicCo;
     Coroutine cheekToCheekCo;
     Coroutine secondChorusCo;
     Coroutine webSurfingCo;
@@ -334,6 +336,7 @@ public class TimeKeeper : MonoBehaviour
         drivecamera.SetActive(true);
         maincamera.SetActive(false);
         audioListener.enabled = true;
+        driveWinLoseLogicCo = StartCoroutine(driveWinLoseLogic.WinOrLose());
         roadRacer.Reset();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(12));
 
@@ -361,6 +364,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Online Dating
+        onlineDatingCo = StartCoroutine(onlineDating.SceneTiming());
         onlineDatingCo = StartCoroutine(onlineDating.SceneTiming());
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "TWEAK");
 
@@ -462,6 +466,7 @@ public class TimeKeeper : MonoBehaviour
         if (psychoCo != null) StopCoroutine(psychoCo);
         if (getAJobTimeCo != null) StopCoroutine(getAJobTimeCo);
         if (jobInterviewCo != null) StopCoroutine(jobInterviewCo);
+        if (driveWinLoseLogicCo != null) StopCoroutine(driveWinLoseLogicCo);
         if (cheekToCheekCo != null) StopCoroutine(cheekToCheekCo);
         if (secondChorusCo != null) StopCoroutine(secondChorusCo);
         if (webSurfingCo != null) StopCoroutine(webSurfingCo);
@@ -512,11 +517,7 @@ public class TimeKeeper : MonoBehaviour
         }
 
         //Reset all UI
-        //dialogue.QuickExit();
         dialogue.Reset();
-        //uihandler.ClearWinLoss();
-        //uihandler.setFrame(false);
-        //uihandler.hideSlider();
         uihandler.Reset();
 
         TitleScreen.SetActive(true);

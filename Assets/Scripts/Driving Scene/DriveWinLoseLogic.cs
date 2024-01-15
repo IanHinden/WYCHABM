@@ -8,21 +8,35 @@ public class DriveWinLoseLogic : MonoBehaviour
     [SerializeField] UIHandler uiHandler;
     [SerializeField] ScoreHandler scoreHandler;
     [SerializeField] TimeFunctions timefunctions;
-    void Awake()
-    {
-        StartCoroutine(WinOrLose());   
-    }
+
+    private bool standardWin = false;
+    private float bonusScore = 0;
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(11));
 
-        if (roadRacer.GetScore() > 10)
+        standardWin = roadRacer.GetStandardPass();
+        bonusScore = roadRacer.GetScore();
+
+        if(bonusScore > 10)
+        {
+            //Bonus score logic
+            Debug.Log("BONUS WIN");
+        } else if (standardWin == true)
+        {
+            uiHandler.WinDisplay();
+        } else
+        {
+            uiHandler.LoseDisplay();
+        }
+
+        /*if (roadRacer.GetScore() > 10)
         {
             Debug.Log("Win");
         } else
         {
             Debug.Log("Lose");
-        }
+        }*/
     }
 }
