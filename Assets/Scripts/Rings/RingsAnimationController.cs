@@ -15,6 +15,11 @@ public class RingsAnimationController : MonoBehaviour
     [SerializeField] GameObject rightDog;
     [SerializeField] GameObject rightDogShocked;
 
+    [SerializeField] GameObject leftShakes;
+    [SerializeField] GameObject rightShakes;
+
+    [SerializeField] GameObject shockedEmotion;
+
     [SerializeField] GameObject diamondRing;
     [SerializeField] GameObject silverRing;
 
@@ -81,9 +86,12 @@ public class RingsAnimationController : MonoBehaviour
     public IEnumerator RightHotdogShake(float duration, float magnitude, int dog)
     {
         GameObject theDog = dog == 0 ? right : left;
+        GameObject theShakes = dog == 0 ? rightShakes : leftShakes;
         Vector3 originalPos = theDog.transform.localPosition;
 
         float elapsed = 0.0f;
+
+        theShakes.SetActive(true);
 
         while (elapsed < duration)
         {
@@ -96,15 +104,30 @@ public class RingsAnimationController : MonoBehaviour
 
             yield return null;
         }
+
+        theShakes.SetActive(false);
     }
 
     public void setPos1()
     {
+        StartCoroutine(shockedEmotionAppear());
+
         leftDogSR.enabled = false;
         leftDogShockedSR.enabled = true;
         rightDogSR.enabled = false;
         rightDogShockedSR.enabled = true;
         silverRingAnim.SetTrigger("Pos1");
+    }
+
+    private IEnumerator shockedEmotionAppear()
+    {
+        shockedEmotion.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        shockedEmotion.SetActive(false);
+        yield return new WaitForSeconds(.2f);
+        shockedEmotion.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        shockedEmotion.SetActive(false);
     }
 
     public void SetPos2()
