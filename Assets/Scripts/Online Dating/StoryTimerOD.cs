@@ -35,10 +35,36 @@ public class StoryTimerOD : MonoBehaviour
         frontSR.enabled = true;
         backSR.enabled = false;
 
-        fullBubbles.SetActive(false);
-        emptyBubbles.SetActive(true);
+        FullBubblesActivation(false);
+        EmptyBubblesActivation(true);
         yield return new WaitForSeconds(measureMS * 2);
         flashingMove.SetTrigger("Flash");
+    }
+
+    private void FullBubblesActivation(bool activate)
+    {
+        foreach (Transform child in fullBubbles.transform)
+        {
+            SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = activate;
+            }
+        }
+    }
+
+    private void EmptyBubblesActivation(bool activate)
+    {
+        foreach (Transform child in emptyBubbles.transform)
+        {
+            SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = activate;
+            }
+        }
     }
 
     public void Reset()
@@ -46,8 +72,8 @@ public class StoryTimerOD : MonoBehaviour
         front.transform.position = new Vector3(0, 0, 0);
         front.transform.localScale = new Vector3(.4632f, .4632f, .4632f);
         
-        fullBubbles.SetActive(true);
-        emptyBubbles.SetActive(false);
+        FullBubblesActivation(true);
+        EmptyBubblesActivation(false);
 
         if (flashingMove != null)
         {
