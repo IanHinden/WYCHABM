@@ -11,17 +11,14 @@ public class FinalScore : MonoBehaviour
     private string standardScore;
     private string bonusScore;
 
-    void Awake()
-    {
-        ScoreText();
-    }
-
-    public void ScoreText()
+    public IEnumerator ScoreText()
     {
         standardScore = scoreHandler.ReturnScore().ToString();
         bonusScore = scoreHandler.ReturnBonusScore().ToString();
 
         uiHandler.SetScoreScreenStandardScore(standardScore + "/16");
         uiHandler.SetScoreScreenBonusScore(bonusScore + "/10");
+
+        yield return null;
     }
 }

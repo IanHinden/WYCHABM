@@ -92,6 +92,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] RingsGameplay ringsGameplay; //Scene 35
     [SerializeField] Target pregnancyTest; //Scene 37
     [SerializeField] ThirdChorus thirdChorus; //Scene 38
+    [SerializeField] FinalScore finalScore; //Scene 41
     //30, 35, 37. 
 
 
@@ -130,6 +131,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine ringsCo;
     Coroutine pregnancyTestCo;
     Coroutine thirdChorusCo;
+    Coroutine FinalScoreCo;
 
     Coroutine WinOrLoseGameCo;
     void Awake()
@@ -217,6 +219,7 @@ public class TimeKeeper : MonoBehaviour
     {
         nextScene();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        FinalScoreCo = StartCoroutine(finalScore.ScoreText());
         nextScene();
 
     }
@@ -231,6 +234,7 @@ public class TimeKeeper : MonoBehaviour
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
         currentActiveScene.SetActive(false);
+        FinalScoreCo = StartCoroutine(finalScore.ScoreText());
         scoreScreen.SetActive(true);
 
         currentScene = currentScene + 2;
@@ -482,6 +486,7 @@ public class TimeKeeper : MonoBehaviour
         if (ringsCo != null) StopCoroutine(ringsCo);
         if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
         if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
+        if (FinalScoreCo != null) StopCoroutine(FinalScoreCo);
 
         if (WinOrLoseGameCo != null) StopCoroutine(WinOrLoseGameCo);
 
