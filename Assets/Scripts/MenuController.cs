@@ -36,4 +36,10 @@ public class MenuController : MonoBehaviour
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
     }
+
+    public void hideInstructions()
+    {
+        titleScreen.SetActive(true);
+        instructionsMenu3.SetActive(false);
+    }
 }
