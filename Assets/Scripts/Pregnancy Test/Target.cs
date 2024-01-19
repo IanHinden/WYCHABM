@@ -8,6 +8,7 @@ public class Target : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
     [SerializeField] PregnancyAnimationController pregnancyTestAnimationController;
+    [SerializeField] PregnancyTestGameplay pregnancyTestGameplay;
 
     [SerializeField] GameObject strawberry;
     [SerializeField] Streamer streamer;
@@ -54,6 +55,7 @@ public class Target : MonoBehaviour
         streamer.StartStream();
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
+        pregnancyTestGameplay.OnDisable();
         DetermineWinOrLoss();
     }
 
@@ -69,6 +71,9 @@ public class Target : MonoBehaviour
 
     public void Reset()
     {
+        full = false;
+        pregnancyScore = 0;
+        pregnancyTestAnimationController.Reset();
         strawberry.transform.rotation = Quaternion.identity;
     }
 }

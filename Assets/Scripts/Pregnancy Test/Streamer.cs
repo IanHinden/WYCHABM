@@ -12,11 +12,6 @@ public class Streamer : MonoBehaviour
 
     public Transform shotPoint;
 
-    /*void Awake()
-    {
-        InvokeRepeating("spawnDroplet", 0, 0.1f);
-    }*/
-
     public void HoldIt()
     {
         CancelInvoke();
@@ -24,7 +19,9 @@ public class Streamer : MonoBehaviour
 
     public void StartStream()
     {
-        InvokeRepeating("spawnDroplet", 0, 0.05f);
+        InvokeRepeating("spawnDroplet", 0, 0.06f);
+        HoldIt();
+        InvokeRepeating("spawnDroplet", 0, 0.9f);
     }
 
     private void spawnDroplet()

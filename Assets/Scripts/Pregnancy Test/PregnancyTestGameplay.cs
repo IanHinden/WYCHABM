@@ -20,7 +20,7 @@ public class PregnancyTestGameplay : MonoBehaviour
         gamecontrols.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         gamecontrols.Disable();
     }
