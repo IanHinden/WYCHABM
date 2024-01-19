@@ -20,8 +20,8 @@ public class Streamer : MonoBehaviour
     public void StartStream()
     {
         InvokeRepeating("spawnDroplet", 0, 0.06f);
-        HoldIt();
-        InvokeRepeating("spawnDroplet", 0, 0.9f);
+        //HoldIt();
+        //InvokeRepeating("spawnDroplet", 0, 0.1f);
     }
 
     private void spawnDroplet()
