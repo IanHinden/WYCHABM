@@ -54,9 +54,12 @@ public class PregnancyAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        pixel1SR.enabled = false;
-        pixel2SR.enabled = false;
-        pixel3SR.enabled = false;
-        pixel4SR.enabled = false;
+        if (pixel1SR != null)
+        {
+            pixel1SR.enabled = false;
+            pixel2SR.enabled = false;
+            pixel3SR.enabled = false;
+            pixel4SR.enabled = false;
+        }
     }
 }
