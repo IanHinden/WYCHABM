@@ -254,6 +254,19 @@ public class UIHandler : MonoBehaviour
         StartCoroutine(HideScoreCard());
     }
 
+    public IEnumerator DisplayScoreCardTwo(int score)
+    {
+        int prevscore = score - 2;
+        int midscore = score - 1;
+        scoreCardText.text = prevscore.ToString();
+        scoreCardAnim.SetTrigger("Enter");
+        yield return new WaitForSeconds(.8f);
+        scoreCardText.text = midscore.ToString();
+        yield return new WaitForSeconds(.4f);
+        scoreCardText.text = score.ToString();
+        StartCoroutine(HideScoreCard());
+    }
+
     IEnumerator HideScoreCard()
     {
         yield return new WaitForSeconds(1.3f);

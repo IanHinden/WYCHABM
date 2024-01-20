@@ -15,6 +15,12 @@ public class ScoreHandler : MonoBehaviour
         StartCoroutine(uihandler.DisplayScoreCard(score));
     }
 
+    public void DoubleIncrementScore()
+    {
+        score = score + 2;
+        StartCoroutine(uihandler.DisplayScoreCardTwo(score));
+    }
+
     public void IncrementBonusScore()
     {
         bonusScore++;

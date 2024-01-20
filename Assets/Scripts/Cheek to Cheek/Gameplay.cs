@@ -71,6 +71,8 @@ public class Gameplay : MonoBehaviour
             animationController.MisstressLose();
         }
 
+        TotalScoreDisplay();
+
         meterObjects.StopRoutine();
 
         gamecontrols.Disable();
@@ -116,6 +118,17 @@ public class Gameplay : MonoBehaviour
             {
                 animationController.MisstressLose();
             }
+        }
+    }
+
+    private void TotalScoreDisplay()
+    {
+        if(score == 1)
+        {
+            scorehandler.IncrementScore();
+        } else if (score == 2)
+        {
+            scorehandler.DoubleIncrementScore();
         }
     }
 
