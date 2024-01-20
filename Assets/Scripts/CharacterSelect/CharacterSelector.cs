@@ -291,22 +291,17 @@ public class CharacterSelector : MonoBehaviour
     {
         if (won == false)
         {
-            characterSelectControls.Disable();
-            if (unlocked)
-            {
-                scorehandler.IncrementScore();
-                uihandler.WinDisplay();
-                //uihandler.DisplayBonusScoreCard(starAnim);
-            }
-            else if (moved)
-            {
-                scorehandler.IncrementScore();
-                uihandler.WinDisplay();
-            }
-            else
-            {
-                uihandler.LoseDisplay();
-            }
+            uihandler.LoseDisplay();
+            SelectHomeless();
+        }
+    }
+
+    private void StopEmissions()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            var emission = particles[i].emission;
+            emission.enabled = false;
         }
     }
 
@@ -358,6 +353,10 @@ public class CharacterSelector : MonoBehaviour
         if(OFGirl != null) OFGirl.color = new Color32(126, 126, 126, 255);
         if(CongressWoman != null) CongressWoman.color = new Color32(126, 126, 126, 255);
 
+        OFSelectorSR.enabled = false;
+        HomelessSelectorSR.enabled = false;
+        CongresswomanSelectorSR.enabled = false;
+
         for (int j = 0; j < spotlight.Length; j++)
         {
             if(spotlight[j] != null) spotlight[j].SetActive(false);
@@ -401,6 +400,7 @@ public class CharacterSelector : MonoBehaviour
         selectedGirl = 0;
         won = false;
         moved = false;
+        StopEmissions();
         StopAllAnimations();
         ResetAllTriggers();
         ResetInitialPositions();
