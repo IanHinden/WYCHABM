@@ -184,7 +184,7 @@ public class CharacterSelector : MonoBehaviour
 
         if(unlocked == true)
         {
-            scorehandler.IncrementBonusScore();
+            scorehandler.IncrementBonusScore(2);
         }
     }
 
@@ -298,10 +298,13 @@ public class CharacterSelector : MonoBehaviour
 
     private void StopEmissions()
     {
-        for (int i = 0; i < 3; i++)
+        if (particles[0] != null)
         {
-            var emission = particles[i].emission;
-            emission.enabled = false;
+            for (int i = 0; i < 3; i++)
+            {
+                var emission = particles[i].emission;
+                emission.enabled = false;
+            }
         }
     }
 
@@ -345,21 +348,24 @@ public class CharacterSelector : MonoBehaviour
 
     private void ResetInitialPositions()
     {
-        CongressObjects.transform.position = new Vector3(-16.23f, 0, 0);
-        OFObjects.transform.position = new Vector3(0, 0, 0);
-        HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, 0);
-
-        if(HomelessGirl != null) HomelessGirl.color = new Color32(126, 126, 126, 255);
-        if(OFGirl != null) OFGirl.color = new Color32(126, 126, 126, 255);
-        if(CongressWoman != null) CongressWoman.color = new Color32(126, 126, 126, 255);
-
-        OFSelectorSR.enabled = false;
-        HomelessSelectorSR.enabled = false;
-        CongresswomanSelectorSR.enabled = false;
-
-        for (int j = 0; j < spotlight.Length; j++)
+        if (OFSelectorSR != null)
         {
-            if(spotlight[j] != null) spotlight[j].SetActive(false);
+            CongressObjects.transform.position = new Vector3(-16.23f, 0, 0);
+            OFObjects.transform.position = new Vector3(0, 0, 0);
+            HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, 0);
+
+            if (HomelessGirl != null) HomelessGirl.color = new Color32(126, 126, 126, 255);
+            if (OFGirl != null) OFGirl.color = new Color32(126, 126, 126, 255);
+            if (CongressWoman != null) CongressWoman.color = new Color32(126, 126, 126, 255);
+
+            OFSelectorSR.enabled = false;
+            HomelessSelectorSR.enabled = false;
+            CongresswomanSelectorSR.enabled = false;
+
+            for (int j = 0; j < spotlight.Length; j++)
+            {
+                if (spotlight[j] != null) spotlight[j].SetActive(false);
+            }
         }
     }
 

@@ -11,6 +11,7 @@ public class FullCoins : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] TextMeshProUGUI displayscore;
+    [SerializeField] GameObject coinCollect;
 
     [SerializeField] Coin coin;
     [SerializeField] Backroom backroom;
@@ -19,6 +20,8 @@ public class FullCoins : MonoBehaviour
     SpriteRenderer avaSprite;
 
     Animator officeLightAnim;
+
+    AudioSource coinCollectSound;
 
     int timeBeforeDoorClose = 3;
 
@@ -33,6 +36,7 @@ public class FullCoins : MonoBehaviour
         Coin.CoinGet += MinusCoin;
         avaSprite = Ava.GetComponent<SpriteRenderer>();
         officeLightAnim = officeLight.GetComponent<Animator>();
+        coinCollectSound = coinCollect.GetComponent<AudioSource>();
         Reset();
     }
 
@@ -66,6 +70,7 @@ public class FullCoins : MonoBehaviour
     private void MinusCoin(int amount)
     {
         remainingCoins--;
+        coinCollectSound.Play();
         if (remainingCoins == 0 && levelComplete == false)
         {
             levelComplete = true;
@@ -94,22 +99,24 @@ public class FullCoins : MonoBehaviour
     {
         if (!levelComplete)
         {
-            if (remainingCoins == 0)
+            uihandler.LoseDisplay();
+            controller.OnDisable();
+            /*if (remainingCoins == 0)
             {
                 uihandler.WinDisplay();
                 controller.OnDisable();
                 scorehandler.IncrementScore();
             }
             else
-            {
-                uihandler.LoseDisplay();
-                controller.OnDisable();
-            }
+            {*/
+            //}
         }
 
         if (bonusWin == true)
         {
-            scorehandler.IncrementBonusScore();
+            scorehandler.IncrementScore();
+            scorehandler.IncrementBonusScore(1);
+            uihandler.WinDisplay();
         }
     }
 

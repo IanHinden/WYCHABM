@@ -267,6 +267,12 @@ public class UIHandler : MonoBehaviour
         StartCoroutine(HideScoreCard());
     }
 
+    public IEnumerator DisplayBonusScoreCard(int numberPerson)
+    {
+        yield return null;
+        Debug.Log(numberPerson);
+    }
+
     IEnumerator HideScoreCard()
     {
         yield return new WaitForSeconds(1.3f);

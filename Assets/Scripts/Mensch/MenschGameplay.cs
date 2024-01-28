@@ -54,7 +54,7 @@ public class MenschGameplay : MonoBehaviour
     {
         gamecontrols.Disable();
         menschAnimationController.BonusAnimations();
-        scorehandler.IncrementBonusScore();
+        scorehandler.IncrementBonusScore(8);
     }
 
     private void Win()

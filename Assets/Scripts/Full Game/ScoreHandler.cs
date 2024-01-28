@@ -9,6 +9,7 @@ public class ScoreHandler : MonoBehaviour
 
     private int score = 0;
     private int bonusScore = 0;
+    private bool[] bonusesDiscovered = new bool[10];
     public void IncrementScore()
     {
         score++;
@@ -21,11 +22,18 @@ public class ScoreHandler : MonoBehaviour
         StartCoroutine(uihandler.DisplayScoreCardTwo(score));
     }
 
-    public void IncrementBonusScore()
+    public void IncrementBonusScore(int numberPerson)
     {
-        bonusScore++;
+        if(bonusesDiscovered[numberPerson - 1] == false)
+        {
+            bonusScore++;
+            bonusesDiscovered[numberPerson - 1] = true;
+            uihandler.DisplayBonusScoreCard(numberPerson);
+        } else
+        {
+            uihandler.DisplayBonusScoreCard(numberPerson);
+        }
         Debug.Log("Bonus score is: " + bonusScore.ToString());
-        //Put code here to display bonus score card
     }
 
     public void ResetScore()
