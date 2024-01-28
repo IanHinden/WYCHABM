@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    [SerializeField] GameObject Pointing;
-    [SerializeField] GameObject Clapping;
-    [SerializeField] GameObject WatchingObjects;
-    [SerializeField] GameObject Watching1;
-    [SerializeField] GameObject Watching2;
+    [SerializeField] ContractAudioController penSound;
 
     private GameControls gamecontrols;
     private new Print print;
     private bool moved = false;
+    private bool playing = false;
 
     private float speed = 5f;
     
@@ -49,16 +46,16 @@ public class Hand : MonoBehaviour
         if (movementInput.x != 0 || movementInput.y != 0)
         {
             moved = true;
-            //Pointing.SetActive(false);
-            //Clapping.SetActive(false);
-            //WatchingObjects.SetActive(true);
-            //Watching1.SetActive(false);
-            //Watching2.SetActive(true);
-        }/* else
+            if (playing == false)
+            {
+                playing = true;
+                penSound.PlayPen();
+            }
+        } else
         {
-            Watching1.SetActive(true);
-            Watching2.SetActive(false);
-        }*/
+            penSound.PausePen();
+            playing = false;
+        }
 
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput.x * speed * Time.deltaTime;

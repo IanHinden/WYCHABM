@@ -18,7 +18,7 @@ public class RingsGameplay : MonoBehaviour
         gamecontrols = new GameControls();
         gamecontrols.Move.Select.performed += x => RemoveRing();
 
-        //StartCoroutine(WinOrLose());
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()

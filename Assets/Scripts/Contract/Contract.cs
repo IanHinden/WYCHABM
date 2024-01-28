@@ -9,6 +9,7 @@ public class Contract : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
 
     [SerializeField] ContractAnimationController contractAnimationController;
+    [SerializeField] ContractAudioController contractAudioController;
 
     [SerializeField] Hand hand;
     [SerializeField] new Print print;
@@ -40,5 +41,6 @@ public class Contract : MonoBehaviour
         hand.resetMoved();
         print.DeletePenLine();
         print.createLine();
+        contractAudioController.ResetPen();
     }
 }
