@@ -28,8 +28,12 @@ public class UIHandler : MonoBehaviour
 
     [Header("Score UI")]
     [SerializeField] GameObject scorecard;
+    [SerializeField] GameObject scorecardSlideInSFX;
+    [SerializeField] GameObject scorecardSlideOutSFX;
     private Animator scoreCardAnim;
     private TextMeshProUGUI scoreCardText;
+    private AudioSource scorecardSlideInSFXAS;
+    private AudioSource scorecardSlideOutSFXAS;
 
     [SerializeField] GameObject frame;
 
@@ -62,6 +66,9 @@ public class UIHandler : MonoBehaviour
 
         scoreCardAnim = scorecard.GetComponent<Animator>();
         scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        scorecardSlideInSFXAS = scorecardSlideInSFX.GetComponent<AudioSource>();
+        scorecardSlideOutSFXAS = scorecardSlideOutSFX.GetComponent<AudioSource>();
     }
 
     public void HidePauseButton()
@@ -255,9 +262,13 @@ public class UIHandler : MonoBehaviour
         int prevscore = score - 1;
         scoreCardText.text = prevscore.ToString();
         scoreCardAnim.SetTrigger("Enter");
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.3f);
+        scorecardSlideInSFXAS.Play();
+        yield return new WaitForSeconds(.5f);
         scoreCardText.text = score.ToString();
         StartCoroutine(HideScoreCard());
+        yield return new WaitForSeconds(1.5f);
+        scorecardSlideOutSFXAS.Play();
     }
 
     public IEnumerator DisplayScoreCardTwo(int score)
@@ -266,11 +277,15 @@ public class UIHandler : MonoBehaviour
         int midscore = score - 1;
         scoreCardText.text = prevscore.ToString();
         scoreCardAnim.SetTrigger("Enter");
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.3f);
+        scorecardSlideInSFXAS.Play();
+        yield return new WaitForSeconds(.5f);
         scoreCardText.text = midscore.ToString();
         yield return new WaitForSeconds(.4f);
         scoreCardText.text = score.ToString();
         StartCoroutine(HideScoreCard());
+        yield return new WaitForSeconds(1.5f);
+        scorecardSlideOutSFXAS.Play();
     }
 
     public IEnumerator DisplayBonusScoreCard(int numberPerson)
