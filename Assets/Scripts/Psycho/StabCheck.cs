@@ -48,6 +48,7 @@ public class StabCheck : MonoBehaviour
             liveDaddy.SetActive(false);
             deadDaddy.SetActive(true);
             uihandler.WinDisplay();
+            scorehandler.IncrementScore();
         }
     }
 
