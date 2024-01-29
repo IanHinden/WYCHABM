@@ -20,6 +20,8 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
     [SerializeField] TextMeshProUGUI countdown;
+    [SerializeField] CountdownTick countdownTick;
+    [SerializeField] CountdownTok countdownTok;
 
     [SerializeField] TextMeshProUGUI textmesh;
     [SerializeField] TextMeshProUGUI kissHitText;
@@ -126,18 +128,22 @@ public class UIHandler : MonoBehaviour
         }
 
         countdown.text = "3";
+        countdownTick.playTick();
         timerSlider.value = 3;
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "2";
+        countdownTok.playTok();
         timerSlider.value = 2;
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "1";
+        countdownTick.playTick();
         timerSlider.value = 1;
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "0";
+        countdownTok.playTok();
         timerSlider.value = 0;
     }
 

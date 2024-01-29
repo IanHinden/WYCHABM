@@ -38,6 +38,9 @@ public class ChrisCharacterSelector : MonoBehaviour
     SpriteRenderer OFSelectorSR;
     SpriteRenderer HomelessSelectorSR;
 
+    [SerializeField] GameObject CharacterHighlightSFX;
+    private AudioSource CharacterHighlightSFXAS;
+
     Animator OFGirlAnim;
     Animator HomelessGirlAnim;
     Animator CongressAnim;
@@ -81,6 +84,8 @@ public class ChrisCharacterSelector : MonoBehaviour
         OFGirlAnim = OFGirl.GetComponent<Animator>();
         HomelessGirlAnim = HomelessGirl.GetComponent<Animator>();
         CongressAnim = Congresswoman.GetComponent<Animator>();
+
+        CharacterHighlightSFXAS = CharacterHighlightSFX.GetComponent<AudioSource>();
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
@@ -165,6 +170,7 @@ public class ChrisCharacterSelector : MonoBehaviour
 
     void SelectOF()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 2;
         HomelessGirlSR.color = deselectColor;
         OFGirlSR.color = selectColor;
@@ -183,6 +189,7 @@ public class ChrisCharacterSelector : MonoBehaviour
 
     void SelectHomeless()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 1;
         OFGirlSR.color = deselectColor;
         HomelessGirlSR.color = selectColor;
@@ -200,6 +207,7 @@ public class ChrisCharacterSelector : MonoBehaviour
 
     void SelectCongresswoman()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 0;
         OFGirlSR.color = deselectColor;
         HomelessGirlSR.color = deselectColor;

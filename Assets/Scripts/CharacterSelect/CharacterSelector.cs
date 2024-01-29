@@ -24,6 +24,9 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] GameObject HomelessSelector;
     [SerializeField] GameObject CongresswomanSelector;
 
+    [SerializeField] GameObject CharacterHighlightSFX;
+    private AudioSource CharacterHighlightSFXAS;
+
     private GameControls characterSelectControls;
 
     SpriteRenderer OFGirl;
@@ -107,6 +110,8 @@ public class CharacterSelector : MonoBehaviour
         CongressSignSR = CongressSign.GetComponent<SpriteRenderer>();
         OFSignSR = OFSign.GetComponent<SpriteRenderer>();
         HomelessSignSR = HomelessSign.GetComponent<SpriteRenderer>();
+
+        CharacterHighlightSFXAS = CharacterHighlightSFX.GetComponent<AudioSource>();
 
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
@@ -223,6 +228,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectOF()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 2;
         HomelessGirl.color = selected;
         OFGirl.color = deselected;
@@ -243,6 +249,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectHomeless()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 1;
         OFGirl.color = selected;
         HomelessGirl.color = deselected;
@@ -263,6 +270,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectCongresswoman()
     {
+        CharacterHighlightSFXAS.Play();
         selectedGirl = 0;
         OFGirl.color = deselected;
         HomelessGirl.color = deselected;
