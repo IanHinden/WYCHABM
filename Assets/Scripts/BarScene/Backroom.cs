@@ -10,12 +10,16 @@ public class Backroom : MonoBehaviour
     [SerializeField] GameObject Ava;
     [SerializeField] GameObject Ava2;
 
+    [SerializeField] GameObject bonusCollectSFX;
+
     BoxCollider2D backroomCol;
     CapsuleCollider2D capCol;
 
     SpriteRenderer AvaSR;
     SpriteRenderer Ava2SR;
     Animator AvaAnim;
+
+    AudioSource bonusCollectSFXAS;
 
     private bool moved = false;
 
@@ -26,6 +30,7 @@ public class Backroom : MonoBehaviour
         AvaAnim = Ava2.GetComponent<Animator>();
         backroomCol = gameObject.GetComponent<BoxCollider2D>();
         capCol = gameObject.GetComponent<CapsuleCollider2D>();
+        bonusCollectSFXAS = bonusCollectSFX.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,6 +71,8 @@ public class Backroom : MonoBehaviour
 
             yield return new WaitForSeconds(0.00000005f); // update interval
         }
+        yield return new WaitForSeconds(2f);
+        bonusCollectSFXAS.Play();
     }
 
     public void ToggleTrigger(bool on)
