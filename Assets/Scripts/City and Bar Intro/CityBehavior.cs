@@ -95,7 +95,7 @@ public class CityBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(.8f);
         dialogue.DialogueExit();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.6f);
 
         avaPos1.SetActive(false);
         avaPos2.SetActive(true);
