@@ -20,8 +20,11 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] GameObject talkingEyes;
     [SerializeField] GameObject staringEyes;
     [SerializeField] GameObject sweatDrop;
-    
-    //[SerializeField] PittiePartyDialogue pittiePartyDialogue;
+
+    [Header("Audio Objects")]
+    [SerializeField] CityAndBarSFX cityAndBarSFX;
+
+    [Header("Dialog Objects")]
     [SerializeField] Dialogue dialogue;
     [SerializeField] TextMeshPro bigPittiesText;
     [SerializeField] UIHandler uihandler;
@@ -76,11 +79,13 @@ public class CityBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         puffAnimator.SetTrigger("TriggerPuff");
+        cityAndBarSFX.AvaSigh();
         dialogue.DialogueEnter();
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2.2f);
         ppgAnimator.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
+        cityAndBarSFX.LucyEnter();
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.5f);
         dialogue.DialogueEnter();
@@ -88,6 +93,7 @@ public class CityBehavior : MonoBehaviour
         yield return new WaitForSeconds(2f);
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;
+        cityAndBarSFX.AvaBlink();
         //dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
         yield return new WaitForSeconds(1.7f);
 
@@ -97,12 +103,15 @@ public class CityBehavior : MonoBehaviour
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.6f);
 
+        cityAndBarSFX.AvaProud();
         avaPos1.SetActive(false);
         avaPos2.SetActive(true);
 
+        yield return new WaitForSeconds(.2f);
         lucyTalkingEyes.enabled = false;
         lucyStaringEyes.enabled = true;
         sweatAnimator.SetTrigger("SetSweat");
+        cityAndBarSFX.LucySweat();
 
 
         dialogue.DialogueEnter();
