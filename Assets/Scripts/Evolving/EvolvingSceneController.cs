@@ -8,6 +8,7 @@ public class EvolvingSceneController : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     //[SerializeField] EvolvingText evolvingText;
     [SerializeField] GameObject evolvingText;
+    [SerializeField] EvolvingSFX evolvingSFX;
 
     private TextMeshPro textmesh;
 
@@ -33,20 +34,15 @@ public class EvolvingSceneController : MonoBehaviour
         badManSR = BadMan.GetComponent<SpriteRenderer>();
         mixedSR = Mixed.GetComponent<SpriteRenderer>();
 
-        //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(5).GetComponent<Animator>();
-
         textmesh = evolvingText.GetComponent<TextMeshPro>();
 
         gamecontrols.Move.Stop.performed += x => StopEvolution();
         setIntroText();
-        /*blinking = Blinking();
-        evolving = setEvolvedText();
-
-        StartCoroutine(blinking);*/
     }
 
     public void WinOrLose()
     {
+        StartCoroutine(evolvingSFX.PlayYoungPigSquealing());
         blinking = Blinking();
         evolving = setEvolvedText();
 
@@ -105,6 +101,7 @@ public class EvolvingSceneController : MonoBehaviour
         displayBadBoy();
         yield return new WaitForSeconds(.05f);
         displayBadMan();
+        evolvingSFX.PlayAdultPigSqueal();
 
         yield return new WaitForSeconds(1f);
         StartCoroutine(evolving);
@@ -178,6 +175,8 @@ public class EvolvingSceneController : MonoBehaviour
                 yield return null;
             }
         }
+
+        StartCoroutine(evolvingSFX.PlayYoungPigSquealing());
     }
 
     public void Reset()
