@@ -19,7 +19,7 @@ public class EvolvingSFX : MonoBehaviour
     public IEnumerator PlayYoungPigSquealing()
     {
         youngPigSquealAS.Play();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         youngPigSquealAS.Play();
     }
 
