@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ContractAnimationController : MonoBehaviour
 {
+    [SerializeField] ContractAudioController contractAudioController;
+
     [SerializeField] GameObject Pointing;
     [SerializeField] GameObject Clapping;
     [SerializeField] GameObject WatchingObjects;
@@ -63,6 +65,7 @@ public class ContractAnimationController : MonoBehaviour
             yield return new WaitForSeconds(randomWaitTime);
 
             int randomFunctionIndex = Random.Range(0, 3);
+            contractAudioController.PlaySwitch();
             switch (randomFunctionIndex)
             {
                 case 0:

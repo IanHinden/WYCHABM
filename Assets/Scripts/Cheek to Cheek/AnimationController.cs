@@ -34,6 +34,9 @@ public class AnimationController : MonoBehaviour
     [SerializeField] GameObject FaceWink;
     [SerializeField] GameObject HandsLose;
 
+    [Header("Sound Effects Controller")]
+    [SerializeField] CheekToCheekSFXController cheekToCheekSFXController;
+
     SpriteRenderer BruiseSR;
     SpriteRenderer HandsWin1SR;
     SpriteRenderer HandsWin2SR;
@@ -75,6 +78,7 @@ public class AnimationController : MonoBehaviour
     {
         KissObjectsNeutral.SetActive(false);
         KissObjectsWin.SetActive(true);
+        cheekToCheekSFXController.PlayKiss();
     }
 
     public void KissLose()
@@ -83,6 +87,7 @@ public class AnimationController : MonoBehaviour
         KissObjectLose.SetActive(true);
         BrokenHeartAnim.SetTrigger("Break");
         LeafAnim.SetTrigger("Blow");
+        StartCoroutine(cheekToCheekSFXController.PlayLonelyWind());
     }
 
     public void MisstressWin()
@@ -92,6 +97,7 @@ public class AnimationController : MonoBehaviour
         MistressObjectsWin.SetActive(true);
 
         SlapAnim.SetTrigger("Slap");
+        cheekToCheekSFXController.PlayHit();
     }
 
     public void MisstressLose()

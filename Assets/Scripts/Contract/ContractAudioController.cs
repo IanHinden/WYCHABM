@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class ContractAudioController : MonoBehaviour
 {
-    private AudioSource penSound;
+    [SerializeField] GameObject penSound;
+    [SerializeField] GameObject switchBeep;
+
+    private AudioSource penSoundAS;
+    private AudioSource switchBeepAS;
     void Awake()
     {
-        penSound = this.GetComponent<AudioSource>();
+        penSoundAS = penSound.GetComponent<AudioSource>();
+        switchBeepAS = switchBeep.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     public void PlayPen()
     {
-        penSound.Play();
+        penSoundAS.time = 1;
+        penSoundAS.Play();
     }
 
     public void PausePen()
     {
-        penSound.Pause();
+        penSoundAS.Pause();
     }
 
     public void ResetPen()
     {
-        penSound.Stop();
-        penSound.time = 0;
+        penSoundAS.Stop();
+        penSoundAS.time = 1;
+    }
+
+    public void PlaySwitch()
+    {
+        switchBeepAS.Play();
     }
 }
