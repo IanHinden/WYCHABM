@@ -71,6 +71,7 @@ public class TweakGameplay : MonoBehaviour
         {
             if (state == 0)
             {
+                tweakSFX.PlayBalloon(1);
                 state++;
                 redBarAnimator.SetTrigger("Two");
                 blueBarAnimator.SetTrigger("Two");
@@ -81,6 +82,7 @@ public class TweakGameplay : MonoBehaviour
 
             if (state == 4)
             {
+                tweakSFX.PlayBalloon(3);
                 redBarAnimator.SetTrigger("Six");
                 blueBarAnimator.SetTrigger("Six");
                 tenKAnimator.SetTrigger("Six");
@@ -94,6 +96,7 @@ public class TweakGameplay : MonoBehaviour
         {
             if (state == 1)
             {
+                tweakSFX.PlayBalloon(1.5f);
                 state++;
                 redBarAnimator.SetTrigger("Three");
                 blueBarAnimator.SetTrigger("Three");
@@ -104,6 +107,7 @@ public class TweakGameplay : MonoBehaviour
 
             if (state == 5)
             {
+                tweakSFX.PlayBalloon(3);
                 redBarAnimator.SetTrigger("Seven");
                 blueBarAnimator.SetTrigger("Seven");
                 tenKAnimator.SetTrigger("Seven");
@@ -120,6 +124,7 @@ public class TweakGameplay : MonoBehaviour
         {
             if (state == 2)
             {
+                tweakSFX.PlayBalloon(2);
                 state++;
                 redBarAnimator.SetTrigger("Four");
                 blueBarAnimator.SetTrigger("Four");
@@ -130,6 +135,7 @@ public class TweakGameplay : MonoBehaviour
 
             if (state == 6)
             {
+                tweakSFX.PlayBalloon(3);
                 redBarAnimator.SetTrigger("Eight");
                 blueBarAnimator.SetTrigger("Eight");
                 tenKAnimator.SetTrigger("Eight");
@@ -142,6 +148,7 @@ public class TweakGameplay : MonoBehaviour
         {
             if (state == 3)
             {
+                tweakSFX.PlayBalloon(2.5f);
                 state++;
                 redBarAnimator.SetTrigger("Five");
                 blueBarAnimator.SetTrigger("Five");
@@ -152,6 +159,7 @@ public class TweakGameplay : MonoBehaviour
 
             if (state == 7)
             {
+                tweakSFX.PlayBalloon(3);
                 state++;
                 won = true;
                 scorehandler.IncrementScore();
@@ -176,9 +184,6 @@ public class TweakGameplay : MonoBehaviour
     private void RotateRight()
     {
         firstBlink = false;
-        if(won == false) {
-            tweakSFX.PlayBalloon();
-        }
 
         if(currentlySelected == 3)
         {

@@ -21,8 +21,9 @@ public class TweakSFX : MonoBehaviour
         BlinkSFXAS.Play();
     }
 
-    public void PlayBalloon()
+    public void PlayBalloon(float pitch)
     {
+        BalloonSFXAS.pitch = pitch;
         BalloonSFXAS.Play();
     }
 }
