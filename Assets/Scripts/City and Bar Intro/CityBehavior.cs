@@ -94,14 +94,16 @@ public class CityBehavior : MonoBehaviour
         avaEyesClosed.enabled = false;
         avaEyesOpen.enabled = true;
         cityAndBarSFX.AvaBlink();
-        //dialogue3 = StartCoroutine(dialogue.SetDialogue(dialogueText[2]));
-        yield return new WaitForSeconds(1.7f);
-
-        yield return new WaitForSeconds(.3f);
-
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(.2f);
+        avaEyesClosed.enabled = true;
+        avaEyesOpen.enabled = false;
+        yield return new WaitForSeconds(.2f);
+        avaEyesClosed.enabled = false;
+        avaEyesOpen.enabled = true;
+        cityAndBarSFX.AvaBlink();
+        yield return new WaitForSeconds(2.35f);
         dialogue.DialogueExit();
-        //yield return new WaitForSeconds(.6f);
+
 
         cityAndBarSFX.AvaProud();
         avaPos1.SetActive(false);
