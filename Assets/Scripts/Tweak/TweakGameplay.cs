@@ -4,10 +4,14 @@ using UnityEngine;
 using System.Linq;
 public class TweakGameplay : MonoBehaviour
 {
+    [Header("Essential Functions")]
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] TweakSFX tweakSFX;
+
+    [Header("Game Elements")]
     [SerializeField] GameObject redBar;
     [SerializeField] GameObject blueBar;
 
@@ -35,6 +39,7 @@ public class TweakGameplay : MonoBehaviour
     Coroutine rotateWinCo;
 
     private bool won = false;
+    private bool firstBlink = true;
 
     void Awake()
     {
@@ -170,6 +175,11 @@ public class TweakGameplay : MonoBehaviour
 
     private void RotateRight()
     {
+        firstBlink = false;
+        if(won == false) {
+            tweakSFX.PlayBalloon();
+        }
+
         if(currentlySelected == 3)
         {
             currentlySelected = 0;
@@ -215,16 +225,26 @@ public class TweakGameplay : MonoBehaviour
         while (true)
         {
             currentSR.enabled = false;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.3f);
 
             currentSR.enabled = true;
-            yield return new WaitForSeconds(.1f);
+            if (firstBlink == true)
+            {
+                tweakSFX.PlayBlink();
+            }
+            yield return new WaitForSeconds(.3f);
         }
+    }
+
+    private IEnumerator StartBlink()
+    {
+        yield return new WaitForSeconds(.7f);
+        currentBlink = StartCoroutine(Blink(controlPadButtons[0].GetComponent<SpriteRenderer>()));
     }
 
     public IEnumerator WinOrLose()
     {
-        currentBlink = StartCoroutine(Blink(controlPadButtons[0].GetComponent<SpriteRenderer>()));
+        StartCoroutine(StartBlink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         if(won == false)
@@ -244,5 +264,6 @@ public class TweakGameplay : MonoBehaviour
         state = 0;
         displayCorrectArrow();
         won = false;
+        firstBlink = true;
     }
 }
