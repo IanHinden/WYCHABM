@@ -10,6 +10,8 @@ public class SelectChecker : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
 
+    [SerializeField] WishlistSFX wishlistSFX;
+
     [SerializeField] GameObject arrows;
 
     private GameControls gamecontrols;
@@ -69,6 +71,7 @@ public class SelectChecker : MonoBehaviour
 
     public void setNextActiveArrow()
     {
+        wishlistSFX.PlayHighlight();
         if(activeArrow != arrows.transform.childCount - 1)
         {
             activeArrow++;
@@ -82,6 +85,7 @@ public class SelectChecker : MonoBehaviour
 
     public void setPreviousActiveArrow()
     {
+        wishlistSFX.PlayHighlight();
         if (activeArrow != 0)
         {
             activeArrow--;
