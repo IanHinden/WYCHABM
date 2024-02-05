@@ -9,6 +9,7 @@ public class RingsGameplay : MonoBehaviour
     [SerializeField] UIHandler uihandler;
 
     [SerializeField] RingsAnimationController ringsAnimationController;
+    [SerializeField] RingsSFX ringsSFX;
 
     GameControls gamecontrols;
     float clicked = 0;
@@ -40,6 +41,7 @@ public class RingsGameplay : MonoBehaviour
             //ringoneanim.SetTrigger("Start");
             ringsAnimationController.setPos1();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 0));
+            ringsSFX.PlayBalloon(1);
         }
 
         if (clicked == 2)
@@ -47,30 +49,35 @@ public class RingsGameplay : MonoBehaviour
             //ringoneanim.SetTrigger("Second");
             ringsAnimationController.SetPos2();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 0));
+            ringsSFX.PlayBalloon(1.3f);
         }
 
         if (clicked == 3)
         {
             ringsAnimationController.SetPos3();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 0));
+            ringsSFX.PlayBalloon(1.7f);
         }
 
         if (clicked == 5)
         {
             ringsAnimationController.SetPos4();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 1));
+            ringsSFX.PlayBalloon(2.2f);
         }
 
         if (clicked == 9)
         {
             ringsAnimationController.SetPos5();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 1));
+            ringsSFX.PlayBalloon(2.6f);
         }
 
         if (clicked == 14)
         {
             ringsAnimationController.SetPos6();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 1));
+            ringsSFX.PlayBalloon(3);
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
         }
