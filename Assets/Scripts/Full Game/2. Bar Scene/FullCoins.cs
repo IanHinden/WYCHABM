@@ -31,6 +31,8 @@ public class FullCoins : MonoBehaviour
     private bool levelComplete = false;
     private bool bonusWin = false;
 
+    Coroutine repeatCoinSoundCo;
+
     void Awake()
     {
         Coin.CoinGet += MinusCoin;
@@ -139,6 +141,7 @@ public class FullCoins : MonoBehaviour
         levelComplete = false;
         backroom.Reset();
         if(officeLightAnim != null) officeLightAnim.ResetTrigger("Close");
+        if(repeatCoinSoundCo != null) StopCoroutine(repeatCoinSoundCo);
         bonusWin = false;
 
         officeLight.transform.position = new Vector3(-7.507f, -0.463f, 0);
@@ -159,10 +162,32 @@ public class FullCoins : MonoBehaviour
         levelComplete = true;
     }
 
-    public void setBonusWin()
+    public IEnumerator setBonusWin()
     {
         bonusWin = true;
-        displayscore.text = "2000/" + totalCoins;
+        long score = 10;
+
+        repeatCoinSoundCo = StartCoroutine(RepeatCoinSound());
+
+        while (score < 50000000)
+        {
+            score = score + 654321;
+            displayscore.text = score + "/" + totalCoins;
+            yield return new WaitForSeconds(.001f);
+        }
+
+        StopCoroutine(repeatCoinSoundCo);
+
+        displayscore.text = "50 Billion/" + totalCoins;
+    }
+
+    private IEnumerator RepeatCoinSound()
+    {
+        while (true)
+        {
+            coinCollectSound.Play();
+            yield return new WaitForSeconds(.01f);
+        }
     }
 
     private void CloseDoor()

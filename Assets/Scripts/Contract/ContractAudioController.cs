@@ -18,23 +18,35 @@ public class ContractAudioController : MonoBehaviour
     // Update is called once per frame
     public void PlayPen()
     {
-        penSoundAS.time = 1;
-        penSoundAS.Play();
+        if (penSoundAS != null)
+        {
+            penSoundAS.time = 1;
+            penSoundAS.Play();
+        }
     }
 
     public void PausePen()
     {
-        penSoundAS.Pause();
+        if (penSoundAS != null)
+        {
+            penSoundAS.Pause();
+        }
     }
 
     public void ResetPen()
     {
-        penSoundAS.Stop();
-        penSoundAS.time = 1;
+        if (penSoundAS != null)
+        {
+            penSoundAS.Stop();
+            penSoundAS.time = 1;
+        }
     }
 
     public void PlaySwitch()
     {
-        switchBeepAS.Play();
+        if (switchBeepAS != null)
+        {
+            switchBeepAS.Play();
+        }
     }
 }

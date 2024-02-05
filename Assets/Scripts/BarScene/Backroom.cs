@@ -36,7 +36,7 @@ public class Backroom : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         fullCoins.setLevelComplete();
-        fullCoins.setBonusWin();
+        StartCoroutine(fullCoins.setBonusWin());
         if (moved == false)
         {
             StartCoroutine(MoveToBackroom());
