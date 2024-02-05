@@ -178,7 +178,7 @@ public class FullCoins : MonoBehaviour
 
         StopCoroutine(repeatCoinSoundCo);
 
-        displayscore.text = "50 Billion/" + totalCoins;
+        displayscore.text = "50 BILLION/" + totalCoins;
     }
 
     private IEnumerator RepeatCoinSound()
