@@ -6,14 +6,13 @@ public class Hands : MonoBehaviour
 {
     private GameControls gamecontrols;
 
-    [SerializeField] GameObject TornPaper;
+    [SerializeField] PsychoSFXController psychoSFXController;
 
     private SpriteRenderer handReady;
     private SpriteRenderer handReady2;
     private SpriteRenderer handStab;
     private BoxCollider2D stabCollide;
 
-    private AudioSource tornPaperAS;
     public GameObject stabHole;
 
     private float speed = 5f;
@@ -24,7 +23,6 @@ public class Hands : MonoBehaviour
         handReady = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         handReady2 = this.transform.GetChild(2).GetComponent<SpriteRenderer>();
         handStab = this.transform.GetChild(1).GetComponent<SpriteRenderer>();
-        tornPaperAS = TornPaper.GetComponent<AudioSource>();
         stabCollide = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
     }
 
@@ -66,7 +64,7 @@ public class Hands : MonoBehaviour
             handReady.enabled = false;
             handReady2.enabled = false;
             stabCollide.enabled = true;
-            tornPaperAS.Play();
+            psychoSFXController.PlayTornPaper();
         }
     }
 

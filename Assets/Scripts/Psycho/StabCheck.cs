@@ -9,6 +9,7 @@ public class StabCheck : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
 
     [SerializeField] PsychoAnimationController psychoAnimationController;
+    [SerializeField] PsychoSFXController psychoSFXController;
 
     [SerializeField] GameObject liveDaddy;
     [SerializeField] GameObject deadDaddy;
@@ -29,6 +30,7 @@ public class StabCheck : MonoBehaviour
             {
                 Vector3 textPos = transform.position;
                 textPos.x = transform.position.x + 15;
+                psychoSFXController.PlayOediplayBonus();
                 psychoAnimationController.StartOedipalBonus();
                 StartCoroutine(FreudStickVictory());
                 if (oedipal == false)
