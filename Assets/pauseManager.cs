@@ -9,6 +9,7 @@ public class pauseManager : MonoBehaviour
     public timingManager timingManager;
     public GameOptions gameoptions;
     public AudioSource musicPlayer;
+    public MenuSFX menuSFX;
     public GameObject pauseMenu;
     public GameObject pauseButton;
     private bool isPaused = false;
@@ -34,6 +35,7 @@ public class pauseManager : MonoBehaviour
                 //when pause function is called and the menu is hidden
                 else if (isPaused == false)
                 {
+                    menuSFX.PlayPause();
                     isPaused = true;
                     musicPlayer.pitch = 0;
                     Time.timeScale = 0;
@@ -56,6 +58,7 @@ public class pauseManager : MonoBehaviour
             //when pause function is called and the menu is hidden
             else if (isPaused == false)
             {
+                menuSFX.PlayPause();
                 isPaused = true;
                 musicPlayer.pitch = 0;
                 Time.timeScale = 0;
