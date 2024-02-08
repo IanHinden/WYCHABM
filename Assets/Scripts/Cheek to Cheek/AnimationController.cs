@@ -105,6 +105,7 @@ public class AnimationController : MonoBehaviour
         MistressObjectsNeutral.SetActive(false);
         MistressObjectsLose.SetActive(true);
         HandsLoseAnim.SetTrigger("HandsLose");
+        cheekToCheekSFXController.PlayMiss();
     }
 
     private IEnumerator MisstressWinAppearances()
