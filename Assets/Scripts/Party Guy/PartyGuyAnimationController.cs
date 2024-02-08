@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PartyGuyAnimationController : MonoBehaviour
 {
+    [SerializeField] PartyGuySFX partyGuySFX;
+
     [SerializeField] GameObject bP2NiteText;
     [SerializeField] GameObject hellYeahText;
     [SerializeField] GameObject deliveredText;
@@ -22,11 +24,13 @@ public class PartyGuyAnimationController : MonoBehaviour
 
     public void sendBP2NiteText()
     {
+        partyGuySFX.PlayTextBubble();
         bP2NiteTextAnim.SetTrigger("TextAppear");
     }
 
     public void sendHellYeahText()
     {
+        partyGuySFX.PlayTextBubble();
         hellYeahTextAnim.SetTrigger("TextAppear");
     }
 
