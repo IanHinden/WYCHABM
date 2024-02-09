@@ -25,6 +25,7 @@ public struct VecTrack
 public class RoadRacer : MonoBehaviour
 {
 	private GameControls gameControls;
+	[SerializeField] DrivingSceneSFXController drivingSceneSFXController;
 
 	private bool ResetStat = false;
 	private bool fail = false;
@@ -780,6 +781,9 @@ public class RoadRacer : MonoBehaviour
     {
 		fail = true;
 		standardPass = false;
+
+		drivingSceneSFXController.StopPlayerCarSound();
+		drivingSceneSFXController.PlayCarCrash();
 	}
 
     public void Reset()
@@ -803,6 +807,8 @@ public class RoadRacer : MonoBehaviour
 
 		fTranckCurvature = 0.0f;//由弯道弧度，车速度共同决定的离心力
 		fPlayerCurvature = 0.0f;//玩家对方向控制的系数
+
+		drivingSceneSFXController.PlayPlayerCarSound();
 	}
 
 }
