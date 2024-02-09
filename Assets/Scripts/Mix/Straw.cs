@@ -9,15 +9,15 @@ public class Straw : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
 
     [SerializeField] MixAnimationController animationController;
+    [SerializeField] MixSFXController mixSFXController;
 
     private GameControls gamecontrols;
     private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
 
+    bool stirring = false;
     bool gameOver = false;
-
-    SpriteRenderer window;
 
     void Awake()
     {
@@ -43,6 +43,19 @@ public class Straw : MonoBehaviour
 
         currentPosition += selectInput.x * speed * Time.deltaTime;
         currentPosition = Mathf.Clamp(currentPosition, -.87f, .22f);
+
+        if(selectInput.x != 0)
+        {
+            if(stirring == false)
+            {
+                stirring = true;
+                mixSFXController.PlayStirringIce();
+            }
+        } else
+        {
+            mixSFXController.PauseStirringIce();
+            stirring = false;
+        }
 
         if (currentPosition != currentPos && gameOver == false)
         {
@@ -96,6 +109,7 @@ public class Straw : MonoBehaviour
     public void Reset()
     {
         moveAmount = 0;
+        stirring = false;
         animationController.Reset();
     }
 }
