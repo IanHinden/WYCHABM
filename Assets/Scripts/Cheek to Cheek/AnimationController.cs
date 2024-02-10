@@ -97,7 +97,6 @@ public class AnimationController : MonoBehaviour
         MistressObjectsWin.SetActive(true);
 
         SlapAnim.SetTrigger("Slap");
-        cheekToCheekSFXController.PlayHit();
     }
 
     public void MisstressLose()

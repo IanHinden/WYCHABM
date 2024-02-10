@@ -3845,6 +3845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74313483}
   - component: {fileID: 74313484}
+  - component: {fileID: 74313485}
   m_Layer: 0
   m_Name: Hands
   m_TagString: Untagged
@@ -3887,6 +3888,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &74313485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74313482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89faff3e0dc12bc4c86a1a50cab10ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheekToCheekSFXController: {fileID: 987752138}
 --- !u!1 &75336476
 GameObject:
   m_ObjectHideFlags: 0
@@ -122285,7 +122299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ffd49a70478f3704d88ad124171204cf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.827
+  m_Volume: 0.255
   m_Pitch: 1
   Loop: 1
   Mute: 0
