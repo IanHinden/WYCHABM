@@ -7,6 +7,7 @@ public class Disappointer : MonoBehaviour
     [Header("Required Tools")]
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] DontDisappointSFXController dontDisappointSFXController;
 
     [Header("Pig Objects")]
     [SerializeField] GameObject pigheads;
@@ -48,6 +49,7 @@ public class Disappointer : MonoBehaviour
         if (CareAboutTheOpinionsOfOthers)
         {
             setPhase2();
+            dontDisappointSFXController.PlayLoseSound();
             uihandler.LoseDisplay();
         } else
         {
