@@ -173,6 +173,7 @@ public class CharacterSelector : MonoBehaviour
     {
         if (moved == true)
         {
+            characterSelectSFXController.PlayConfirm();
             StartCoroutine(Blink(selectedGirl));
             won = true;
             scorehandler.IncrementScore();
@@ -397,8 +398,9 @@ public class CharacterSelector : MonoBehaviour
     {
         SpriteRenderer selectedSR = ReturnSelectedSR(selected);
 
-        float blinkTime = (selected == 1 || selected == 2) ? 1.5f : 3f; 
-        while (Time.time < blinkTime)
+        float blinkTime = 5;
+
+        while (blinkTime > 0)
         {
             selectedSR.color = Color.white;
             yield return new WaitForSeconds(.01f);
@@ -408,6 +410,8 @@ public class CharacterSelector : MonoBehaviour
 
             selectedSR.color = Color.white;
             yield return new WaitForSeconds(.01f);
+
+            blinkTime--;
         }
     }
 
