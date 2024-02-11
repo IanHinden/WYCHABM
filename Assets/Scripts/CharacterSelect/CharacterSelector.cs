@@ -432,8 +432,10 @@ public class CharacterSelector : MonoBehaviour
     public void Reset()
     {
         selectedGirl = 0;
+        consecutiveLeftClicks = 0;
         won = false;
         moved = false;
+        unlocked = false;
         StopEmissions();
         StopAllAnimations();
         ResetAllTriggers();
