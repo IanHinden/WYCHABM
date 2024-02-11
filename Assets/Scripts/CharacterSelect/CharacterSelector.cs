@@ -24,8 +24,7 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] GameObject HomelessSelector;
     [SerializeField] GameObject CongresswomanSelector;
 
-    [SerializeField] GameObject CharacterHighlightSFX;
-    private AudioSource CharacterHighlightSFXAS;
+    [SerializeField] CharacterSelectSFXController characterSelectSFXController;
 
     private GameControls characterSelectControls;
 
@@ -111,8 +110,6 @@ public class CharacterSelector : MonoBehaviour
         OFSignSR = OFSign.GetComponent<SpriteRenderer>();
         HomelessSignSR = HomelessSign.GetComponent<SpriteRenderer>();
 
-        CharacterHighlightSFXAS = CharacterHighlightSFX.GetComponent<AudioSource>();
-
         //starAnim = threeSecondsLeft.transform.Find("CountdownImages").transform.GetChild(3).transform.GetChild(3).GetComponent<Animator>();
 
         //StartCoroutine(WinOrLose());
@@ -191,6 +188,19 @@ public class CharacterSelector : MonoBehaviour
         {
             scorehandler.IncrementBonusScore(2);
         }
+
+        if (selectedGirl == 2)
+        {
+            StartCoroutine(characterSelectSFXController.PlayOFSelected());
+        }
+        else if (selectedGirl == 1)
+        {
+            StartCoroutine(characterSelectSFXController.PlayHomelessSelected());
+        }
+        else if (selectedGirl == 0)
+        {
+            StartCoroutine(characterSelectSFXController.PlayCongresswomanSelected());
+        }
     }
 
     private void leftCheck()
@@ -228,7 +238,7 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectOF()
     {
-        CharacterHighlightSFXAS.Play();
+        characterSelectSFXController.PlayHighlight();
         selectedGirl = 2;
         HomelessGirl.color = selected;
         OFGirl.color = deselected;
@@ -249,44 +259,50 @@ public class CharacterSelector : MonoBehaviour
 
     void SelectHomeless()
     {
-        CharacterHighlightSFXAS.Play();
-        selectedGirl = 1;
-        OFGirl.color = selected;
-        HomelessGirl.color = deselected;
-        CongressWoman.color = deselected;
+        if (selectedGirl != 1)
+        {
+            characterSelectSFXController.PlayHighlight();
+            selectedGirl = 1;
+            OFGirl.color = selected;
+            HomelessGirl.color = deselected;
+            CongressWoman.color = deselected;
 
-        CongressSignSR.color = deselected;
-        OFSignSR.color = deselected;
-        HomelessSignSR.color = selected;
+            CongressSignSR.color = deselected;
+            OFSignSR.color = deselected;
+            HomelessSignSR.color = selected;
 
-        OFSelectorSR.enabled = false;
-        HomelessSelectorSR.enabled = true;
-        CongresswomanSelectorSR.enabled = false;
+            OFSelectorSR.enabled = false;
+            HomelessSelectorSR.enabled = true;
+            CongresswomanSelectorSR.enabled = false;
 
-        SelectSpotlight(2);
-        StopAllAnimations();
-        HomelessGirlMoves.SetBool("Breathing", true);
+            SelectSpotlight(2);
+            StopAllAnimations();
+            HomelessGirlMoves.SetBool("Breathing", true);
+        }
     }
 
     void SelectCongresswoman()
     {
-        CharacterHighlightSFXAS.Play();
-        selectedGirl = 0;
-        OFGirl.color = deselected;
-        HomelessGirl.color = deselected;
-        CongressWoman.color = selected;
+        if (selectedGirl != 0)
+        {
+            characterSelectSFXController.PlayHighlight();
+            selectedGirl = 0;
+            OFGirl.color = deselected;
+            HomelessGirl.color = deselected;
+            CongressWoman.color = selected;
 
-        CongressSignSR.color = selected;
-        OFSignSR.color = deselected;
-        HomelessSignSR.color = deselected;
+            CongressSignSR.color = selected;
+            OFSignSR.color = deselected;
+            HomelessSignSR.color = deselected;
 
-        OFSelectorSR.enabled = false;
-        HomelessSelectorSR.enabled = false;
-        CongresswomanSelectorSR.enabled = true;
+            OFSelectorSR.enabled = false;
+            HomelessSelectorSR.enabled = false;
+            CongresswomanSelectorSR.enabled = true;
 
-        SelectSpotlight(0);
-        StopAllAnimations();
-        CongresswomanMoves.SetBool("Breathing", true);
+            SelectSpotlight(0);
+            StopAllAnimations();
+            CongresswomanMoves.SetBool("Breathing", true);
+        }
     }
 
     public IEnumerator WinOrLose()
