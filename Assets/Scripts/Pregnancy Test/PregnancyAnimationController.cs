@@ -6,6 +6,8 @@ public class PregnancyAnimationController : MonoBehaviour
 {
     [SerializeField] GameObject pregnancyTest;
 
+    [SerializeField] PregnancySFXController pregnancySFXController;
+
     Animator pregnancyTestAnim;
 
     [SerializeField] GameObject pixel1;
@@ -30,20 +32,24 @@ public class PregnancyAnimationController : MonoBehaviour
 
     public void SetPixel1()
     {
+        pregnancySFXController.PlayIncrement(1);
         pixel1SR.enabled = true;
     }
     public void SetPixel2()
     {
+        pregnancySFXController.PlayIncrement(1.7f);
         pixel2SR.enabled = true;
     }
 
     public void SetPixel3()
     {
+        pregnancySFXController.PlayIncrement(2.4f);
         pixel3SR.enabled = true;
     }
 
     public void SetPixel4()
     {
+        pregnancySFXController.PlayIncrement(3);
         pixel4SR.enabled = true;
     }
 
