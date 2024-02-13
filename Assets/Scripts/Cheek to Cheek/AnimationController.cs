@@ -48,6 +48,9 @@ public class AnimationController : MonoBehaviour
     Animator SlapAnim;
     Animator HandsLoseAnim;
 
+    bool kissLossTriggered = false;
+    bool hitLossTrieggered = false;
+
     private void Awake()
     {
         KissScenarioEndAnim = KissObjects.GetComponent<Animator>();
@@ -83,11 +86,15 @@ public class AnimationController : MonoBehaviour
 
     public void KissLose()
     {
-        KissNeutralWifeAnim.SetTrigger("Exit");
-        KissObjectLose.SetActive(true);
-        BrokenHeartAnim.SetTrigger("Break");
-        LeafAnim.SetTrigger("Blow");
-        StartCoroutine(cheekToCheekSFXController.PlayLonelyWind());
+        if (kissLossTriggered == false)
+        {
+            KissNeutralWifeAnim.SetTrigger("Exit");
+            KissObjectLose.SetActive(true);
+            BrokenHeartAnim.SetTrigger("Break");
+            LeafAnim.SetTrigger("Blow");
+            StartCoroutine(cheekToCheekSFXController.PlayLonelyWind());
+            kissLossTriggered = true;
+        }
     }
 
     public void MisstressWin()
@@ -101,10 +108,14 @@ public class AnimationController : MonoBehaviour
 
     public void MisstressLose()
     {
-        MistressObjectsNeutral.SetActive(false);
-        MistressObjectsLose.SetActive(true);
-        HandsLoseAnim.SetTrigger("HandsLose");
-        cheekToCheekSFXController.PlayMiss();
+        if (hitLossTrieggered == false)
+        {
+            MistressObjectsNeutral.SetActive(false);
+            MistressObjectsLose.SetActive(true);
+            HandsLoseAnim.SetTrigger("HandsLose");
+            cheekToCheekSFXController.PlayMiss();
+            hitLossTrieggered = true;
+        }
     }
 
     private IEnumerator MisstressWinAppearances()
@@ -134,6 +145,8 @@ public class AnimationController : MonoBehaviour
             KissScenarioEndAnim.ResetTrigger("Switch");
             MissScenarioBeginAnim.ResetTrigger("Switch");
 
+            hitLossTrieggered = false;
+            kissLossTriggered = false;
 
             KissObjectsNeutral.SetActive(true);
             MistressObjectsNeutral.SetActive(true);
