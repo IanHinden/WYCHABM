@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Streamer : MonoBehaviour
 {
+    [SerializeField] PregnancySFXController pregnancySFXController;
+
     public GameObject smallDroplet;
     public GameObject mediumDroplet;
     public GameObject largeDroplet;
@@ -14,11 +16,14 @@ public class Streamer : MonoBehaviour
 
     public void HoldIt()
     {
+        pregnancySFXController.StopStream();
         CancelInvoke();
     }
 
     public void StartStream()
     {
+        pregnancySFXController.PlayUnzip();
+        pregnancySFXController.PlayStream();
         InvokeRepeating("spawnDroplet", 0, 0.06f);
         //HoldIt();
         //InvokeRepeating("spawnDroplet", 0, 0.1f);
