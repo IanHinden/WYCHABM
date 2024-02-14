@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MixAnimationController : MonoBehaviour
 {
+    [Header("Essential Functions")]
+    [SerializeField] MixSFXController mixSFXController;
+
+    [Header("Level Objects")]
+
     [SerializeField] GameObject Moon;
     [SerializeField] GameObject Sun;
 
@@ -53,6 +58,9 @@ public class MixAnimationController : MonoBehaviour
 
     public void WinAnimation()
     {
+        mixSFXController.PlayHeavenlyChorus();
+        mixSFXController.PlayBirds();
+
         moonOpenEyeSR.enabled = false;
         moonCloseEyeSR.enabled = true;
 
