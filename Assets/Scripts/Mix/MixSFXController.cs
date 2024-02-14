@@ -7,16 +7,19 @@ public class MixSFXController : MonoBehaviour
     [SerializeField] GameObject StirringIceSFX;
     [SerializeField] GameObject HeavenlyChorusSFX;
     [SerializeField] GameObject BirdsSFX;
+    [SerializeField] GameObject LoseSFX;
 
     private AudioSource StirringIceSFFXAS;
     private AudioSource HeavenlyChorusSFXAS;
     private AudioSource BirdsSFXAS;
+    private AudioSource LoseSFXAS;
 
     void Awake()
     {
         StirringIceSFFXAS = StirringIceSFX.GetComponent<AudioSource>();
         HeavenlyChorusSFXAS = HeavenlyChorusSFX.GetComponent<AudioSource>();
         BirdsSFXAS = BirdsSFX.GetComponent<AudioSource>();
+        LoseSFXAS = LoseSFX.GetComponent<AudioSource>();
     }
 
     public void PlayStirringIce()
@@ -38,5 +41,10 @@ public class MixSFXController : MonoBehaviour
     public void PlayBirds()
     {
         BirdsSFXAS.Play();
+    }
+
+    public void PlayLose()
+    {
+        LoseSFXAS.Play();
     }
 }

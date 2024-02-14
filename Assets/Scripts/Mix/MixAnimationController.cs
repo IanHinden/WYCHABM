@@ -73,6 +73,8 @@ public class MixAnimationController : MonoBehaviour
 
     public void LoseAnimation()
     {
+        mixSFXController.PlayLose();
+
         moonOpenEyeSR.enabled = false;
         moonCloseEyeSR.enabled = true;
 
