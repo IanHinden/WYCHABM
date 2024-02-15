@@ -709,7 +709,13 @@ public class RoadRacer : MonoBehaviour
 				{
 					if (Mathf.Abs(cones[i].transform.position.y - Car.transform.position.y) < 8f)
 					{
-						Debug.Log(cones[i]);
+						//Debug.Log(cones[i]);
+						TrafficCone trafficCone = cones[i].GetComponent<TrafficCone>();
+
+						if (trafficCone != null)
+						{
+							trafficCone.ConeBehavior();
+						}
 					}
 				}
 
@@ -795,6 +801,13 @@ public class RoadRacer : MonoBehaviour
 		{
 			Vector2 newPosition = defaultConePositions[i];
 			cones[i].position = new Vector3(newPosition.x, newPosition.y, cones[i].position.z);
+
+			TrafficCone trafficCone = cones[i].GetComponent<TrafficCone>();
+
+			if (trafficCone != null)
+			{
+				trafficCone.ResetCone();
+			}
 		}
 
 		TimeInLane = 0;
