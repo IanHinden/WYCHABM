@@ -101,6 +101,7 @@ public class RoadRacer : MonoBehaviour
 	public GameObject rivalCar1;
 	public GameObject rivalCar2;
 	public GameObject rivalCar3;
+	public GameObject rivalCar4;
 
 
 	// Traffic items
@@ -814,9 +815,10 @@ public class RoadRacer : MonoBehaviour
 
 		Car.position = new Vector3(111.3f, 74.905f, 0);
 
-		rivalCar1.transform.position = new Vector3(13.2f, 44.1f, 0);
-		rivalCar2.transform.position = new Vector3(48.2f, 19.8f, 0);
-		rivalCar3.transform.position = new Vector3(0.9f, 4.7f, 0);
+		rivalCar1.transform.position = new Vector3(6.2f, 55f, 0);
+		rivalCar2.transform.position = new Vector3(44.7f, 40f, 0);
+		rivalCar3.transform.position = new Vector3(0.9f, 28f, 0);
+		rivalCar4.transform.position = new Vector3(22.3f, 10f, 0);
 
 		fTranckCurvature = 0.0f;//由弯道弧度，车速度共同决定的离心力
 		fPlayerCurvature = 0.0f;//玩家对方向控制的系数
