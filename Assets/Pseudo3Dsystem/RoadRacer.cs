@@ -628,6 +628,12 @@ public class RoadRacer : MonoBehaviour
 							rivalCar[i].GetComponent<SpriteRenderer>().enabled = true;
 						}
 
+						if(rivalCar[i].transform.localPosition.y > 50 && rivalCar[i].transform.localPosition.y < 60)
+                        {
+							SpriteRenderer rivalcarSR = rivalCar[i].GetComponent<SpriteRenderer>();
+							rivalcarSR.sortingOrder = 60;
+                        }
+
 
 						if (!rivalCarIn.Contains(rivalCar[i]))           // 敌车进入画面，添加那辆敌车到列表，否则移除它
 						{
@@ -819,6 +825,12 @@ public class RoadRacer : MonoBehaviour
 		rivalCar2.transform.position = new Vector3(44.7f, 40f, 0);
 		rivalCar3.transform.position = new Vector3(0.9f, 28f, 0);
 		rivalCar4.transform.position = new Vector3(22.3f, 10f, 0);
+
+		for (int i = 0; i < rivalCar.Length; i++)
+		{
+			SpriteRenderer rivalcarSR = rivalCar[i].GetComponent<SpriteRenderer>();
+			rivalcarSR.sortingOrder = 20;
+		}
 
 		fTranckCurvature = 0.0f;//由弯道弧度，车速度共同决定的离心力
 		fPlayerCurvature = 0.0f;//玩家对方向控制的系数
