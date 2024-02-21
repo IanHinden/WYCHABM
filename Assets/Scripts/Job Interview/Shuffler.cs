@@ -26,7 +26,7 @@ public class Shuffler : MonoBehaviour
         gamecontrols.Select.RightSelect.performed += x => ShuffleRight();
         gamecontrols.Select.Choose.performed += x => Select();
 
-        //StartCoroutine(WinOrLose());
+        StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
