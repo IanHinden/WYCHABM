@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shuffler : MonoBehaviour
 {
@@ -10,20 +11,24 @@ public class Shuffler : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] CameraLogic cameraLogic;
 
-    private SpeechBubble[] speechBubbles;
+    //private SpeechBubble[] speechBubbles;
+
+    [SerializeField] GameObject fingers;
+    int activeFinger = 0;
 
     private GameControls gamecontrols;
 
     private bool pressed = false;
-    private float timeToPress = 0f;
-    private int selected = 2;
+    //private float timeToPress = 0f;
 
     void Awake()
     {
         gamecontrols = new GameControls();
 
-        gamecontrols.Select.LeftSelect.performed += x => ShuffleLeft();
-        gamecontrols.Select.RightSelect.performed += x => ShuffleRight();
+        gamecontrols.Select.LeftSelect.performed += x => setPreviousActiveFinger();
+        gamecontrols.Select.UpSelect.performed += x => setPreviousActiveFinger();
+        gamecontrols.Select.RightSelect.performed += x => setNextActiveFinger();
+        gamecontrols.Select.DownSelect.performed += x => setNextActiveFinger();
         gamecontrols.Select.Choose.performed += x => Select();
 
         StartCoroutine(WinOrLose());
@@ -39,61 +44,53 @@ public class Shuffler : MonoBehaviour
         gamecontrols.Disable();
     }
 
-    private void ShuffleLeft()
+    public void displayCorrectFinger()
     {
-        if (timeToPress <= 0)
+        for (int i = 0; i < fingers.transform.childCount; i++)
         {
-            if (selected != 0)
+            if (i != activeFinger)
             {
-                selected--;
+                fingers.transform.GetChild(i).GetComponent<Image>().enabled = false;
             }
             else
             {
-                selected = 2;
+                fingers.transform.GetChild(i).GetComponent<Image>().enabled = true;
             }
-
-            speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-            speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToTop");
-            speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToBottom");
-            speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToMid");
-            speechBubbles[0].transform.SetSiblingIndex(2);
-            StartCoroutine(CountdownTimeToPress());
         }
     }
-    private void ShuffleRight()
+
+    public void setNextActiveFinger()
     {
-        if (timeToPress <= 0)
+        if (activeFinger != fingers.transform.childCount - 1)
         {
-            if(selected != 2)
-            {
-                selected++;
-            } else
-            {
-                selected = 0;
-            }
-
-            speechBubbles = FindObjectsOfType<SpeechBubble>().OrderBy(m => m.transform.position.x).ToArray();
-            speechBubbles[0].GetComponent<Animator>().SetTrigger("BottomToMid");
-            speechBubbles[1].GetComponent<Animator>().SetTrigger("MidToTop");
-            speechBubbles[2].GetComponent<Animator>().SetTrigger("TopToBottom");
-            speechBubbles[1].transform.SetSiblingIndex(2);
-            speechBubbles[0].transform.SetSiblingIndex(1);
-            StartCoroutine(CountdownTimeToPress());
+            activeFinger++;
+            displayCorrectFinger();
+        }
+        else
+        {
+            activeFinger = 0;
+            displayCorrectFinger();
         }
     }
 
-    IEnumerator CountdownTimeToPress()
+    public void setPreviousActiveFinger()
     {
-        timeToPress = .3f;
-        yield return new WaitForSeconds(timeToPress);
-        timeToPress = 0f;
+        if (activeFinger != 0)
+        {
+            activeFinger--;
+            displayCorrectFinger();
+        }
+        else
+        {
+            activeFinger = fingers.transform.childCount - 1;
+            displayCorrectFinger();
+        }
     }
 
     public IEnumerator WinOrLose()
     {
         StartCoroutine(cameraLogic.moveToX(new Vector3(5.9f, 10.59f, -10), .5f));
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
-        selected = 1;
         if (pressed == false)
         {
             uihandler.LoseDisplay();
@@ -104,7 +101,7 @@ public class Shuffler : MonoBehaviour
     {
         pressed = true;
         gamecontrols.Disable();
-        if(selected == 0)
+        if(activeFinger == 1)
         {
             scorehandler.IncrementScore();
             uihandler.WinDisplay();
@@ -117,7 +114,18 @@ public class Shuffler : MonoBehaviour
     public void Reset()
     {
         pressed = false;
-        timeToPress = 0f;
-        // Fill in with logic to reset selection
+        activeFinger = 0;
+
+        for (int i = 0; i < fingers.transform.childCount; i++)
+        {
+            if (i != 0)
+            {
+                fingers.transform.GetChild(i).GetComponent<Image>().enabled = false;
+            }
+            else
+            {
+                fingers.transform.GetChild(i).GetComponent<Image>().enabled = true;
+            }
+        }
     }
 }
