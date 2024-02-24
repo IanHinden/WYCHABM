@@ -23,7 +23,9 @@ public class SelectChecker : MonoBehaviour
         gamecontrols = new GameControls();
 
         gamecontrols.Select.DownSelect.performed += x => setNextActiveArrow();
+        gamecontrols.Select.RightSelect.performed += x => setNextActiveArrow();
         gamecontrols.Select.UpSelect.performed += x => setPreviousActiveArrow();
+        gamecontrols.Select.LeftSelect.performed += x => setNextActiveArrow();
         gamecontrols.Select.Choose.performed += x => selectItem();
 
 

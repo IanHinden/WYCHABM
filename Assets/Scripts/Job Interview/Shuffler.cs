@@ -11,7 +11,7 @@ public class Shuffler : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] CameraLogic cameraLogic;
 
-    //private SpeechBubble[] speechBubbles;
+    [SerializeField] JobInterviewSFXController jobInterviewSFXController;
 
     [SerializeField] GameObject fingers;
     int activeFinger = 0;
@@ -19,7 +19,6 @@ public class Shuffler : MonoBehaviour
     private GameControls gamecontrols;
 
     private bool pressed = false;
-    //private float timeToPress = 0f;
 
     void Awake()
     {
@@ -46,6 +45,7 @@ public class Shuffler : MonoBehaviour
 
     public void displayCorrectFinger()
     {
+        jobInterviewSFXController.PlayHighlight();
         for (int i = 0; i < fingers.transform.childCount; i++)
         {
             if (i != activeFinger)
