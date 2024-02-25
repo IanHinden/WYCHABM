@@ -109,10 +109,10 @@ public class SelectChecker : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
+        gamecontrols.Disable();
         if (selected == false)
         {
             uihandler.LoseDisplay();
-            gamecontrols.Disable();
         }
     }
 
