@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Chorus1AnimationController : MonoBehaviour
 {
     [SerializeField] TimeFunctions timeFunctions;
+
+    [SerializeField] InstructionsAnimationController instructionsAnimationController;
 
     [SerializeField] GameObject Chorus1Ava;
     [SerializeField] GameObject Chorus1RR;
@@ -18,21 +22,20 @@ public class Chorus1AnimationController : MonoBehaviour
     Animator Chorus1AvaAnim;
     Animator Chorus1RRAnim;
     Animator BadmanAnim;
+
     void Awake()
     {
         Chorus1AvaAnim = Chorus1Ava.GetComponent<Animator>();
         Chorus1RRAnim = Chorus1RR.GetComponent<Animator>();
 
         BadmanAnim = Badman.GetComponent<Animator>();
-
-        //StartCoroutine(CardAnimations());
-        //StartCoroutine(LyricsTimer());
     }
 
     public void AnimationLogic()
     {
         StartCoroutine(CardAnimations());
         StartCoroutine(LyricsTimer());
+        StartCoroutine(InstructionsTimer());
     }
 
     private IEnumerator CardAnimations()
@@ -61,10 +64,25 @@ public class Chorus1AnimationController : MonoBehaviour
         //yield return new WaitForSeconds(0.5015675f);
     }
 
+    private IEnumerator InstructionsTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        instructionsAnimationController.OpenInstructionHolder();
+        yield return new WaitForSeconds(1f);
+        instructionsAnimationController.SetInstructionText();
+        yield return new WaitForSeconds(2f);
+        instructionsAnimationController.ClearInstructionText();
+        yield return new WaitForSeconds(1f);
+        instructionsAnimationController.CloseInstructionHolder();
+
+    }
+
     public void Reset()
     {
         if (Chorus1AvaAnim != null)
         {
+            instructionsAnimationController.Reset();
+
             Chorus1Ava.transform.position = new Vector3(-8.16f, -0.53f, 0f);
             Chorus1Ava.transform.eulerAngles = new Vector3(0, 0, 10);
             Chorus1AvaAnim.ResetTrigger("Enter");
