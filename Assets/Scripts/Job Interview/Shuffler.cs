@@ -11,6 +11,7 @@ public class Shuffler : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] CameraLogic cameraLogic;
 
+    [SerializeField] JobInterviewAnimationController jobInterviewAnimationController;
     [SerializeField] JobInterviewSFXController jobInterviewSFXController;
 
     [SerializeField] GameObject fingers;
@@ -57,6 +58,7 @@ public class Shuffler : MonoBehaviour
                 fingers.transform.GetChild(i).GetComponent<Image>().enabled = true;
             }
         }
+        AnimateProperBubble();
     }
 
     public void setNextActiveFinger()
@@ -87,8 +89,27 @@ public class Shuffler : MonoBehaviour
         }
     }
 
+    private void AnimateProperBubble()
+    {
+        if(activeFinger == 0)
+        {
+            jobInterviewAnimationController.SetQualifiedBubble();
+        }
+
+        if(activeFinger == 1)
+        {
+            jobInterviewAnimationController.SetCEOBubble();
+        }
+
+        if(activeFinger == 2)
+        {
+            jobInterviewAnimationController.SetDegreeBubble();
+        }
+    }
+
     public IEnumerator WinOrLose()
     {
+        AnimateProperBubble();
         StartCoroutine(cameraLogic.moveToX(new Vector3(5.9f, 10.59f, -10), .5f));
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
         if (pressed == false)
