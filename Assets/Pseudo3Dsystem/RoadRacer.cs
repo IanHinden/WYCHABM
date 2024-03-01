@@ -26,6 +26,8 @@ public class RoadRacer : MonoBehaviour
 {
 	private GameControls gameControls;
 	[SerializeField] DrivingSceneSFXController drivingSceneSFXController;
+	[SerializeField] GameObject Fire;
+	[SerializeField] GameObject Smoke;
 
 	private bool ResetStat = false;
 	private bool fail = false;
@@ -795,6 +797,9 @@ public class RoadRacer : MonoBehaviour
 		fail = true;
 		standardPass = false;
 
+		Fire.GetComponent<SpriteRenderer>().enabled = true;
+		Smoke.GetComponent<SpriteRenderer>().enabled = true;
+
 		drivingSceneSFXController.StopPlayerCarSound();
 		drivingSceneSFXController.PlayCarCrash();
 	}
@@ -825,6 +830,9 @@ public class RoadRacer : MonoBehaviour
 		rivalCar2.transform.position = new Vector3(44.7f, 40f, 0);
 		rivalCar3.transform.position = new Vector3(0.9f, 28f, 0);
 		rivalCar4.transform.position = new Vector3(22.3f, 10f, 0);
+
+		Fire.GetComponent<SpriteRenderer>().enabled = false;
+		Smoke.GetComponent<SpriteRenderer>().enabled = false;
 
 		for (int i = 0; i < rivalCar.Length; i++)
 		{
