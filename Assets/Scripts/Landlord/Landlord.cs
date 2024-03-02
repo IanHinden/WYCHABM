@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Landlord : MonoBehaviour
 {
+    [SerializeField] LandlordSFXController landlordSFXController;
+
     [SerializeField] Dialogue dialogue;
     [SerializeField] GameObject landlord;
     [SerializeField] GameObject ava;
@@ -59,6 +61,7 @@ public class Landlord : MonoBehaviour
     //TODO This might need to go into a non-Awake function for reset
     private IEnumerator LightningFlash()
     {
+        landlordSFXController.PlayThunder();
         landlordAnim.enabled = false;
         avaAnim.enabled = false;
         yield return new WaitForSeconds(.5f);
