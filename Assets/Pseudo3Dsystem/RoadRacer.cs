@@ -704,6 +704,7 @@ public class RoadRacer : MonoBehaviour
 					{
 						if (Car.GetComponent<CarAnimEvent>().canExplosion == true)
 						{
+							Car.GetComponent<Animator>().ResetTrigger("SetCarUpright");
 							Car.GetComponent<Animator>().SetTrigger("Exlosion");
 						}
 						//Debug.Log (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x));
@@ -792,13 +793,20 @@ public class RoadRacer : MonoBehaviour
 		}
 	}
 
+	private IEnumerator SetFire()
+    {
+		yield return new WaitForSeconds(.5f);
+		Fire.GetComponent<SpriteRenderer>().enabled = true;
+		Smoke.GetComponent<SpriteRenderer>().enabled = true;
+
+	}
+
 	private void LoseLogic()
     {
 		fail = true;
 		standardPass = false;
 
-		Fire.GetComponent<SpriteRenderer>().enabled = true;
-		Smoke.GetComponent<SpriteRenderer>().enabled = true;
+		StartCoroutine(SetFire());
 
 		drivingSceneSFXController.StopPlayerCarSound();
 		drivingSceneSFXController.PlayCarCrash();
@@ -825,6 +833,7 @@ public class RoadRacer : MonoBehaviour
 		TimeInLane = 0;
 
 		Car.position = new Vector3(111.3f, 74.905f, 0);
+		Car.GetComponent<Animator>().SetTrigger("SetCarUpright");
 
 		rivalCar1.transform.position = new Vector3(6.2f, 55f, 0);
 		rivalCar2.transform.position = new Vector3(44.7f, 40f, 0);
