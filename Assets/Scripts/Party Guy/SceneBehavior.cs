@@ -13,7 +13,7 @@ public class SceneBehavior : MonoBehaviour
 
     void Awake()
     {
-        //StartCoroutine(SceneTiming());
+        StartCoroutine(SceneTiming());
     }
 
     public IEnumerator SceneTiming()
