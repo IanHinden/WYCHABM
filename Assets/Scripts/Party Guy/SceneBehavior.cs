@@ -18,6 +18,8 @@ public class SceneBehavior : MonoBehaviour
 
     public IEnumerator SceneTiming()
     {
+        yield return null;
+        partyGuyAnimationController.SnotBubble();
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
         switchToAva();
         yield return new WaitForSeconds(1f);
