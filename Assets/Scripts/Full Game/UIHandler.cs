@@ -19,6 +19,10 @@ public class UIHandler : MonoBehaviour
     [Header("Time Remaining UI")]
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
+    [SerializeField] Image Ian;
+    [SerializeField] GameObject SkeletonObjects;
+    [SerializeField] GameObject YellowSpark;
+    [SerializeField] GameObject BlueSpark;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] CountdownTick countdownTick;
     [SerializeField] CountdownTok countdownTok;
@@ -51,6 +55,9 @@ public class UIHandler : MonoBehaviour
 
     private Animator anim;
     private Animator kissHitAnim;
+
+    private Coroutine yellowSparkCo;
+    private Coroutine blueSparkCo;
 
     // Start is called before the first frame update
     void Awake()
@@ -120,6 +127,7 @@ public class UIHandler : MonoBehaviour
 
     IEnumerator TriggerCountdownAnimation(int totalMeasures)
     {
+        SwitchToIan();
         float totalTime = totalMeasures * singleMeasure;
 
         timerSlider.maxValue = totalMeasures > 3 ? totalMeasures - 1 : totalMeasures;
@@ -149,6 +157,7 @@ public class UIHandler : MonoBehaviour
         timerSlider.value = 1;
 
         yield return new WaitForSeconds(singleMeasure);
+        SwitchToSkeleton();
         countdown.text = "0";
         countdownTok.playTok();
         timerSlider.value = 0;
@@ -156,6 +165,7 @@ public class UIHandler : MonoBehaviour
 
     IEnumerator TriggerCountdownCheekAnimation()
     {
+        SwitchToIan();
         float totalTime = 3 * singleMeasure;
 
         timerSlider.maxValue = 3;
@@ -208,8 +218,43 @@ public class UIHandler : MonoBehaviour
         timerSlider.value = 1;
 
         yield return new WaitForSeconds(singleMeasure);
+        SwitchToSkeleton();
         countdown.text = "0";
         timerSlider.value = 0;
+    }
+
+    private void SwitchToSkeleton()
+    {
+        yellowSparkCo = StartCoroutine(YellowSparkFlash());
+        blueSparkCo = StartCoroutine(BlueSparkFlash());
+        Ian.enabled = false;
+        SkeletonObjects.SetActive(true);
+    }
+
+    private void SwitchToIan()
+    {
+        Ian.enabled = true;
+        SkeletonObjects.SetActive(false);
+        if(yellowSparkCo != null) { StopCoroutine(yellowSparkCo); }
+        if(blueSparkCo != null) { StopCoroutine(blueSparkCo); }
+    }
+
+    private IEnumerator YellowSparkFlash()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(.1f);
+            YellowSpark.SetActive(!YellowSpark.activeInHierarchy);
+        }
+    }
+
+    private IEnumerator BlueSparkFlash()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(.08f);
+            BlueSpark.SetActive(!BlueSpark.activeInHierarchy);
+        }
     }
 
     public void setFrame(bool show)
