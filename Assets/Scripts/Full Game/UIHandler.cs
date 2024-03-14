@@ -23,6 +23,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject SkeletonObjects;
     [SerializeField] GameObject YellowSpark;
     [SerializeField] GameObject BlueSpark;
+    [SerializeField] GameObject SpeechBubble;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] CountdownTick countdownTick;
     [SerializeField] CountdownTok countdownTok;
