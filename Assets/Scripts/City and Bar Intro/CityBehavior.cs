@@ -112,7 +112,6 @@ public class CityBehavior : MonoBehaviour
         lucyTalkingEyes.enabled = false;
         lucyStaringEyes.enabled = true;
         sweatAnimator.SetTrigger("SetSweat");
-        cityAndBarSFX.LucySweat();
 
 
         dialogue.DialogueEnter();
