@@ -11,7 +11,8 @@
                     "id": "89a22c6b-2c1a-421c-a15c-9735d5f39fcd",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Up",
@@ -19,7 +20,8 @@
                     "id": "94fa8b3e-80ea-4af6-898b-413d0e332764",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Choose",
@@ -27,7 +29,8 @@
                     "id": "9d029120-ce0f-48f1-a152-8808e9fbb3e1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,8 +47,30 @@
                 },
                 {
                     "name": "",
+                    "id": "d3d04c07-2f9a-42c8-870e-d40eeaae35d9",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8c19d50a-ae4c-4d43-8ab2-339334294505",
                     "path": "<Keyboard>/s",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b3581bb-a606-49ab-a944-847c4c339605",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",

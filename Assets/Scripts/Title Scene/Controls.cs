@@ -69,8 +69,30 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d3d04c07-2f9a-42c8-870e-d40eeaae35d9"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8c19d50a-ae4c-4d43-8ab2-339334294505"",
                     ""path"": ""<Keyboard>/s"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b3581bb-a606-49ab-a944-847c4c339605"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",

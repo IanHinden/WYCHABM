@@ -19,11 +19,13 @@ public class UIHandler : MonoBehaviour
     [Header("Time Remaining UI")]
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
+    [SerializeField] GameObject IanObjects;
     [SerializeField] Image Ian;
     [SerializeField] GameObject SkeletonObjects;
     [SerializeField] GameObject YellowSpark;
     [SerializeField] GameObject BlueSpark;
     [SerializeField] GameObject SpeechBubble;
+    [SerializeField] GameObject SpeakerObjects;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] CountdownTick countdownTick;
     [SerializeField] CountdownTok countdownTok;
@@ -240,6 +242,7 @@ public class UIHandler : MonoBehaviour
         if(blueSparkCo != null) { StopCoroutine(blueSparkCo); }
     }
 
+
     private IEnumerator YellowSparkFlash()
     {
         while (true)
@@ -265,11 +268,15 @@ public class UIHandler : MonoBehaviour
 
     public void showSlider()
     {
+        IanObjects.SetActive(true);
+        SpeakerObjects.SetActive(true);
         panel.SetActive(true);
     }
 
     public void hideSlider()
     {
+        IanObjects.SetActive(false);
+        SpeakerObjects.SetActive(false);
         panel.SetActive(false);
     }
 
