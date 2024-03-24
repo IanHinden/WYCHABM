@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject logo;
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
+    [SerializeField] GameObject instructionsMenu4;
 
     [SerializeField] GameObject menuSoundEffects;
     AudioSource menuSoundEffectsAS;
@@ -32,18 +33,26 @@ public class MenuController : MonoBehaviour
         titleScreen.SetActive(false);
         logo.SetActive(false);
         instructionsMenu2.SetActive(true);
+        instructionsMenu3.SetActive(false);
     }
 
     public void switchToNext3()
     {
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
+        instructionsMenu4.SetActive(false);
+    }
+
+    public void switchToNext4()
+    {
+        instructionsMenu3.SetActive(false);
+        instructionsMenu4.SetActive(true);
     }
 
     public void hideInstructions()
     {
         titleScreen.SetActive(true);
         logo.SetActive(true);
-        instructionsMenu3.SetActive(false);
+        instructionsMenu4.SetActive(false);
     }
 }
