@@ -7,6 +7,7 @@ public class Dialogue : MonoBehaviour
 {
     private TextMeshPro textmesh;
     private TextMeshPro avaNameDialogueText;
+    private TextMeshPro nameTag;
 
     [SerializeField] GameObject splitTips;
 
@@ -18,6 +19,7 @@ public class Dialogue : MonoBehaviour
     {
         textmesh = this.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         avaNameDialogueText = this.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>();
+        nameTag = this.gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>();
 
         avaNameDialogueAnim = avaNameDialogueText.GetComponent<Animator>();
 
@@ -25,9 +27,10 @@ public class Dialogue : MonoBehaviour
         sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void DialogueEnter()
+    public void DialogueEnter(string name = null)
     {
         sr.enabled = true;
+        nameTag.text = name;
         textmesh.text = "";
         anim.SetBool("Entered", true);
     }
@@ -62,6 +65,8 @@ public class Dialogue : MonoBehaviour
             }
         }
     }
+
+
 
     public IEnumerator AvaNameEnter(string dialogue, string dialogue2)
     {

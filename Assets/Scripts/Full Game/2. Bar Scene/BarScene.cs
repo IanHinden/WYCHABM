@@ -14,7 +14,7 @@ public class BarScene : MonoBehaviour
     private IEnumerator Dialogue()
     {
         yield return new WaitForSeconds(2);
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("IAN H.");
         yield return new WaitForSeconds(1);
         //StartCoroutine(dialogue.SetDialogue("Rich man Richmond get the itch, man"));
     }

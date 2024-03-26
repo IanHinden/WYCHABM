@@ -79,7 +79,7 @@ public class CityBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         puffAnimator.SetTrigger("TriggerPuff");
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("AVA");
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2.2f);
         ppgAnimator.SetTrigger("Enter");
@@ -87,7 +87,7 @@ public class CityBehavior : MonoBehaviour
         cityAndBarSFX.LucyEnter();
         dialogue.DialogueExit();
         yield return new WaitForSeconds(.5f);
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("LUCY");
         dialogue2 = StartCoroutine(dialogue.AvaNameEnter(dialogueText[1], dialogueText[2]));
         yield return new WaitForSeconds(2f);
         avaEyesClosed.enabled = false;
@@ -114,7 +114,7 @@ public class CityBehavior : MonoBehaviour
         sweatAnimator.SetTrigger("SetSweat");
 
 
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("AVA");
         //ppgAnimator.SetTrigger("Exit");
         dialogue4 = StartCoroutine(dialogue.SetDialogue(dialogueText[3]));
     }

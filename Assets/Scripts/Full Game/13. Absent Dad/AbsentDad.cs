@@ -9,7 +9,7 @@ public class AbsentDad : MonoBehaviour
     public IEnumerator Dialogue()
     {
         yield return new WaitForSeconds(.3f);
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("DADDY");
         StartCoroutine(dialogue.SetDialogue("Tell mom I won't be home. Gotta work late."));
     }
 }
