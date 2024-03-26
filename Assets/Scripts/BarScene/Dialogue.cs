@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     private TextMeshPro nameTag;
 
     [SerializeField] GameObject splitTips;
+    [SerializeField] GameObject arrow;
 
     private Animator anim;
     private Animator avaNameDialogueAnim;
@@ -37,6 +38,7 @@ public class Dialogue : MonoBehaviour
 
     public void DialogueExit()
     {
+        arrow.SetActive(false);
         anim.SetBool("Entered", false);
         ResetSplitTips();
     }
@@ -45,6 +47,7 @@ public class Dialogue : MonoBehaviour
     {
         textmesh.text = "";
         sr.enabled = false;
+        arrow.SetActive(false);
         DialogueExit();
         ResetSplitTips();
     }
@@ -64,6 +67,9 @@ public class Dialogue : MonoBehaviour
                 yield return null;
             }
         }
+
+        yield return new WaitForSeconds(.5f);
+        arrow.SetActive(true);
     }
 
 
@@ -102,6 +108,9 @@ public class Dialogue : MonoBehaviour
                 yield return null;
             }
         }
+
+        yield return new WaitForSeconds(.5f);
+        arrow.SetActive(true);
     }
 
     private void AvaTextShake()
