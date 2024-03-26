@@ -47,7 +47,6 @@ public class UIHandler : MonoBehaviour
     [SerializeField] MaskTransition mask;
 
     [Header("Start/Pause UI")]
-    [SerializeField] GameObject startButtonContainer;
     [SerializeField] GameObject pauseButton;
 
     [SerializeField] GameObject instructionsMenuPanel;
@@ -365,7 +364,6 @@ public class UIHandler : MonoBehaviour
 
     public void HideStartButton()
     {
-        startButtonContainer.SetActive(false);
         instructionsMenuPanel.SetActive(false);
     }
 
