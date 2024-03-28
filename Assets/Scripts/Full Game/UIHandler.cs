@@ -19,6 +19,8 @@ public class UIHandler : MonoBehaviour
     [Header("Time Remaining UI")]
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
+    [SerializeField] RectTransform spark;
+    [SerializeField] RectTransform fillArea;
     [SerializeField] GameObject IanObjects;
     [SerializeField] Image Ian;
     [SerializeField] GameObject SkeletonObjects;
@@ -134,7 +136,9 @@ public class UIHandler : MonoBehaviour
 
         timerSlider.maxValue = totalMeasures > 3 ? totalMeasures - 1 : totalMeasures;
         timerSlider.value = totalMeasures;
-        
+
+        UpdateSparkPos();
+
         countdown.text = " ";
 
         while(totalTime > 3)
@@ -142,27 +146,32 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            UpdateSparkPos();
         }
 
         countdown.text = "3";
         countdownTick.playTick();
         timerSlider.value = 3;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "2";
         countdownTok.playTok();
         timerSlider.value = 2;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "1";
         countdownTick.playTick();
         timerSlider.value = 1;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
         countdown.text = "0";
         countdownTok.playTok();
         timerSlider.value = 0;
+        UpdateSparkPos();
     }
 
     IEnumerator TriggerCountdownCheekAnimation()
@@ -173,6 +182,8 @@ public class UIHandler : MonoBehaviour
         timerSlider.maxValue = 3;
         timerSlider.value = 3;
 
+        UpdateSparkPos();
+
         countdown.text = " ";
 
         while (totalTime > 3)
@@ -180,22 +191,27 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            UpdateSparkPos();
         }
 
         countdown.text = "3";
         timerSlider.value = 3;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "2";
         timerSlider.value = 2;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "1";
         timerSlider.value = 1;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "0";
         timerSlider.value = 0;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
 
@@ -206,23 +222,34 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            UpdateSparkPos();
         }
 
         countdown.text = "3";
         timerSlider.value = 3;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "2";
         timerSlider.value = 2;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown.text = "1";
         timerSlider.value = 1;
+        UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
         countdown.text = "0";
         timerSlider.value = 0;
+        UpdateSparkPos();
+    }
+
+    private void UpdateSparkPos()
+    {
+        float fillWidth = fillArea.rect.width * timerSlider.normalizedValue;
+        spark.localPosition = new Vector2(fillWidth - 460.269f, spark.anchoredPosition.y);
     }
 
     private void SwitchToSkeleton()
