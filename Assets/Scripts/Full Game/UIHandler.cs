@@ -249,7 +249,7 @@ public class UIHandler : MonoBehaviour
     private void UpdateSparkPos()
     {
         float fillWidth = fillArea.rect.width * timerSlider.normalizedValue;
-        spark.localPosition = new Vector2(fillWidth - 460.269f, spark.anchoredPosition.y);
+        spark.localPosition = new Vector2(fillWidth - 490.269f, spark.anchoredPosition.y);
     }
 
     private void SwitchToSkeleton()
