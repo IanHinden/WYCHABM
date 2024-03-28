@@ -14,13 +14,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject menuSoundEffects;
     AudioSource menuSoundEffectsAS;
 
+    private bool playedMenuEffect = false;
+
     private void Awake()
     {
         menuSoundEffectsAS = menuSoundEffects.GetComponent<AudioSource>();
     }
     public void StartGame()
     {
-        menuSoundEffectsAS.Play();
+        if(playedMenuEffect == false) menuSoundEffectsAS.Play();
+        playedMenuEffect = true;
         pressStart.SetActive(false);
         titleScreen.SetActive(true);
         logo.SetActive(true);
