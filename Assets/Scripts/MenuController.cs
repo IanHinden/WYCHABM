@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject pressStart;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject logo;
+
+    [SerializeField] Button startGameButton;
+
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
     [SerializeField] GameObject instructionsMenu4;
@@ -19,6 +23,7 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         menuSoundEffectsAS = menuSoundEffects.GetComponent<AudioSource>();
+        startGameButton.interactable = false;
     }
     public void StartGame()
     {
@@ -57,5 +62,6 @@ public class MenuController : MonoBehaviour
         titleScreen.SetActive(true);
         logo.SetActive(true);
         instructionsMenu4.SetActive(false);
+        startGameButton.interactable = true;
     }
 }
