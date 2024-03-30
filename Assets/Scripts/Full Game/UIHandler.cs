@@ -39,7 +39,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject scorecard;
     [SerializeField] GameObject scorecardSlideInSFX;
     [SerializeField] GameObject scorecardSlideOutSFX;
+    [SerializeField] GameObject bonusScorecard;
     private Animator scoreCardAnim;
+    private Animator bonusScorecardAnim;
     private TextMeshProUGUI scoreCardText;
     private AudioSource scorecardSlideInSFXAS;
     private AudioSource scorecardSlideOutSFXAS;
@@ -77,6 +79,8 @@ public class UIHandler : MonoBehaviour
 
         scoreCardAnim = scorecard.GetComponent<Animator>();
         scoreCardText = scorecard.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        bonusScorecardAnim = bonusScorecard.GetComponent<Animator>();
 
         scorecardSlideInSFXAS = scorecardSlideInSFX.GetComponent<AudioSource>();
         scorecardSlideOutSFXAS = scorecardSlideOutSFX.GetComponent<AudioSource>();
@@ -366,17 +370,19 @@ public class UIHandler : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         scorecardSlideOutSFXAS.Play();
     }
-
-    public IEnumerator DisplayBonusScoreCard(int numberPerson)
-    {
-        yield return null;
-        Debug.Log(numberPerson);
-    }
-
     IEnumerator HideScoreCard()
     {
         yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
+    }
+
+
+    public IEnumerator DisplayBonusScoreCard(int numberPerson)
+    {
+        bonusScorecardAnim.SetTrigger("Enter");
+        yield return new WaitForSeconds(2f);
+        bonusScorecardAnim.SetTrigger("Exit");
+        Debug.Log(numberPerson);
     }
 
     public void MaskOutro(Vector2 maskCoordinates)

@@ -28,7 +28,7 @@ public class ScoreHandler : MonoBehaviour
         {
             bonusScore++;
             bonusesDiscovered[numberPerson - 1] = true;
-            uihandler.DisplayBonusScoreCard(numberPerson);
+            StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
         } else
         {
             uihandler.DisplayBonusScoreCard(numberPerson);
