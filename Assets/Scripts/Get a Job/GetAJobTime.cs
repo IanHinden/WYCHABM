@@ -6,6 +6,8 @@ public class GetAJobTime : MonoBehaviour
 {
     [SerializeField] TimeFunctions timeFunctions;
 
+    [SerializeField] Dialogue dialogue;
+
     [SerializeField] GameObject eyesPlaying;
     [SerializeField] GameObject eyesShocked;
     [SerializeField] GameObject portableGamingDeviceInHand;
@@ -26,6 +28,8 @@ public class GetAJobTime : MonoBehaviour
         portableGamingDeviceInHand.SetActive(false);
         portableGamingDeviceFalling.SetActive(true);
         portableGamingDeviceAnimation.SetTrigger("Drop");
+        dialogue.DialogueEnter("FATHER");
+        StartCoroutine(dialogue.SetDialogue("Get a job. Get a job. Get a job. Get a job. Get a job. Get a job. Get a job."));
     }
 
     public void Reset()
