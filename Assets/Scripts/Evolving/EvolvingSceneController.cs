@@ -140,7 +140,7 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void setIntroText()
     {
-        if(textmesh != null) textmesh.text = "What?                BAD BOY is evolving.";
+        if(textmesh != null) textmesh.text = "What? BAD BOY is evolving.";
     }
 
     private IEnumerator setEvolvedText()
