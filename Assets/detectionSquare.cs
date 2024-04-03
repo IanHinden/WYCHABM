@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class detectionSquare : MonoBehaviour
 {
     [SerializeField] RhythmRatingDisplay rhythmRatingDisplay;
+    [SerializeField] FadingArrow fadingArrow;
 
     public static float score = 0;
 
@@ -32,17 +33,28 @@ public class detectionSquare : MonoBehaviour
 
     private void SpawnPerfect()
     {
+        SpawnFadingArrow();
         rhythmRatingDisplay.SetPerfect();
     }
 
     private void SpawnGood()
     {
+        SpawnFadingArrow();
         rhythmRatingDisplay.SetGood();
     }
 
     public float getScore()
     {
         return score;
+    }
+
+    private void SpawnFadingArrow()
+    {
+        FadingArrow instantiatedArrow = Instantiate(fadingArrow, transform.position, transform.rotation);
+        Quaternion zRotation = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        instantiatedArrow.transform.rotation = zRotation;
+        instantiatedArrow.transform.SetParent(transform);
+
     }
 
     public void resetScore()

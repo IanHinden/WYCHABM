@@ -1,50 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
+using UnityEngine.UI;
 
 public class RhythmRatingDisplay : MonoBehaviour
 {
-    [SerializeField] GameObject rhythmRating;
+    [SerializeField] Image missFlat;
+    [SerializeField] Image perfectFlat;
+    [SerializeField] Image notbadFlat;
 
-    private TextMeshProUGUI rhythmRatingText;
-    private Animator rhythmAnim;
+    private Animator missFlatAnim;
+    private Animator perfectFlatAnim;
+    private Animator notbadFlatAnim;
 
-    // Start is called before the first frame update
+    private Image missFlatImage;
+    private Image perfectFlatImage;
+    private Image notbadFlatImage;
+
     void Awake()
     {
-        rhythmRatingText = rhythmRating.GetComponent<TextMeshProUGUI>();
-        rhythmAnim = rhythmRating.GetComponent<Animator>();
-    }
+        missFlatAnim = missFlat.GetComponent<Animator>();
+        missFlatImage = missFlat.GetComponent<Image>();
 
-    private void AnimateText()
-    {
-        rhythmAnim.Play("RhythmRatingDisplay", -1, 0f);
+        perfectFlatAnim = perfectFlat.GetComponent<Animator>();
+        perfectFlatImage = perfectFlat.GetComponent<Image>();
+
+        notbadFlatAnim = notbadFlat.GetComponent<Animator>();
+        notbadFlatImage = notbadFlat.GetComponent<Image>();
     }
 
     public void SetPerfect()
     {
-        rhythmRatingText.text = "PERFECT!";
-        rhythmAnim.Play("New State", -1, 0f);
-        AnimateText();
+        ClearText();
+
+        perfectFlatAnim.Play("New State", -1, 0);
+        perfectFlatImage.enabled = true;
+        perfectFlatAnim.SetTrigger("Animate");
     }
 
     public void SetGood()
     {
-        rhythmRatingText.text = "NOT BAD";
-        rhythmAnim.Play("New State", -1, 0f);
-        AnimateText();
+        ClearText();
+
+        Debug.Log("This works?");
+        notbadFlatAnim.Play("New State", -1, 0);
+        notbadFlatImage.enabled = true;
+        notbadFlatAnim.SetTrigger("Animate");
     }
 
     public void SetMiss()
     {
-        rhythmRatingText.text = "MISS";
-        rhythmAnim.Play("New State", -1, 0f);
-        AnimateText();
+        ClearText();
+
+        missFlatAnim.Play("New State", -1, 0);
+        missFlatImage.enabled = true;
+        missFlatAnim.SetTrigger("Animate");
     }
 
     public void ClearText()
     {
-        rhythmRatingText.text = "";
+        missFlatImage.enabled = false;
+        perfectFlatImage.enabled = false;
+        notbadFlatImage.enabled = false;
     }
 }
