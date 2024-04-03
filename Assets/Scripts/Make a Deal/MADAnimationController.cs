@@ -14,7 +14,7 @@ public class MADAnimationController : MonoBehaviour
     public IEnumerator Dialogue()
     {
         yield return new WaitForSeconds(1.5f);
-        dialogue.DialogueEnter();
+        dialogue.DialogueEnter("R.R. Jr.");
         StartCoroutine(dialogue.SetDialogue("Would you like to...                                                                                  make a deal?"));
     }
 }
