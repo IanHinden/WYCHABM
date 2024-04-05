@@ -10,11 +10,13 @@ public class GameOptions : MonoBehaviour
     [SerializeField] GameObject guitarChord;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject barIntro;
+    [SerializeField] GameObject themeSong;
 
     [SerializeField] TimeKeeper timeKeeper;
 
     AudioSource audioSo;
     AudioSource guitarChordAS;
+    AudioSource themeSongAS;
 
     private Coroutine gameCoroutine = null;
 
@@ -22,10 +24,12 @@ public class GameOptions : MonoBehaviour
     {
         audioSo = mp.GetComponent<AudioSource>();
         guitarChordAS = guitarChord.GetComponent<AudioSource>();
+        themeSongAS = themeSong.GetComponent<AudioSource>();
     }
 
     public void BeginGame()
     {
+        themeSongAS.Stop();
         uihandler.HideStartButton();
         uihandler.ShowPauseButton();
         guitarChordAS.Play();

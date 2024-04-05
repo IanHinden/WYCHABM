@@ -43,7 +43,6 @@ public class RhythmRatingDisplay : MonoBehaviour
     {
         ClearText();
 
-        Debug.Log("This works?");
         notbadFlatAnim.Play("New State", -1, 0);
         notbadFlatImage.enabled = true;
         notbadFlatAnim.SetTrigger("Animate");
