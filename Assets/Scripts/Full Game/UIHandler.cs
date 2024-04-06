@@ -40,6 +40,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject scorecardSlideInSFX;
     [SerializeField] GameObject scorecardSlideOutSFX;
     [SerializeField] GameObject bonusScorecard;
+    [SerializeField] NumberPeopleAnimationController numberPeopleAnimationController;
     private Animator scoreCardAnim;
     private Animator bonusScorecardAnim;
     private TextMeshProUGUI scoreCardText;
@@ -380,9 +381,10 @@ public class UIHandler : MonoBehaviour
     public IEnumerator DisplayBonusScoreCard(int numberPerson)
     {
         bonusScorecardAnim.SetTrigger("Enter");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
+        numberPeopleAnimationController.NPActivate(numberPerson);
+        yield return new WaitForSeconds(2.5f);
         bonusScorecardAnim.SetTrigger("Exit");
-        Debug.Log(numberPerson);
     }
 
     public void MaskOutro(Vector2 maskCoordinates)
