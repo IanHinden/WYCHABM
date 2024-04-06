@@ -9,6 +9,7 @@ public class pauseManager : MonoBehaviour
     public timingManager timingManager;
     public GameOptions gameoptions;
     public AudioSource musicPlayer;
+    public AudioSource themeMusicPlayer;
     public MenuSFX menuSFX;
     public GameObject pauseMenu;
     public GameObject pauseButton;
@@ -80,6 +81,8 @@ public class pauseManager : MonoBehaviour
         isPaused = false;
         musicPlayer.pitch = 1;
         musicPlayer.Stop();
+        themeMusicPlayer.time = 0;
+        themeMusicPlayer.Play();
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
         timekeeper.resetGame();

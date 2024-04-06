@@ -25,6 +25,8 @@ public class GameOptions : MonoBehaviour
         audioSo = mp.GetComponent<AudioSource>();
         guitarChordAS = guitarChord.GetComponent<AudioSource>();
         themeSongAS = themeSong.GetComponent<AudioSource>();
+        themeSongAS.time = 5.5f;
+        themeSongAS.Play();
     }
 
     public void BeginGame()
