@@ -31,7 +31,7 @@ public class ScoreHandler : MonoBehaviour
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
         } else
         {
-            uihandler.DisplayBonusScoreCard(numberPerson);
+            StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
         }
         Debug.Log("Bonus score is: " + bonusScore.ToString());
     }
