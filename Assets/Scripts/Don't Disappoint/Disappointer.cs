@@ -18,17 +18,23 @@ public class Disappointer : MonoBehaviour
     [Header("Background")]
     [SerializeField] GameObject background2;
 
+    [SerializeField] GameObject FuzzyTextGO;
+
     bool CareAboutTheOpinionsOfOthers;
+
+    private SpriteRenderer FuzzyTextSR;
 
     void Awake()
     {
         //Halloween 1987
         CareAboutTheOpinionsOfOthers = true;
+        FuzzyTextSR = FuzzyTextGO.GetComponent<SpriteRenderer>();
     }
 
     public IEnumerator WinOrLose()
     {
         StartCoroutine(BlinkingBG());
+        StartCoroutine(FuzzyText());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(3));
         DetermineWinOrLoss();
     }
@@ -43,6 +49,16 @@ public class Disappointer : MonoBehaviour
         background2.SetActive(false);
         yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
         background2.SetActive(true);*/
+    }
+
+    private IEnumerator FuzzyText()
+    {
+        while (true) {
+            yield return new WaitForSeconds(.1f);
+            FuzzyTextSR.enabled = false;
+            yield return new WaitForSeconds(.1f);
+            FuzzyTextSR.enabled = true;
+        }
     }
 
     private void DetermineWinOrLoss()
