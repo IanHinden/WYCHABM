@@ -66,6 +66,8 @@ public class UIHandler : MonoBehaviour
     private Coroutine yellowSparkCo;
     private Coroutine blueSparkCo;
 
+    private Image SpeechBubbleImage;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -85,6 +87,8 @@ public class UIHandler : MonoBehaviour
 
         scorecardSlideInSFXAS = scorecardSlideInSFX.GetComponent<AudioSource>();
         scorecardSlideOutSFXAS = scorecardSlideOutSFX.GetComponent<AudioSource>();
+
+        SpeechBubbleImage = SpeechBubble.GetComponent<Image>();
     }
 
     public void HidePauseButton()
@@ -154,6 +158,7 @@ public class UIHandler : MonoBehaviour
             UpdateSparkPos();
         }
 
+        HideOrShowSpeechBubble(true);
         countdown.text = "3";
         countdownTick.playTick();
         timerSlider.value = 3;
@@ -173,7 +178,7 @@ public class UIHandler : MonoBehaviour
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
-        countdown.text = "0";
+        countdown.text = "";
         countdownTok.playTok();
         timerSlider.value = 0;
         UpdateSparkPos();
@@ -199,6 +204,7 @@ public class UIHandler : MonoBehaviour
             UpdateSparkPos();
         }
 
+        HideOrShowSpeechBubble(true);
         countdown.text = "3";
         timerSlider.value = 3;
         UpdateSparkPos();
@@ -246,7 +252,7 @@ public class UIHandler : MonoBehaviour
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
-        countdown.text = "0";
+        countdown.text = "";
         timerSlider.value = 0;
         UpdateSparkPos();
     }
@@ -259,6 +265,7 @@ public class UIHandler : MonoBehaviour
 
     private void SwitchToSkeleton()
     {
+        HideOrShowSpeechBubble(false);
         yellowSparkCo = StartCoroutine(YellowSparkFlash());
         blueSparkCo = StartCoroutine(BlueSparkFlash());
         Ian.enabled = false;
@@ -267,10 +274,16 @@ public class UIHandler : MonoBehaviour
 
     private void SwitchToIan()
     {
+        HideOrShowSpeechBubble(false);
         Ian.enabled = true;
         SkeletonObjects.SetActive(false);
         if(yellowSparkCo != null) { StopCoroutine(yellowSparkCo); }
         if(blueSparkCo != null) { StopCoroutine(blueSparkCo); }
+    }
+
+    private void HideOrShowSpeechBubble(bool show)
+    {
+        SpeechBubbleImage.enabled = show;
     }
 
 
