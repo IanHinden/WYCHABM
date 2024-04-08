@@ -74,6 +74,8 @@ public class Target : MonoBehaviour
         full = false;
         pregnancyScore = 0;
         pregnancyTestAnimationController.Reset();
+        streamer.CancelInvoke();
+        streamer.RemoveAllDroplets();
         strawberry.transform.rotation = Quaternion.identity;
     }
 }

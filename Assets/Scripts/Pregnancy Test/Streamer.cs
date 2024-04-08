@@ -6,6 +6,8 @@ public class Streamer : MonoBehaviour
 {
     [SerializeField] PregnancySFXController pregnancySFXController;
 
+    [SerializeField] GameObject peeholder;
+
     public GameObject smallDroplet;
     public GameObject mediumDroplet;
     public GameObject largeDroplet;
@@ -29,6 +31,14 @@ public class Streamer : MonoBehaviour
         //InvokeRepeating("spawnDroplet", 0, 0.1f);
     }
 
+    public void RemoveAllDroplets()
+    {
+        for(int i = peeholder.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(peeholder.transform.GetChild(i).gameObject);
+        }
+    }
+
     private void spawnDroplet()
     {
         float rand = Random.Range(0, 3);
@@ -48,6 +58,7 @@ public class Streamer : MonoBehaviour
             dropType = largeDroplet;
         }
 
-        Instantiate(dropType, shotPoint.position + new Vector3(offset, 0, 0), transform.rotation);
+        GameObject droplet = Instantiate(dropType, shotPoint.position + new Vector3(offset, 0, 0), transform.rotation);
+        droplet.transform.SetParent(peeholder.transform);
     }
 }
