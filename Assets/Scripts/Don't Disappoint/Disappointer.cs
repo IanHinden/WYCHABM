@@ -6,6 +6,7 @@ public class Disappointer : MonoBehaviour
 {
     [Header("Required Tools")]
     [SerializeField] UIHandler uihandler;
+    [SerializeField] ScoreHandler scoreHandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] DontDisappointSFXController dontDisappointSFXController;
 
@@ -53,7 +54,8 @@ public class Disappointer : MonoBehaviour
             uihandler.LoseDisplay();
         } else
         {
-            uihandler.WinDisplay();
+            scoreHandler.IncrementScore();
+            scoreHandler.IncrementBonusScore(3);
         }
     }
 

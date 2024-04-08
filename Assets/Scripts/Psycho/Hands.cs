@@ -31,7 +31,7 @@ public class Hands : MonoBehaviour
         gamecontrols.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         gamecontrols.Disable();
     }

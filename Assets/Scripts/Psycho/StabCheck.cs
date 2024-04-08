@@ -24,6 +24,7 @@ public class StabCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        hands.OnDisable();
         if (collision.name == "OedipalBonusSpawner")
         {
             if (levelEnded == false)
@@ -37,6 +38,7 @@ public class StabCheck : MonoBehaviour
                 {
                     scorehandler.IncrementScore();
                     uihandler.WinDisplay();
+                    scorehandler.IncrementBonusScore(4);
                     liveDaddy.SetActive(false);
                     deadDaddy.SetActive(true);
                     oedipal = true;

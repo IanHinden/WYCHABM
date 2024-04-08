@@ -177,7 +177,6 @@ public class CharacterSelector : MonoBehaviour
             StartCoroutine(Blink(selectedGirl));
             won = true;
             scorehandler.IncrementScore();
-            scorehandler.IncrementBonusScore(2);
             uihandler.WinDisplay();
             characterSelectControls.Disable();
             var emission = particles[selectedGirl].emission;

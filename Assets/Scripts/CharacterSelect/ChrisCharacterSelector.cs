@@ -159,10 +159,11 @@ public class ChrisCharacterSelector : MonoBehaviour
 
         if (unlocked == true)
         {
-            won = true;
-            scorehandler.IncrementScore();
-            uihandler.WinDisplay();
+            //won = true;
+            //scorehandler.IncrementScore();
+            //uihandler.WinDisplay();
             //uihandler.DisplayBonusScoreCard(starAnim);
+            scorehandler.IncrementBonusScore(2);
         }
 
         if(selectedGirl == 2)
