@@ -26,7 +26,20 @@ public class GameOptions : MonoBehaviour
         guitarChordAS = guitarChord.GetComponent<AudioSource>();
         themeSongAS = themeSong.GetComponent<AudioSource>();
         themeSongAS.time = 5.5f;
-        themeSongAS.Play();
+        //themeSongAS.Play();
+        StartCoroutine(FadeInMusic());
+    }
+
+    private IEnumerator FadeInMusic()
+    {
+        themeSongAS.volume = 0;
+        float currentTime = 0;
+        while(currentTime < .3f)
+        {
+            currentTime += Time.deltaTime;
+            themeSongAS.volume = Mathf.Lerp(0, 1f, currentTime / .3f);
+            yield return null;
+        }
     }
 
     public void BeginGame()

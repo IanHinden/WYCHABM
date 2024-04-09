@@ -10,6 +10,8 @@ public class Timing : MonoBehaviour
 
     [SerializeField] TextMeshPro insertCoinsText;
 
+    [SerializeField] ClickDetect clickDetect;
+
     private Animator insertCoinsTextAnim;
 
     private void Awake()
@@ -41,5 +43,10 @@ public class Timing : MonoBehaviour
             mainCamera.transform.position = Vector3.Lerp(startPosition, new Vector3(-2.32f, 0.81f, -10f), t);
             yield return null;
         }
+    }
+
+    public void Reset()
+    {
+        clickDetect.ResetClicked();
     }
 }

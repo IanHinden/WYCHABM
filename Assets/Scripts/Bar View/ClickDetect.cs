@@ -5,30 +5,35 @@ using UnityEngine.InputSystem;
 
 public class ClickDetect : MonoBehaviour
 {
+    [SerializeField] ScoreHandler scoreHandler;
+
+    private bool clicked = false;
     private BoxCollider2D collider;
 
     private void Awake()
     {
-        // Cache the BoxCollider2D component
         collider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
-        // Check for mouse button clicks
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            // Get the mouse position in world space
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            // Check if the mouse position is within the clickable area's Collider bounds
-            if (collider.bounds.Contains(mousePosition))
+            if (clicked == false)
             {
-                // This code will be executed when the invisible area is clicked.
-                Debug.Log("Invisible area clicked!");
+                clicked = true;
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-                // You can add any logic here that you want to perform when the area is clicked.
+                if (collider.bounds.Contains(mousePosition))
+                {
+                    scoreHandler.IncrementBonusScore(9);
+                }
             }
         }
+    }
+
+    public void ResetClicked()
+    {
+        clicked = false;
     }
 }

@@ -516,6 +516,7 @@ public class TimeKeeper : MonoBehaviour
         storyTimerPG.Reset();
         menschGameplay.Reset();
         avas.Reset();
+        barView.Reset();
         mixGameplay.Reset();
         ringsGameplay.Reset();
         pregnancyTest.Reset();
