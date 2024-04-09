@@ -21,22 +21,16 @@ public class DriveWinLoseLogic : MonoBehaviour
 
         if(bonusScore > 10)
         {
-            //Bonus score logic
-            Debug.Log("BONUS WIN");
+            uiHandler.WinDisplay();
+            scoreHandler.IncrementScore();
+            scoreHandler.IncrementBonusScore(6);
         } else if (standardWin == true)
         {
             uiHandler.WinDisplay();
+            scoreHandler.IncrementScore();
         } else
         {
             uiHandler.LoseDisplay();
         }
-
-        /*if (roadRacer.GetScore() > 10)
-        {
-            Debug.Log("Win");
-        } else
-        {
-            Debug.Log("Lose");
-        }*/
     }
 }
