@@ -8,7 +8,7 @@ public class MADAnimationController : MonoBehaviour
     [SerializeField] Dialogue dialogue;
     void Awake()
     {
-        StartCoroutine(Dialogue());
+        //StartCoroutine(Dialogue());
     }
 
     public IEnumerator Dialogue()

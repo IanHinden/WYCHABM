@@ -89,6 +89,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] MenschGameplay menschGameplay; //Scene 29
     [SerializeField] Avas avas; //Scene 30
     [SerializeField] Timing barView; // Scene 31
+    [SerializeField] MADAnimationController madAnimationController; // Scene 32
     [SerializeField] Straw mixGameplay; //Scene 33
     [SerializeField] RingsGameplay ringsGameplay; //Scene 35
     [SerializeField] Target pregnancyTest; //Scene 37
@@ -129,6 +130,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine menschCo;
     Coroutine avasCo;
     Coroutine barViewCo;
+    Coroutine makeADealCo;
     Coroutine mixGameplayCo;
     Coroutine ringsCo;
     Coroutine pregnancyTestCo;
@@ -401,6 +403,7 @@ public class TimeKeeper : MonoBehaviour
         resetCamera();
 
         nextScene(); //Make a Deal
+        makeADealCo = StartCoroutine(madAnimationController.Dialogue());
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX");
 
         nextScene(8, true, new Vector2(699f, 167f)); //Mix
@@ -486,6 +489,7 @@ public class TimeKeeper : MonoBehaviour
         if (menschCo != null) StopCoroutine(menschCo);
         if (avasCo != null) StopCoroutine(avasCo);
         if (barViewCo != null) StopCoroutine(barViewCo);
+        if (makeADealCo != null) StopCoroutine(makeADealCo);
         if (mixGameplayCo != null) StopCoroutine(mixGameplayCo);
         if (ringsCo != null) StopCoroutine(ringsCo);
         if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
