@@ -47,6 +47,9 @@ public class UIHandler : MonoBehaviour
     private AudioSource scorecardSlideInSFXAS;
     private AudioSource scorecardSlideOutSFXAS;
 
+    [SerializeField] AudioSource WinRiff;
+    [SerializeField] AudioSource LoseRiff;
+
     [SerializeField] GameObject frame;
 
     [SerializeField] MaskTransition mask;
@@ -103,11 +106,13 @@ public class UIHandler : MonoBehaviour
 
     public void WinDisplay()
     {
+        WinRiff.Play();
         greencircle.enabled = true;
     }
 
     public void LoseDisplay()
     {
+        LoseRiff.Play();
         redx.enabled = true;
     }
 
