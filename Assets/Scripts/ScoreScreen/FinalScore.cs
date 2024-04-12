@@ -8,8 +8,17 @@ public class FinalScore : MonoBehaviour
     [SerializeField] UIHandler uiHandler;
     [SerializeField] ScoreHandler scoreHandler;
 
+    [SerializeField] GameObject scoreScreen;
+
+    [SerializeField] AudioSource gameOverTheme;
+
     private string standardScore;
     private string bonusScore;
+
+    private void Awake()
+    {
+        StartCoroutine(ScoreText());
+    }
 
     public IEnumerator ScoreText()
     {
@@ -19,6 +28,7 @@ public class FinalScore : MonoBehaviour
         uiHandler.SetScoreScreenStandardScore(standardScore + "/16");
         uiHandler.SetScoreScreenBonusScore(bonusScore + "/10");
 
-        yield return null;
+        yield return new WaitForSeconds(.3f);
+        gameOverTheme.Play();
     }
 }
