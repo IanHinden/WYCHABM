@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -6,10 +7,13 @@ using UnityEngine.UI;
 
 public class detectionSquare : MonoBehaviour
 {
+    public static event Action GoodPoint = delegate { };
+    public static event Action PerfectPoint = delegate { };
+
     [SerializeField] RhythmRatingDisplay rhythmRatingDisplay;
     [SerializeField] FadingArrow fadingArrow;
 
-    public static float score = 0;
+    //public static float score = 0;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -17,10 +21,10 @@ public class detectionSquare : MonoBehaviour
         if(distance <= 3)
         {
             SpawnPerfect();
-            score = score + 2;
+            //score = score + 2;
         } else if (distance > 3 && distance < 7)
         {
-            score = score + 1;
+            //score = score + 1;
             SpawnGood();
         }
 
@@ -35,18 +39,20 @@ public class detectionSquare : MonoBehaviour
     {
         SpawnFadingArrow();
         rhythmRatingDisplay.SetPerfect();
+        PerfectPoint();
     }
 
     private void SpawnGood()
     {
         SpawnFadingArrow();
         rhythmRatingDisplay.SetGood();
+        GoodPoint();
     }
 
-    public float getScore()
+    /*public float getScore()
     {
         return score;
-    }
+    }*/
 
     private void SpawnFadingArrow()
     {
@@ -57,8 +63,8 @@ public class detectionSquare : MonoBehaviour
 
     }
 
-    public void resetScore()
+    /*public void resetScore()
     {
         score = 0;
-    }
+    }*/
 }

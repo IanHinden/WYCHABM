@@ -9,6 +9,11 @@ public class ScoreHandler : MonoBehaviour
 
     private int score = 0;
     private int bonusScore = 0;
+
+    private int totalPointsIncGoodValue = 1000;
+    private int totalPointsIncPefectValue = 1500;
+    private int totalPointsPartOne;
+
     private bool[] bonusesDiscovered = new bool[10];
     public void IncrementScore()
     {
@@ -36,10 +41,23 @@ public class ScoreHandler : MonoBehaviour
         Debug.Log("Bonus score is: " + bonusScore.ToString());
     }
 
+    public void IncrementTotalPointsPartOne(bool good)
+    {
+        if (good)
+        {
+            totalPointsPartOne += totalPointsIncGoodValue;
+        } else
+        {
+            totalPointsPartOne += totalPointsIncPefectValue;
+        }
+        Debug.Log(totalPointsPartOne);
+    }
+
     public void ResetScore()
     {
         score = 0;
         bonusScore = 0;
+        totalPointsPartOne = 0;
     }
 
     public int ReturnScore()

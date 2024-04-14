@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FirstChorus : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scoreHandler;
 
     [SerializeField] Chorus1AnimationController chorus1AnimationController;
 
@@ -26,6 +27,9 @@ public class FirstChorus : MonoBehaviour
     {
         detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
 
+        detectionSquare.GoodPoint += AddGoodPoint;
+        detectionSquare.PerfectPoint += AddPerfectPoint;
+
         allAnimators = new Animator[detectionSquares.Length];
         for (int i = 0; i < detectionSquares.Length; i++)
         {
@@ -34,6 +38,16 @@ public class FirstChorus : MonoBehaviour
 
         measure = timefunctions.ReturnSingleMeasure();
         StartCoroutine(Blink());
+    }
+
+    private void AddGoodPoint()
+    {
+        scoreHandler.IncrementTotalPointsPartOne(true);
+    }
+
+    private void AddPerfectPoint()
+    {
+        scoreHandler.IncrementTotalPointsPartOne(false);
     }
 
     public IEnumerator Blink()
@@ -88,6 +102,11 @@ public class FirstChorus : MonoBehaviour
         }
     }
 
+    public void IncrementTotalScore()
+    {
+        Debug.Log("First Chorus");
+    }
+
     public void Reset()
     {
         gameplayArrows.transform.localPosition = new Vector3(-42f, 751f, 0);
@@ -111,7 +130,7 @@ public class FirstChorus : MonoBehaviour
         }
 
         chorus1AnimationController.Reset();
-        detect.resetScore();
+        //detect.resetScore();
         DestroyAllText();
     }
 }

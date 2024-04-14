@@ -18,6 +18,9 @@ public class SecondChorus : MonoBehaviour
     {
         detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
 
+        detectionSquare.GoodPoint += AddGoodPoint;
+        detectionSquare.PerfectPoint += AddPerfectPoint;
+
         allAnimators = new Animator[detectionSquares.Length];
         for (int i = 0; i < detectionSquares.Length; i++)
         {
@@ -26,6 +29,16 @@ public class SecondChorus : MonoBehaviour
 
         measure = timefunctions.ReturnSingleMeasure();
         StartCoroutine(Blink());
+    }
+
+    private void AddGoodPoint()
+    {
+        Debug.Log("Good point! Second Chorus");
+    }
+
+    private void AddPerfectPoint()
+    {
+        Debug.Log("Perfect Point Second Chorus");
     }
 
     public IEnumerator Blink()
