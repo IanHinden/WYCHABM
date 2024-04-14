@@ -13,6 +13,8 @@ public class ScoreHandler : MonoBehaviour
     private int totalPointsIncGoodValue = 1000;
     private int totalPointsIncPefectValue = 1500;
     private int totalPointsPartOne;
+    private int totalPointsPartTwo;
+    private int totalPointsPartThree;
 
     private bool[] bonusesDiscovered = new bool[10];
     public void IncrementScore()
@@ -53,11 +55,39 @@ public class ScoreHandler : MonoBehaviour
         Debug.Log(totalPointsPartOne);
     }
 
+    public void IncrementTotalPointsPartTwo(bool good)
+    {
+        if (good)
+        {
+            totalPointsPartTwo += totalPointsIncGoodValue;
+        }
+        else
+        {
+            totalPointsPartTwo += totalPointsIncPefectValue;
+        }
+        Debug.Log(totalPointsPartTwo);
+    }
+
+    public void IncrementTotalPointsPartThree(bool good)
+    {
+        if (good)
+        {
+            totalPointsPartThree += totalPointsIncGoodValue;
+        }
+        else
+        {
+            totalPointsPartThree += totalPointsIncPefectValue;
+        }
+        Debug.Log(totalPointsPartThree);
+    }
+
     public void ResetScore()
     {
         score = 0;
         bonusScore = 0;
         totalPointsPartOne = 0;
+        totalPointsPartTwo = 0;
+        totalPointsPartThree = 0;
     }
 
     public int ReturnScore()
@@ -68,5 +98,20 @@ public class ScoreHandler : MonoBehaviour
     public int ReturnBonusScore()
     {
         return bonusScore;
+    }
+
+    public int ReturnTotalPointsPartOne()
+    {
+        return totalPointsPartOne;
+    }
+
+    public int ReturnTotalPointsPartTwo()
+    {
+        return totalPointsPartTwo;
+    }
+
+    public int ReturnTotalPointsPartThree()
+    {
+        return totalPointsPartThree;
     }
 }

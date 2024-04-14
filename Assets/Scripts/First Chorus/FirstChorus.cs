@@ -11,13 +11,13 @@ public class FirstChorus : MonoBehaviour
     [SerializeField] Chorus1AnimationController chorus1AnimationController;
 
     [SerializeField] GameplayArrows gameplayArrows;
-    [SerializeField] detectionSquare detect;
+    //[SerializeField] detectionSquare detect;
     //[SerializeField] GameObject playerside;
     [SerializeField] MissBar missBar;
-    [SerializeField] detectionSquare rightSquare;
-    [SerializeField] detectionSquare downSquare;
-    [SerializeField] detectionSquare upSquare;
-    [SerializeField] detectionSquare leftSquare;
+    [SerializeField] DetectionSquareFirstChorus rightSquare;
+    [SerializeField] DetectionSquareFirstChorus downSquare;
+    [SerializeField] DetectionSquareFirstChorus upSquare;
+    [SerializeField] DetectionSquareFirstChorus leftSquare;
 
     private Animator[] allAnimators;
 
@@ -25,10 +25,10 @@ public class FirstChorus : MonoBehaviour
 
     private void Awake()
     {
-        detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
+        DetectionSquareFirstChorus[] detectionSquares = FindObjectsOfType<DetectionSquareFirstChorus>();
 
-        detectionSquare.GoodPoint += AddGoodPoint;
-        detectionSquare.PerfectPoint += AddPerfectPoint;
+        DetectionSquareFirstChorus.GoodPoint += AddGoodPoint;
+        DetectionSquareFirstChorus.PerfectPoint += AddPerfectPoint;
 
         allAnimators = new Animator[detectionSquares.Length];
         for (int i = 0; i < detectionSquares.Length; i++)

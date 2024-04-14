@@ -6,20 +6,21 @@ using UnityEngine.UI;
 public class SecondChorus : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scoreHandler;
 
     [SerializeField] GameplayArrows gameplayArrows;
 
-    [SerializeField] detectionSquare detect;
+    [SerializeField] DetectionSquareSecondChorus detect;
 
     private Animator[] allAnimators;
 
     private float measure;
     private void Awake()
     {
-        detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
+        DetectionSquareSecondChorus[] detectionSquares = FindObjectsOfType<DetectionSquareSecondChorus>();
 
-        detectionSquare.GoodPoint += AddGoodPoint;
-        detectionSquare.PerfectPoint += AddPerfectPoint;
+        DetectionSquareSecondChorus.GoodPoint += AddGoodPoint;
+        DetectionSquareSecondChorus.PerfectPoint += AddPerfectPoint;
 
         allAnimators = new Animator[detectionSquares.Length];
         for (int i = 0; i < detectionSquares.Length; i++)
@@ -33,12 +34,12 @@ public class SecondChorus : MonoBehaviour
 
     private void AddGoodPoint()
     {
-        Debug.Log("Good point! Second Chorus");
+        scoreHandler.IncrementTotalPointsPartTwo(true);
     }
 
     private void AddPerfectPoint()
     {
-        Debug.Log("Perfect Point Second Chorus");
+        scoreHandler.IncrementTotalPointsPartTwo(false);
     }
 
     public IEnumerator Blink()

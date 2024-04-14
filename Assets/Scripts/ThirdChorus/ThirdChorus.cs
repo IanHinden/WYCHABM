@@ -6,17 +6,22 @@ using UnityEngine.UI;
 public class ThirdChorus : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] ScoreHandler scoreHandler;
 
     [SerializeField] GameplayArrows gameplayArrows;
 
-    [SerializeField] detectionSquare detect;
+    [SerializeField] DetectionSquareThirdChorus detect;
 
     private Animator[] allAnimators;
 
     private float measure;
     private void Awake()
     {
-        detectionSquare[] detectionSquares = FindObjectsOfType<detectionSquare>();
+        DetectionSquareThirdChorus[] detectionSquares = FindObjectsOfType<DetectionSquareThirdChorus>();
+
+
+        DetectionSquareThirdChorus.GoodPoint += AddGoodPoint;
+        DetectionSquareThirdChorus.PerfectPoint += AddPerfectPoint;
 
         allAnimators = new Animator[detectionSquares.Length];
         for (int i = 0; i < detectionSquares.Length; i++)
@@ -26,6 +31,16 @@ public class ThirdChorus : MonoBehaviour
 
         measure = timefunctions.ReturnSingleMeasure();
         StartCoroutine(Blink());
+    }
+
+    private void AddGoodPoint()
+    {
+        scoreHandler.IncrementTotalPointsPartThree(true);
+    }
+
+    private void AddPerfectPoint()
+    {
+        scoreHandler.IncrementTotalPointsPartThree(false);
     }
 
     public IEnumerator Blink()
