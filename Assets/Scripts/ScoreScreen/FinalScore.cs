@@ -36,7 +36,7 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         gameOverTheme.Play();
         yield return new WaitForSeconds(1.9f);
-        scoreStampPart1.SetGrade("A");
+        scoreStampPart1.SetGrade(scoreHandler.ReturnPartOneGrade());
         scoreStampPart1.AnimateStamp();
         yield return new WaitForSeconds(.635f);
         scoreStampPart2.SetGrade("D");
