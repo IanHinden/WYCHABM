@@ -45,7 +45,7 @@ public class Target : MonoBehaviour
             pregnancyTestAnimationController.SetPixel4();
             pregnancyTestAnimationController.StopPregnancyTest();
             full = true;
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(3);
             uihandler.WinDisplay();
         }
     }

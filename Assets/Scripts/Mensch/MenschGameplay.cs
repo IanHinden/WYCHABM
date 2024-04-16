@@ -55,7 +55,7 @@ public class MenschGameplay : MonoBehaviour
         gamecontrols.Disable();
         menschAnimationController.BonusAnimations();
         uihandler.WinDisplay();
-        scorehandler.IncrementScore();
+        scorehandler.IncrementScore(3);
         scorehandler.IncrementBonusScore(8);
     }
 
@@ -63,7 +63,7 @@ public class MenschGameplay : MonoBehaviour
     {
         gamecontrols.Disable();
         uihandler.WinDisplay();
-        scorehandler.IncrementScore();
+        scorehandler.IncrementScore(3);
     }
 
     private void StartPress()

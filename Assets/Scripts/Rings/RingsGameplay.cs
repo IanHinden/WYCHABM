@@ -78,7 +78,7 @@ public class RingsGameplay : MonoBehaviour
             ringsAnimationController.SetPos6();
             StartCoroutine(ringsAnimationController.RightHotdogShake(.2f, .2f, 1));
             ringsSFX.PlayBalloon(3);
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(3);
             uihandler.WinDisplay();
         }
     }

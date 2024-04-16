@@ -152,7 +152,7 @@ public class ChrisCharacterSelector : MonoBehaviour
         if (moved == true)
         {
             won = true;
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(1);
             uihandler.WinDisplay();
             characterSelectControls.Disable();
         }

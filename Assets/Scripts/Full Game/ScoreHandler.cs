@@ -10,7 +10,7 @@ public class ScoreHandler : MonoBehaviour
     private int score = 0;
     private int bonusScore = 0;
 
-    private int tinyGameValue = 750;
+    private int tinyGameValue = 1000;
     private int totalPointsIncGoodValue = 1000;
     private int totalPointsIncPefectValue = 1500;
     private int totalPointsPartOne;
@@ -29,16 +29,32 @@ public class ScoreHandler : MonoBehaviour
     }
 
     private bool[] bonusesDiscovered = new bool[10];
-    public void IncrementScore()
+    public void IncrementScore(int part = 0)
     {
         score++;
         StartCoroutine(uihandler.DisplayScoreCard(score));
+
+        if(part == 1)
+        {
+            totalPointsPartOne += tinyGameValue;
+        } else if (part == 2)
+        {
+            totalPointsPartTwo += tinyGameValue;
+        } else if (part == 3)
+        {
+            totalPointsPartThree += tinyGameValue;
+        }
     }
 
-    public void DoubleIncrementScore()
+    public void DoubleIncrementScore(int part = 0)
     {
         score = score + 2;
         StartCoroutine(uihandler.DisplayScoreCardTwo(score));
+
+        if(part == 2)
+        {
+            totalPointsPartTwo += (2 * tinyGameValue);
+        }
     }
 
     public void IncrementBonusScore(int numberPerson)
@@ -64,7 +80,6 @@ public class ScoreHandler : MonoBehaviour
         {
             totalPointsPartOne += totalPointsIncPefectValue;
         }
-        Debug.Log(totalPointsPartOne);
     }
 
     public void IncrementTotalPointsPartTwo(bool good)
@@ -77,7 +92,6 @@ public class ScoreHandler : MonoBehaviour
         {
             totalPointsPartTwo += totalPointsIncPefectValue;
         }
-        Debug.Log(totalPointsPartTwo);
     }
 
     public void IncrementTotalPointsPartThree(bool good)
@@ -90,7 +104,6 @@ public class ScoreHandler : MonoBehaviour
         {
             totalPointsPartThree += totalPointsIncPefectValue;
         }
-        Debug.Log(totalPointsPartThree);
     }
 
     public void ResetScore()
@@ -130,6 +143,24 @@ public class ScoreHandler : MonoBehaviour
     public string ReturnPartOneGrade()
     {
         return GradeGenerator(totalPointsPartOne, maxScorePartOne);
+    }
+
+    public string ReturnPartTwoGrade()
+    {
+        return GradeGenerator(totalPointsPartTwo, maxScorePartTwo);
+    }
+
+    public string ReturnPartThreeGrade()
+    {
+        return GradeGenerator(totalPointsPartThree, maxScorePartThree);
+    }
+
+    public string ReturnFinalGrade()
+    {
+        int totalScore = totalPointsPartOne + totalPointsPartTwo + totalPointsPartThree;
+        int totalMaxScore = maxScorePartOne + maxScorePartTwo + maxScorePartThree;
+
+        return GradeGenerator(totalScore, totalMaxScore);
     }
 
     private string GradeGenerator(int score, int maxScore)

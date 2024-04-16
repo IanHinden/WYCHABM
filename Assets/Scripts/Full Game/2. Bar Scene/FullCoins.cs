@@ -77,7 +77,7 @@ public class FullCoins : MonoBehaviour
         {
             levelComplete = true;
             uihandler.WinDisplay();
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(1);
             controller.OnDisable();
         }
         displayscore.text = totalCoins - remainingCoins + "/" + totalCoins;
@@ -116,7 +116,7 @@ public class FullCoins : MonoBehaviour
 
         if (bonusWin == true)
         {
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(1);
             scorehandler.IncrementBonusScore(1);
             uihandler.WinDisplay();
         }

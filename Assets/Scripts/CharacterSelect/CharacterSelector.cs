@@ -176,7 +176,7 @@ public class CharacterSelector : MonoBehaviour
             characterSelectSFXController.PlayConfirm();
             StartCoroutine(Blink(selectedGirl));
             won = true;
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(1);
             uihandler.WinDisplay();
             characterSelectControls.Disable();
             var emission = particles[selectedGirl].emission;

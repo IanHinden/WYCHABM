@@ -162,7 +162,7 @@ public class TweakGameplay : MonoBehaviour
                 tweakSFX.PlayBalloon(3);
                 state++;
                 won = true;
-                scorehandler.IncrementScore();
+                scorehandler.IncrementScore(3);
                 uihandler.WinDisplay();
                 rotateWinCo = StartCoroutine(RotateWin());
                 //Instead of rotating right, maybe animate win?

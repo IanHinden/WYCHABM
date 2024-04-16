@@ -93,7 +93,7 @@ public class Straw : MonoBehaviour
 
     private void win()
     {
-        scorehandler.IncrementScore();
+        scorehandler.IncrementScore(3);
         gameOver = true;
 
         animationController.WinAnimation();

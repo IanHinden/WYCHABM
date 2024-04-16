@@ -20,14 +20,12 @@ public class Disappointer : MonoBehaviour
 
     [SerializeField] GameObject FuzzyTextGO;
 
-    bool CareAboutTheOpinionsOfOthers;
+    bool ThereIsALightInYourHeart = true;
 
     private SpriteRenderer FuzzyTextSR;
 
     void Awake()
     {
-        //Halloween 1987
-        CareAboutTheOpinionsOfOthers = true;
         FuzzyTextSR = FuzzyTextGO.GetComponent<SpriteRenderer>();
     }
 
@@ -63,14 +61,14 @@ public class Disappointer : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (CareAboutTheOpinionsOfOthers)
+        if (ThereIsALightInYourHeart == true)
         {
             setPhase2();
             dontDisappointSFXController.PlayLoseSound();
             uihandler.LoseDisplay();
         } else
         {
-            scoreHandler.IncrementScore();
+            scoreHandler.IncrementScore(2);
             scoreHandler.IncrementBonusScore(3);
         }
     }

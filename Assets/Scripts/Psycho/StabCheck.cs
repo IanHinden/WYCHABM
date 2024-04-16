@@ -36,7 +36,7 @@ public class StabCheck : MonoBehaviour
                 StartCoroutine(FreudStickVictory());
                 if (oedipal == false)
                 {
-                    scorehandler.IncrementScore();
+                    scorehandler.IncrementScore(2);
                     uihandler.WinDisplay();
                     scorehandler.IncrementBonusScore(4);
                     liveDaddy.SetActive(false);
@@ -49,10 +49,11 @@ public class StabCheck : MonoBehaviour
         stabbed = true;
         if (levelEnded == false)
         {
+            psychoSFXController.PlayPunch();
             liveDaddy.SetActive(false);
             deadDaddy.SetActive(true);
             uihandler.WinDisplay();
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(2);
         }
     }
 

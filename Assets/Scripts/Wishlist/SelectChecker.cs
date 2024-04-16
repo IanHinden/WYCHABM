@@ -47,7 +47,7 @@ public class SelectChecker : MonoBehaviour
         selected = true;
         if(activeArrow == 2)
         {
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(3);
             uihandler.WinDisplay();
             gamecontrols.Disable();
             

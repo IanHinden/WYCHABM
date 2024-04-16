@@ -30,7 +30,7 @@ public class Contract : MonoBehaviour
         }
         else
         {
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(1);
             uihandler.WinDisplay();
         }
     }

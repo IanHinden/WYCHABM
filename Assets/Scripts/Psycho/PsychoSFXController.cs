@@ -8,6 +8,8 @@ public class PsychoSFXController : MonoBehaviour
     [SerializeField] GameObject OedipalBonusSFX;
     [SerializeField] GameObject FreudSFX;
 
+    [SerializeField] AudioSource PunchAS;
+
     private AudioSource TornPaperSFXAS;
     private AudioSource OedipalBonusSFXAS;
     private AudioSource FreudSFXAS;
@@ -32,5 +34,10 @@ public class PsychoSFXController : MonoBehaviour
     public void PlayFreud()
     {
         FreudSFXAS.Play();
+    }
+
+    public void PlayPunch()
+    {
+        PunchAS.Play();
     }
 }

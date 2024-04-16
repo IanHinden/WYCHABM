@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/40. ScoreScreen.unity
     guid: 8abb3f52eb51eb64d81885747e026318
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/41. Full Game.unity
     guid: 336ef278e52b9ab42a8ac16c077618e3
   m_configObjects: {}

@@ -39,13 +39,13 @@ public class FinalScore : MonoBehaviour
         scoreStampPart1.SetGrade(scoreHandler.ReturnPartOneGrade());
         scoreStampPart1.AnimateStamp();
         yield return new WaitForSeconds(.635f);
-        scoreStampPart2.SetGrade("D");
+        scoreStampPart2.SetGrade(scoreHandler.ReturnPartTwoGrade());
         scoreStampPart2.AnimateStamp();
         yield return new WaitForSeconds(.635f);
-        scoreStampPart3.SetGrade("D");
+        scoreStampPart3.SetGrade(scoreHandler.ReturnPartThreeGrade());
         scoreStampPart3.AnimateStamp();
         yield return new WaitForSeconds(1.27f);
-        scoreStampFinal.SetGrade("B");
+        scoreStampFinal.SetGrade(scoreHandler.ReturnFinalGrade());
         scoreStampFinal.AnimateStamp();
     }
 }

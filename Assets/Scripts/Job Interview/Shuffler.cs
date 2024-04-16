@@ -124,7 +124,7 @@ public class Shuffler : MonoBehaviour
         gamecontrols.Disable();
         if(activeFinger == 1)
         {
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(2);
             uihandler.WinDisplay();
         } else
         {

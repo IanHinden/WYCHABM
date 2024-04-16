@@ -22,12 +22,12 @@ public class DriveWinLoseLogic : MonoBehaviour
         if(bonusScore > 10)
         {
             uiHandler.WinDisplay();
-            scoreHandler.IncrementScore();
+            scoreHandler.IncrementScore(2);
             scoreHandler.IncrementBonusScore(6);
         } else if (standardWin == true)
         {
             uiHandler.WinDisplay();
-            scoreHandler.IncrementScore();
+            scoreHandler.IncrementScore(2);
         } else
         {
             uiHandler.LoseDisplay();

@@ -125,10 +125,10 @@ public class Gameplay : MonoBehaviour
     {
         if(score == 1)
         {
-            scorehandler.IncrementScore();
+            scorehandler.IncrementScore(2);
         } else if (score == 2)
         {
-            scorehandler.DoubleIncrementScore();
+            scorehandler.DoubleIncrementScore(2);
         }
     }
 
