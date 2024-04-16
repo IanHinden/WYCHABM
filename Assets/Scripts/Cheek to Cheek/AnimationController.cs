@@ -19,6 +19,7 @@ public class AnimationController : MonoBehaviour
     Animator KissNeutralWifeAnim;
     Animator LeafAnim;
     Animator BrokenHeartAnim;
+    [SerializeField] Animator BlushKissAnim;
 
     [Header("Hit Objects")]
     [SerializeField] GameObject MistressObjects;
@@ -81,6 +82,7 @@ public class AnimationController : MonoBehaviour
     {
         KissObjectsNeutral.SetActive(false);
         KissObjectsWin.SetActive(true);
+        BlushKissAnim.SetTrigger("Blush");
         cheekToCheekSFXController.PlayKiss();
     }
 
@@ -154,6 +156,9 @@ public class AnimationController : MonoBehaviour
             //KissWin
             KissObjectsNeutral.SetActive(true);
             KissObjectsWin.SetActive(false);
+            BlushKissAnim.SetTrigger("Reset");
+            BlushKissAnim.ResetTrigger("Blush");
+            BlushKissAnim.ResetTrigger("Reset");
 
             //KissLose
             KissNeutralWife.transform.position = new Vector3(0, 0, 0);
