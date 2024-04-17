@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuControls : MonoBehaviour
 {
     [SerializeField] MenuController menuController;
+
+    public float cooldownTime = .005f;
+    private float lastClickTime = 0f;
 
     private GameControls characterSelectControls;
     void Awake()
@@ -25,6 +29,10 @@ public class MenuControls : MonoBehaviour
 
     private void select()
     {
-        menuController.StartGame();
+        if (Time.time - lastClickTime > cooldownTime)
+        {
+            menuController.StartGame();
+            lastClickTime = Time.time;
+        }
     }
 }
