@@ -48,6 +48,23 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    public void SetNextActiveButton(int direction)
+    {
+        int startIndex = currentIndex;
+        do
+        {
+            currentIndex += direction;
+
+            if (currentIndex >= buttons.Count) currentIndex = 0;
+            else if (currentIndex < 0) currentIndex = buttons.Count - 1;
+            if (currentIndex == startIndex) return;
+        } while (!buttons[currentIndex].gameObject.activeInHierarchy || !buttons[currentIndex].interactable);
+        if (buttons[currentIndex] != null && buttons[currentIndex].gameObject.activeInHierarchy && buttons[currentIndex].interactable)
+        {
+            buttons[currentIndex].Select();
+        }
+    }
+
     public void switchToNext2()
     {
         titleScreen.SetActive(false);

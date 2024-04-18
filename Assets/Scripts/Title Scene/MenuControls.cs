@@ -15,6 +15,10 @@ public class MenuControls : MonoBehaviour
     {
         characterSelectControls = new GameControls();
         characterSelectControls.Select.Choose.performed += x => select();
+        characterSelectControls.Select.DownSelect.performed += x => downSelect();
+        characterSelectControls.Select.RightSelect.performed += x => downSelect();
+        characterSelectControls.Select.UpSelect.performed += x => upSelect();
+        characterSelectControls.Select.LeftSelect.performed += x => upSelect();
     }
 
     private void OnEnable()
@@ -34,5 +38,15 @@ public class MenuControls : MonoBehaviour
             menuController.StartGame();
             lastClickTime = Time.time;
         }
+    }
+
+    private void downSelect()
+    {
+        menuController.SetNextActiveButton(1);
+    }
+
+    private void upSelect()
+    {
+        menuController.SetNextActiveButton(-1);
     }
 }
