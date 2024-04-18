@@ -21,6 +21,7 @@ public class MenuController : MonoBehaviour
     AudioSource menuSoundEffectsAS;
 
     private bool playedMenuEffect = false;
+    private int currentIndex = 1;
 
     private void Awake()
     {
