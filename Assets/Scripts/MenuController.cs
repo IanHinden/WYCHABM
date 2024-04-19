@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] Button startGameButton;
     public List<Button> buttons;
+    public List<Button> tutorialButtons;
 
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
@@ -71,6 +72,7 @@ public class MenuController : MonoBehaviour
         logo.SetActive(false);
         instructionsMenu2.SetActive(true);
         instructionsMenu3.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(tutorialButtons[0].gameObject);
     }
 
     public void switchToNext3()
@@ -78,12 +80,14 @@ public class MenuController : MonoBehaviour
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
         instructionsMenu4.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(tutorialButtons[2].gameObject);
     }
 
     public void switchToNext4()
     {
         instructionsMenu3.SetActive(false);
         instructionsMenu4.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(tutorialButtons[4].gameObject);
     }
 
     public void hideInstructions()
@@ -92,5 +96,6 @@ public class MenuController : MonoBehaviour
         logo.SetActive(true);
         instructionsMenu4.SetActive(false);
         startGameButton.interactable = true;
+        EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
     }
 }
