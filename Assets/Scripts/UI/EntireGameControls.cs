@@ -10,7 +10,7 @@ public class EntireGameControls : MonoBehaviour
     {
         entireGameControls = new GameControls();
         entireGameControls.Select.Pause.performed += x => pauseUnpause();
-        OnDisable();
+        //OnDisable();
     }
 
     private void OnEnable()

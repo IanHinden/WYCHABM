@@ -15,14 +15,21 @@ public class pauseManager : MonoBehaviour
     public GameObject pauseButton;
     private bool isPaused = false;
 
+    [SerializeField] GameObject victoryScreen;
+    [SerializeField] GameObject scoreScreen;
+    [SerializeField] GameObject titleScreen;
+
     public void pauseUnpauseGame()
     {
-        GameObject titleScreen = GameObject.Find("2. Title Screen");
+        //GameObject titleScreen = GameObject.Find("2. Title Screen");
 
-        if (titleScreen != null)
+        Debug.Log(titleScreen);
+        Debug.Log(victoryScreen);
+        Debug.Log(scoreScreen);
+        if (titleScreen != null || victoryScreen != null || scoreScreen!= null )
         {
 
-            if (titleScreen.activeInHierarchy == false)
+            if (titleScreen.activeInHierarchy == false && victoryScreen.activeInHierarchy == false && scoreScreen.activeInHierarchy == false)
             {
                 //when pause function is called and the menu is still up
                 if (isPaused)
