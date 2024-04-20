@@ -525,6 +525,7 @@ public class TimeKeeper : MonoBehaviour
         ringsGameplay.Reset();
         pregnancyTest.Reset();
         thirdChorus.Reset();
+        finalScore.Reset();
 
         foreach (GameObject scene in allscenes)
         {

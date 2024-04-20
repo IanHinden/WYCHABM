@@ -43,8 +43,6 @@ public class ScoreStamp : MonoBehaviour
         {
             FGrade.enabled = true;
         }
-
-        Debug.Log(grade);
     }
 
     public void HideAllGrade()
@@ -61,5 +59,13 @@ public class ScoreStamp : MonoBehaviour
     {
         stampAnim.SetBool("ScoreStamp", true);
         RotateCat.enabled = true;
+    }
+
+    public void ResetStamp()
+    {
+        HideAllGrade();
+        stampAnim.SetBool("ScoreStamp", false);
+        this.transform.localScale = new Vector3(2, 2, 2);
+        RotateCat.enabled = false;
     }
 }

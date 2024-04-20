@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class FinalScore : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class FinalScore : MonoBehaviour
     [SerializeField] ScoreStamp scoreStampPart2;
     [SerializeField] ScoreStamp scoreStampPart3;
     [SerializeField] ScoreStamp scoreStampFinal;
+
+    [SerializeField] GameObject resetGameButton;
 
     [SerializeField] AudioSource gameOverTheme;
 
@@ -47,5 +50,16 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSeconds(1.27f);
         scoreStampFinal.SetGrade(scoreHandler.ReturnFinalGrade());
         scoreStampFinal.AnimateStamp();
+        yield return new WaitForSeconds(2f);
+        resetGameButton.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        scoreStampPart1.ResetStamp();
+        scoreStampPart2.ResetStamp();
+        scoreStampPart3.ResetStamp();
+        scoreStampFinal.ResetStamp();
+        resetGameButton.SetActive(false);
     }
 }

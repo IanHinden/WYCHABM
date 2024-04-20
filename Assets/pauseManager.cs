@@ -22,10 +22,6 @@ public class pauseManager : MonoBehaviour
     public void pauseUnpauseGame()
     {
         //GameObject titleScreen = GameObject.Find("2. Title Screen");
-
-        Debug.Log(titleScreen);
-        Debug.Log(victoryScreen);
-        Debug.Log(scoreScreen);
         if (titleScreen != null || victoryScreen != null || scoreScreen!= null )
         {
 
