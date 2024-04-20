@@ -315,6 +315,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""1ac4021b-e17c-47c1-a171-92cc886bcd4c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -482,6 +491,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""UpSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ef56f33-9823-4d89-b57d-e356fb16cc33"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -500,6 +520,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Select_Choose = m_Select.FindAction("Choose", throwIfNotFound: true);
         m_Select_DownSelect = m_Select.FindAction("DownSelect", throwIfNotFound: true);
         m_Select_UpSelect = m_Select.FindAction("UpSelect", throwIfNotFound: true);
+        m_Select_Pause = m_Select.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -613,6 +634,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Select_Choose;
     private readonly InputAction m_Select_DownSelect;
     private readonly InputAction m_Select_UpSelect;
+    private readonly InputAction m_Select_Pause;
     public struct SelectActions
     {
         private @GameControls m_Wrapper;
@@ -622,6 +644,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         public InputAction @Choose => m_Wrapper.m_Select_Choose;
         public InputAction @DownSelect => m_Wrapper.m_Select_DownSelect;
         public InputAction @UpSelect => m_Wrapper.m_Select_UpSelect;
+        public InputAction @Pause => m_Wrapper.m_Select_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Select; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -646,6 +669,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @UpSelect.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
                 @UpSelect.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
                 @UpSelect.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnUpSelect;
+                @Pause.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_SelectActionsCallbackInterface = instance;
             if (instance != null)
@@ -665,6 +691,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @UpSelect.started += instance.OnUpSelect;
                 @UpSelect.performed += instance.OnUpSelect;
                 @UpSelect.canceled += instance.OnUpSelect;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -682,5 +711,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         void OnChoose(InputAction.CallbackContext context);
         void OnDownSelect(InputAction.CallbackContext context);
         void OnUpSelect(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
