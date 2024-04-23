@@ -31,6 +31,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] CountdownTick countdownTick;
     [SerializeField] CountdownTok countdownTok;
+    [SerializeField] GameObject Countdown1;
+    [SerializeField] GameObject Countdown2;
+    [SerializeField] GameObject Countdown3;
 
     [SerializeField] TextMeshProUGUI textmesh;
     [SerializeField] TextMeshProUGUI kissHitText;
@@ -66,10 +69,17 @@ public class UIHandler : MonoBehaviour
     private Animator anim;
     private Animator kissHitAnim;
 
+    private Animator countdown1Anim;
+    private Animator countdown2Anim;
+    private Animator countdown3Anim;
+
     private Coroutine yellowSparkCo;
     private Coroutine blueSparkCo;
 
     private Image SpeechBubbleImage;
+    private Image countdown1Image;
+    private Image countdown2Image;
+    private Image countdown3Image;
 
     // Start is called before the first frame update
     void Awake()
@@ -90,6 +100,14 @@ public class UIHandler : MonoBehaviour
 
         scorecardSlideInSFXAS = scorecardSlideInSFX.GetComponent<AudioSource>();
         scorecardSlideOutSFXAS = scorecardSlideOutSFX.GetComponent<AudioSource>();
+
+        countdown1Anim = Countdown1.GetComponent<Animator>();
+        countdown2Anim = Countdown2.GetComponent<Animator>();
+        countdown3Anim = Countdown3.GetComponent<Animator>();
+
+        countdown1Image = Countdown1.GetComponent<Image>();
+        countdown2Image = Countdown2.GetComponent<Image>();
+        countdown3Image = Countdown3.GetComponent<Image>();
 
         SpeechBubbleImage = SpeechBubble.GetComponent<Image>();
     }
@@ -164,25 +182,34 @@ public class UIHandler : MonoBehaviour
         }
 
         HideOrShowSpeechBubble(true);
-        countdown.text = "3";
+        //countdown.text = "3";
+        countdown3Image.enabled = true;
+        countdown3Anim.SetTrigger("Grow");
         countdownTick.playTick();
         timerSlider.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "2";
+        //countdown.text = "2";
+        countdown3Image.enabled = false;
+        countdown2Image.enabled = true;
+        countdown2Anim.SetTrigger("Grow");
         countdownTok.playTok();
         timerSlider.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "1";
+        //countdown.text = "1";
+        countdown2Image.enabled = false;
+        countdown1Image.enabled = true;
+        countdown1Anim.SetTrigger("Grow");
         countdownTick.playTick();
         timerSlider.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
+        countdown1Image.enabled = false;
         countdown.text = "";
         countdownTok.playTok();
         timerSlider.value = 0;

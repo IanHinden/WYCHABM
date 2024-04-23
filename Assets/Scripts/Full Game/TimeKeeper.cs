@@ -230,7 +230,7 @@ public class TimeKeeper : MonoBehaviour
 
     private IEnumerator LoseGame()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(26));
 
         musicplayer.FadeOutMusic();
 
