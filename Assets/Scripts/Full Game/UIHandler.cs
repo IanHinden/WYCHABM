@@ -28,7 +28,6 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject BlueSpark;
     [SerializeField] GameObject SpeechBubble;
     [SerializeField] GameObject SpeakerObjects;
-    [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] CountdownTick countdownTick;
     [SerializeField] CountdownTok countdownTok;
     [SerializeField] GameObject Countdown1;
@@ -171,8 +170,6 @@ public class UIHandler : MonoBehaviour
 
         UpdateSparkPos();
 
-        countdown.text = " ";
-
         while(totalTime > 3)
         {
             yield return new WaitForSeconds(singleMeasure);
@@ -182,7 +179,6 @@ public class UIHandler : MonoBehaviour
         }
 
         HideOrShowSpeechBubble(true);
-        //countdown.text = "3";
         countdown3Image.enabled = true;
         countdown3Anim.SetTrigger("Grow");
         countdownTick.playTick();
@@ -190,7 +186,6 @@ public class UIHandler : MonoBehaviour
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        //countdown.text = "2";
         countdown3Image.enabled = false;
         countdown2Image.enabled = true;
         countdown2Anim.SetTrigger("Grow");
@@ -199,7 +194,6 @@ public class UIHandler : MonoBehaviour
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        //countdown.text = "1";
         countdown2Image.enabled = false;
         countdown1Image.enabled = true;
         countdown1Anim.SetTrigger("Grow");
@@ -210,7 +204,6 @@ public class UIHandler : MonoBehaviour
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
         countdown1Image.enabled = false;
-        countdown.text = "";
         countdownTok.playTok();
         timerSlider.value = 0;
         UpdateSparkPos();
@@ -226,8 +219,6 @@ public class UIHandler : MonoBehaviour
 
         UpdateSparkPos();
 
-        countdown.text = " ";
-
         while (totalTime > 3)
         {
             yield return new WaitForSeconds(singleMeasure);
@@ -237,28 +228,31 @@ public class UIHandler : MonoBehaviour
         }
 
         HideOrShowSpeechBubble(true);
-        countdown.text = "3";
+        countdown3Image.enabled = true;
+        countdown3Anim.SetTrigger("Grow");
         timerSlider.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "2";
+        countdown3Image.enabled = false;
+        countdown2Image.enabled = true;
+        countdown2Anim.SetTrigger("Grow");
         timerSlider.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "1";
+        countdown2Image.enabled = false;
+        countdown1Image.enabled = true;
+        countdown1Anim.SetTrigger("Grow");
         timerSlider.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "0";
+        countdown1Image.enabled = false;
         timerSlider.value = 0;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-
-        countdown.text = " ";
 
         while (totalTime > 3)
         {
@@ -268,23 +262,28 @@ public class UIHandler : MonoBehaviour
             UpdateSparkPos();
         }
 
-        countdown.text = "3";
+        countdown3Image.enabled = true;
+        countdown3Anim.SetTrigger("Grow");
         timerSlider.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "2";
+        countdown3Image.enabled = false;
+        countdown2Image.enabled = true;
+        countdown2Anim.SetTrigger("Grow");
         timerSlider.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
-        countdown.text = "1";
+        countdown2Image.enabled = false;
+        countdown1Image.enabled = true;
+        countdown1Anim.SetTrigger("Grow");
         timerSlider.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
-        countdown.text = "";
+        countdown1Image.enabled = false;
         timerSlider.value = 0;
         UpdateSparkPos();
     }
