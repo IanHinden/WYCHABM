@@ -203,4 +203,9 @@ public class ScoreHandler : MonoBehaviour
 
         return grade;
     }
+
+    public bool[] ReturnBonusesDiscovered()
+    {
+        return bonusesDiscovered;
+    }
 }

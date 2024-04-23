@@ -16,6 +16,9 @@ public class FinalScore : MonoBehaviour
     [SerializeField] ScoreStamp scoreStampPart3;
     [SerializeField] ScoreStamp scoreStampFinal;
 
+    [SerializeField] GameObject numberPeopleBG;
+    [SerializeField] GameObject numberPeopleUnlockedObj;
+
     [SerializeField] GameObject resetGameButton;
 
     [SerializeField] AudioSource gameOverTheme;
@@ -51,7 +54,23 @@ public class FinalScore : MonoBehaviour
         scoreStampFinal.SetGrade(scoreHandler.ReturnFinalGrade());
         scoreStampFinal.AnimateStamp();
         yield return new WaitForSeconds(2f);
+        displayBonusScore();
         resetGameButton.SetActive(true);
+    }
+
+    private void displayBonusScore()
+    {
+        numberPeopleBG.SetActive(true);
+
+        bool[] numberPeopleUnlocked = scoreHandler.ReturnBonusesDiscovered();
+
+        for (int i = 0; i < numberPeopleUnlocked.Length; i++)
+        {
+            if (numberPeopleUnlocked[i])
+            {
+                numberPeopleUnlockedObj.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
 
     public void Reset()
@@ -60,6 +79,13 @@ public class FinalScore : MonoBehaviour
         scoreStampPart2.ResetStamp();
         scoreStampPart3.ResetStamp();
         scoreStampFinal.ResetStamp();
+        numberPeopleBG.SetActive(false);
+
+        for (int i = 0; i < 10; i++)
+        {
+            numberPeopleUnlockedObj.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         resetGameButton.SetActive(false);
     }
 }
