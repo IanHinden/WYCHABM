@@ -19,6 +19,7 @@ public class UIHandler : MonoBehaviour
     [Header("Time Remaining UI")]
     [SerializeField] GameObject panel;
     [SerializeField] Slider timerSlider;
+    [SerializeField] Slider timerSliderBG;
     [SerializeField] RectTransform spark;
     [SerializeField] RectTransform fillArea;
     [SerializeField] GameObject IanObjects;
@@ -148,6 +149,9 @@ public class UIHandler : MonoBehaviour
     {
         timerSlider.maxValue = 4;
         timerSlider.value = 4;
+
+        timerSliderBG.maxValue = 4;
+        timerSliderBG.value = 4;
     }
 
     public void Countdown(int totalMeasures)
@@ -168,6 +172,9 @@ public class UIHandler : MonoBehaviour
         timerSlider.maxValue = totalMeasures > 3 ? totalMeasures - 1 : totalMeasures;
         timerSlider.value = totalMeasures;
 
+        timerSliderBG.maxValue = totalMeasures > 3 ? totalMeasures - 1 : totalMeasures;
+        timerSliderBG.value = totalMeasures;
+
         UpdateSparkPos();
 
         while(totalTime > 3)
@@ -175,6 +182,7 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            timerSliderBG.value--;
             UpdateSparkPos();
         }
 
@@ -183,6 +191,7 @@ public class UIHandler : MonoBehaviour
         countdown3Anim.SetTrigger("Grow");
         countdownTick.playTick();
         timerSlider.value = 3;
+        timerSliderBG.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -191,6 +200,7 @@ public class UIHandler : MonoBehaviour
         countdown2Anim.SetTrigger("Grow");
         countdownTok.playTok();
         timerSlider.value = 2;
+        timerSliderBG.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -199,6 +209,7 @@ public class UIHandler : MonoBehaviour
         countdown1Anim.SetTrigger("Grow");
         countdownTick.playTick();
         timerSlider.value = 1;
+        timerSliderBG.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -206,6 +217,7 @@ public class UIHandler : MonoBehaviour
         countdown1Image.enabled = false;
         countdownTok.playTok();
         timerSlider.value = 0;
+        timerSliderBG.value = 0;
         UpdateSparkPos();
     }
 
@@ -217,6 +229,9 @@ public class UIHandler : MonoBehaviour
         timerSlider.maxValue = 3;
         timerSlider.value = 3;
 
+        timerSliderBG.maxValue = 3;
+        timerSliderBG.value = 3;
+
         UpdateSparkPos();
 
         while (totalTime > 3)
@@ -224,6 +239,7 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            timerSliderBG.value--;
             UpdateSparkPos();
         }
 
@@ -231,6 +247,7 @@ public class UIHandler : MonoBehaviour
         countdown3Image.enabled = true;
         countdown3Anim.SetTrigger("Grow");
         timerSlider.value = 3;
+        timerSliderBG.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -238,6 +255,7 @@ public class UIHandler : MonoBehaviour
         countdown2Image.enabled = true;
         countdown2Anim.SetTrigger("Grow");
         timerSlider.value = 2;
+        timerSliderBG.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -245,11 +263,13 @@ public class UIHandler : MonoBehaviour
         countdown1Image.enabled = true;
         countdown1Anim.SetTrigger("Grow");
         timerSlider.value = 1;
+        timerSliderBG.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         countdown1Image.enabled = false;
         timerSlider.value = 0;
+        timerSliderBG.value = 0;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -259,12 +279,14 @@ public class UIHandler : MonoBehaviour
             yield return new WaitForSeconds(singleMeasure);
             totalTime -= singleMeasure;
             timerSlider.value--;
+            timerSliderBG.value--;
             UpdateSparkPos();
         }
 
         countdown3Image.enabled = true;
         countdown3Anim.SetTrigger("Grow");
         timerSlider.value = 3;
+        timerSliderBG.value = 3;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -272,6 +294,7 @@ public class UIHandler : MonoBehaviour
         countdown2Image.enabled = true;
         countdown2Anim.SetTrigger("Grow");
         timerSlider.value = 2;
+        timerSliderBG.value = 2;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
@@ -279,12 +302,14 @@ public class UIHandler : MonoBehaviour
         countdown1Image.enabled = true;
         countdown1Anim.SetTrigger("Grow");
         timerSlider.value = 1;
+        timerSliderBG.value = 1;
         UpdateSparkPos();
 
         yield return new WaitForSeconds(singleMeasure);
         SwitchToSkeleton();
         countdown1Image.enabled = false;
         timerSlider.value = 0;
+        timerSliderBG.value = 0;
         UpdateSparkPos();
     }
 
