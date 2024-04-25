@@ -79,7 +79,7 @@ public class CityBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         puffAnimator.SetTrigger("TriggerPuff");
-        dialogue.DialogueEnter("AVA");
+        dialogue.DialogueEnter("???");
         dialogue1 = StartCoroutine(dialogue.SetDialogue(dialogueText[0]));
         yield return new WaitForSeconds(2.2f);
         ppgAnimator.SetTrigger("Enter");
