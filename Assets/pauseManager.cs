@@ -74,7 +74,7 @@ public class pauseManager : MonoBehaviour
 
     public void quitGame()
     {
-
+        Application.Quit();
     }
 
     public void backToMainMenu()
