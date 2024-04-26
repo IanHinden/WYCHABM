@@ -21,11 +21,20 @@ public class ScoreHandler : MonoBehaviour
     private int maxScorePartTwo;
     private int maxScorePartThree;
 
+    private float bonusScorePartTwoMin;
+    private float bonusScorePartThreeMin;
+
+    private bool bonusScorePartTwoActivated = false;
+    private bool bonusScorePartThreeActivated = false;
+
     private void Awake()
     {
         maxScorePartOne = (8 * totalPointsIncPefectValue) + (3 * tinyGameValue);
         maxScorePartTwo = (15 * totalPointsIncPefectValue) + (6 * tinyGameValue);
         maxScorePartThree = (27 * totalPointsIncPefectValue) + (6 * tinyGameValue);
+
+        bonusScorePartTwoMin = maxScorePartTwo * .8f;
+        bonusScorePartThreeMin = maxScorePartThree * .8f;
     }
 
     private bool[] bonusesDiscovered = new bool[10];
@@ -92,6 +101,12 @@ public class ScoreHandler : MonoBehaviour
         {
             totalPointsPartTwo += totalPointsIncPefectValue;
         }
+
+        if(totalPointsPartTwo > bonusScorePartTwoMin && bonusScorePartTwoActivated == false)
+        {
+            bonusScorePartTwoActivated = true;
+            IncrementBonusScore(7);
+        }
     }
 
     public void IncrementTotalPointsPartThree(bool good)
@@ -104,6 +119,12 @@ public class ScoreHandler : MonoBehaviour
         {
             totalPointsPartThree += totalPointsIncPefectValue;
         }
+
+        if(totalPointsPartThree > bonusScorePartThreeMin && bonusScorePartThreeActivated == false)
+        {
+            bonusScorePartThreeActivated = true;
+            IncrementBonusScore(10);
+        }
     }
 
     public void ResetScore()
@@ -113,6 +134,9 @@ public class ScoreHandler : MonoBehaviour
         totalPointsPartOne = 0;
         totalPointsPartTwo = 0;
         totalPointsPartThree = 0;
+
+        bonusScorePartTwoActivated = false;
+        bonusScorePartThreeActivated = false;
     }
 
     public int ReturnScore()
