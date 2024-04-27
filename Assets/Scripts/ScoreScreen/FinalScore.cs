@@ -39,7 +39,7 @@ public class FinalScore : MonoBehaviour
         uiHandler.SetScoreScreenStandardScore("");
         uiHandler.SetScoreScreenBonusScore("");
 
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.8f);
         gameOverTheme.Play();
         yield return new WaitForSeconds(1.9f);
         scoreStampPart1.SetGrade(scoreHandler.ReturnPartOneGrade());

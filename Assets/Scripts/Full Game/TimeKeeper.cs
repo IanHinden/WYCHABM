@@ -222,7 +222,7 @@ public class TimeKeeper : MonoBehaviour
     private IEnumerator WinGame()
     {
         nextScene();
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(30));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(50));
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
         nextScene();
 
