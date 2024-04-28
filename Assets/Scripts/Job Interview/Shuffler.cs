@@ -31,7 +31,7 @@ public class Shuffler : MonoBehaviour
         gamecontrols.Select.DownSelect.performed += x => setNextActiveFinger();
         gamecontrols.Select.Choose.performed += x => Select();
 
-        StartCoroutine(WinOrLose());
+        //StartCoroutine(WinOrLose());
     }
 
     private void OnEnable()
@@ -111,7 +111,7 @@ public class Shuffler : MonoBehaviour
     {
         AnimateProperBubble();
         StartCoroutine(cameraLogic.moveToX(new Vector3(5.9f, 10.59f, -10), .5f));
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(5));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
         if (pressed == false)
         {
             uihandler.LoseDisplay();

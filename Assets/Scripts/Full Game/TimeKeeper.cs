@@ -325,17 +325,17 @@ public class TimeKeeper : MonoBehaviour
 
         yield return FadeOutroEffect(6, new Vector2(740f, 139f), "GET A JOB");
 
-        nextScene(6, true, new Vector2(699f, 167f)); //Job Interview
+        nextScene(7, true, new Vector2(699f, 167f)); //Job Interview
         jobInterviewCo = StartCoroutine(shuffler.WinOrLose());
         maincamera.SetActive(false);
         threedcamera.SetActive(true);
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(6));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         nextScene(); //Evolving
         evolvingSC.WinOrLose();
         maincamera.SetActive(true);
         threedcamera.SetActive(false);
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         nextScene(); //New Mr. Richmond
         yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DRIVE");
