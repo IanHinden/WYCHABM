@@ -268,7 +268,7 @@ public class TimeKeeper : MonoBehaviour
         driveCamRender.enabled = true;
         drivecamera.SetActive(false);
         cityAndBarCo = StartCoroutine(citybehavior.StartAnimations()); //City and Bar Intro
-        yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT");
+        yield return FadeOutroEffect(20, new Vector2 (450f, 375f), "COLLECT", 0);
         nextScene(8, true, new Vector2(320f, 375f)); //Bar
         fullCoins = StartCoroutine(fullcoins.WinOrLose());
 
@@ -278,7 +278,7 @@ public class TimeKeeper : MonoBehaviour
         resetCamera();
 
         nextScene(); //Fired
-        yield return FadeOutroEffect(3, new Vector2(635f, 375f), "SIGN");
+        yield return FadeOutroEffect(3, new Vector2(635f, 375f), "SIGN", 1);
         nextScene(5, true, new Vector2(699f, 167f)); //Contract
         contractCo = StartCoroutine(contract.WinOrLose());
 
@@ -286,7 +286,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Landlord
         landlordCo = StartCoroutine(landlord.Dialogue());
 
-        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "SELECT");
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "SELECT", 2);
         nextScene(6, true, new Vector2(638f, 438f)); //Character Select
         characterSelectCo = StartCoroutine(characterSelector.WinOrLose());
 
@@ -301,7 +301,7 @@ public class TimeKeeper : MonoBehaviour
 
         uihandler.ClearRhythmRating();
         nextScene(); //The Family
-        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DON'T");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DON'T", 3);
 
         nextScene(4, true, new Vector2(699f, 167f)); //Don't Disappoint
         dontDisappointCo = StartCoroutine(disappointer.WinOrLose());
@@ -309,7 +309,7 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Absent Dad
         absentDadCo = StartCoroutine(absentDad.Dialogue());
-        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "STAB");
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "STAB", 4);
 
         nextScene(6, true, new Vector2(699f, 167f)); //Psycho
         psychoCo = StartCoroutine(stabCheck.WinOrLose());
@@ -323,7 +323,7 @@ public class TimeKeeper : MonoBehaviour
             Destroy(obj.gameObject);
         }
 
-        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "GET A JOB");
+        yield return FadeOutroEffect(6, new Vector2(740f, 139f), "GET A JOB", 5);
 
         nextScene(7, true, new Vector2(699f, 167f)); //Job Interview
         jobInterviewCo = StartCoroutine(shuffler.WinOrLose());
@@ -338,7 +338,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(7));
 
         nextScene(); //New Mr. Richmond
-        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DRIVE");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "DRIVE", 6);
 
         nextScene(12); //Driving
         drivecamera.SetActive(true);
@@ -366,7 +366,7 @@ public class TimeKeeper : MonoBehaviour
         uihandler.ClearRhythmRating();
         nextScene(); //Web Surfing
         webSurfingCo = StartCoroutine(webSurfing.timedEvents());
-        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "SPOIL");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "SPOIL", 9);
 
         nextScene(8, true, new Vector2(699f, 167f)); //Wishlist
         wishlistCo = StartCoroutine(selectChecker.WinOrLose());
@@ -375,7 +375,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene(); //Online Dating
         onlineDatingCo = StartCoroutine(onlineDating.SceneTiming());
         onlineDatingCo = StartCoroutine(onlineDating.SceneTiming());
-        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "TWEAK");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "TWEAK", 10);
 
         nextScene(8, true, new Vector2(699f, 167f)); //Tweak
         tweakCo = StartCoroutine(tweakGameplay.WinOrLose());
@@ -387,7 +387,7 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Party Girls
         storyTimerPGCo = StartCoroutine(storyTimerPG.timedEvents());
-        yield return FadeOutroEffect(6, new Vector2(699f, 167f), "SHARE"); //timefunctions.ReturnCountMeasure(6));
+        yield return FadeOutroEffect(6, new Vector2(699f, 167f), "SHARE", 11); //timefunctions.ReturnCountMeasure(6));
 
         nextScene(8); //Mensch
         menschCo = StartCoroutine(menschGameplay.WinOrLose());
@@ -404,21 +404,21 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene(); //Make a Deal
         makeADealCo = StartCoroutine(madAnimationController.Dialogue());
-        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX");
+        yield return FadeOutroEffect(8, new Vector2(740f, 139f), "MIX", 12);
 
         nextScene(8, true, new Vector2(699f, 167f)); //Mix
         mixGameplayCo = StartCoroutine(mixGameplay.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Bedside
-        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "STEALTH");
+        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "STEALTH", 13);
 
         nextScene(8, true, new Vector2(699f, 167f)); //Rings
         ringsCo = StartCoroutine(ringsGameplay.WinOrLose());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(8));
 
         nextScene(); //Sick
-        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "AIM");
+        yield return FadeOutroEffect(4, new Vector2(740f, 139f), "AIM", 14);
 
         nextScene(8, true, new Vector2(699f, 167f)); //Pregnancy Test
         pregnancyTestCo = StartCoroutine(pregnancyTest.WinOrLose());
@@ -447,12 +447,12 @@ public class TimeKeeper : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null)
+    IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null, int instructionSFX = 0)
     {
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(measures - 2));
         if (instruction != null)
         {
-            uihandler.InstructionText(instruction);
+            uihandler.InstructionText(instruction, instructionSFX);
         }
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(2) - .8f);
  

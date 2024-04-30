@@ -38,6 +38,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI textmesh;
     [SerializeField] TextMeshProUGUI kissHitText;
 
+    [Header("Instruction SFX")]
+    [SerializeField] InstructionSFXController instructionSFXController;
+
     [Header("Score UI")]
     [SerializeField] GameObject scorecard;
     [SerializeField] GameObject scorecardSlideInSFX;
@@ -380,31 +383,33 @@ public class UIHandler : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void InstructionText(string instructions)
+    public void InstructionText(string instructions, int instructionsSFX = 0)
     {
-        StartCoroutine(AnimateAndDestroy(instructions));
+        StartCoroutine(AnimateAndDestroy(instructions, instructionsSFX));
     }
 
-    public void InstructionTextKissHit(string instructions)
+    public void InstructionTextKissHit(string instructions, int instructionSFX = 0)
     {
-        StartCoroutine(AnimateAndDestroyKissHit(instructions));
+        StartCoroutine(AnimateAndDestroyKissHit(instructions, instructionSFX));
     }
 
-    private IEnumerator AnimateAndDestroy(string instructions)
+    private IEnumerator AnimateAndDestroy(string instructions, int sfx = 0)
     {
         yield return new WaitForSeconds(.6f);
         textmesh.text = instructions;
         anim.SetBool("Animate", true);
+        instructionSFXController.PlaySound(sfx);
         yield return new WaitForSeconds(2f);
         textmesh.text = "";
         anim.SetBool("Animate", false);
     }
 
-    private IEnumerator AnimateAndDestroyKissHit(string instructions)
+    private IEnumerator AnimateAndDestroyKissHit(string instructions, int sfx = 0)
     {
         yield return new WaitForSeconds(.3f);
         kissHitText.text = instructions;
         kissHitAnim.SetBool("Animate", true);
+        instructionSFXController.PlaySound(sfx);
         yield return new WaitForSeconds(1.5f);
         kissHitText.text = "";
         kissHitAnim.SetBool("Animate", false);

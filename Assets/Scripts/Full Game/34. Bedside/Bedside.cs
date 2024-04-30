@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bedside : MonoBehaviour
 {
-    [SerializeField] UIHandler uihandler;
+    /*[SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
     void Awake()
     {
@@ -12,9 +12,9 @@ public class Bedside : MonoBehaviour
     }
 
     // Update is called once per frame
-    IEnumerator StartAnimations()
+    public IEnumerator StartAnimations()
     {
         yield return new WaitForSeconds(3 * timefunctions.ReturnSingleMeasure());
         uihandler.InstructionText("STEALTH");
-    }
+    }*/
 }

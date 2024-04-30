@@ -41,7 +41,7 @@ public class Gameplay : MonoBehaviour
 
     public IEnumerator GameSwitcher()
     {
-        uiHandler.InstructionTextKissHit("KISS");
+        uiHandler.InstructionTextKissHit("KISS", 7);
         yield return null;
         meter = StartCoroutine(meterObjects.StartMeter());
         yield return new WaitForSeconds(measureMS * 3);
@@ -56,7 +56,7 @@ public class Gameplay : MonoBehaviour
         if(meter!= null) StopCoroutine(meter);
 
         animationController.SwitchScene();
-        uiHandler.InstructionTextKissHit("HIT");
+        uiHandler.InstructionTextKissHit("HIT", 8);
         meterObjects.ResetMeter();
         yield return new WaitForSeconds(transitionTime);
         meter = StartCoroutine(meterObjects.StartMeter());
