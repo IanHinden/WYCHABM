@@ -10,6 +10,7 @@ public class pauseManager : MonoBehaviour
     public GameOptions gameoptions;
     public AudioSource musicPlayer;
     public AudioSource themeMusicPlayer;
+    public AudioSource endingTheme;
     public MenuSFX menuSFX;
     public GameObject pauseMenu;
     public GameObject pauseButton;
@@ -84,6 +85,7 @@ public class pauseManager : MonoBehaviour
         isPaused = false;
         musicPlayer.pitch = 1;
         musicPlayer.Stop();
+        endingTheme.Stop();
         themeMusicPlayer.time = 0;
         themeMusicPlayer.Play();
         pauseMenu.SetActive(false);
