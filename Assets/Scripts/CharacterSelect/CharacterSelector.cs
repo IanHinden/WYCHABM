@@ -183,24 +183,24 @@ public class CharacterSelector : MonoBehaviour
             emission.enabled = true;
             yield return new WaitForSeconds(.5f);
             emission.rateOverTime = 3;
+
+            if (selectedGirl == 2)
+            {
+                StartCoroutine(characterSelectSFXController.PlayOFSelected());
+            }
+            else if (selectedGirl == 1)
+            {
+                StartCoroutine(characterSelectSFXController.PlayHomelessSelected());
+            }
+            else if (selectedGirl == 0)
+            {
+                StartCoroutine(characterSelectSFXController.PlayCongresswomanSelected());
+            }
         }
 
         if(unlocked == true)
         {
             scorehandler.IncrementBonusScore(2);
-        }
-
-        if (selectedGirl == 2)
-        {
-            StartCoroutine(characterSelectSFXController.PlayOFSelected());
-        }
-        else if (selectedGirl == 1)
-        {
-            StartCoroutine(characterSelectSFXController.PlayHomelessSelected());
-        }
-        else if (selectedGirl == 0)
-        {
-            StartCoroutine(characterSelectSFXController.PlayCongresswomanSelected());
         }
     }
 
