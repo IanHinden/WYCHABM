@@ -221,11 +221,21 @@ public class TimeKeeper : MonoBehaviour
 
     private IEnumerator WinGame()
     {
-        nextScene();
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(50));
-        FinalScoreCo = StartCoroutine(finalScore.ScoreText());
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
+
         nextScene();
 
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+
+        musicplayer.FadeOutMusic();
+        GameObject scoreScreen = (GameObject)allscenes[currentScene + 1];
+        GameObject currentActiveScene = (GameObject)allscenes[currentScene];
+
+        currentActiveScene.SetActive(false);
+        FinalScoreCo = StartCoroutine(finalScore.ScoreText());
+        scoreScreen.SetActive(true);
+
+        currentScene = currentScene + 1;
     }
 
     private IEnumerator LoseGame()
