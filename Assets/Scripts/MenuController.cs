@@ -18,6 +18,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject instructionsMenu3;
     [SerializeField] GameObject instructionsMenu4;
 
+    [SerializeField] GameObject credits;
+    [SerializeField] CreditHolder creditHolder;
+
     [SerializeField] GameObject menuSoundEffects;
     AudioSource menuSoundEffectsAS;
 
@@ -66,6 +69,14 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    public void switchToCredits()
+    {
+        titleScreen.SetActive(false);
+        logo.SetActive(false);
+        credits.SetActive(true);
+        creditHolder.ResetPos();
+    }
+
     public void switchToNext2()
     {
         titleScreen.SetActive(false);
@@ -95,6 +106,7 @@ public class MenuController : MonoBehaviour
         titleScreen.SetActive(true);
         logo.SetActive(true);
         instructionsMenu4.SetActive(false);
+        credits.SetActive(false);
         startGameButton.interactable = true;
         EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
     }
