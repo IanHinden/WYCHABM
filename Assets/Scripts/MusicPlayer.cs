@@ -6,7 +6,7 @@ public class MusicPlayer : MonoBehaviour
 {
     AudioSource audioSource;
 
-    public float fadeDuration = 1f;
+    public float fadeDuration = .5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,20 @@ public class MusicPlayer : MonoBehaviour
         audioSource.Play();
     }
 
-    public void FadeOutMusic()
+    public IEnumerator FadeOutMusic()
     {
+        float startTime = Time.time;
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            float timeElapsed = Time.time - startTime;
+            float volume = Mathf.Lerp(startVolume, 0, timeElapsed / fadeDuration);
+            audioSource.volume = volume;
+
+            yield return null;
+        }
+
         audioSource.Stop();
     }
 }

@@ -225,9 +225,9 @@ public class TimeKeeper : MonoBehaviour
 
         nextScene();
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(20));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(30));
 
-        musicplayer.FadeOutMusic();
+        StartCoroutine(musicplayer.FadeOutMusic());
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 1];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
@@ -240,9 +240,11 @@ public class TimeKeeper : MonoBehaviour
 
     private IEnumerator LoseGame()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(34));
 
-        musicplayer.FadeOutMusic();
+        StartCoroutine(musicplayer.FadeOutMusic());
+
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
 
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 2];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
