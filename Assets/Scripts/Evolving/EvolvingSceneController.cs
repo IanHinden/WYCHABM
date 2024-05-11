@@ -100,6 +100,7 @@ public class EvolvingSceneController : MonoBehaviour
         yield return new WaitForSeconds(.08f);
         displayBadBoy();
         yield return new WaitForSeconds(.05f);
+        gamecontrols.Disable();
         displayBadMan();
         evolvingSFX.PlayAdultPigSqueal();
 

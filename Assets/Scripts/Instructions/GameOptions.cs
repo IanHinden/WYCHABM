@@ -51,6 +51,7 @@ public class GameOptions : MonoBehaviour
         uihandler.HideStartButton();
         uihandler.ShowPauseButton();
         guitarChordAS.Play();
+        audioSo.volume = .35f;
         audioSo.Play();
         barIntro.SetActive(true);
         gameCoroutine = StartCoroutine(timeKeeper.SwitchScene());

@@ -11,8 +11,8 @@ public class ScoreHandler : MonoBehaviour
     private int bonusScore = 0;
 
     private int tinyGameValue = 1000;
-    private int totalPointsIncGoodValue = 1000;
-    private int totalPointsIncPefectValue = 1500;
+    private int totalPointsIncGoodValue = 300;
+    private int totalPointsIncPefectValue = 400;
     private int totalPointsPartOne;
     private int totalPointsPartTwo;
     private int totalPointsPartThree;

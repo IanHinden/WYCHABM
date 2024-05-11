@@ -450,12 +450,14 @@ public class TimeKeeper : MonoBehaviour
         uihandler.ClearRhythmRating();
         nextScene(); //Final Boss
 
-        if(scoreHandler.ReturnScore() < 5)
-        {
-            WinOrLoseGameCo = StartCoroutine(LoseGame());
-        } else
+        string finalGrade = scoreHandler.ReturnFinalGrade();
+
+        if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
         {
             WinOrLoseGameCo = StartCoroutine(WinGame());
+        } else
+        {
+            WinOrLoseGameCo = StartCoroutine(LoseGame());
         }
     }
 
