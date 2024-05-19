@@ -7,6 +7,7 @@ public class Straw : MonoBehaviour
 {
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] UIHandler uihandler;
 
     [SerializeField] MixAnimationController animationController;
     [SerializeField] MixSFXController mixSFXController;
@@ -15,6 +16,8 @@ public class Straw : MonoBehaviour
     private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
+
+    private int winningAmount = 120;
 
     bool stirring = false;
     bool gameOver = false;
@@ -62,7 +65,7 @@ public class Straw : MonoBehaviour
             moveAmount++;
         }
 
-        if(moveAmount > 150 && gameOver == false)
+        if(moveAmount > winningAmount && gameOver == false)
         {
             DetermineWinOrLoss();
         }
@@ -80,11 +83,11 @@ public class Straw : MonoBehaviour
     private void DetermineWinOrLoss()
     {
         gamecontrols.Disable();
-        if (moveAmount >= 150 && gameOver == false)
+        if (moveAmount >= winningAmount && gameOver == false)
         {
             win();
         }
-        else if (moveAmount < 150)
+        else if (moveAmount < winningAmount)
         {
             lose();
         }
@@ -97,12 +100,14 @@ public class Straw : MonoBehaviour
         gameOver = true;
 
         animationController.WinAnimation();
+        uihandler.WinDisplay();
 
         //mixedDrink.GetComponent<SpriteRenderer>().color = new Color(255, 138, 83, 255);
     }
 
     private void lose()
     {
+        uihandler.LoseDisplay();
         animationController.LoseAnimation();
     }
 
