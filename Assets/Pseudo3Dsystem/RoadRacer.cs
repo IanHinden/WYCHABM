@@ -104,6 +104,9 @@ public class RoadRacer : MonoBehaviour
 	public GameObject rivalCar2;
 	public GameObject rivalCar3;
 	public GameObject rivalCar4;
+	public GameObject rivalCar5;
+	public GameObject rivalCar6;
+	public GameObject rivalCar7;
 
 
 	// Traffic items
@@ -839,6 +842,9 @@ public class RoadRacer : MonoBehaviour
 		rivalCar2.transform.position = new Vector3(44.7f, 40f, 0);
 		rivalCar3.transform.position = new Vector3(0.9f, 28f, 0);
 		rivalCar4.transform.position = new Vector3(22.3f, 10f, 0);
+		rivalCar5.transform.position = new Vector3(44f, -10f, 0);
+		rivalCar6.transform.position = new Vector3(33f, -25f, 0);
+		rivalCar7.transform.position = new Vector3(44.3f, -40f, 0);
 
 		Fire.GetComponent<SpriteRenderer>().enabled = false;
 		Smoke.GetComponent<SpriteRenderer>().enabled = false;
