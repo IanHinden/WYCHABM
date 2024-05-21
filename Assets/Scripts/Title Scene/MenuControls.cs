@@ -40,6 +40,13 @@ public class MenuControls : MonoBehaviour
         }
     }
 
+    public IEnumerator controlPause()
+    {
+        characterSelectControls.Disable();
+        yield return new WaitForSeconds(7f);
+        characterSelectControls.Enable();
+    }
+
     private void downSelect()
     {
         menuController.SetNextActiveButton(1);

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] MenuControls menuControls;
+
     [SerializeField] GameObject pressStart;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject logo;
@@ -31,6 +33,8 @@ public class MenuController : MonoBehaviour
     {
         menuSoundEffectsAS = menuSoundEffects.GetComponent<AudioSource>();
         startGameButton.interactable = false;
+
+        StartCoroutine(menuControls.controlPause());
 
     }
     public void StartGame()
