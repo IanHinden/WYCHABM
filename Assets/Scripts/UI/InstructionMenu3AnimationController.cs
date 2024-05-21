@@ -46,7 +46,6 @@ public class InstructionMenu3AnimationController : MonoBehaviour
     {
         while (true)
         {
-            float totalTime = 6 * singleMeasure;
             timerSlider.maxValue = 6;
             timerSlider.value = 6;
 
@@ -54,10 +53,9 @@ public class InstructionMenu3AnimationController : MonoBehaviour
             timerSliderBG.value = 6;
             UpdateSparkPos();
 
-            while (totalTime > 3)
+            while (timerSlider.value > 3)
             {
                 yield return new WaitForSeconds(singleMeasure);
-                totalTime -= singleMeasure;
                 timerSlider.value--;
                 timerSliderBG.value--;
                 UpdateSparkPos();
