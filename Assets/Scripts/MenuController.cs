@@ -26,6 +26,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject menuSoundEffects;
     AudioSource menuSoundEffectsAS;
 
+    [SerializeField] AudioSource buttonHighlight;
+
     private bool playedMenuEffect = false;
     private int currentIndex = 1;
 
@@ -50,12 +52,18 @@ public class MenuController : MonoBehaviour
             logo.SetActive(true);
             instructionsMenu2.SetActive(false);
             instructionsMenu3.SetActive(false);
+            StartCoroutine(selectVolume());
         } else
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
         }
     }
 
+    private IEnumerator selectVolume()
+    {
+        yield return new WaitForSeconds(.3f);
+        buttonHighlight.volume = 1;
+    }
     public void SetNextActiveButton(int direction)
     {
         int startIndex = currentIndex;
