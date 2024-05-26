@@ -77,8 +77,10 @@ public class EntireGameControls : MonoBehaviour
 
     public void setDefaultButton()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseButtons[0].gameObject);
         pauseButtons[0].Select();
+        currentIndex = 0;
     }
 
     private void selectCurrentButton()
