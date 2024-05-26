@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class pauseManager : MonoBehaviour
 {
+    [SerializeField] EntireGameControls entireGameControls;
+
     public TimeKeeper timekeeper;
     public timingManager timingManager;
     public GameOptions gameoptions;
@@ -46,6 +48,7 @@ public class pauseManager : MonoBehaviour
                     Time.timeScale = 0;
                     pauseMenu.SetActive(true);
                     pauseButton.SetActive(false);
+                    entireGameControls.setDefaultButton();
                 }
             }
         }
@@ -69,6 +72,7 @@ public class pauseManager : MonoBehaviour
                 Time.timeScale = 0;
                 pauseMenu.SetActive(true);
                 pauseButton.SetActive(false);
+                entireGameControls.setDefaultButton();
             }
         }
     }
