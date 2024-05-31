@@ -20,6 +20,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject instructionsMenu3;
     [SerializeField] GameObject instructionsMenu4;
 
+    [SerializeField] InstructionMenu3AnimationController instructionMenu3AnimationController;
+    Coroutine countdownCo;
+
     [SerializeField] GameObject credits;
     [SerializeField] CreditHolder creditHolder;
 
@@ -95,6 +98,8 @@ public class MenuController : MonoBehaviour
         logo.SetActive(false);
         instructionsMenu2.SetActive(true);
         instructionsMenu3.SetActive(false);
+        if(countdownCo != null) StopCoroutine(countdownCo);
+        instructionMenu3AnimationController.ResetPos();
         EventSystem.current.SetSelectedGameObject(tutorialButtons[0].gameObject);
     }
 
@@ -103,6 +108,7 @@ public class MenuController : MonoBehaviour
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
         instructionsMenu4.SetActive(false);
+        countdownCo = StartCoroutine(instructionMenu3AnimationController.Countdown());
         EventSystem.current.SetSelectedGameObject(tutorialButtons[2].gameObject);
     }
 
@@ -110,6 +116,8 @@ public class MenuController : MonoBehaviour
     {
         instructionsMenu3.SetActive(false);
         instructionsMenu4.SetActive(true);
+        if (countdownCo != null) StopCoroutine(countdownCo);
+        instructionMenu3AnimationController.ResetPos();
         EventSystem.current.SetSelectedGameObject(tutorialButtons[4].gameObject);
     }
 

@@ -39,10 +39,10 @@ public class InstructionMenu3AnimationController : MonoBehaviour
         countdown2Image = Countdown2.GetComponent<Image>();
         countdown3Image = Countdown3.GetComponent<Image>();
 
-        StartCoroutine(Countdown());
+        //StartCoroutine(Countdown());
     }
 
-    private IEnumerator Countdown()
+    public IEnumerator Countdown()
     {
         while (true)
         {
@@ -98,6 +98,17 @@ public class InstructionMenu3AnimationController : MonoBehaviour
     private void HideOrShowSpeechBubble(bool show)
     {
         speechBubble.enabled = show;
+    }
+
+    public void ResetPos()
+    {
+        HideOrShowSpeechBubble(false);
+        if (countdown1Image != null)
+        {
+            countdown1Image.enabled = false;
+            countdown2Image.enabled = false;
+            countdown3Image.enabled = false;
+        }
     }
 
     private void UpdateSparkPos()
