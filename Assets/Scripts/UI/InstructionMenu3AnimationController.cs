@@ -8,6 +8,8 @@ public class InstructionMenu3AnimationController : MonoBehaviour
     [SerializeField] TimeFunctions timeFunctions;
     float singleMeasure;
 
+    [SerializeField] InstructionExample instructionExample;
+
     [SerializeField] RectTransform spark;
     [SerializeField] RectTransform fillArea;
 
@@ -46,6 +48,7 @@ public class InstructionMenu3AnimationController : MonoBehaviour
     {
         while (true)
         {
+            instructionExample.TriggerAnimation();
             timerSlider.maxValue = 6;
             timerSlider.value = 6;
 
@@ -90,6 +93,7 @@ public class InstructionMenu3AnimationController : MonoBehaviour
             timerSlider.value = 0;
             timerSliderBG.value = 0;
             UpdateSparkPos();
+            instructionExample.ResetTrigger();
 
             yield return new WaitForSeconds(3f);
         }
