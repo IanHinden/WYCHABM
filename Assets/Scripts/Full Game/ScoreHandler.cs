@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] UIHandler uihandler;
+    [SerializeField] GameObject numberPeople;
 
     private int score = 0;
     private int bonusScore = 0;
@@ -27,6 +29,8 @@ public class ScoreHandler : MonoBehaviour
     private bool bonusScorePartTwoActivated = false;
     private bool bonusScorePartThreeActivated = false;
 
+    private BoolArrayWrapper bonusesDiscovered;
+
     private void Awake()
     {
         maxScorePartOne = (8 * totalPointsIncPefectValue) + (3 * tinyGameValue);
@@ -35,9 +39,36 @@ public class ScoreHandler : MonoBehaviour
 
         bonusScorePartTwoMin = maxScorePartTwo * .8f;
         bonusScorePartThreeMin = maxScorePartThree * .8f;
+
+        LoadSave();
+    }
+    private void LoadSave()
+    {
+        bonusesDiscovered = SaveSystem.Load(10);
+
+        for(int i = 0; i < bonusesDiscovered.unlockedBonuses.Length; i++)
+        {
+            Debug.Log(bonusesDiscovered.unlockedBonuses[i]);
+            if(bonusesDiscovered.unlockedBonuses[i] == true)
+            {
+                bonusScore++;
+
+                Transform child = numberPeople.transform.GetChild(i);
+                Image childImage = child.GetComponent<Image>();
+
+                Animator childAnim = numberPeople.transform.GetChild(i).GetComponent<Animator>();
+                childAnim.enabled = false;
+
+                if(childImage != null)
+                {
+                    childImage.color = Color.black;
+                }
+            }
+        }
+
+        Debug.Log(bonusScore);
     }
 
-    private bool[] bonusesDiscovered = new bool[10];
     public void IncrementScore(int part = 0)
     {
         score++;
@@ -68,11 +99,12 @@ public class ScoreHandler : MonoBehaviour
 
     public void IncrementBonusScore(int numberPerson)
     {
-        if(bonusesDiscovered[numberPerson - 1] == false)
+        if (bonusesDiscovered.unlockedBonuses[numberPerson - 1] == false)
         {
             bonusScore++;
-            bonusesDiscovered[numberPerson - 1] = true;
+            bonusesDiscovered.unlockedBonuses[numberPerson - 1] = true;
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
+            SaveSystem.Save(bonusesDiscovered);
         } else
         {
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
@@ -228,7 +260,7 @@ public class ScoreHandler : MonoBehaviour
         return grade;
     }
 
-    public bool[] ReturnBonusesDiscovered()
+    public BoolArrayWrapper ReturnBonusesDiscovered()
     {
         return bonusesDiscovered;
     }

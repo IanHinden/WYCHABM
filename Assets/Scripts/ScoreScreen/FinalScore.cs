@@ -62,11 +62,11 @@ public class FinalScore : MonoBehaviour
     {
         numberPeopleBG.SetActive(true);
 
-        bool[] numberPeopleUnlocked = scoreHandler.ReturnBonusesDiscovered();
+        BoolArrayWrapper numberPeopleUnlocked = scoreHandler.ReturnBonusesDiscovered();
 
-        for (int i = 0; i < numberPeopleUnlocked.Length; i++)
+        for (int i = 0; i < numberPeopleUnlocked.unlockedBonuses.Length; i++)
         {
-            if (numberPeopleUnlocked[i])
+            if (numberPeopleUnlocked.unlockedBonuses[i])
             {
                 numberPeopleUnlockedObj.transform.GetChild(i).gameObject.SetActive(true);
             }
