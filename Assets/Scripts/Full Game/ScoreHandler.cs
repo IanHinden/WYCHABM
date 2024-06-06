@@ -9,6 +9,8 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] GameObject numberPeople;
 
+    [SerializeField] SteamAchievementHandler steamAchievementHandler;
+
     private int score = 0;
     private int bonusScore = 0;
 
@@ -34,7 +36,8 @@ public class ScoreHandler : MonoBehaviour
     private void Awake()
     {
         maxScorePartOne = (8 * totalPointsIncPefectValue) + (3 * tinyGameValue);
-        maxScorePartTwo = (15 * totalPointsIncPefectValue) + (6 * tinyGameValue);
+        //Removing one tiny game value for Don't scene
+        maxScorePartTwo = (15 * totalPointsIncPefectValue) + (5 * tinyGameValue);
         maxScorePartThree = (27 * totalPointsIncPefectValue) + (6 * tinyGameValue);
 
         bonusScorePartTwoMin = maxScorePartTwo * .8f;
@@ -48,7 +51,6 @@ public class ScoreHandler : MonoBehaviour
 
         for(int i = 0; i < bonusesDiscovered.unlockedBonuses.Length; i++)
         {
-            Debug.Log(bonusesDiscovered.unlockedBonuses[i]);
             if(bonusesDiscovered.unlockedBonuses[i] == true)
             {
                 bonusScore++;
@@ -65,8 +67,6 @@ public class ScoreHandler : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log(bonusScore);
     }
 
     public void IncrementScore(int part = 0)
@@ -102,6 +102,12 @@ public class ScoreHandler : MonoBehaviour
         if (bonusesDiscovered.unlockedBonuses[numberPerson - 1] == false)
         {
             bonusScore++;
+
+           if(bonusScore == 1)
+            {
+                steamAchievementHandler.FirstSecret();
+            }
+
             bonusesDiscovered.unlockedBonuses[numberPerson - 1] = true;
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
             SaveSystem.Save(bonusesDiscovered);

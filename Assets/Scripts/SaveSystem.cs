@@ -8,7 +8,7 @@ using System.IO;
 public class SaveSystem : MonoBehaviour
 {
     private static string saveFilePath = Application.persistentDataPath + "/savefile.json";
-    private static readonly byte[] encryptionKey = Encoding.UTF8.GetBytes("Your16ByteKeyHer");
+    private static readonly byte[] encryptionKey = Encoding.UTF8.GetBytes("RinaSawayama,Hey");
 
     public static string Encrypt(string plainText)
     {
@@ -61,7 +61,6 @@ public class SaveSystem : MonoBehaviour
     public static void Save(BoolArrayWrapper data)
     {
         string json = JsonUtility.ToJson(data);
-        Debug.Log(json);
         string encryptedJson = Encrypt(json);
         File.WriteAllText(saveFilePath, encryptedJson);
     }
@@ -74,9 +73,8 @@ public class SaveSystem : MonoBehaviour
         {
             string encryptedJson = File.ReadAllText(saveFilePath);
             string json = Decrypt(encryptedJson);
-            Debug.Log("Loaded");
-            Debug.Log(json);
-            BoolArrayWrapper loadedData =  JsonUtility.FromJson<BoolArrayWrapper>(json);
+
+            BoolArrayWrapper loadedData = JsonUtility.FromJson<BoolArrayWrapper>(json);
 
             if (loadedData.unlockedBonuses.Length == arraySize)
             {
