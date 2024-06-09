@@ -228,6 +228,14 @@ public class ScoreHandler : MonoBehaviour
         return GradeGenerator(totalPointsPartThree, maxScorePartThree);
     }
 
+    public void AssCheck(string first, string second, string third)
+    {
+        if(first == "A" && second =="S" && third == "S")
+        {
+            steamAchievementHandler.UnlockAchievement(5);
+        }
+    }
+
     public string ReturnFinalGrade()
     {
         int totalScore = totalPointsPartOne + totalPointsPartTwo + totalPointsPartThree;

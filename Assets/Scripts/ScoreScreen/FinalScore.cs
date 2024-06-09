@@ -50,6 +50,9 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSeconds(.635f);
         scoreStampPart3.SetGrade(scoreHandler.ReturnPartThreeGrade());
         scoreStampPart3.AnimateStamp();
+
+        scoreHandler.AssCheck(scoreHandler.ReturnPartOneGrade(), scoreHandler.ReturnPartTwoGrade(), scoreHandler.ReturnPartThreeGrade());
+
         yield return new WaitForSeconds(1.27f);
         scoreStampFinal.SetGrade(scoreHandler.ReturnFinalGrade());
         scoreStampFinal.AnimateStamp();
