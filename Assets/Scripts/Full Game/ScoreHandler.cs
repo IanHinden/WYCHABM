@@ -105,7 +105,7 @@ public class ScoreHandler : MonoBehaviour
 
            if(bonusScore == 1)
             {
-                steamAchievementHandler.FirstSecret();
+                steamAchievementHandler.UnlockAchievement(0);
             }
 
             bonusesDiscovered.unlockedBonuses[numberPerson - 1] = true;
