@@ -54,7 +54,7 @@ public class EvolvingSceneController : MonoBehaviour
         StopCoroutine(blinking);
         StopCoroutine(evolving);
         displayBadBoy();
-        scorehandler.IncrementBonusScore(5);
+        scorehandler.IncrementBonusScore(3);
         StartCoroutine(setArrestedText());
         gamecontrols.Disable();
     }

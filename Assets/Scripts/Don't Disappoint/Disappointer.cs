@@ -69,7 +69,7 @@ public class Disappointer : MonoBehaviour
         } else
         {
             scoreHandler.IncrementScore(2);
-            scoreHandler.IncrementBonusScore(3);
+            scoreHandler.IncrementBonusScore(5);
         }
     }
 
