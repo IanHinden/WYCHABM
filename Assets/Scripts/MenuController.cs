@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] Button startGameButton;
     public List<Button> buttons;
     public List<Button> tutorialButtons;
+    public Button creditsButton;
 
     [SerializeField] GameObject instructionsMenu2;
     [SerializeField] GameObject instructionsMenu3;
@@ -90,6 +91,7 @@ public class MenuController : MonoBehaviour
         logo.SetActive(false);
         credits.SetActive(true);
         creditHolder.ResetPos();
+        EventSystem.current.SetSelectedGameObject(creditsButton.gameObject);
     }
 
     public void switchToNext2()
@@ -129,5 +131,15 @@ public class MenuController : MonoBehaviour
         credits.SetActive(false);
         startGameButton.interactable = true;
         EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
+    }
+
+    public void hideInstructionsCredits()
+    {
+        titleScreen.SetActive(true);
+        logo.SetActive(true);
+        instructionsMenu4.SetActive(false);
+        credits.SetActive(false);
+        startGameButton.interactable = true;
+        EventSystem.current.SetSelectedGameObject(buttons[2].gameObject);
     }
 }
