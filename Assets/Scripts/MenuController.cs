@@ -88,6 +88,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToCredits()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         titleScreen.SetActive(false);
         logo.SetActive(false);
@@ -98,6 +99,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext2()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         titleScreen.SetActive(false);
         logo.SetActive(false);
@@ -110,6 +112,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext3()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
@@ -120,6 +123,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext4()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         instructionsMenu3.SetActive(false);
         instructionsMenu4.SetActive(true);
@@ -130,6 +134,7 @@ public class MenuController : MonoBehaviour
 
     public void hideInstructions()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         titleScreen.SetActive(true);
         logo.SetActive(true);
@@ -141,6 +146,7 @@ public class MenuController : MonoBehaviour
 
     public void hideInstructionsCredits()
     {
+        StartCoroutine(selectVolume());
         buttonSelect.Play();
         titleScreen.SetActive(true);
         logo.SetActive(true);
