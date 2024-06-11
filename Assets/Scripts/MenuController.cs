@@ -31,6 +31,7 @@ public class MenuController : MonoBehaviour
     AudioSource menuSoundEffectsAS;
 
     [SerializeField] AudioSource buttonHighlight;
+    [SerializeField] AudioSource buttonSelect;
 
     private bool playedMenuEffect = false;
     private int currentIndex = 1;
@@ -87,6 +88,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToCredits()
     {
+        buttonSelect.Play();
         titleScreen.SetActive(false);
         logo.SetActive(false);
         credits.SetActive(true);
@@ -96,6 +98,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext2()
     {
+        buttonSelect.Play();
         titleScreen.SetActive(false);
         logo.SetActive(false);
         instructionsMenu2.SetActive(true);
@@ -107,6 +110,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext3()
     {
+        buttonSelect.Play();
         instructionsMenu2.SetActive(false);
         instructionsMenu3.SetActive(true);
         instructionsMenu4.SetActive(false);
@@ -116,6 +120,7 @@ public class MenuController : MonoBehaviour
 
     public void switchToNext4()
     {
+        buttonSelect.Play();
         instructionsMenu3.SetActive(false);
         instructionsMenu4.SetActive(true);
         if (countdownCo != null) StopCoroutine(countdownCo);
@@ -125,6 +130,7 @@ public class MenuController : MonoBehaviour
 
     public void hideInstructions()
     {
+        buttonSelect.Play();
         titleScreen.SetActive(true);
         logo.SetActive(true);
         instructionsMenu4.SetActive(false);
@@ -135,6 +141,7 @@ public class MenuController : MonoBehaviour
 
     public void hideInstructionsCredits()
     {
+        buttonSelect.Play();
         titleScreen.SetActive(true);
         logo.SetActive(true);
         instructionsMenu4.SetActive(false);
