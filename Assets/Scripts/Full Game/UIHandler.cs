@@ -398,9 +398,11 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroy(string instructions, int sfx = 0)
     {
+        instructionSFXController.SetAllVolume(.35f);
         yield return new WaitForSeconds(.6f);
         textmesh.text = instructions;
         anim.SetBool("Animate", true);
+        
         instructionSFXController.PlaySound(sfx);
         yield return new WaitForSeconds(2f);
         textmesh.text = "";
@@ -409,6 +411,7 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroyKissHit(string instructions, int sfx = 0)
     {
+        instructionSFXController.SetAllVolume(.35f);
         yield return new WaitForSeconds(.3f);
         kissHitText.text = instructions;
         kissHitAnim.SetBool("Animate", true);
@@ -498,6 +501,9 @@ public class UIHandler : MonoBehaviour
                 image.enabled = false;
             }
         }
+
+        textmesh.text = "";
+        instructionSFXController.SetAllVolume(0);
     }
 
 

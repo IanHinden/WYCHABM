@@ -125,5 +125,24 @@ public class InstructionSFXController : MonoBehaviour
         {
             Debug.LogError("Invalid sound index");
         }
-    } 
+    }
+
+    public void SetAllVolume(float volume)
+    {
+        CollectAS.volume = volume;
+        SignAS.volume = volume; ;
+        SelectAS.volume = volume; ;
+        DontAS.volume = volume; ;
+        StabAS.volume = volume; ;
+        GetAJobAS.volume = volume; ;
+        DriveAS.volume = volume; ;
+        KissAS.volume = volume; ;
+        HitAS.volume = volume; ;
+        SpoilAS.volume = volume; ;
+        TweakAS.volume = volume; ;
+        ShareAS.volume = volume; ;
+        MixAS.volume = volume; ;
+        StealthAS.volume = volume; ;
+        AimAS.volume = volume; ;
+    }
 }
