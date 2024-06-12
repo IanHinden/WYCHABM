@@ -487,11 +487,33 @@ public class UIHandler : MonoBehaviour
 
         scorecardSlideInSFXAS.volume = 0;
         scorecardSlideOutSFXAS.volume = 0;
+
+        bonusScorecard.GetComponent<Image>().enabled = false;
+        foreach (Transform child in bonusScorecard.transform)
+        {
+            Image image = child.GetComponent<Image>();
+
+            if (image != null)
+            {
+                image.enabled = false;
+            }
+        }
     }
 
 
     public IEnumerator DisplayBonusScoreCard(int numberPerson)
     {
+        bonusScorecard.GetComponent<Image>().enabled = true;
+        foreach (Transform child in bonusScorecard.transform)
+        {
+            Image image = child.GetComponent<Image>();
+
+            if (image != null)
+            {
+                image.enabled = true;
+            }
+        }
+
         bonusScorecardAnim.SetTrigger("Enter");
         yield return new WaitForSeconds(.5f);
         numberPeopleAnimationController.NPActivate(numberPerson);
