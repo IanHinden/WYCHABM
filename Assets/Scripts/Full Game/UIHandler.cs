@@ -84,6 +84,9 @@ public class UIHandler : MonoBehaviour
     private Image countdown2Image;
     private Image countdown3Image;
 
+    private bool reset = false;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -417,13 +420,26 @@ public class UIHandler : MonoBehaviour
 
     public IEnumerator DisplayScoreCard(int score)
     {
+        reset = false;
+        if(scoreCardText.text == "")
+        {
+            scoreCardText.text = "0";
+        }
+
+        scorecardSlideInSFXAS.volume = 1;
+        scorecardSlideOutSFXAS.volume = 1;
+
+        scorecard.GetComponent<Image>().enabled = true;
         int prevscore = score - 1;
         scoreCardText.text = prevscore.ToString();
         scoreCardAnim.SetTrigger("Enter");
         yield return new WaitForSeconds(.3f);
         scorecardSlideInSFXAS.Play();
         yield return new WaitForSeconds(.5f);
-        scoreCardText.text = score.ToString();
+        if (reset == false)
+        {
+            scoreCardText.text = score.ToString();
+        }
         StartCoroutine(HideScoreCard());
         yield return new WaitForSeconds(1.5f);
         scorecardSlideOutSFXAS.Play();
@@ -431,6 +447,15 @@ public class UIHandler : MonoBehaviour
 
     public IEnumerator DisplayScoreCardTwo(int score)
     {
+        reset = false;
+        if (scoreCardText.text == "")
+        {
+            scoreCardText.text = "0";
+        }
+
+        scorecardSlideInSFXAS.volume = 1;
+        scorecardSlideOutSFXAS.volume = 1;
+
         int prevscore = score - 2;
         int midscore = score - 1;
         scoreCardText.text = prevscore.ToString();
@@ -440,7 +465,10 @@ public class UIHandler : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         scoreCardText.text = midscore.ToString();
         yield return new WaitForSeconds(.4f);
-        scoreCardText.text = score.ToString();
+        if (reset == false)
+        {
+            scoreCardText.text = score.ToString();
+        }
         StartCoroutine(HideScoreCard());
         yield return new WaitForSeconds(1.5f);
         scorecardSlideOutSFXAS.Play();
@@ -449,6 +477,16 @@ public class UIHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         scoreCardAnim.SetTrigger("Exit");
+    }
+
+    public void QuickRemoveScoreCard()
+    {
+        reset = true;
+        scoreCardText.text = "";
+        scorecard.GetComponent<Image>().enabled = false;
+
+        scorecardSlideInSFXAS.volume = 0;
+        scorecardSlideOutSFXAS.volume = 0;
     }
 
 
