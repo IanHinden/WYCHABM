@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField] ContractAudioController penSound;
+    [SerializeField] pauseManager PM;
 
     private GameControls gamecontrols;
     private new Print print;
@@ -41,30 +42,34 @@ public class Hand : MonoBehaviour
 
     void Update()
     {
-        Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
-
-        if (movementInput.x != 0 || movementInput.y != 0)
+        if (PM.IsGamePaused() == false)
         {
-            moved = true;
-            if (playing == false)
+            Vector2 movementInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
+
+            if (movementInput.x != 0 || movementInput.y != 0)
             {
-                playing = true;
-                penSound.PlayPen();
+                moved = true;
+                if (playing == false)
+                {
+                    playing = true;
+                    penSound.PlayPen();
+                }
             }
-        } else
-        {
-            penSound.PausePen();
-            playing = false;
+            else
+            {
+                penSound.PausePen();
+                playing = false;
+            }
+
+            Vector3 currentPosition = transform.position;
+            currentPosition.x += movementInput.x * speed * Time.deltaTime;
+            currentPosition.y += movementInput.y * speed * Time.deltaTime;
+            //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
+            currentPosition.y = Mathf.Clamp(currentPosition.y, -2.5f, 1.6f);
+
+            print.InkSpawner();
+
+            transform.position = currentPosition;
         }
-
-        Vector3 currentPosition = transform.position;
-        currentPosition.x += movementInput.x * speed * Time.deltaTime;
-        currentPosition.y += movementInput.y * speed * Time.deltaTime;
-        //currentPosition.x = Mathf.Clamp(currentPosition.x, 2f, 3.5f);
-        currentPosition.y = Mathf.Clamp(currentPosition.y, -2.5f, 1.6f);
-
-        print.InkSpawner();
-
-        transform.position = currentPosition;
     }
 }

@@ -109,4 +109,9 @@ public class pauseManager : MonoBehaviour
     {
 
     }
+
+    public bool IsGamePaused()
+    {
+        return isPaused;
+    }
 }
