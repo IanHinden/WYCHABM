@@ -172,6 +172,7 @@ public class UIHandler : MonoBehaviour
 
     IEnumerator TriggerCountdownAnimation(int totalMeasures)
     {
+        reset = false;
         SwitchToIan();
         float totalTime = totalMeasures * singleMeasure;
 
@@ -195,7 +196,10 @@ public class UIHandler : MonoBehaviour
         HideOrShowSpeechBubble(true);
         countdown3Image.enabled = true;
         countdown3Anim.SetTrigger("Grow");
-        countdownTick.playTick();
+        if (reset == false)
+        {
+            countdownTick.playTick();
+        }
         timerSlider.value = 3;
         timerSliderBG.value = 3;
         UpdateSparkPos();
@@ -204,7 +208,10 @@ public class UIHandler : MonoBehaviour
         countdown3Image.enabled = false;
         countdown2Image.enabled = true;
         countdown2Anim.SetTrigger("Grow");
-        countdownTok.playTok();
+        if (reset == false)
+        {
+            countdownTok.playTok();
+        }
         timerSlider.value = 2;
         timerSliderBG.value = 2;
         UpdateSparkPos();
@@ -213,7 +220,10 @@ public class UIHandler : MonoBehaviour
         countdown2Image.enabled = false;
         countdown1Image.enabled = true;
         countdown1Anim.SetTrigger("Grow");
-        countdownTick.playTick();
+        if (reset == false)
+        {
+            countdownTick.playTick();
+        }
         timerSlider.value = 1;
         timerSliderBG.value = 1;
         UpdateSparkPos();
@@ -398,9 +408,13 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroy(string instructions, int sfx = 0)
     {
+        reset = false;
         instructionSFXController.SetAllVolume(.35f);
         yield return new WaitForSeconds(.6f);
-        textmesh.text = instructions;
+        if (reset == false)
+        {
+            textmesh.text = instructions;
+        }
         anim.SetBool("Animate", true);
         
         instructionSFXController.PlaySound(sfx);
@@ -411,9 +425,13 @@ public class UIHandler : MonoBehaviour
 
     private IEnumerator AnimateAndDestroyKissHit(string instructions, int sfx = 0)
     {
+        reset = false;
         instructionSFXController.SetAllVolume(.35f);
         yield return new WaitForSeconds(.3f);
-        kissHitText.text = instructions;
+        if (reset == false)
+        {
+            kissHitText.text = instructions;
+        }
         kissHitAnim.SetBool("Animate", true);
         instructionSFXController.PlaySound(sfx);
         yield return new WaitForSeconds(1.5f);

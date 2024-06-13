@@ -97,6 +97,7 @@ public class MeterObjects : MonoBehaviour
     {
         animating = false;
         HighlightRect(currentRect);
+        Debug.Log(currentRect);
     }
 
     private void HighlightRect(int rect)
