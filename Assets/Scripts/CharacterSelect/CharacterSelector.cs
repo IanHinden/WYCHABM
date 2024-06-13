@@ -7,6 +7,7 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] pauseManager PM;
 
     [SerializeField] GameObject CongressObjects;
     [SerializeField] GameObject OFObjects;
@@ -127,80 +128,92 @@ public class CharacterSelector : MonoBehaviour
 
     private void leftSelect()
     {
-        moved = true;
-        if (unlocked == false)
+        if (PM.IsGamePaused() == false)
         {
-            SelectOF();
-            consecutiveLeftClicks++;
-            leftCheck();
-        } else
-        {
-            if(selectedGirl == 1)
+            moved = true;
+            if (unlocked == false)
             {
-                selectedGirl--;
                 SelectOF();
-            } else if (selectedGirl == 2)
+                consecutiveLeftClicks++;
+                leftCheck();
+            }
+            else
             {
-                selectedGirl--;
-                SelectCongresswoman();
+                if (selectedGirl == 1)
+                {
+                    selectedGirl--;
+                    SelectOF();
+                }
+                else if (selectedGirl == 2)
+                {
+                    selectedGirl--;
+                    SelectCongresswoman();
+                }
             }
         }
     }
 
     private void rightSelect()
     {
-        moved = true;
-        if (unlocked == false)
+        if (PM.IsGamePaused() == false)
         {
-            SelectHomeless();
-            consecutiveLeftClicks = 0;
-        } else
-        {
-            if (selectedGirl == 0)
+            moved = true;
+            if (unlocked == false)
             {
-                selectedGirl++;
-                SelectOF();
-            }
-            else if (selectedGirl == 2)
-            {
-                selectedGirl++;
                 SelectHomeless();
+                consecutiveLeftClicks = 0;
+            }
+            else
+            {
+                if (selectedGirl == 0)
+                {
+                    selectedGirl++;
+                    SelectOF();
+                }
+                else if (selectedGirl == 2)
+                {
+                    selectedGirl++;
+                    SelectHomeless();
+                }
             }
         }
     }
 
     IEnumerator select()
     {
-        if (moved == true)
+        if (PM.IsGamePaused() == false)
         {
-            characterSelectSFXController.PlayConfirm();
-            StartCoroutine(Blink(selectedGirl));
-            won = true;
-            scorehandler.IncrementScore(1);
-            uihandler.WinDisplay();
-            characterSelectControls.Disable();
-            var emission = particles[selectedGirl].emission;
-            emission.enabled = true;
-            yield return new WaitForSeconds(.5f);
-            emission.rateOverTime = 3;
+            if (moved == true)
+            {
+                characterSelectSFXController.PlayConfirm();
+                StartCoroutine(Blink(selectedGirl));
+                won = true;
+                scorehandler.IncrementScore(1);
+                uihandler.WinDisplay();
+                characterSelectControls.Disable();
+                var emission = particles[selectedGirl].emission;
+                emission.enabled = true;
+                yield return new WaitForSeconds(.5f);
+                emission.rateOverTime = 3;
 
-            if (selectedGirl == 2)
-            {
-                StartCoroutine(characterSelectSFXController.PlayOFSelected());
+                if (selectedGirl == 2)
+                {
+                    StartCoroutine(characterSelectSFXController.PlayOFSelected());
+                }
+                else if (selectedGirl == 1)
+                {
+                    StartCoroutine(characterSelectSFXController.PlayHomelessSelected());
+                }
+                else if (selectedGirl == 0)
+                {
+                    StartCoroutine(characterSelectSFXController.PlayCongresswomanSelected());
+                }
             }
-            else if (selectedGirl == 1)
-            {
-                StartCoroutine(characterSelectSFXController.PlayHomelessSelected());
-            }
-            else if (selectedGirl == 0)
-            {
-                StartCoroutine(characterSelectSFXController.PlayCongresswomanSelected());
-            }
-        }
 
-        if(unlocked == true)
-        {
-            scorehandler.IncrementBonusScore(2);
+            if (unlocked == true)
+            {
+                scorehandler.IncrementBonusScore(2);
+            }
         }
     }
 
