@@ -10,6 +10,7 @@ public class Shuffler : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] CameraLogic cameraLogic;
+    [SerializeField] pauseManager PM;
 
     [SerializeField] JobInterviewAnimationController jobInterviewAnimationController;
     [SerializeField] JobInterviewSFXController jobInterviewSFXController;
@@ -63,29 +64,35 @@ public class Shuffler : MonoBehaviour
 
     public void setNextActiveFinger()
     {
-        if (activeFinger != fingers.transform.childCount - 1)
+        if (PM.IsGamePaused() == false)
         {
-            activeFinger++;
-            displayCorrectFinger();
-        }
-        else
-        {
-            activeFinger = 0;
-            displayCorrectFinger();
+            if (activeFinger != fingers.transform.childCount - 1)
+            {
+                activeFinger++;
+                displayCorrectFinger();
+            }
+            else
+            {
+                activeFinger = 0;
+                displayCorrectFinger();
+            }
         }
     }
 
     public void setPreviousActiveFinger()
     {
-        if (activeFinger != 0)
+        if (PM.IsGamePaused() == false)
         {
-            activeFinger--;
-            displayCorrectFinger();
-        }
-        else
-        {
-            activeFinger = fingers.transform.childCount - 1;
-            displayCorrectFinger();
+            if (activeFinger != 0)
+            {
+                activeFinger--;
+                displayCorrectFinger();
+            }
+            else
+            {
+                activeFinger = fingers.transform.childCount - 1;
+                displayCorrectFinger();
+            }
         }
     }
 
@@ -120,15 +127,19 @@ public class Shuffler : MonoBehaviour
 
     private void Select()
     {
-        pressed = true;
-        gamecontrols.Disable();
-        if(activeFinger == 1)
+        if (PM.IsGamePaused() == false)
         {
-            scorehandler.IncrementScore(2);
-            uihandler.WinDisplay();
-        } else
-        {
-            uihandler.LoseDisplay();
+            pressed = true;
+            gamecontrols.Disable();
+            if (activeFinger == 1)
+            {
+                scorehandler.IncrementScore(2);
+                uihandler.WinDisplay();
+            }
+            else
+            {
+                uihandler.LoseDisplay();
+            }
         }
     }
 
