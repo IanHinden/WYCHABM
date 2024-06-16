@@ -7,6 +7,7 @@ public class Hands : MonoBehaviour
     private GameControls gamecontrols;
 
     [SerializeField] PsychoSFXController psychoSFXController;
+    [SerializeField] pauseManager PM;
 
     private SpriteRenderer handReady;
     private SpriteRenderer handReady2;
@@ -56,15 +57,18 @@ public class Hands : MonoBehaviour
             transform.position = currentPosition;
         } else
         {
-            Vector3 holePos = transform.position;
-            holePos.x = transform.position.x + 1.3f;
-            holePos.y = transform.position.y - .5f;
-            Instantiate(stabHole, holePos, Quaternion.identity);
-            handStab.enabled = true;
-            handReady.enabled = false;
-            handReady2.enabled = false;
-            stabCollide.enabled = true;
-            psychoSFXController.PlayTornPaper();
+            if (PM.IsGamePaused() == false)
+            {
+                Vector3 holePos = transform.position;
+                holePos.x = transform.position.x + 1.3f;
+                holePos.y = transform.position.y - .5f;
+                Instantiate(stabHole, holePos, Quaternion.identity);
+                handStab.enabled = true;
+                handReady.enabled = false;
+                handReady2.enabled = false;
+                stabCollide.enabled = true;
+                psychoSFXController.PlayTornPaper();
+            }
         }
     }
 
