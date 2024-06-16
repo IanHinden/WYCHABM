@@ -36,11 +36,12 @@ public class pauseManager : MonoBehaviour
                 //when pause function is called and the menu is still up
                 if (isPaused)
                 {
-                    isPaused = false;
+                    //isPaused = false;
                     musicPlayer.pitch = 1;
                     Time.timeScale = 1;
                     pauseMenu.SetActive(false);
                     pauseButton.SetActive(true);
+                    StartCoroutine(unPausePause());
                 }
                 //when pause function is called and the menu is hidden
                 else if (isPaused == false)
@@ -60,11 +61,12 @@ public class pauseManager : MonoBehaviour
             //when pause function is called and the menu is still up
             if (isPaused)
             {
-                isPaused = false;
+                //isPaused = false;
                 musicPlayer.pitch = 1;
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
                 pauseButton.SetActive(true);
+                StartCoroutine(unPausePause());
             }
             //when pause function is called and the menu is hidden
             else if (isPaused == false)
@@ -78,6 +80,12 @@ public class pauseManager : MonoBehaviour
                 entireGameControls.setDefaultButton();
             }
         }
+    }
+
+    private IEnumerator unPausePause()
+    {
+        yield return new WaitForSeconds(.1f);
+        isPaused = false;
     }
 
     public void quitGame()
