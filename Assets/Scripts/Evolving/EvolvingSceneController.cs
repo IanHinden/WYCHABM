@@ -9,6 +9,7 @@ public class EvolvingSceneController : MonoBehaviour
     //[SerializeField] EvolvingText evolvingText;
     [SerializeField] GameObject evolvingText;
     [SerializeField] EvolvingSFX evolvingSFX;
+    [SerializeField] pauseManager PM;
 
     private TextMeshPro textmesh;
 
@@ -51,12 +52,15 @@ public class EvolvingSceneController : MonoBehaviour
 
     private void StopEvolution()
     {
-        StopCoroutine(blinking);
-        StopCoroutine(evolving);
-        displayBadBoy();
-        scorehandler.IncrementBonusScore(3);
-        StartCoroutine(setArrestedText());
-        gamecontrols.Disable();
+        if (PM.IsGamePaused() == false)
+        {
+            StopCoroutine(blinking);
+            StopCoroutine(evolving);
+            displayBadBoy();
+            scorehandler.IncrementBonusScore(3);
+            StartCoroutine(setArrestedText());
+            gamecontrols.Disable();
+        }
     }
 
     private IEnumerator Blinking()

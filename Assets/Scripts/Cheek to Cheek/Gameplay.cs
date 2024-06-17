@@ -9,6 +9,8 @@ public class Gameplay : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] UIHandler uiHandler;
+    [SerializeField] pauseManager PM;
+    [SerializeField] SteamAchievementHandler steamAchievementHandler;
 
     [Header("Level Objects")]
     [SerializeField] private GameControls gamecontrols;
@@ -22,6 +24,8 @@ public class Gameplay : MonoBehaviour
 
     private bool firstScenarioPassed = false;
     private bool secondScenarioPassed = false;
+    private bool kissAchieve = false;
+    private bool tellAchieve = false;
 
     private float transitionTime = .3f;
 
@@ -91,32 +95,52 @@ public class Gameplay : MonoBehaviour
 
     private void GameAction()
     {
-        meterObjects.StopRoutine();
-        if(meter!= null) StopCoroutine(meter);
-        if (firstScenario == true)
+        if (PM.IsGamePaused() == false)
         {
-            if(meterObjects.getPass() == true)
+            meterObjects.StopRoutine();
+            if (meter != null) StopCoroutine(meter);
+            if (firstScenario == true)
             {
-                firstScenarioPassed = true;
-                animationController.KissWin();
-                score++;
-            } else
-            {
-                animationController.KissLose();
-            }
+                if (meterObjects.getPass() == true)
+                {
+                    firstScenarioPassed = true;
+                    animationController.KissWin();
+                    score++;
 
-            gamecontrols.Disable();
-        }
-        else
-        {
-            if(meterObjects.getPass() == true)
+                    if(meterObjects.getKissHitAchi() == true)
+                    {
+                        kissAchieve = true;
+                    }
+                }
+                else
+                {
+                    animationController.KissLose();
+                }
+
+                gamecontrols.Disable();
+            }
+            else
             {
-                secondScenarioPassed = true;
-                animationController.MisstressWin();
-                score++;
-            } else
-            {
-                animationController.MisstressLose();
+                if (meterObjects.getPass() == true)
+                {
+                    secondScenarioPassed = true;
+                    animationController.MisstressWin();
+                    score++;
+
+                    if(meterObjects.getKissHitAchi() == true)
+                    {
+                        tellAchieve = true;
+
+                        if(kissAchieve == true && tellAchieve == true)
+                        {
+                            steamAchievementHandler.UnlockAchievement(1);
+                        }
+                    }
+                }
+                else
+                {
+                    animationController.MisstressLose();
+                }
             }
         }
     }
@@ -139,6 +163,9 @@ public class Gameplay : MonoBehaviour
 
         firstScenarioPassed = false;
         secondScenarioPassed = false;
+
+        kissAchieve = false;
+        tellAchieve = false;
 
         meterObjects.ResetMeter();
 

@@ -21,6 +21,7 @@ public class MeterObjects : MonoBehaviour
 
     private float interval = .01f;
     public bool pass = false;
+    public bool kissHitAchi = false;
 
     int currentRect = 0;
     private bool animating = true;
@@ -47,6 +48,11 @@ public class MeterObjects : MonoBehaviour
     public bool getPass()
     {
         return pass;
+    }
+
+    public bool getKissHitAchi()
+    {
+        return kissHitAchi;
     }
 
     public IEnumerator StartMeter()
@@ -89,6 +95,14 @@ public class MeterObjects : MonoBehaviour
 
                 onTheWayUp = true;
             }
+
+            if(Eleven.activeSelf == true)
+            {
+                kissHitAchi = true;
+            } else
+            {
+                kissHitAchi = false;
+            }
         }
     }
 
@@ -97,7 +111,6 @@ public class MeterObjects : MonoBehaviour
     {
         animating = false;
         HighlightRect(currentRect);
-        Debug.Log(currentRect);
     }
 
     private void HighlightRect(int rect)
