@@ -9,6 +9,7 @@ public class SelectChecker : MonoBehaviour
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] pauseManager PM;
 
     [SerializeField] WishlistSFX wishlistSFX;
 
@@ -44,17 +45,21 @@ public class SelectChecker : MonoBehaviour
 
     public void selectItem()
     {
-        selected = true;
-        if(activeArrow == 2)
+        if (PM.IsGamePaused() == false)
         {
-            scorehandler.IncrementScore(3);
-            uihandler.WinDisplay();
-            gamecontrols.Disable();
-            
-        } else
-        {
-            uihandler.LoseDisplay();
-            gamecontrols.Disable();
+            selected = true;
+            if (activeArrow == 2)
+            {
+                scorehandler.IncrementScore(3);
+                uihandler.WinDisplay();
+                gamecontrols.Disable();
+
+            }
+            else
+            {
+                uihandler.LoseDisplay();
+                gamecontrols.Disable();
+            }
         }
     }
 
@@ -73,30 +78,37 @@ public class SelectChecker : MonoBehaviour
 
     public void setNextActiveArrow()
     {
-        wishlistSFX.PlayHighlight();
-        if(activeArrow != arrows.transform.childCount - 1)
+        if (PM.IsGamePaused() == false)
         {
-            activeArrow++;
-            displayCorrectArrow();
-        } else
-        {
-            activeArrow = 0;
-            displayCorrectArrow();
+            wishlistSFX.PlayHighlight();
+            if (activeArrow != arrows.transform.childCount - 1)
+            {
+                activeArrow++;
+                displayCorrectArrow();
+            }
+            else
+            {
+                activeArrow = 0;
+                displayCorrectArrow();
+            }
         }
     }
 
     public void setPreviousActiveArrow()
     {
-        wishlistSFX.PlayHighlight();
-        if (activeArrow != 0)
+        if (PM.IsGamePaused() == false)
         {
-            activeArrow--;
-            displayCorrectArrow();
-        }
-        else
-        {
-            activeArrow = arrows.transform.childCount - 1;
-            displayCorrectArrow();
+            wishlistSFX.PlayHighlight();
+            if (activeArrow != 0)
+            {
+                activeArrow--;
+                displayCorrectArrow();
+            }
+            else
+            {
+                activeArrow = arrows.transform.childCount - 1;
+                displayCorrectArrow();
+            }
         }
     }
 

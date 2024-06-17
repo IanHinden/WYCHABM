@@ -8,6 +8,7 @@ public class TweakGameplay : MonoBehaviour
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] UIHandler uihandler;
     [SerializeField] TimeFunctions timefunctions;
+    [SerializeField] pauseManager PM;
 
     [SerializeField] TweakSFX tweakSFX;
 
@@ -67,108 +68,110 @@ public class TweakGameplay : MonoBehaviour
 
     private void upMove(Vector2 movement)
     {
-        if (movement.y == 1)
+        if (PM.IsGamePaused() == false)
         {
-            if (state == 0)
+            if (movement.y == 1)
             {
-                tweakSFX.PlayBalloon(1);
-                state++;
-                redBarAnimator.SetTrigger("Two");
-                blueBarAnimator.SetTrigger("Two");
-                tenKAnimator.SetTrigger("Two");
-                fiveKAnimator.SetTrigger("Two");
-                RotateRight();
+                if (state == 0)
+                {
+                    tweakSFX.PlayBalloon(1);
+                    state++;
+                    redBarAnimator.SetTrigger("Two");
+                    blueBarAnimator.SetTrigger("Two");
+                    tenKAnimator.SetTrigger("Two");
+                    fiveKAnimator.SetTrigger("Two");
+                    RotateRight();
+                }
+
+                if (state == 4)
+                {
+                    tweakSFX.PlayBalloon(3);
+                    redBarAnimator.SetTrigger("Six");
+                    blueBarAnimator.SetTrigger("Six");
+                    tenKAnimator.SetTrigger("Six");
+                    fiveKAnimator.SetTrigger("Six");
+                    state++;
+                    RotateRight();
+                }
             }
 
-            if (state == 4)
+            if (movement.x == 1)
             {
-                tweakSFX.PlayBalloon(3);
-                redBarAnimator.SetTrigger("Six");
-                blueBarAnimator.SetTrigger("Six");
-                tenKAnimator.SetTrigger("Six");
-                fiveKAnimator.SetTrigger("Six");
-                state++;
-                RotateRight();
+                if (state == 1)
+                {
+                    tweakSFX.PlayBalloon(1.5f);
+                    state++;
+                    redBarAnimator.SetTrigger("Three");
+                    blueBarAnimator.SetTrigger("Three");
+                    tenKAnimator.SetTrigger("Three");
+                    fiveKAnimator.SetTrigger("Three");
+                    RotateRight();
+                }
+
+                if (state == 5)
+                {
+                    tweakSFX.PlayBalloon(3);
+                    redBarAnimator.SetTrigger("Seven");
+                    blueBarAnimator.SetTrigger("Seven");
+                    tenKAnimator.SetTrigger("Seven");
+                    fiveKMesh.enabled = false;
+                    zeroMesh.enabled = false;
+                    tenKHundredMesh.enabled = true;
+                    tenKHundredAnimator.SetTrigger("Seven");
+                    state++;
+                    RotateRight();
+                }
+            }
+
+            if (movement.y == -1)
+            {
+                if (state == 2)
+                {
+                    tweakSFX.PlayBalloon(2);
+                    state++;
+                    redBarAnimator.SetTrigger("Four");
+                    blueBarAnimator.SetTrigger("Four");
+                    tenKAnimator.SetTrigger("Four");
+                    fiveKAnimator.SetTrigger("Four");
+                    RotateRight();
+                }
+
+                if (state == 6)
+                {
+                    tweakSFX.PlayBalloon(3);
+                    redBarAnimator.SetTrigger("Eight");
+                    blueBarAnimator.SetTrigger("Eight");
+                    tenKAnimator.SetTrigger("Eight");
+                    tenKHundredAnimator.SetTrigger("Eight");
+                    state++;
+                    RotateRight();
+                }
+            }
+            if (movement.x == -1)
+            {
+                if (state == 3)
+                {
+                    tweakSFX.PlayBalloon(2.5f);
+                    state++;
+                    redBarAnimator.SetTrigger("Five");
+                    blueBarAnimator.SetTrigger("Five");
+                    tenKAnimator.SetTrigger("Five");
+                    fiveKAnimator.SetTrigger("Five");
+                    RotateRight();
+                }
+
+                if (state == 7)
+                {
+                    tweakSFX.PlayBalloon(3);
+                    state++;
+                    won = true;
+                    scorehandler.IncrementScore(3);
+                    uihandler.WinDisplay();
+                    rotateWinCo = StartCoroutine(RotateWin());
+                    //Instead of rotating right, maybe animate win?
+                }
             }
         }
-
-        if(movement.x == 1)
-        {
-            if (state == 1)
-            {
-                tweakSFX.PlayBalloon(1.5f);
-                state++;
-                redBarAnimator.SetTrigger("Three");
-                blueBarAnimator.SetTrigger("Three");
-                tenKAnimator.SetTrigger("Three");
-                fiveKAnimator.SetTrigger("Three");
-                RotateRight();
-            }
-
-            if (state == 5)
-            {
-                tweakSFX.PlayBalloon(3);
-                redBarAnimator.SetTrigger("Seven");
-                blueBarAnimator.SetTrigger("Seven");
-                tenKAnimator.SetTrigger("Seven");
-                fiveKMesh.enabled = false;
-                zeroMesh.enabled = false;
-                tenKHundredMesh.enabled = true;
-                tenKHundredAnimator.SetTrigger("Seven");
-                state++;
-                RotateRight();
-            }
-        }
-
-        if (movement.y == -1)
-        {
-            if (state == 2)
-            {
-                tweakSFX.PlayBalloon(2);
-                state++;
-                redBarAnimator.SetTrigger("Four");
-                blueBarAnimator.SetTrigger("Four");
-                tenKAnimator.SetTrigger("Four");
-                fiveKAnimator.SetTrigger("Four");
-                RotateRight();
-            }
-
-            if (state == 6)
-            {
-                tweakSFX.PlayBalloon(3);
-                redBarAnimator.SetTrigger("Eight");
-                blueBarAnimator.SetTrigger("Eight");
-                tenKAnimator.SetTrigger("Eight");
-                tenKHundredAnimator.SetTrigger("Eight");
-                state++;
-                RotateRight();
-            }
-        }
-        if (movement.x == -1)
-        {
-            if (state == 3)
-            {
-                tweakSFX.PlayBalloon(2.5f);
-                state++;
-                redBarAnimator.SetTrigger("Five");
-                blueBarAnimator.SetTrigger("Five");
-                tenKAnimator.SetTrigger("Five");
-                fiveKAnimator.SetTrigger("Five");
-                RotateRight();
-            }
-
-            if (state == 7)
-            {
-                tweakSFX.PlayBalloon(3);
-                state++;
-                won = true;
-                scorehandler.IncrementScore(3);
-                uihandler.WinDisplay();
-                rotateWinCo = StartCoroutine(RotateWin());
-                //Instead of rotating right, maybe animate win?
-            }
-        }
-
     }
 
     private void OnEnable()

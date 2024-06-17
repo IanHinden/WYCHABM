@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ClickDetect : MonoBehaviour
 {
     [SerializeField] ScoreHandler scoreHandler;
+    [SerializeField] pauseManager PM;
 
     private bool clicked = false;
     private BoxCollider2D collider;
@@ -17,16 +18,19 @@ public class ClickDetect : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (PM.IsGamePaused() == false)
         {
-            if (clicked == false)
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                clicked = true;
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-                if (collider.bounds.Contains(mousePosition))
+                if (clicked == false)
                 {
-                    scoreHandler.IncrementBonusScore(9);
+                    clicked = true;
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+                    if (collider.bounds.Contains(mousePosition))
+                    {
+                        scoreHandler.IncrementBonusScore(9);
+                    }
                 }
             }
         }
