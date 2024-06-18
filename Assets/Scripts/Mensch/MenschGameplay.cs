@@ -7,6 +7,7 @@ public class MenschGameplay : MonoBehaviour
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scorehandler;
+    [SerializeField] pauseManager PM;
 
     [SerializeField] MenschAnimationController menschAnimationController;
 
@@ -73,15 +74,18 @@ public class MenschGameplay : MonoBehaviour
 
     IEnumerator pressScreen()
     {
-        tappedSR.enabled = true;
-        tapperSR.enabled = false;
-        tappedBC.enabled = true;
+        if (PM.IsGamePaused() == false)
+        {
+            tappedSR.enabled = true;
+            tapperSR.enabled = false;
+            tappedBC.enabled = true;
 
-        yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.1f);
 
-        tappedSR.enabled = false;
-        tapperSR.enabled = true;
-        tappedBC.enabled = false;
+            tappedSR.enabled = false;
+            tapperSR.enabled = true;
+            tappedBC.enabled = false;
+        }
     }
 
     void Update()
