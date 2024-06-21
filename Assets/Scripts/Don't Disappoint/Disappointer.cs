@@ -18,16 +18,9 @@ public class Disappointer : MonoBehaviour
     [Header("Background")]
     [SerializeField] GameObject background2;
 
-    [SerializeField] GameObject FuzzyTextGO;
+    [SerializeField] SpriteRenderer FuzzyTextSR;
 
     bool ThereIsALightInYourHeart = true;
-
-    private SpriteRenderer FuzzyTextSR;
-
-    void Awake()
-    {
-        FuzzyTextSR = FuzzyTextGO.GetComponent<SpriteRenderer>();
-    }
 
     public IEnumerator WinOrLose()
     {
@@ -41,12 +34,6 @@ public class Disappointer : MonoBehaviour
     {
         yield return new WaitForSeconds(3 *timefunctions.ReturnSingleMeasure());
         background2.SetActive(true);
-        /*yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
-        background2.SetActive(true);
-        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
-        background2.SetActive(false);
-        yield return new WaitForSeconds(timefunctions.ReturnSingleMeasure());
-        background2.SetActive(true);*/
     }
 
     private IEnumerator FuzzyText()
