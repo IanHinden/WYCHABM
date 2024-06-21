@@ -8,6 +8,7 @@ public class FullCoins : MonoBehaviour
     [SerializeField] GameObject Ava;
     [SerializeField] Controller controller;
     [SerializeField] UIHandler uihandler;
+    [SerializeField] Dialogue dialogue;
     [SerializeField] ScoreHandler scorehandler;
     [SerializeField] TimeFunctions timefunctions;
     [SerializeField] TextMeshProUGUI displayscore;
@@ -85,7 +86,9 @@ public class FullCoins : MonoBehaviour
 
     public IEnumerator WinOrLose()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(timeBeforeDoorClose));
+        yield return new WaitForSeconds(2);
+        dialogue.DialogueEnter("IAN H.");
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(timeBeforeDoorClose) -2);
 
         CloseDoor();
 

@@ -54,7 +54,6 @@ public class ScoreHandler : MonoBehaviour
             if(bonusesDiscovered.unlockedBonuses[i] == true)
             {
                 bonusScore++;
-
                 Transform child = numberPeople.transform.GetChild(i);
                 Image childImage = child.GetComponent<Image>();
 
@@ -179,7 +178,6 @@ public class ScoreHandler : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
-        bonusScore = 0;
         totalPointsPartOne = 0;
         totalPointsPartTwo = 0;
         totalPointsPartThree = 0;

@@ -8,7 +8,7 @@ public class BarScene : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(Dialogue());
+        //StartCoroutine(Dialogue());
     }
 
     private IEnumerator Dialogue()
