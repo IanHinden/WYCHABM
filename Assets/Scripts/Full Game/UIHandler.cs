@@ -65,10 +65,6 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField] GameObject instructionsMenuPanel;
 
-    [Header("Score Screen")]
-    [SerializeField] TextMeshProUGUI standardScore;
-    [SerializeField] TextMeshProUGUI bonusScore;
-
     private Animator anim;
     private Animator kissHitAnim;
 
@@ -560,22 +556,6 @@ public class UIHandler : MonoBehaviour
         instructionsMenuPanel.SetActive(false);
     }
 
-    public void SetScoreScreenStandardScore(string score)
-    {
-        standardScore.text = score;
-    }
-
-    public void SetScoreScreenBonusScore(string score)
-    {
-        bonusScore.text = score;
-    }
-
-    private void ClearSetScoreScreenText()
-    {
-        standardScore.text = "";
-        bonusScore.text = "";
-    }
-
     public void ClearRhythmRating()
     {
         rhythmRatingDisplay.ClearText();
@@ -587,7 +567,6 @@ public class UIHandler : MonoBehaviour
         setFrame(false);
         hideSlider();
         ClearInstructions();
-        ClearSetScoreScreenText();
         HidePauseButton();
         ClearRhythmRating();
     }

@@ -20,11 +20,9 @@ public class FinalScore : MonoBehaviour
     [SerializeField] GameObject numberPeopleUnlockedObj;
 
     [SerializeField] GameObject resetGameButton;
+    [SerializeField] GameObject finalThanksButton;
 
     [SerializeField] AudioSource gameOverTheme;
-
-    private string standardScore;
-    private string bonusScore;
 
     private void Awake()
     {
@@ -33,12 +31,6 @@ public class FinalScore : MonoBehaviour
 
     public IEnumerator ScoreText()
     {
-        standardScore = scoreHandler.ReturnScore().ToString();
-        bonusScore = scoreHandler.ReturnBonusScore().ToString();
-
-        uiHandler.SetScoreScreenStandardScore("");
-        uiHandler.SetScoreScreenBonusScore("");
-
         yield return new WaitForSeconds(.8f);
         gameOverTheme.Play();
         yield return new WaitForSeconds(1.9f);
@@ -74,6 +66,11 @@ public class FinalScore : MonoBehaviour
                 numberPeopleUnlockedObj.transform.GetChild(i).gameObject.SetActive(true);
             }
         }
+
+        if(scoreHandler.ReturnBonusScore() == 10)
+        {
+            finalThanksButton.SetActive(true);
+        }
     }
 
     public void Reset()
@@ -90,5 +87,6 @@ public class FinalScore : MonoBehaviour
         }
 
         resetGameButton.SetActive(false);
+        finalThanksButton.SetActive(false);
     }
 }
