@@ -22,6 +22,10 @@ public class FinalBossAnimationController : MonoBehaviour
 
     [Header("Ava Front View Objects")]
     [SerializeField] GameObject AvaFrontView;
+    [SerializeField] GameObject Eyes1;
+    [SerializeField] GameObject Eyes2;
+    [SerializeField] SpriteRenderer Mouth1;
+    [SerializeField] SpriteRenderer Mouth2;
 
     private float AvaSeesRichmanTransitionDuration = .5f;
 
@@ -44,6 +48,13 @@ public class FinalBossAnimationController : MonoBehaviour
         yield return new WaitForSeconds(AvaSeesRichmanTransitionDuration);
         yield return new WaitForSeconds(2f);
         StartCoroutine(EyeSparkFade());
+
+        yield return new WaitForSeconds(3f);
+        AvaSeesRichman.SetActive(false);
+        StartCoroutine(AvaFrontViewAnim());
+        //Logic to switch to Richman sitting
+        //Logic to switch to Giant Richman
+        AvaFrontView.SetActive(true);
     }
 
     private IEnumerator AvaSeesRichmanFade(SpriteRenderer spriteRend, float fadeDuration, bool inOrOut)
@@ -97,4 +108,23 @@ public class FinalBossAnimationController : MonoBehaviour
         AvaSeesRichmanEyes.enabled = false; // Finally, disable the sprite renderer
     }
 
+    private IEnumerator AvaFrontViewAnim()
+    {
+
+        yield return new WaitForSeconds(1);
+        EyeSwitch();
+        yield return new WaitForSeconds(1);
+        EyeSwitch();
+    }
+
+    private void EyeSwitch()
+    {
+        Eyes1.SetActive(!Eyes1.activeSelf);
+        Eyes2.SetActive(!Eyes2.activeSelf);
+    }
+
+    public void Reset()
+    {
+        
+    }
 }
