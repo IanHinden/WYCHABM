@@ -26,12 +26,19 @@ public class FinalBossAnimationController : MonoBehaviour
     [SerializeField] GameObject Eyes2;
     [SerializeField] SpriteRenderer Mouth1;
     [SerializeField] SpriteRenderer Mouth2;
+    [SerializeField] GameObject Fist;
+
+    public float raiseDuration = 3.0f;
+    public float shakeAmount = 0.1f;
+    public float shakeSpeed = 10.0f;
+    public Vector3 fistStartPos;
 
     private float AvaSeesRichmanTransitionDuration = .5f;
 
     private void Awake()
     {
         originalColor = AvaSeesRichmanEyes.color;
+        fistStartPos = Fist.transform.position;
         StartCoroutine(SceneTiming());
     }
 
@@ -55,6 +62,7 @@ public class FinalBossAnimationController : MonoBehaviour
         //Logic to switch to Richman sitting
         //Logic to switch to Giant Richman
         AvaFrontView.SetActive(true);
+        StartCoroutine(HandShake());
     }
 
     private IEnumerator AvaSeesRichmanFade(SpriteRenderer spriteRend, float fadeDuration, bool inOrOut)
@@ -121,6 +129,24 @@ public class FinalBossAnimationController : MonoBehaviour
     {
         Eyes1.SetActive(!Eyes1.activeSelf);
         Eyes2.SetActive(!Eyes2.activeSelf);
+    }
+
+    private IEnumerator HandShake()
+    {
+        float raiseTimer = 0.0f;
+        while (raiseTimer < raiseDuration)
+        {
+            raiseTimer += Time.deltaTime;
+            float raiseProgress = raiseTimer / raiseDuration;
+
+            // Raise the fist
+            Fist.transform.position = Vector3.Lerp(fistStartPos, fistStartPos + Vector3.up * 4.5f, raiseProgress);
+
+            // Shake the fist
+            Fist.transform.position += (Vector3)Random.insideUnitCircle * shakeAmount * Mathf.Sin(Time.time * shakeSpeed);
+
+            yield return null;
+        }
     }
 
     public void Reset()
