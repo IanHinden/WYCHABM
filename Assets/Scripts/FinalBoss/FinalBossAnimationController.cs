@@ -5,6 +5,7 @@ using UnityEngine;
 public class FinalBossAnimationController : MonoBehaviour
 {
     [SerializeField] TimeFunctions timeFunctions;
+    [SerializeField] FinalBossSFXController finalBossSFXController;
 
     [SerializeField] SpriteRenderer AvaTarts;
 
@@ -147,6 +148,8 @@ public class FinalBossAnimationController : MonoBehaviour
 
             yield return null;
         }
+
+        //finalBossSFXController.PlayRichmanLaugh();
     }
 
     public void Reset()

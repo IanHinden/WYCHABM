@@ -103,6 +103,8 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] private TimeFunctions timefunctions;
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private ScoreHandler scoreHandler;
+
+    [SerializeField] FinalBossSFXController finalBossSFXController;
     // Start is called before the first frame update
     //0.705882
 
@@ -243,6 +245,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(34));
 
         StartCoroutine(musicplayer.FadeOutMusic());
+        finalBossSFXController.PlayRichmanLaugh();
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
 
