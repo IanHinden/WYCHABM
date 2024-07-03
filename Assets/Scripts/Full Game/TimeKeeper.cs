@@ -252,6 +252,9 @@ public class TimeKeeper : MonoBehaviour
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 2];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
+        StartCoroutine(uihandler.BlackOutTwoFadeIn());
+        yield return new WaitForSeconds(2f);
+        uihandler.TurnOffBlackout();
         currentActiveScene.SetActive(false);
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
         scoreScreen.SetActive(true);

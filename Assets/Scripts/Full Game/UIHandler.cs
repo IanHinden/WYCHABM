@@ -82,6 +82,7 @@ public class UIHandler : MonoBehaviour
 
     private bool reset = false;
 
+    [SerializeField] Image BlackoutTwo;
 
     // Start is called before the first frame update
     void Awake()
@@ -559,6 +560,24 @@ public class UIHandler : MonoBehaviour
     public void ClearRhythmRating()
     {
         rhythmRatingDisplay.ClearText();
+    }
+
+    public IEnumerator BlackOutTwoFadeIn()
+    {
+        BlackoutTwo.enabled = true;
+        float elapsedTime = 0f;
+        while (elapsedTime < 2f)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 2f);
+            BlackoutTwo.color = new Color(255, 255, 255, alpha);
+            yield return null;
+        }
+    }
+
+    public void TurnOffBlackout()
+    {
+        BlackoutTwo.enabled = false;
     }
 
     public void Reset()
