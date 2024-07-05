@@ -24,6 +24,9 @@ public class FinalBossAnimationController : MonoBehaviour
     [Header("Richman Sitting Objects")]
     [SerializeField] GameObject RichmanSitting;
 
+    [Header("Demon Richman Objects")]
+    [SerializeField] GameObject DemonRichman;
+
     [Header("Ava Front View Objects")]
     [SerializeField] GameObject AvaFrontView;
     [SerializeField] GameObject Eyes1;
@@ -62,11 +65,12 @@ public class FinalBossAnimationController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         AvaSeesRichman.SetActive(false);
-        //Logic to switch to Richman sitting
         RichmanSitting.SetActive(true);
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
         RichmanSitting.SetActive(false);
-        //Logic to switch to Giant Richman
+        DemonRichman.SetActive(true);
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
+        DemonRichman.SetActive(false);
         StartCoroutine(AvaFrontViewAnim());
         AvaFrontView.SetActive(true);
         StartCoroutine(HandShake());
