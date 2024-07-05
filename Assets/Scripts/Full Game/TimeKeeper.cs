@@ -245,7 +245,6 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(34));
 
         StartCoroutine(musicplayer.FadeOutMusic());
-        finalBossSFXController.PlayRichmanLaugh();
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(1));
 
@@ -253,7 +252,9 @@ public class TimeKeeper : MonoBehaviour
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
         StartCoroutine(uihandler.BlackOutTwoFadeIn());
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        finalBossSFXController.PlayRichmanLaugh();
+        yield return new WaitForSeconds(1f);
         uihandler.TurnOffBlackout();
         currentActiveScene.SetActive(false);
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());

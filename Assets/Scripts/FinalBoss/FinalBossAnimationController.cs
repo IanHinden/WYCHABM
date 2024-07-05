@@ -51,6 +51,7 @@ public class FinalBossAnimationController : MonoBehaviour
 
     public IEnumerator SceneTiming()
     {
+        //34 - 4(30), 4(26), 
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
         AvaTarts.enabled = false;
         AvaSeesRichman.SetActive(true);
@@ -59,7 +60,7 @@ public class FinalBossAnimationController : MonoBehaviour
         StartCoroutine(AvaSeesRichmanFade(AvaSeesRichmanSad, AvaSeesRichmanTransitionDuration, false));
         StartCoroutine(AvaSeesRichmanFade(AvaSeesRichmanEyes, AvaSeesRichmanTransitionDuration, false));
 
-        yield return new WaitForSeconds(AvaSeesRichmanTransitionDuration);
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
         yield return new WaitForSeconds(2f);
         StartCoroutine(EyeSparkFade());
 
@@ -159,6 +160,20 @@ public class FinalBossAnimationController : MonoBehaviour
             yield return null;
         }
 
+        yield return 3f;
+
+        Vector3 fistCurrPos = Fist.transform.position;
+
+        float lowerTimer = 0.0f;
+        while (lowerTimer < 3f)
+        {
+            lowerTimer += Time.deltaTime;
+            float lowerProgress = lowerTimer / 3f;
+
+            Fist.transform.position = Vector3.Lerp(fistCurrPos, fistCurrPos + Vector3.down * 8f, lowerProgress);
+
+            yield return null;
+        }
         //finalBossSFXController.PlayRichmanLaugh();
     }
 
