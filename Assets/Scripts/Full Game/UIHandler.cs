@@ -83,6 +83,7 @@ public class UIHandler : MonoBehaviour
     private bool reset = false;
 
     [SerializeField] Image BlackoutTwo;
+    [SerializeField] Image Whiteout;
 
     // Start is called before the first frame update
     void Awake()
@@ -577,7 +578,27 @@ public class UIHandler : MonoBehaviour
 
     public void TurnOffBlackout()
     {
+        BlackoutTwo.color = new Color(255, 255, 255, 1);
         BlackoutTwo.enabled = false;
+    }
+
+    public IEnumerator WhiteOutFadeIn(bool fadeIn, float fadeTime)
+    {
+        Whiteout.enabled = true;
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = fadeIn ? Mathf.Lerp(0f, 1f, elapsedTime / fadeTime ) : Mathf.Lerp(1f, 0f, elapsedTime / fadeTime );
+            Whiteout.color = new Color(255, 255, 255, alpha);
+            yield return null;
+        }
+    }
+
+    public void TurnOffWhiteOut()
+    {
+        Whiteout.color = new Color(255, 255, 255, 1);
+        Whiteout.enabled = false;
     }
 
     public void Reset()

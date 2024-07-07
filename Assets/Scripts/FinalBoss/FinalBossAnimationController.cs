@@ -5,8 +5,10 @@ using UnityEngine;
 public class FinalBossAnimationController : MonoBehaviour
 {
     [SerializeField] TimeFunctions timeFunctions;
+    [SerializeField] UIHandler uihandler;
     [SerializeField] FinalBossSFXController finalBossSFXController;
 
+    [Header("Ava Tarts Objects")]
     [SerializeField] SpriteRenderer AvaTarts;
 
     [Header("Ava Sees Richman Objects")]
@@ -15,7 +17,7 @@ public class FinalBossAnimationController : MonoBehaviour
     [SerializeField] SpriteRenderer AvaSeesRichmanSad;
     [SerializeField] SpriteRenderer AvaSeesRichmanEyes;
 
-    public float blinkDuration = 1.5f; // Adjust the duration of the blinking effect
+    public float blinkDuration = 1.0f; // Adjust the duration of the blinking effect
     public float blinkFrequency = 20f; // Adjust the frequency of the blinking
     public float finalFadeOutDuration = 1f; // Adjust the duration of the final fade-out
 
@@ -34,6 +36,8 @@ public class FinalBossAnimationController : MonoBehaviour
     [SerializeField] SpriteRenderer Mouth1;
     [SerializeField] SpriteRenderer Mouth2;
     [SerializeField] GameObject Fist;
+    [SerializeField] GameObject AvaDeterminedObjects;
+    [SerializeField] GameObject AvaGiveUpObjects;
 
     public float raiseDuration = 3.0f;
     public float shakeAmount = 0.1f;
@@ -61,17 +65,22 @@ public class FinalBossAnimationController : MonoBehaviour
         StartCoroutine(AvaSeesRichmanFade(AvaSeesRichmanEyes, AvaSeesRichmanTransitionDuration, false));
 
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
-        yield return new WaitForSeconds(2f);
         StartCoroutine(EyeSparkFade());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
         AvaSeesRichman.SetActive(false);
         RichmanSitting.SetActive(true);
-        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4) - .5f);
+        StartCoroutine(uihandler.WhiteOutFadeIn(true, .5f));
+        yield return new WaitForSeconds(.5f);
         RichmanSitting.SetActive(false);
+        StartCoroutine(uihandler.WhiteOutFadeIn(false, .5f));
         DemonRichman.SetActive(true);
-        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(8));
+        StartCoroutine(uihandler.WhiteOutFadeIn(true, .5f));
+        yield return new WaitForSeconds(.5f);
         DemonRichman.SetActive(false);
+        StartCoroutine(uihandler.WhiteOutFadeIn(false, .5f));
         StartCoroutine(AvaFrontViewAnim());
         AvaFrontView.SetActive(true);
         StartCoroutine(HandShake());
@@ -95,8 +104,6 @@ public class FinalBossAnimationController : MonoBehaviour
     {
         float blinkTimer = 0;
         bool isBlinking = true;
-
-
 
         while (isBlinking)
         {
@@ -165,6 +172,9 @@ public class FinalBossAnimationController : MonoBehaviour
         Vector3 fistCurrPos = Fist.transform.position;
 
         float lowerTimer = 0.0f;
+
+        SwitchToSad(true);
+
         while (lowerTimer < 3f)
         {
             lowerTimer += Time.deltaTime;
@@ -175,6 +185,12 @@ public class FinalBossAnimationController : MonoBehaviour
             yield return null;
         }
         //finalBossSFXController.PlayRichmanLaugh();
+    }
+
+    private void SwitchToSad(bool entering)
+    {
+        AvaDeterminedObjects.SetActive(!entering);
+        AvaGiveUpObjects.SetActive(entering);
     }
 
     public void Reset()
