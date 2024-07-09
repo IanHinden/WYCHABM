@@ -94,6 +94,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField] RingsGameplay ringsGameplay; //Scene 35
     [SerializeField] Target pregnancyTest; //Scene 37
     [SerializeField] ThirdChorus thirdChorus; //Scene 38
+    [SerializeField] FinalBossAnimationController finalBossAnim; // Scene 39
     [SerializeField] FinalScore finalScore; //Scene 41
     //30, 35, 37. 
 
@@ -137,6 +138,7 @@ public class TimeKeeper : MonoBehaviour
     Coroutine ringsCo;
     Coroutine pregnancyTestCo;
     Coroutine thirdChorusCo;
+    Coroutine finalBossCo;
     Coroutine FinalScoreCo;
 
     Coroutine WinOrLoseGameCo;
@@ -242,7 +244,7 @@ public class TimeKeeper : MonoBehaviour
 
     private IEnumerator LoseGame()
     {
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(34));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
 
         StartCoroutine(musicplayer.FadeOutMusic());
 
@@ -252,9 +254,9 @@ public class TimeKeeper : MonoBehaviour
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
         StartCoroutine(uihandler.BlackOutTwoFadeIn());
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         finalBossSFXController.PlayRichmanLaugh();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         uihandler.TurnOffBlackout();
         currentActiveScene.SetActive(false);
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
@@ -456,6 +458,7 @@ public class TimeKeeper : MonoBehaviour
 
         uihandler.ClearRhythmRating();
         nextScene(); //Final Boss
+        finalBossCo = StartCoroutine(finalBossAnim.SceneTiming());
 
         string finalGrade = scoreHandler.ReturnFinalGrade();
 
@@ -515,6 +518,7 @@ public class TimeKeeper : MonoBehaviour
         if (ringsCo != null) StopCoroutine(ringsCo);
         if (pregnancyTestCo != null) StopCoroutine(pregnancyTestCo);
         if (thirdChorusCo != null) StopCoroutine(thirdChorusCo);
+        if (finalBossCo != null) StopCoroutine(finalBossCo);
         if (FinalScoreCo != null) StopCoroutine(FinalScoreCo);
 
         if (WinOrLoseGameCo != null) StopCoroutine(WinOrLoseGameCo);
@@ -546,6 +550,7 @@ public class TimeKeeper : MonoBehaviour
         ringsGameplay.Reset();
         pregnancyTest.Reset();
         thirdChorus.Reset();
+        finalBossAnim.Reset();
         finalScore.Reset();
 
         foreach (GameObject scene in allscenes)

@@ -50,13 +50,15 @@ public class FinalBossAnimationController : MonoBehaviour
     {
         originalColor = AvaSeesRichmanEyes.color;
         fistStartPos = Fist.transform.position;
-        StartCoroutine(SceneTiming());
+        //StartCoroutine(SceneTiming());
     }
 
     public IEnumerator SceneTiming()
-    {
-        //34 - 4(30), 4(26), 
-        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
+    { 
+        // Ava Walking with Tray
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(7));
+
+        // Ava Sees Richman
         AvaTarts.enabled = false;
         AvaSeesRichman.SetActive(true);
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(1));
@@ -66,19 +68,22 @@ public class FinalBossAnimationController : MonoBehaviour
 
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
         StartCoroutine(EyeSparkFade());
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4));
 
-        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(3));
+        // Richman Sitting
         AvaSeesRichman.SetActive(false);
         RichmanSitting.SetActive(true);
         yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(4) - .5f);
+        // Demon Richman
         StartCoroutine(uihandler.WhiteOutFadeIn(true, .5f));
         yield return new WaitForSeconds(.5f);
         RichmanSitting.SetActive(false);
         StartCoroutine(uihandler.WhiteOutFadeIn(false, .5f));
         DemonRichman.SetActive(true);
-        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(8));
+        yield return new WaitForSeconds(timeFunctions.ReturnCountMeasure(8) -.5f);
         StartCoroutine(uihandler.WhiteOutFadeIn(true, .5f));
         yield return new WaitForSeconds(.5f);
+        // Ava Front View
         DemonRichman.SetActive(false);
         StartCoroutine(uihandler.WhiteOutFadeIn(false, .5f));
         StartCoroutine(AvaFrontViewAnim());
