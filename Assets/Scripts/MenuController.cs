@@ -21,6 +21,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject instructionsMenu3;
     [SerializeField] GameObject instructionsMenu4;
 
+    [SerializeField] GameObject finalThanks;
+
     [SerializeField] InstructionMenu3AnimationController instructionMenu3AnimationController;
     Coroutine countdownCo;
 
@@ -154,5 +156,15 @@ public class MenuController : MonoBehaviour
         credits.SetActive(false);
         startGameButton.interactable = true;
         EventSystem.current.SetSelectedGameObject(buttons[2].gameObject);
+    }
+
+    public void showFinalThanks()
+    {
+        finalThanks.SetActive(true);
+    }
+
+    public void hideFinalThanks()
+    {
+        finalThanks.SetActive(false);
     }
 }
