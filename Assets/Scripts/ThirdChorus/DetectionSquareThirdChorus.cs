@@ -28,6 +28,10 @@ public class DetectionSquareThirdChorus : MonoBehaviour
             //score = score + 1;
             SpawnGood();
         }
+        else
+        {
+            SpawnMiss();
+        }
 
         Image arrowImage = col.gameObject.GetComponent<Image>();
         BoxCollider2D arrowBC = col.gameObject.GetComponent<BoxCollider2D>();
@@ -48,6 +52,12 @@ public class DetectionSquareThirdChorus : MonoBehaviour
         SpawnFadingArrow();
         rhythmRatingDisplay.SetGood();
         GoodPoint();
+    }
+
+    private void SpawnMiss()
+    {
+        SpawnFadingArrow();
+        rhythmRatingDisplay.SetMiss();
     }
 
     /*public float getScore()

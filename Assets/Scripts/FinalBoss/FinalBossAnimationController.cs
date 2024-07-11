@@ -200,6 +200,12 @@ public class FinalBossAnimationController : MonoBehaviour
 
     public void Reset()
     {
-        
+        AvaTarts.enabled = true;
+        AvaSeesRichman.SetActive(false);
+        RichmanSitting.SetActive(false);
+        DemonRichman.SetActive(false);
+        AvaFrontView.SetActive(false);
+
+        uihandler.TurnOffWhiteOut();
     }
 }

@@ -27,6 +27,9 @@ public class DetectionSquareFirstChorus : MonoBehaviour
         {
             //score = score + 1;
             SpawnGood();
+        } else
+        {
+            SpawnMiss();
         }
 
         Image arrowImage = col.gameObject.GetComponent<Image>();
@@ -48,6 +51,12 @@ public class DetectionSquareFirstChorus : MonoBehaviour
         SpawnFadingArrow();
         rhythmRatingDisplay.SetGood();
         GoodPoint();
+    }
+
+    private void SpawnMiss()
+    {
+        SpawnFadingArrow();
+        rhythmRatingDisplay.SetMiss();
     }
 
     /*public float getScore()
