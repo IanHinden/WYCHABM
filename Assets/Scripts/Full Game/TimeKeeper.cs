@@ -8,6 +8,7 @@ public class TimeKeeper : MonoBehaviour
     int currentScene = 0;
 
     [SerializeField] MusicPlayer musicplayer;
+    [SerializeField] VideoController videoController;
 
     [Header("Cameras")]
     [SerializeField] GameObject maincamera;
@@ -228,6 +229,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
 
         nextScene();
+        videoController.PlayVideo();
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(30));
 
