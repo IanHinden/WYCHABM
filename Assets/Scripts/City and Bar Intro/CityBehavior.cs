@@ -10,15 +10,15 @@ public class CityBehavior : MonoBehaviour
     [Header("Ava Objects")]
     [SerializeField] GameObject avaObjects;
     [SerializeField] GameObject avaPos1;
-    [SerializeField] GameObject closedEyes;
-    [SerializeField] GameObject openEyes;
     [SerializeField] GameObject avaPos2;
-    [SerializeField] GameObject puff;
+    [SerializeField] Animator puffAnimator;
+    [SerializeField] SpriteRenderer avaEyesClosed;
+    [SerializeField] SpriteRenderer avaEyesOpen;
 
     [Header("Lucy Objects")]
     [SerializeField] GameObject ppg;
-    [SerializeField] GameObject talkingEyes;
-    [SerializeField] GameObject staringEyes;
+    [SerializeField] SpriteRenderer lucyTalkingEyes;
+    [SerializeField] SpriteRenderer lucyStaringEyes;
     [SerializeField] GameObject sweatDrop;
 
     [Header("Audio Objects")]
@@ -30,16 +30,8 @@ public class CityBehavior : MonoBehaviour
     [SerializeField] UIHandler uihandler;
 
     Animator avaObjAnimator;
-    //Animator avaAnimator;
     Animator ppgAnimator;
-    Animator puffAnimator;
     Animator sweatAnimator;
-
-    SpriteRenderer avaEyesClosed;
-    SpriteRenderer avaEyesOpen;
-
-    SpriteRenderer lucyTalkingEyes;
-    SpriteRenderer lucyStaringEyes;
 
     Coroutine dialogue1;
     Coroutine dialogue2;
@@ -59,14 +51,7 @@ public class CityBehavior : MonoBehaviour
 
         avaObjAnimator = avaObjects.GetComponent<Animator>();
         ppgAnimator = ppg.GetComponent<Animator>();
-        puffAnimator = puff.GetComponent<Animator>();
         sweatAnimator = sweatDrop.GetComponent<Animator>();
-
-        avaEyesClosed = closedEyes.GetComponent<SpriteRenderer>();
-        avaEyesOpen = openEyes.GetComponent<SpriteRenderer>();
-
-        lucyTalkingEyes = talkingEyes.GetComponent<SpriteRenderer>();
-        lucyStaringEyes = staringEyes.GetComponent<SpriteRenderer>();
     }
 
     public IEnumerator StartAnimations()
