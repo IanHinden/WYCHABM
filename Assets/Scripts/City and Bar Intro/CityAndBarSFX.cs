@@ -4,25 +4,11 @@ using UnityEngine;
 
 public class CityAndBarSFX : MonoBehaviour
 {
-    [SerializeField] GameObject avaSighSFX;
-    [SerializeField] GameObject lucyEnterSFX;
-    [SerializeField] GameObject avaBlinkSFX;
-    [SerializeField] GameObject avaProudSFX;
-    [SerializeField] GameObject lucySweatSFX;
-
-    private AudioSource avaSighSFXAS;
-    private AudioSource lucyEnterSFXAS;
-    private AudioSource avaBlinkSFXAS;
-    private AudioSource avaProudSFXAS;
-    private AudioSource lucySweatSFXAS;
-    void Awake()
-    {
-        avaSighSFXAS = avaSighSFX.GetComponent<AudioSource>();
-        lucyEnterSFXAS = lucyEnterSFX.GetComponent<AudioSource>();
-        avaBlinkSFXAS = avaBlinkSFX.GetComponent<AudioSource>();
-        avaProudSFXAS = avaProudSFX.GetComponent<AudioSource>();
-        lucySweatSFXAS = lucySweatSFX.GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource avaSighSFXAS;
+    [SerializeField] AudioSource lucyEnterSFXAS;
+    [SerializeField] AudioSource avaBlinkSFXAS;
+    [SerializeField] AudioSource avaProudSFXAS;
+    [SerializeField] AudioSource lucySweatSFXAS;
 
     public void AvaSigh()
     {
