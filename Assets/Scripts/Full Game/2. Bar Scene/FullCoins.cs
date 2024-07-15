@@ -20,6 +20,7 @@ public class FullCoins : MonoBehaviour
 
     SpriteRenderer avaSprite;
 
+    Animator avaAnim;
     Animator officeLightAnim;
 
     AudioSource coinCollectSound;
@@ -36,6 +37,7 @@ public class FullCoins : MonoBehaviour
 
     void Awake()
     {
+        avaAnim = Ava.GetComponent<Animator>();
         Coin.CoinGet += MinusCoin;
         avaSprite = Ava.GetComponent<SpriteRenderer>();
         officeLightAnim = officeLight.GetComponent<Animator>();
@@ -106,15 +108,7 @@ public class FullCoins : MonoBehaviour
         {
             uihandler.LoseDisplay();
             controller.OnDisable();
-            /*if (remainingCoins == 0)
-            {
-                uihandler.WinDisplay();
-                controller.OnDisable();
-                scorehandler.IncrementScore();
-            }
-            else
-            {*/
-            //}
+            avaAnim.SetTrigger("lose");
         }
 
         if (bonusWin == true)
@@ -138,6 +132,7 @@ public class FullCoins : MonoBehaviour
 
     public void Reset()
     {
+        avaAnim.ResetTrigger("lose");
         CoinReset();
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 
