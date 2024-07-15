@@ -9,6 +9,7 @@ public class pauseManager : MonoBehaviour
     [SerializeField] EntireGameControls entireGameControls;
 
     [SerializeField] UIHandler uihandler;
+    [SerializeField] MenuController menuController;
 
     public TimeKeeper timekeeper;
     public timingManager timingManager;
@@ -109,8 +110,8 @@ public class pauseManager : MonoBehaviour
         timekeeper.resetGame();
         timingManager.stopTimer();
         uihandler.QuickRemoveScoreCard();
-
         gameoptions.EndGame();
+        menuController.SetStartGameSelected();
     }
 
     public void instructions()

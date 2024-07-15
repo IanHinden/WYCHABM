@@ -132,7 +132,7 @@ public class FullCoins : MonoBehaviour
 
     public void Reset()
     {
-        avaAnim.ResetTrigger("lose");
+        if(avaAnim != null) avaAnim.ResetTrigger("lose");
         CoinReset();
         Ava.transform.position = new Vector3(-3.508f, 0.266f, 36.627f);
         if(avaSprite != null) avaSprite.color = new Color(1, 1, 1, 1); 

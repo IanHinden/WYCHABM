@@ -167,4 +167,9 @@ public class MenuController : MonoBehaviour
     {
         finalThanks.SetActive(false);
     }
+
+    public void SetStartGameSelected()
+    {
+        EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+    }
 }
