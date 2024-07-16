@@ -716,6 +716,23 @@ public class RoadRacer : MonoBehaviour
 
 			}
 
+			for (int i = 0; i < treeList.Count; i++)
+			{
+				if (Mathf.Abs(treeList[i].transform.position.x - Car.transform.position.x) < 8f)
+				{
+					if (Mathf.Abs(treeList[i].transform.position.y - Car.transform.position.y) < 8f)
+					{
+						if (Car.GetComponent<CarAnimEvent>().canExplosion == true)
+						{
+							Car.GetComponent<Animator>().ResetTrigger("SetCarUpright");
+							Car.GetComponent<Animator>().SetTrigger("Exlosion");
+						}
+						//Debug.Log (Mathf.Abs (rivalCar [i].transform.position.x - Car.transform.position.x));
+					}
+				}
+
+			}
+
 			for (int i = 0; i < cones.Length; i++)
 			{
 				if (Mathf.Abs(cones[i].transform.position.x - Car.transform.position.x) < 8f)
