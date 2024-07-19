@@ -258,7 +258,7 @@ public class TimeKeeper : MonoBehaviour
         StartCoroutine(uihandler.BlackOutTwoFadeIn());
         yield return new WaitForSeconds(.5f);
         finalBossSFXController.PlayRichmanLaugh();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.5f);
         uihandler.TurnOffBlackout();
         currentActiveScene.SetActive(false);
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
