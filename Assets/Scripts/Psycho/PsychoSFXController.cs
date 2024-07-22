@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class PsychoSFXController : MonoBehaviour
 {
-    [SerializeField] GameObject TornPaperSFX;
-    [SerializeField] GameObject OedipalBonusSFX;
-    [SerializeField] GameObject FreudSFX;
-
     [SerializeField] AudioSource PunchAS;
-
-    private AudioSource TornPaperSFXAS;
-    private AudioSource OedipalBonusSFXAS;
-    private AudioSource FreudSFXAS;
-    
-    void Awake()
-    {
-        TornPaperSFXAS = TornPaperSFX.GetComponent<AudioSource>();
-        OedipalBonusSFXAS = OedipalBonusSFX.GetComponent<AudioSource>();
-        FreudSFXAS = FreudSFX.GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource TornPaperSFXAS;
+    [SerializeField] AudioSource OedipalBonusSFXAS;
+    [SerializeField] AudioSource FreudSFXAS;
+    [SerializeField] AudioSource PopAS;
 
     public void PlayTornPaper()
     {
@@ -39,5 +28,10 @@ public class PsychoSFXController : MonoBehaviour
     public void PlayPunch()
     {
         PunchAS.Play();
+    }
+
+    public void PlayPop()
+    {
+        PopAS.Play();
     }
 }

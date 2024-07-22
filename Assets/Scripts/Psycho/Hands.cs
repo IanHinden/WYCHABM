@@ -16,7 +16,10 @@ public class Hands : MonoBehaviour
 
     public GameObject stabHole;
 
+    private Coroutine wobbleCo;
+
     private float speed = 5f;
+    private bool inRoutine = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,29 +50,70 @@ public class Hands : MonoBehaviour
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
 
-        if (stabInput == 0)
+        if (inRoutine == false)
         {
-            handStab.enabled = false;
-            handReady.enabled = true;
-            handReady2.enabled = true;
-            stabCollide.enabled = false;
-
-            transform.position = currentPosition;
-        } else
-        {
-            if (PM.IsGamePaused() == false)
+            if (stabInput == 0)
             {
-                Vector3 holePos = transform.position;
-                holePos.x = transform.position.x + 1.3f;
-                holePos.y = transform.position.y - .5f;
-                Instantiate(stabHole, holePos, Quaternion.identity);
-                handStab.enabled = true;
-                handReady.enabled = false;
-                handReady2.enabled = false;
-                stabCollide.enabled = true;
-                psychoSFXController.PlayTornPaper();
+                handStab.enabled = false;
+                handReady.enabled = true;
+                handReady2.enabled = true;
+                stabCollide.enabled = false;
+
+                transform.position = currentPosition;
+            }
+            else
+            {
+                if (PM.IsGamePaused() == false)
+                {
+                    Vector3 holePos = transform.position;
+                    holePos.x = transform.position.x + 1.3f;
+                    holePos.y = transform.position.y - .5f;
+                    GameObject stabholeCopy = Instantiate(stabHole, holePos, Quaternion.identity);
+                    stabholeCopy.name = "SC";
+                    wobbleCo = StartCoroutine(stabRoutine());
+                    psychoSFXController.PlayTornPaper();
+                }
             }
         }
+    }
+
+    public void StopWobbleCo()
+    {
+        StopCoroutine(wobbleCo);
+        inRoutine = false;
+    }
+
+    private IEnumerator stabRoutine()
+    {
+        inRoutine = true;
+        Vector3 initialPosition = this.gameObject.transform.position;
+        float shakeSpeed = 100f;
+        float shakeDistance = 0.08f;
+
+        gamecontrols.Disable();
+        handStab.enabled = true;
+        handReady.enabled = false;
+        handReady2.enabled = false;
+        stabCollide.enabled = true;
+        yield return new WaitForSeconds(.28f);
+
+        float elapsedTime = 0;
+        while (elapsedTime < .28) // Shake for 1 second
+        {
+            float offset = Mathf.Sin(elapsedTime * shakeSpeed) * shakeDistance;
+            transform.position = initialPosition + new Vector3(offset, 0, 0);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = initialPosition;
+
+        psychoSFXController.PlayPop();
+        handStab.enabled = false;
+        handReady.enabled = true;
+        handReady2.enabled = true;
+        stabCollide.enabled = false;
+        inRoutine = false;
+        gamecontrols.Enable();
     }
 
     public void removeStabHoles()
@@ -77,7 +121,15 @@ public class Hands : MonoBehaviour
         Stabhole[] allStabhole = FindObjectsOfType<Stabhole>();
         foreach (Stabhole obj in allStabhole)
         {
-            Destroy(obj.gameObject);
+            if (obj.name == "SC")
+            {
+                Destroy(obj.gameObject);
+            }
         }
+    }
+
+    public void Reset()
+    {
+        inRoutine = false;
     }
 }

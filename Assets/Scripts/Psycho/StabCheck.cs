@@ -25,6 +25,7 @@ public class StabCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hands.OnDisable();
+        hands.StopWobbleCo();
         if (collision.name == "OedipalBonusSpawner")
         {
             if (levelEnded == false)
@@ -70,6 +71,11 @@ public class StabCheck : MonoBehaviour
         DetermineWinOrLoss();
     }
 
+    public bool ReturnLevelEnded()
+    {
+        return levelEnded;
+    }
+
     private void DetermineWinOrLoss()
     {
         if (stabbed == false && levelEnded == false)
@@ -87,6 +93,7 @@ public class StabCheck : MonoBehaviour
         liveDaddy.SetActive(true);
         deadDaddy.SetActive(false);
         hands.removeStabHoles();
+        hands.Reset();
         hands.transform.position = new Vector3(2.75f, -.99f, 0);
         psychoAnimationController.Reset();
     }
