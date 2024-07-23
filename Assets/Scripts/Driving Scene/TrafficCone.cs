@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrafficCone : MonoBehaviour
 {
     [SerializeField] DrivingSceneSFXController drivingSceneSFXController;
+    [SerializeField] ConeSpawner coneSpawner;
 
     private bool played = false;
 
@@ -14,6 +15,7 @@ public class TrafficCone : MonoBehaviour
         {
             played = true;
             drivingSceneSFXController.PlayTrafficCone();
+            coneSpawner.SpawnCone();
         }
     }
 

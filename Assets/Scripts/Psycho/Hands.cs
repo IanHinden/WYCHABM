@@ -19,6 +19,7 @@ public class Hands : MonoBehaviour
     private Coroutine wobbleCo;
 
     private float speed = 5f;
+    private float stuckTime = .2f;
     private bool inRoutine = false;
     // Start is called before the first frame update
     void Awake()
@@ -95,10 +96,10 @@ public class Hands : MonoBehaviour
         handReady.enabled = false;
         handReady2.enabled = false;
         stabCollide.enabled = true;
-        yield return new WaitForSeconds(.28f);
+        yield return new WaitForSeconds(stuckTime);
 
         float elapsedTime = 0;
-        while (elapsedTime < .28) // Shake for 1 second
+        while (elapsedTime < stuckTime)
         {
             float offset = Mathf.Sin(elapsedTime * shakeSpeed) * shakeDistance;
             transform.position = initialPosition + new Vector3(offset, 0, 0);
