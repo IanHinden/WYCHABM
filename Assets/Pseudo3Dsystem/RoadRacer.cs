@@ -28,6 +28,7 @@ public class RoadRacer : MonoBehaviour
 	[SerializeField] DrivingSceneSFXController drivingSceneSFXController;
 	[SerializeField] GameObject Fire;
 	[SerializeField] GameObject Smoke;
+	[SerializeField] GameObject Coneholder;
 
 	private bool ResetStat = false;
 	private bool fail = false;
@@ -870,6 +871,11 @@ public class RoadRacer : MonoBehaviour
 		{
 			SpriteRenderer rivalcarSR = rivalCar[i].GetComponent<SpriteRenderer>();
 			rivalcarSR.sortingOrder = 20;
+		}
+
+		for (int i = Coneholder.transform.childCount - 1; i >= 0; i--)
+		{
+			Destroy(Coneholder.transform.GetChild(i).gameObject);
 		}
 
 		fTranckCurvature = 0.0f;//由弯道弧度，车速度共同决定的离心力
