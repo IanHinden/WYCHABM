@@ -676,10 +676,12 @@ public class RoadRacer : MonoBehaviour
 					{//在画面内才能进行缩放
 						cones[i].transform.localScale = new Vector2(0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2), 0.9f - 1 * Mathf.Pow(-1.0f + fRivalPerspective, 2));
 
+						TrafficCone trafficCone = cones[i].GetComponent<TrafficCone>();
+
 						if (cones[i].transform.transform.localScale.x < 0)
 						{
 							if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = false; }
-						}
+						} else if (trafficCone != null && trafficCone.returnPlayed() == true) { cones[i].GetComponent<SpriteRenderer>().enabled = false; }
 						else
 						{
 							if (cones[i].GetComponent<SpriteRenderer>() != null) { cones[i].GetComponent<SpriteRenderer>().enabled = true; }
@@ -745,6 +747,7 @@ public class RoadRacer : MonoBehaviour
 
 						if (trafficCone != null)
 						{
+							//trafficCone.GetComponent<SpriteRenderer>().enabled = false;
 							trafficCone.ConeBehavior();
 						}
 					}
