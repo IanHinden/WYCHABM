@@ -29,10 +29,14 @@ public class RoadRacer : MonoBehaviour
 	[SerializeField] GameObject Fire;
 	[SerializeField] GameObject Smoke;
 	[SerializeField] GameObject Coneholder;
+	[SerializeField] GameObject Sky;
 
 	private bool ResetStat = false;
 	private bool fail = false;
 	private bool standardPass = true;
+
+	private Vector3 skyInitialPos;
+	private Quaternion skyInitialRot;
 
 	public Transform Car;
 	float TimeInLane = 0f;
@@ -160,6 +164,9 @@ public class RoadRacer : MonoBehaviour
 		whiteLineHolder.name = "LineHolder";
 		treeHolder = new GameObject();
 		treeHolder.name = "treeHolder";
+
+		skyInitialPos = Sky.transform.position;
+		skyInitialRot = Sky.transform.rotation;
 
 		//rivalCar 的默认位置
 		for (int i = 0; i < rivalCar.Length; i++)
@@ -825,12 +832,28 @@ public class RoadRacer : MonoBehaviour
 
 	}
 
+	private IEnumerator SkyShake()
+    {
+		float shakeTimer = 0f;
+		while (shakeTimer < .5f)
+		{
+			float xOffset = Mathf.Sin(shakeTimer * Mathf.PI * 2 / .5f * 5) * 4f;
+			Sky.transform.position = skyInitialPos + new Vector3(xOffset, 0f, 0f);
+			shakeTimer += Time.deltaTime;
+			yield return null;
+		}
+
+		Sky.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+		Sky.transform.position = new Vector3(110.7687f, 28.7f, 0f);
+	}
+
 	private void LoseLogic()
     {
 		fail = true;
 		standardPass = false;
 
 		StartCoroutine(SetFire());
+		StartCoroutine(SkyShake());
 
 		drivingSceneSFXController.StopPlayerCarSound();
 		drivingSceneSFXController.PlayCarCrash();
@@ -853,6 +876,9 @@ public class RoadRacer : MonoBehaviour
 				trafficCone.ResetCone();
 			}
 		}
+
+		Sky.transform.localPosition = skyInitialPos;
+		Sky.transform.localRotation = skyInitialRot;
 
 		TimeInLane = 0;
 
