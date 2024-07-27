@@ -147,6 +147,7 @@ public class UIHandler : MonoBehaviour
     public void ClearInstructions()
     {
         textmesh.text = "";
+        kissHitText.text = "";
     }
 
     private void ResetSliderTimer()
