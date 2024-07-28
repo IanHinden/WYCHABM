@@ -42,9 +42,7 @@ public class MenuController : MonoBehaviour
     {
         menuSoundEffectsAS = menuSoundEffects.GetComponent<AudioSource>();
         startGameButton.interactable = false;
-
         StartCoroutine(menuControls.controlPause());
-
     }
     public void StartGame()
     {
@@ -54,8 +52,7 @@ public class MenuController : MonoBehaviour
             playedMenuEffect = true;
             pressStart.SetActive(false);
             titleScreen.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
+            CheckPrefs();
             logo.SetActive(true);
             instructionsMenu2.SetActive(false);
             instructionsMenu3.SetActive(false);
@@ -71,6 +68,23 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         buttonHighlight.volume = 1;
     }
+
+    private void CheckPrefs()
+    {
+        if(PlayerPrefs.GetInt("TutorialRead", 0) == 1)
+        {
+            startGameButton.interactable = true;
+            currentIndex = 0;
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+        } else
+        {
+            titleScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
+        }
+    }
+
     public void SetNextActiveButton(int direction)
     {
         int startIndex = currentIndex;
@@ -144,6 +158,9 @@ public class MenuController : MonoBehaviour
         credits.SetActive(false);
         startGameButton.interactable = true;
         EventSystem.current.SetSelectedGameObject(buttons[1].gameObject);
+
+        PlayerPrefs.SetInt("TutorialRead", 1);
+        PlayerPrefs.Save();
     }
 
     public void hideInstructionsCredits()
