@@ -25,7 +25,6 @@ public class StabCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hands.OnDisable();
-        hands.StopWobbleCo();
         if (collision.name == "OedipalBonusSpawner")
         {
             if (levelEnded == false)
@@ -80,6 +79,7 @@ public class StabCheck : MonoBehaviour
     {
         if (stabbed == false && levelEnded == false)
         {
+            hands.OnDisable();
             levelEnded = true;
             uihandler.LoseDisplay();
         }

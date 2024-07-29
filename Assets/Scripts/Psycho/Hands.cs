@@ -8,6 +8,7 @@ public class Hands : MonoBehaviour
 
     [SerializeField] PsychoSFXController psychoSFXController;
     [SerializeField] pauseManager PM;
+    [SerializeField] ParticleSystem particleSystem;
 
     private SpriteRenderer handReady;
     private SpriteRenderer handReady2;
@@ -16,12 +17,11 @@ public class Hands : MonoBehaviour
 
     public GameObject stabHole;
 
-    private Coroutine wobbleCo;
+    bool particlePlayed = false;
 
     private float speed = 5f;
     private float stuckTime = .2f;
-    private bool inRoutine = false;
-    // Start is called before the first frame update
+
     void Awake()
     {
         gamecontrols = new GameControls();
@@ -41,7 +41,6 @@ public class Hands : MonoBehaviour
         gamecontrols.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float stabInput = gamecontrols.Move.Select.ReadValue<float>();
@@ -51,70 +50,47 @@ public class Hands : MonoBehaviour
         currentPosition.x += movementInput.x * speed * Time.deltaTime;
         currentPosition.y += movementInput.y * speed * Time.deltaTime;
 
-        if (inRoutine == false)
+        if (stabInput == 0)
         {
-            if (stabInput == 0)
-            {
-                handStab.enabled = false;
-                handReady.enabled = true;
-                handReady2.enabled = true;
-                stabCollide.enabled = false;
+            particlePlayed = false;
+            handStab.enabled = false;
+            handReady.enabled = true;
+            handReady2.enabled = true;
+            stabCollide.enabled = false;
 
-                transform.position = currentPosition;
-            }
-            else
+            transform.position = currentPosition;
+        }
+        else
+        {
+            if (PM.IsGamePaused() == false)
             {
-                if (PM.IsGamePaused() == false)
+                if (particlePlayed == false)
                 {
-                    Vector3 holePos = transform.position;
-                    holePos.x = transform.position.x + 1.3f;
-                    holePos.y = transform.position.y - .5f;
-                    GameObject stabholeCopy = Instantiate(stabHole, holePos, Quaternion.identity);
-                    stabholeCopy.name = "SC";
-                    wobbleCo = StartCoroutine(stabRoutine());
-                    psychoSFXController.PlayTornPaper();
+                    particlePlayed = true;
+                    PlayAndStop();
                 }
+                Vector3 holePos = transform.position;
+                holePos.x = transform.position.x + 1.3f;
+                holePos.y = transform.position.y - .5f;
+                Instantiate(stabHole, holePos, Quaternion.identity);
+                handStab.enabled = true;
+                handReady.enabled = false;
+                handReady2.enabled = false;
+                stabCollide.enabled = true;
+                psychoSFXController.PlayTornPaper();
             }
         }
     }
 
-    public void StopWobbleCo()
+    public void PlayAndStop()
     {
-        StopCoroutine(wobbleCo);
-        inRoutine = false;
+        particleSystem.Play();
+        Invoke("StopParticleSystem", particleSystem.main.duration);
     }
 
-    private IEnumerator stabRoutine()
+    private void StopParticleSystem()
     {
-        inRoutine = true;
-        Vector3 initialPosition = this.gameObject.transform.position;
-        float shakeSpeed = 100f;
-        float shakeDistance = 0.08f;
-
-        gamecontrols.Disable();
-        handStab.enabled = true;
-        handReady.enabled = false;
-        handReady2.enabled = false;
-        stabCollide.enabled = true;
-        yield return new WaitForSeconds(stuckTime);
-
-        float elapsedTime = 0;
-        while (elapsedTime < stuckTime)
-        {
-            float offset = Mathf.Sin(elapsedTime * shakeSpeed) * shakeDistance;
-            transform.position = initialPosition + new Vector3(offset, 0, 0);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = initialPosition;
-
-        psychoSFXController.PlayPop();
-        handStab.enabled = false;
-        handReady.enabled = true;
-        handReady2.enabled = true;
-        stabCollide.enabled = false;
-        inRoutine = false;
-        gamecontrols.Enable();
+        particleSystem.Stop();
     }
 
     public void removeStabHoles()
@@ -131,6 +107,7 @@ public class Hands : MonoBehaviour
 
     public void Reset()
     {
-        inRoutine = false;
+        particlePlayed = false;
+        StopParticleSystem();
     }
 }
