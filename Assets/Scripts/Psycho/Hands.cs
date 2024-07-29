@@ -85,7 +85,7 @@ public class Hands : MonoBehaviour
     public void PlayAndStop()
     {
         particleSystem.Play();
-        Invoke("StopParticleSystem", particleSystem.main.duration);
+        Invoke("StopParticleSystem", .2f);
     }
 
     private void StopParticleSystem()
