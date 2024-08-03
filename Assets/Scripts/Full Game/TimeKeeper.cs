@@ -231,7 +231,7 @@ public class TimeKeeper : MonoBehaviour
         nextScene();
         videoController.PlayVideo();
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(30));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
 
         StartCoroutine(musicplayer.FadeOutMusic());
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 1];
@@ -464,13 +464,15 @@ public class TimeKeeper : MonoBehaviour
 
         string finalGrade = scoreHandler.ReturnFinalGrade();
 
-        if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
+        WinOrLoseGameCo = StartCoroutine(WinGame());
+
+        /*if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
         {
             WinOrLoseGameCo = StartCoroutine(WinGame());
         } else
         {
             WinOrLoseGameCo = StartCoroutine(LoseGame());
-        }
+        }*/
     }
 
     IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null, int instructionSFX = 0)
