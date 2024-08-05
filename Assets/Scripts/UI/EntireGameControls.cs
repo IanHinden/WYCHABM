@@ -23,6 +23,7 @@ public class EntireGameControls : MonoBehaviour
         entireGameControls.Select.RightSelect.performed += x => downSelect();
         entireGameControls.Select.UpSelect.performed += x => upSelect();
         entireGameControls.Select.LeftSelect.performed += x => upSelect();
+        entireGameControls.Select.FullScreenToggle.performed += x => fullScreenToggle();
         //OnDisable();
     }
 
@@ -90,5 +91,10 @@ public class EntireGameControls : MonoBehaviour
             EventSystem.current.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
             paused = false;
         }
+    }
+
+    private void fullScreenToggle()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }

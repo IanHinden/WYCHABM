@@ -302,6 +302,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FullScreenToggle",
+                    "type": "Button",
+                    "id": "2fb27969-65d8-4dc0-a4f0-d82bc3e55e25",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -489,6 +498,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdcb21c7-3b2b-4783-8fb4-b332e344b2fe",
+                    "path": "<Keyboard>/f11",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FullScreenToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

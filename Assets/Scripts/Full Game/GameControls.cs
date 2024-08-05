@@ -324,6 +324,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FullScreenToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""2fb27969-65d8-4dc0-a4f0-d82bc3e55e25"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -513,6 +522,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdcb21c7-3b2b-4783-8fb4-b332e344b2fe"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FullScreenToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -532,6 +552,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Select_DownSelect = m_Select.FindAction("DownSelect", throwIfNotFound: true);
         m_Select_UpSelect = m_Select.FindAction("UpSelect", throwIfNotFound: true);
         m_Select_Pause = m_Select.FindAction("Pause", throwIfNotFound: true);
+        m_Select_FullScreenToggle = m_Select.FindAction("FullScreenToggle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -646,6 +667,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Select_DownSelect;
     private readonly InputAction m_Select_UpSelect;
     private readonly InputAction m_Select_Pause;
+    private readonly InputAction m_Select_FullScreenToggle;
     public struct SelectActions
     {
         private @GameControls m_Wrapper;
@@ -656,6 +678,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         public InputAction @DownSelect => m_Wrapper.m_Select_DownSelect;
         public InputAction @UpSelect => m_Wrapper.m_Select_UpSelect;
         public InputAction @Pause => m_Wrapper.m_Select_Pause;
+        public InputAction @FullScreenToggle => m_Wrapper.m_Select_FullScreenToggle;
         public InputActionMap Get() { return m_Wrapper.m_Select; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -683,6 +706,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnPause;
+                @FullScreenToggle.started -= m_Wrapper.m_SelectActionsCallbackInterface.OnFullScreenToggle;
+                @FullScreenToggle.performed -= m_Wrapper.m_SelectActionsCallbackInterface.OnFullScreenToggle;
+                @FullScreenToggle.canceled -= m_Wrapper.m_SelectActionsCallbackInterface.OnFullScreenToggle;
             }
             m_Wrapper.m_SelectActionsCallbackInterface = instance;
             if (instance != null)
@@ -705,6 +731,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @FullScreenToggle.started += instance.OnFullScreenToggle;
+                @FullScreenToggle.performed += instance.OnFullScreenToggle;
+                @FullScreenToggle.canceled += instance.OnFullScreenToggle;
             }
         }
     }
@@ -723,5 +752,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         void OnDownSelect(InputAction.CallbackContext context);
         void OnUpSelect(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnFullScreenToggle(InputAction.CallbackContext context);
     }
 }
