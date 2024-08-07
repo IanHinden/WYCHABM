@@ -8,18 +8,45 @@ public class VideoController : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoPlayer;
     [SerializeField] RawImage videoImage;
+    public Texture2D blankTexture;
 
-    private RenderTexture rt;
+    private void Start()
+    {
+        videoImage.texture = blankTexture;
+        videoImage.enabled = false;
+
+        //videoPlayer.prepareCompleted += OnPrepareCompleted;
+        if(videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+    }
 
     public void PlayVideo()
     {
-        videoPlayer.targetTexture.Release();
+        StartCoroutine(PrepareAndPlayVideo());
+    }
 
-        rt = new RenderTexture(256, 256, 16, RenderTextureFormat.ARGB32);
-        rt.Create();
+    private IEnumerator PrepareAndPlayVideo()
+    {
+        videoImage.texture = blankTexture;
+        //videoImage.enabled = false;
 
-        videoPlayer.targetTexture = rt;
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+
+        videoPlayer.Prepare();
+
+        while (!videoPlayer.isPrepared)
+        {
+            yield return null;
+        }
+
+        videoImage.texture = videoPlayer.targetTexture;
         videoImage.enabled = true;
+
         videoPlayer.Play();
     }
 }

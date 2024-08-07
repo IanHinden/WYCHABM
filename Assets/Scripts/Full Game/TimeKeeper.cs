@@ -231,13 +231,17 @@ public class TimeKeeper : MonoBehaviour
         nextScene();
         videoController.PlayVideo();
 
-        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
+        yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(40));
 
         StartCoroutine(musicplayer.FadeOutMusic());
+        StartCoroutine(uihandler.BlackOutTwoFadeIn());
+
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 1];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
         currentActiveScene.SetActive(false);
+
+        uihandler.TurnOffBlackout();
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
         scoreScreen.SetActive(true);
 
