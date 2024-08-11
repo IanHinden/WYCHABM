@@ -239,7 +239,14 @@ public class TimeKeeper : MonoBehaviour
         GameObject scoreScreen = (GameObject)allscenes[currentScene + 1];
         GameObject currentActiveScene = (GameObject)allscenes[currentScene];
 
+        yield return new WaitForSeconds(1.5f);
+
         currentActiveScene.SetActive(false);
+
+        videoController.PlayVideoCont();
+        yield return new WaitForSeconds(1.5f);
+
+        videoController.DisableVideo();
 
         uihandler.TurnOffBlackout();
         FinalScoreCo = StartCoroutine(finalScore.ScoreText());
@@ -468,15 +475,13 @@ public class TimeKeeper : MonoBehaviour
 
         string finalGrade = scoreHandler.ReturnFinalGrade();
 
-        WinOrLoseGameCo = StartCoroutine(WinGame());
-
-        /*if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
+        if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
         {
             WinOrLoseGameCo = StartCoroutine(WinGame());
         } else
         {
             WinOrLoseGameCo = StartCoroutine(LoseGame());
-        }*/
+        }
     }
 
     IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null, int instructionSFX = 0)

@@ -8,11 +8,9 @@ public class VideoController : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoPlayer;
     [SerializeField] RawImage videoImage;
-    public Texture2D blankTexture;
 
     private void Start()
     {
-        videoImage.texture = blankTexture;
         videoImage.enabled = false;
 
         //videoPlayer.prepareCompleted += OnPrepareCompleted;
@@ -29,13 +27,9 @@ public class VideoController : MonoBehaviour
 
     private IEnumerator PrepareAndPlayVideo()
     {
-        videoImage.texture = blankTexture;
-        //videoImage.enabled = false;
-
-        if (videoPlayer.isPlaying)
-        {
-            videoPlayer.Stop();
-        }
+        videoPlayer.frame = 0;
+        videoPlayer.time = 0;
+        videoImage.enabled = true;
 
         videoPlayer.Prepare();
 
@@ -47,6 +41,21 @@ public class VideoController : MonoBehaviour
         videoImage.texture = videoPlayer.targetTexture;
         videoImage.enabled = true;
 
+        videoPlayer.Play();
+    }
+
+    public void StopVideo()
+    {
+        videoPlayer.Stop();
+    }
+
+    public void DisableVideo()
+    {
+        videoImage.enabled = false;
+    }
+
+    public void PlayVideoCont()
+    {
         videoPlayer.Play();
     }
 }
