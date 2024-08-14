@@ -202,9 +202,15 @@ public class FinalBossAnimationController : MonoBehaviour
     {
         AvaTarts.enabled = true;
         AvaSeesRichman.SetActive(false);
+        AvaSeesRichmanHappy.color = new Color(1, 1, 1, 1);
+        AvaSeesRichmanSad.color = new Color(1, 1, 1, 0);
+        AvaSeesRichmanEyes.color = originalColor;
+        AvaSeesRichmanEyes.enabled = true;
         RichmanSitting.SetActive(false);
         DemonRichman.SetActive(false);
         AvaFrontView.SetActive(false);
+        AvaDeterminedObjects.SetActive(true);
+        AvaGiveUpObjects.SetActive(false);
 
         uihandler.TurnOffWhiteOut();
     }
