@@ -8,6 +8,8 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] MenuControls menuControls;
 
+    [SerializeField] FinalScore finalScore;
+
     [SerializeField] GameObject pressStart;
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject logo;
@@ -177,11 +179,13 @@ public class MenuController : MonoBehaviour
 
     public void showFinalThanks()
     {
+        finalScore.DisableDefaultButtons();
         finalThanks.SetActive(true);
     }
 
     public void hideFinalThanks()
     {
+        finalScore.EnableDefaultButtons();
         finalThanks.SetActive(false);
     }
 

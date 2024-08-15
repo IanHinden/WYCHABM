@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class FinalScore : MonoBehaviour
 {
     [SerializeField] UIHandler uiHandler;
     [SerializeField] ScoreHandler scoreHandler;
+
+    private GameControls gamecontrols;
 
     [SerializeField] GameObject scoreScreen;
 
@@ -21,12 +24,25 @@ public class FinalScore : MonoBehaviour
 
     [SerializeField] GameObject resetGameButton;
     [SerializeField] GameObject finalThanksButton;
+    [SerializeField] GameObject welcomeButton;
 
     [SerializeField] AudioSource gameOverTheme;
 
     private void Awake()
     {
+        gamecontrols = new GameControls();
+        gamecontrols.Move.Select.performed += x => SelectCurrentButton();
         StartCoroutine(ScoreText());
+    }
+
+    private void OnEnable()
+    {
+        gamecontrols.Enable();
+    }
+
+    public void OnDisable()
+    {
+        gamecontrols.Disable();
     }
 
     public IEnumerator ScoreText()
@@ -51,6 +67,8 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSeconds(2f);
         displayBonusScore();
         resetGameButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resetGameButton);
     }
 
     private void displayBonusScore()
@@ -88,5 +106,27 @@ public class FinalScore : MonoBehaviour
 
         resetGameButton.SetActive(false);
         finalThanksButton.SetActive(false);
+    }
+
+    private void SelectCurrentButton()
+    {
+        EventSystem.current.currentSelectedGameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+    }
+
+    public void DisableDefaultButtons()
+    {
+        resetGameButton.SetActive(false);
+        finalThanksButton.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(welcomeButton);
+
+    }
+
+    public void EnableDefaultButtons()
+    {
+        resetGameButton.SetActive(true);
+        finalThanksButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(finalThanksButton);
     }
 }
