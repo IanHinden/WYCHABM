@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Disappointer : MonoBehaviour
 {
+    [Header("The Shoat and the Boar")]
+    [SerializeField] TheShoatAndTheBoar theBoatAndTheShore;
+
     [Header("Required Tools")]
     [SerializeField] UIHandler uihandler;
     [SerializeField] ScoreHandler scoreHandler;
@@ -19,8 +22,6 @@ public class Disappointer : MonoBehaviour
     [SerializeField] GameObject background2;
 
     [SerializeField] SpriteRenderer FuzzyTextSR;
-
-    bool ThereIsALightInYourHeart = true;
 
     public IEnumerator WinOrLose()
     {
@@ -48,7 +49,7 @@ public class Disappointer : MonoBehaviour
 
     private void DetermineWinOrLoss()
     {
-        if (ThereIsALightInYourHeart == true)
+        if (theBoatAndTheShore.getLight() == true)
         {
             setPhase2();
             dontDisappointSFXController.PlayLoseSound();
