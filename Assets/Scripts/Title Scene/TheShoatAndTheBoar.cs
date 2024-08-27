@@ -6,7 +6,7 @@ public class TheShoatAndTheBoar : MonoBehaviour
 {
     private bool thereIsALightInYourHeart;
 
-    public void isThereALightInYourHeart()
+    public void Awake()
     {
         /*The Shoat and the Boar
 
