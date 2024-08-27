@@ -12,6 +12,14 @@ public class SecondChorus : MonoBehaviour
 
     [SerializeField] DetectionSquareSecondChorus detect;
 
+    [SerializeField] Animator avaAnimator;
+    [SerializeField] Animator richmanAnimator;
+    [SerializeField] Animator ianAnimator;
+
+    [SerializeField] SpriteRenderer avaSR;
+    [SerializeField] SpriteRenderer richmanSR;
+    [SerializeField] SpriteRenderer ianSR;
+
     private Animator[] allAnimators;
 
     private float measure;
@@ -29,7 +37,7 @@ public class SecondChorus : MonoBehaviour
         }
 
         measure = timefunctions.ReturnSingleMeasure();
-        StartCoroutine(Blink());
+        //StartCoroutine(Blink());
     }
 
     private void AddGoodPoint()
@@ -42,8 +50,21 @@ public class SecondChorus : MonoBehaviour
         scoreHandler.IncrementTotalPointsPartTwo(false);
     }
 
+    private IEnumerator CharacterAnimation()
+    {
+        avaAnimator.enabled = true;
+        avaAnimator.Play("Ava");
+        yield return new WaitForSeconds(measure * 4);
+        richmanAnimator.enabled = true;
+        richmanAnimator.Play("Richman");
+        yield return new WaitForSeconds(measure * 4);
+        ianAnimator.enabled = true;
+        ianAnimator.Play("Ian");
+    }
+
     public IEnumerator Blink()
     {
+        StartCoroutine(CharacterAnimation());
         while (true)
         {
             foreach (Animator animator in allAnimators)
@@ -77,5 +98,12 @@ public class SecondChorus : MonoBehaviour
             }
         }
 
+        avaAnimator.enabled = false;
+        richmanAnimator.enabled = false;
+        ianAnimator.enabled = false;
+
+        avaSR.color = new Color(1, 1, 1, 0);
+        richmanSR.color = new Color(1, 1, 1, 0);
+        ianSR.color = new Color(1, 1, 1, 0);
     }
 }
