@@ -12,6 +12,20 @@ public class ThirdChorus : MonoBehaviour
 
     [SerializeField] DetectionSquareThirdChorus detect;
 
+    [SerializeField] Animator ianLightAnim;
+    [SerializeField] Animator ianSilhouetteAnim;
+    [SerializeField] Animator avaLightAnim;
+    [SerializeField] Animator avaSilhouetteAnim;
+    [SerializeField] Animator richmanLightAnim;
+    [SerializeField] Animator richmanSilhouetteAnim;
+
+    [SerializeField] SpriteRenderer ianLightSR;
+    [SerializeField] SpriteRenderer ianSilhouetteSR;
+    [SerializeField] SpriteRenderer avaLightSR;
+    [SerializeField] SpriteRenderer avaSilhouetteSR;
+    [SerializeField] SpriteRenderer richmanLightSR;
+    [SerializeField] SpriteRenderer richmanSilhouetteSR;
+
     private Animator[] allAnimators;
 
     private float measure;
@@ -43,8 +57,27 @@ public class ThirdChorus : MonoBehaviour
         scoreHandler.IncrementTotalPointsPartThree(false);
     }
 
+    private IEnumerator CharacterAnimation()
+    {
+        ianLightAnim.enabled = true;
+        ianLightAnim.Play("IanLight");
+        ianSilhouetteAnim.enabled = true;
+        ianSilhouetteAnim.Play("IanSilhouette");
+        yield return new WaitForSeconds(measure * 4);
+        avaLightAnim.enabled = true;
+        avaLightAnim.Play("AvaLight");
+        avaSilhouetteAnim.enabled = true;
+        avaSilhouetteAnim.Play("AvaSilhouette");
+        yield return new WaitForSeconds(measure * 4);
+        richmanLightAnim.enabled = true;
+        richmanLightAnim.Play("RichmanLight");
+        richmanSilhouetteAnim.enabled = true;
+        richmanSilhouetteAnim.Play("RichmanSilhouette");
+    }
+
     public IEnumerator Blink()
     {
+        StartCoroutine(CharacterAnimation());
         while (true)
         {
             foreach (Animator animator in allAnimators)
@@ -78,5 +111,19 @@ public class ThirdChorus : MonoBehaviour
             }
         }
 
+        ianLightAnim.enabled = false;
+        ianSilhouetteAnim.enabled = false;
+        ianLightSR.color = new Color(1, 1, 1, 0);
+        ianSilhouetteSR.color = new Color(1, 1, 1, 1);
+
+        avaLightAnim.enabled = false;
+        avaSilhouetteAnim.enabled = false;
+        avaLightSR.color = new Color(1, 1, 1, 0);
+        avaSilhouetteSR.color = new Color(1, 1, 1, 1);
+
+        richmanLightAnim.enabled = false;
+        richmanSilhouetteAnim.enabled = false;
+        richmanLightSR.color = new Color(1, 1, 1, 0);
+        richmanSilhouetteSR.color = new Color(1, 1, 1, 1);
     }
 }
