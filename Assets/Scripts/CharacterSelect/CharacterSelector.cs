@@ -341,6 +341,7 @@ public class CharacterSelector : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 var emission = particles[i].emission;
+                emission.rateOverTime = 100;
                 emission.enabled = false;
             }
         }
@@ -390,7 +391,7 @@ public class CharacterSelector : MonoBehaviour
         {
             CongressObjects.transform.position = new Vector3(-16.23f, 0, 0);
             OFObjects.transform.position = new Vector3(0, 0, 0);
-            HomelessObjects.transform.position = new Vector3(2.362715f, 0.2504728f, 0);
+            HomelessObjects.transform.position = new Vector3(2.362715f, 0, 0);
 
             if (HomelessGirl != null) HomelessGirl.color = new Color32(126, 126, 126, 255);
             if (OFGirl != null) OFGirl.color = new Color32(126, 126, 126, 255);
