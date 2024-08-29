@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class EntireGameControls : MonoBehaviour
 {
     [SerializeField] pauseManager pausemanager;
+    [SerializeField] UIHandler uiHandler;
 
     public List<Button> pauseButtons;
 
@@ -14,6 +15,7 @@ public class EntireGameControls : MonoBehaviour
 
     private int currentIndex = 0;
     private bool paused = false;
+    private bool pauseHidden = false;
     private void Awake()
     {
         entireGameControls = new GameControls();
@@ -24,6 +26,7 @@ public class EntireGameControls : MonoBehaviour
         entireGameControls.Select.UpSelect.performed += x => upSelect();
         entireGameControls.Select.LeftSelect.performed += x => upSelect();
         entireGameControls.Select.FullScreenToggle.performed += x => fullScreenToggle();
+        entireGameControls.Select.PauseToggle.performed += x => pauseScreenToggle();
         //OnDisable();
     }
 
@@ -41,6 +44,10 @@ public class EntireGameControls : MonoBehaviour
     {
         paused = !paused;
         pausemanager.pauseUnpauseGame();
+        if(paused == false)
+        {
+            pauseHidden = false;
+        }
     }
 
     public void SetNextActiveButton(int direction)
@@ -73,6 +80,15 @@ public class EntireGameControls : MonoBehaviour
         if (paused == true)
         {
             SetNextActiveButton(-1);
+        }
+    }
+
+    private void pauseScreenToggle()
+    {
+        if (paused == true)
+        {
+            pauseHidden = !pauseHidden;
+            uiHandler.PauseScreenVisible(!pauseHidden);
         }
     }
 

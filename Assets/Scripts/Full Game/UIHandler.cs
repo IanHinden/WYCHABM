@@ -61,6 +61,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] MaskTransition mask;
 
     [Header("Start/Pause UI")]
+    [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject pauseButton;
 
     [SerializeField] GameObject instructionsMenuPanel;
@@ -114,6 +115,11 @@ public class UIHandler : MonoBehaviour
         countdown3Image = Countdown3.GetComponent<Image>();
 
         SpeechBubbleImage = SpeechBubble.GetComponent<Image>();
+    }
+
+    public void PauseScreenVisible(bool visible)
+    {
+        pauseScreen.SetActive(visible);
     }
 
     public void HidePauseButton()
