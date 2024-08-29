@@ -125,7 +125,6 @@ public class ScoreHandler : MonoBehaviour
         {
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
         }
-        Debug.Log("Bonus score is: " + bonusScore.ToString());
     }
 
     public void IncrementTotalPointsPartOne(bool good)

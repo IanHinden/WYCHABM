@@ -475,6 +475,7 @@ public class TimeKeeper : MonoBehaviour
 
         string finalGrade = scoreHandler.ReturnFinalGrade();
 
+        uihandler.HidePauseButton();
         if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
         {
             WinOrLoseGameCo = StartCoroutine(WinGame());
