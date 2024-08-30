@@ -113,6 +113,7 @@ public class pauseManager : MonoBehaviour
         uihandler.QuickRemoveScoreCard();
         gameoptions.EndGame();
         menuController.SetStartGameSelected();
+        timingManager.resetChorusCount();
     }
 
     public void instructions()

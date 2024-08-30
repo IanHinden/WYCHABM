@@ -78,4 +78,9 @@ public class timingManager : MonoBehaviour
     {
         rhythmGames[chorusCount].addArrow(direction);
     }
+
+    public void resetChorusCount()
+    {
+        chorusCount = 0;
+    }
 }
