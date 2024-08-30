@@ -464,7 +464,7 @@ public class TimeKeeper : MonoBehaviour
         {
             Destroy(obj.gameObject);
         }
-
+                    
         nextScene(); //Third Chorus
         thirdChorusCo = StartCoroutine(thirdChorus.Blink());
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(16));
