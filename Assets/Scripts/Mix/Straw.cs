@@ -12,10 +12,15 @@ public class Straw : MonoBehaviour
     [SerializeField] MixAnimationController animationController;
     [SerializeField] MixSFXController mixSFXController;
 
+    [SerializeField] SpriteRenderer mixedDrinkSR;
+
     private GameControls gamecontrols;
     private float speed = 3.5f;
     private float moveAmount = 0f;
     private float currentPos;
+    private float fadeSpeed = 0.01f;
+
+    private float alpha = 0f;
 
     private int winningAmount = 120;
 
@@ -39,7 +44,7 @@ public class Straw : MonoBehaviour
         gamecontrols.Disable();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector2 selectInput = gamecontrols.Move.Directions.ReadValue<Vector2>();
         float currentPosition = transform.position.x;
@@ -63,6 +68,8 @@ public class Straw : MonoBehaviour
         if (currentPosition != currentPos && gameOver == false)
         {
             moveAmount++;
+            alpha = Mathf.Clamp(alpha + fadeSpeed, 0f, 1f);
+            mixedDrinkSR.color = new Color(1f, 1f, 1f, alpha);
         }
 
         if(moveAmount > winningAmount && gameOver == false)
@@ -114,7 +121,10 @@ public class Straw : MonoBehaviour
     public void Reset()
     {
         moveAmount = 0;
+        gameOver = false;
         stirring = false;
         animationController.Reset();
+        alpha = 0f;
+        mixedDrinkSR.color = new Color(1, 1, 1, 0);
     }
 }
