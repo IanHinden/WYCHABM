@@ -4,7 +4,7 @@ using UnityEngine;
 public class SteamAchievementHandler : MonoBehaviour
 {
     string[] achievements = { "ACH_YOU_ALWAYS_REMEMBER", "ACH_KISS_AND_LIVE", "ACH_IANS_TATTOO", "ACH_AND_YOU", "ACH_AVAS_HAPPY_ENDING", "ACH_DIRTY_WORD", "ACH_ALL_FAIR" };
-    private void Awake()
+    /*private void Awake()
     {
         ResetAllAchievements();
     }
@@ -14,7 +14,7 @@ public class SteamAchievementHandler : MonoBehaviour
         {
             Steamworks.SteamUserStats.ResetAllStats(true);
         }
-    }
+    }*/
 
     public void UnlockAchievement(int achievementPosition)
     {
