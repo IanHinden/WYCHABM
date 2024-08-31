@@ -102,7 +102,7 @@ public class ScoreHandler : MonoBehaviour
         {
             bonusScore++;
 
-           if(bonusScore == 1)
+           if(bonusScore > 1)
             {
                 steamAchievementHandler.UnlockAchievement(0);
             }
