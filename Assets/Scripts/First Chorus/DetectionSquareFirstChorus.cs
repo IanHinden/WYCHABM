@@ -18,7 +18,6 @@ public class DetectionSquareFirstChorus : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         float distance = Vector3.Distance(transform.position, col.gameObject.transform.position);
-        Debug.Log(distance);
         if (distance <= 6)
         {
             SpawnPerfect();

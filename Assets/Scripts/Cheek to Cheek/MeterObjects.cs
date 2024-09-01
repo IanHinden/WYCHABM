@@ -52,7 +52,13 @@ public class MeterObjects : MonoBehaviour
 
     public bool getKissHitAchi()
     {
-        return kissHitAchi;
+        if(currentRect == 12)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 
     public IEnumerator StartMeter()

@@ -807,7 +807,7 @@ public class RoadRacer : MonoBehaviour
 			{
 				finishTheTrack = true;
 				fSpeed -= 2.0f * Time.deltaTime;
-				Car.GetComponent<Animator>().SetBool("Finish", finishTheTrack);
+				//Car.GetComponent<Animator>().SetBool("Finish", finishTheTrack);
 			}
 
 

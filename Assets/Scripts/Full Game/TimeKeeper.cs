@@ -9,6 +9,7 @@ public class TimeKeeper : MonoBehaviour
 
     [SerializeField] MusicPlayer musicplayer;
     [SerializeField] VideoController videoController;
+    [SerializeField] SteamAchievementHandler steamAchievementHandler;
 
     [Header("Cameras")]
     [SerializeField] GameObject maincamera;
@@ -229,6 +230,7 @@ public class TimeKeeper : MonoBehaviour
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(35));
 
         nextScene();
+        steamAchievementHandler.UnlockAchievement(4);
         videoController.PlayVideo();
 
         yield return new WaitForSeconds(timefunctions.ReturnCountMeasure(40));
