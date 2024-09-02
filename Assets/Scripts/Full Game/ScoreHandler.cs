@@ -102,28 +102,28 @@ public class ScoreHandler : MonoBehaviour
         {
             bonusScore++;
 
-           if(bonusScore > 0)
-            {
-                steamAchievementHandler.UnlockAchievement(0);
-            }
-
-           if(bonusScore == 9)
-            {
-                steamAchievementHandler.UnlockAchievement(6);
-            }
-
             bonusesDiscovered.unlockedBonuses[numberPerson - 1] = true;
-
-            if(bonusesDiscovered.unlockedBonuses[0] == true && bonusesDiscovered.unlockedBonuses[1] == true && bonusesDiscovered.unlockedBonuses[2] == true && bonusesDiscovered.unlockedBonuses[3] == true)
-            {
-                steamAchievementHandler.UnlockAchievement(2);
-            }
 
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
             SaveSystem.Save(bonusesDiscovered);
         } else
         {
             StartCoroutine(uihandler.DisplayBonusScoreCard(numberPerson));
+        }
+
+        if (bonusScore > 0)
+        {
+            steamAchievementHandler.UnlockAchievement(0);
+        }
+
+        if (bonusScore == 9)
+        {
+            steamAchievementHandler.UnlockAchievement(6);
+        }
+
+        if (bonusesDiscovered.unlockedBonuses[0] == true && bonusesDiscovered.unlockedBonuses[1] == true && bonusesDiscovered.unlockedBonuses[2] == true && bonusesDiscovered.unlockedBonuses[3] == true)
+        {
+            steamAchievementHandler.UnlockAchievement(2);
         }
     }
 
