@@ -402,17 +402,6 @@
                 },
                 {
                     "name": "",
-                    "id": "6a71cb02-dc54-43e2-9c31-096f7baf0c9a",
-                    "path": "<Gamepad>/start",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Choose",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5d89f715-f169-4d86-9b66-6281e4c014a4",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "Press",
@@ -492,7 +481,7 @@
                     "name": "",
                     "id": "7ef56f33-9823-4d89-b57d-e356fb16cc33",
                     "path": "<Gamepad>/start",
-                    "interactions": "Press",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
