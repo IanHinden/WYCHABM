@@ -18,7 +18,7 @@ public class SteamAchievementHandler : MonoBehaviour
 
     public void UnlockAchievement(int achievementPosition)
     {
-        if (SteamManager.Initialized)
+        /*if (SteamManager.Initialized)
         {
             Steamworks.SteamUserStats.GetAchievement(achievements[achievementPosition], out bool achievementCompleted);
 
@@ -27,6 +27,6 @@ public class SteamAchievementHandler : MonoBehaviour
                 SteamUserStats.SetAchievement(achievements[achievementPosition]);
                 SteamUserStats.StoreStats();
             }
-        }
+        }*/
     }
 }

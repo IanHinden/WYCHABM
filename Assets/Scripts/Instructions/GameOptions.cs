@@ -32,9 +32,11 @@ public class GameOptions : MonoBehaviour
 
     private IEnumerator FadeInMusic()
     {
+        yield return new WaitForSeconds(20f);
         yield return new WaitForSeconds(0.1f);
         Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
         Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+        themeSongAS.Play();
         themeSongAS.volume = 0;
         float currentTime = 0;
         while(currentTime < .3f)

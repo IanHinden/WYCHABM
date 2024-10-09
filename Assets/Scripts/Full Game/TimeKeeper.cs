@@ -478,13 +478,14 @@ public class TimeKeeper : MonoBehaviour
         string finalGrade = scoreHandler.ReturnFinalGrade();
 
         uihandler.HidePauseButton();
-        if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
+        /*if(finalGrade == "A" || finalGrade == "B" || finalGrade == "S")
         {
             WinOrLoseGameCo = StartCoroutine(WinGame());
         } else
         {
             WinOrLoseGameCo = StartCoroutine(LoseGame());
-        }
+        }*/
+        WinOrLoseGameCo = StartCoroutine(WinGame());
     }
 
     IEnumerator FadeOutroEffect(int measures, Vector2 maskCoordinates, string instruction = null, int instructionSFX = 0)
