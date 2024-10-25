@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Steamworks;
+//using Steamworks;
 
 public class pauseManager : MonoBehaviour
 {
@@ -92,7 +92,7 @@ public class pauseManager : MonoBehaviour
 
     public void quitGame()
     {
-        SteamClient.BShutdownIfAllPipesClosed();
+        //SteamClient.BShutdownIfAllPipesClosed();
         Application.Quit();
     }
 

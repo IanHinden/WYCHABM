@@ -25,7 +25,7 @@ public class EntireGameControls : MonoBehaviour
         entireGameControls.Select.RightSelect.performed += x => downSelect();
         entireGameControls.Select.UpSelect.performed += x => upSelect();
         entireGameControls.Select.LeftSelect.performed += x => upSelect();
-        entireGameControls.Select.FullScreenToggle.performed += x => fullScreenToggle();
+        //entireGameControls.Select.FullScreenToggle.performed += x => fullScreenToggle();
         entireGameControls.Select.PauseToggle.performed += x => pauseScreenToggle();
         //OnDisable();
     }
@@ -111,6 +111,16 @@ public class EntireGameControls : MonoBehaviour
 
     private void fullScreenToggle()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        //Screen.fullScreen = !Screen.fullScreen;
+        if(Screen.fullScreen == true)
+        {
+            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+            Screen.fullScreen = false;
+        } else
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow);
+            Screen.fullScreen = true;
+        }
     }
 }
