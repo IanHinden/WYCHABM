@@ -50,7 +50,7 @@ public class GameOptions : MonoBehaviour
     {
         themeSongAS.Stop();
         uihandler.HideStartButton();
-        uihandler.ShowPauseButton();
+        //uihandler.ShowPauseButton();
         guitarChordAS.Play();
         audioSo.volume = .35f;
         audioSo.Play();

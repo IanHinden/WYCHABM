@@ -42,7 +42,7 @@ public class pauseManager : MonoBehaviour
                     musicPlayer.pitch = 1;
                     Time.timeScale = 1;
                     pauseMenu.SetActive(false);
-                    pauseButton.SetActive(true);
+                    //pauseButton.SetActive(true);
                     StartCoroutine(unPausePause());
                 }
                 //when pause function is called and the menu is hidden
@@ -67,7 +67,7 @@ public class pauseManager : MonoBehaviour
                 musicPlayer.pitch = 1;
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
-                pauseButton.SetActive(true);
+                //pauseButton.SetActive(true);
                 StartCoroutine(unPausePause());
             }
             //when pause function is called and the menu is hidden
@@ -107,7 +107,7 @@ public class pauseManager : MonoBehaviour
         themeMusicPlayer.time = 0;
         themeMusicPlayer.Play();
         pauseMenu.SetActive(false);
-        pauseButton.SetActive(true);
+        //pauseButton.SetActive(true);
         timekeeper.resetGame();
         timingManager.stopTimer();
         uihandler.QuickRemoveScoreCard();
